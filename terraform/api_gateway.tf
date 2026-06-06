@@ -88,7 +88,7 @@ resource "aws_api_gateway_integration_response" "upload_options" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
     "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'https://thepdfninja.com'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   depends_on = [aws_api_gateway_integration.upload_options]
 }
@@ -160,7 +160,7 @@ resource "aws_api_gateway_integration_response" "tools_options" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
     "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'https://thepdfninja.com'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   depends_on = [aws_api_gateway_integration.tools_options]
 }
@@ -232,7 +232,7 @@ resource "aws_api_gateway_integration_response" "jobs_options" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
     "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'https://thepdfninja.com'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   depends_on = [aws_api_gateway_integration.jobs_options]
 }
@@ -304,7 +304,7 @@ resource "aws_api_gateway_integration_response" "jobs_status_options" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
     "method.response.header.Access-Control-Allow-Methods" = "'GET,OPTIONS'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'https://thepdfninja.com'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   depends_on = [aws_api_gateway_integration.jobs_status_options]
 }
@@ -366,7 +366,7 @@ resource "aws_api_gateway_integration_response" "ocr_options" {
   response_parameters = {
     "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
     "method.response.header.Access-Control-Allow-Methods" = "'POST,OPTIONS'"
-    "method.response.header.Access-Control-Allow-Origin"  = "'https://thepdfninja.com'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   depends_on = [aws_api_gateway_integration.ocr_options]
 }
@@ -433,6 +433,12 @@ resource "aws_api_gateway_deployment" "main" {
       aws_api_gateway_integration.jobs_create.id,
       aws_api_gateway_integration.jobs_status.id,
       aws_api_gateway_integration.ocr.id,
+      # OPTIONS CORS preflight integration responses — must be here so CORS changes trigger redeploy
+      aws_api_gateway_integration_response.upload_options.response_parameters,
+      aws_api_gateway_integration_response.tools_options.response_parameters,
+      aws_api_gateway_integration_response.jobs_options.response_parameters,
+      aws_api_gateway_integration_response.jobs_status_options.response_parameters,
+      aws_api_gateway_integration_response.ocr_options.response_parameters,
     ]))
   }
 

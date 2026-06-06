@@ -57,23 +57,36 @@ def split_pdf(input_paths, output_path, options):
 
 
 # =============================================================
-# 3. COMPRESS PDF (Ghostscript)
+# 3. COMPRESS PDF (Ghostscript with pypdf fallback)
 # Options: {"quality": "screen" | "ebook" | "printer" | "prepress"}
 # =============================================================
 def compress_pdf(input_paths, output_path, options):
     output = output_path + ".pdf"
-    quality = options.get("quality", "ebook")  # ebook = best balance
+    quality = options.get("quality", "ebook")
     valid = {"screen", "ebook", "printer", "prepress"}
     if quality not in valid:
         quality = "ebook"
 
-    subprocess.run([
-        "gs", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.4",
-        f"-dPDFSETTINGS=/{quality}",
-        "-dNOPAUSE", "-dQUIET", "-dBATCH",
-        f"-sOutputFile={output}",
-        input_paths[0],
-    ], check=True)
+    # Try Ghostscript first (best compression)
+    try:
+        subprocess.run([
+            "gs", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.4",
+            f"-dPDFSETTINGS=/{quality}",
+            "-dNOPAUSE", "-dQUIET", "-dBATCH",
+            f"-sOutputFile={output}",
+            input_paths[0],
+        ], check=True)
+        return output
+    except (FileNotFoundError, subprocess.CalledProcessError):
+        pass  # gs not available, use pypdf fallback
+
+    # Fallback: pypdf page-copy (Deflate compression applied automatically by writer)
+    reader = PdfReader(input_paths[0])
+    writer = PdfWriter()
+    for page in reader.pages:
+        writer.add_page(page)
+    with open(output, "wb") as f:
+        writer.write(f)
     return output
 
 
@@ -187,11 +200,13 @@ def unlock_pdf(input_paths, output_path, options):
 # =============================================================
 def organize_pdf(input_paths, output_path, options):
     output = output_path + ".pdf"
-    order = options.get("order")
-    if not order:
-        raise ValueError("order list required in options")
-
     reader = PdfReader(input_paths[0])
+    order = options.get("order")
+
+    # Default: keep all pages in original order if no order specified
+    if not order:
+        order = list(range(1, len(reader.pages) + 1))
+
     writer = PdfWriter()
     for page_num in order:
         idx = page_num - 1
@@ -215,12 +230,16 @@ def page_numbers_pdf(input_paths, output_path, options):
     position = options.get("position", "bottom-right")
     start = int(options.get("start", 1))
     font_size = int(options.get("font_size", 10))
+    fmt = options.get("format", "{n}")  # e.g., "Page {n} of {total}"
 
     reader = PdfReader(input_paths[0])
     writer = PdfWriter()
+    total_pages = len(reader.pages)
 
     for i, page in enumerate(reader.pages):
         page_num = start + i
+        text_str = fmt.replace("{n}", str(page_num)).replace("{total}", str(total_pages))
+
         media = page.mediabox
         width = float(media.width)
         height = float(media.height)
@@ -230,17 +249,17 @@ def page_numbers_pdf(input_paths, output_path, options):
         c.setFont("Helvetica", font_size)
 
         if position == "bottom-right":
-            c.drawRightString(width - 36, 30, str(page_num))
+            c.drawRightString(width - 36, 30, text_str)
         elif position == "bottom-center":
-            c.drawCentredString(width / 2, 30, str(page_num))
+            c.drawCentredString(width / 2, 30, text_str)
         elif position == "bottom-left":
-            c.drawString(36, 30, str(page_num))
+            c.drawString(36, 30, text_str)
         elif position == "top-right":
-            c.drawRightString(width - 36, height - 30, str(page_num))
+            c.drawRightString(width - 36, height - 30, text_str)
         elif position == "top-center":
-            c.drawCentredString(width / 2, height - 30, str(page_num))
-        else:
-            c.drawString(36, height - 30, str(page_num))
+            c.drawCentredString(width / 2, height - 30, text_str)
+        else:  # top-left
+            c.drawString(36, height - 30, text_str)
 
         c.save()
         buf.seek(0)
@@ -324,15 +343,32 @@ def jpg_to_pdf(input_paths, output_path, options):
 
 # =============================================================
 # 13. PDF → JPG
+# Uses PyMuPDF (fitz) — no poppler binary needed
+# Falls back to pdf2image if fitz not available
 # =============================================================
 def pdf_to_jpg(input_paths, output_path, options):
     import zipfile
-    from pdf2image import convert_from_path
-
     dpi = int(options.get("dpi", 150))
-    images = convert_from_path(input_paths[0], dpi=dpi)
-
     zip_path = output_path + ".zip"
+
+    # Primary: PyMuPDF — pure Python, no external binary needed
+    try:
+        import fitz  # PyMuPDF
+        mat = fitz.Matrix(dpi / 72, dpi / 72)
+        doc = fitz.open(input_paths[0])
+        with zipfile.ZipFile(zip_path, "w") as zf:
+            for i, page in enumerate(doc):
+                pix = page.get_pixmap(matrix=mat, alpha=False)
+                img_path = f"/tmp/page_{i+1}.jpg"
+                pix.save(img_path)
+                zf.write(img_path, f"page_{i+1}.jpg")
+        return zip_path
+    except ImportError:
+        pass  # fitz not in layer, try poppler-based fallback
+
+    # Fallback: pdf2image (requires poppler binaries)
+    from pdf2image import convert_from_path
+    images = convert_from_path(input_paths[0], dpi=dpi)
     with zipfile.ZipFile(zip_path, "w") as zf:
         for i, img in enumerate(images):
             img_path = f"/tmp/page_{i+1}.jpg"
@@ -344,19 +380,55 @@ def pdf_to_jpg(input_paths, output_path, options):
 # =============================================================
 # 14. HTML → PDF
 # Options: {"url": "https://..."} OR {"html": "<html>...</html>"}
+# Also accepts an uploaded .html file via input_paths
 # =============================================================
 def html_to_pdf(input_paths, output_path, options):
     output = output_path + ".pdf"
     url = options.get("url")
-    html = options.get("html")
+    html_str = options.get("html")
+
+    # If an HTML file was uploaded, read it as the HTML source
+    if not url and not html_str and input_paths:
+        with open(input_paths[0], "r", encoding="utf-8", errors="replace") as f:
+            html_str = f.read()
+
+    if not url and not html_str:
+        raise ValueError("Upload an HTML file, or provide options.url or options.html")
+
+    def _try_wkhtmltopdf(source, is_url=False):
+        """Returns True if wkhtmltopdf succeeded."""
+        try:
+            if is_url:
+                subprocess.run(["wkhtmltopdf", "--quiet", source, output], check=True, timeout=30)
+            else:
+                html_file = output_path + ".html"
+                with open(html_file, "w", encoding="utf-8") as f:
+                    f.write(source)
+                subprocess.run(["wkhtmltopdf", "--quiet", html_file, output], check=True, timeout=30)
+            return True
+        except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+            return False
+
+    def _xhtml2pdf(html_content):
+        """Pure-Python fallback — no binary deps needed."""
+        from xhtml2pdf import pisa
+        with open(output, "wb") as f:
+            result = pisa.CreatePDF(html_content, dest=f)
+        if result.err:
+            raise RuntimeError("xhtml2pdf encountered errors rendering the HTML")
 
     if url:
-        subprocess.run(["wkhtmltopdf", "--quiet", url, output], check=True)
-    elif html:
-        html_file = output_path + ".html"
-        with open(html_file, "w") as f:
-            f.write(html)
-        subprocess.run(["wkhtmltopdf", "--quiet", html_file, output], check=True)
-    else:
-        raise ValueError("Provide options.url or options.html")
+        if _try_wkhtmltopdf(url, is_url=True):
+            return output
+        # wkhtmltopdf unavailable — fetch the URL content and render as HTML
+        import urllib.request
+        with urllib.request.urlopen(url, timeout=15) as resp:
+            html_str = resp.read().decode("utf-8", errors="replace")
+
+    # At this point html_str is set (either from upload, options, or URL fetch)
+    if _try_wkhtmltopdf(html_str, is_url=False):
+        return output
+
+    # Final fallback: xhtml2pdf (pure Python)
+    _xhtml2pdf(html_str)
     return output

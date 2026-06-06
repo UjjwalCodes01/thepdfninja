@@ -35,7 +35,9 @@ def lambda_handler(event, context):
             return _resp(400, {"error": f"Unknown heavy tool: {tool}"}, event)
 
         body = json.loads(event.get("body") or "{}")
-        file_key = body.get("file_key")
+        # Accept both 'file_key' (singular) and 'file_keys' (array) — frontend sends file_keys
+        file_keys_list = body.get("file_keys")
+        file_key = body.get("file_key") or (file_keys_list[0] if file_keys_list else None)
         options = body.get("options", {})
 
         if not file_key:

@@ -13,10 +13,10 @@ resource "aws_lambda_layer_version" "pdf_tools" {
   s3_key              = "_layer/layer.zip"
   layer_name          = "${local.prefix}-pdf-tools"
   compatible_runtimes = ["python3.11"]
-  description         = "Python deps: pypdf, Pillow, pdf2docx, reportlab, camelot, boto3 + Linux binaries"
+  description         = "pypdf, Pillow, reportlab, pdf2image, PyMuPDF, xhtml2pdf"
 
   lifecycle {
-    ignore_changes = [s3_key]
+    create_before_destroy = true
   }
 }
 
