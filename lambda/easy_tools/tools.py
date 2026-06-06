@@ -57,7 +57,7 @@ def split_pdf(input_paths, output_path, options):
 
 
 # =============================================================
-# 3. COMPRESS PDF (Ghostscript with pypdf fallback)
+# 3. COMPRESS PDF (Ghostscript → PyMuPDF → pypdf fallback)
 # Options: {"quality": "screen" | "ebook" | "printer" | "prepress"}
 # =============================================================
 def compress_pdf(input_paths, output_path, options):
@@ -67,7 +67,10 @@ def compress_pdf(input_paths, output_path, options):
     if quality not in valid:
         quality = "ebook"
 
-    # Try Ghostscript first (best compression)
+    # Map quality level to JPEG image compression strength (lower = smaller file)
+    jpeg_quality = {"screen": 35, "ebook": 60, "printer": 80, "prepress": 95}[quality]
+
+    # Try Ghostscript first (best compression, won't be available in Lambda)
     try:
         subprocess.run([
             "gs", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.4",
@@ -75,12 +78,50 @@ def compress_pdf(input_paths, output_path, options):
             "-dNOPAUSE", "-dQUIET", "-dBATCH",
             f"-sOutputFile={output}",
             input_paths[0],
-        ], check=True)
+        ], check=True, timeout=120)
         return output
-    except (FileNotFoundError, subprocess.CalledProcessError):
-        pass  # gs not available, use pypdf fallback
+    except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        pass
 
-    # Fallback: pypdf page-copy (Deflate compression applied automatically by writer)
+    # Primary fallback: PyMuPDF — compresses streams, images, fonts, removes dead objects
+    try:
+        import fitz
+        doc = fitz.open(input_paths[0])
+
+        # Re-compress all images at the requested quality level
+        for page in doc:
+            for img in page.get_images(full=True):
+                xref = img[0]
+                try:
+                    base_image = doc.extract_image(xref)
+                    img_bytes = base_image["image"]
+                    colorspace = base_image.get("colorspace", 3)
+
+                    # Re-encode as JPEG at target quality (skips tiny or alpha images)
+                    if len(img_bytes) > 4096 and colorspace >= 3:
+                        from PIL import Image
+                        import io
+                        pil_img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
+                        buf = io.BytesIO()
+                        pil_img.save(buf, format="JPEG", quality=jpeg_quality, optimize=True)
+                        doc.update_stream(xref, buf.getvalue())
+                except Exception:
+                    pass  # Skip images that can't be recompressed
+
+        doc.save(
+            output,
+            garbage=4,          # Remove all unused/duplicate objects
+            deflate=True,       # Compress content streams
+            deflate_images=True,
+            deflate_fonts=True,
+            clean=True,         # Clean up stream syntax
+        )
+        doc.close()
+        return output
+    except ImportError:
+        pass
+
+    # Last resort: pypdf basic rewrite (minimal compression)
     reader = PdfReader(input_paths[0])
     writer = PdfWriter()
     for page in reader.pages:
