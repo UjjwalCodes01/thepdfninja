@@ -8,7 +8,7 @@ const TOOLS = [
   { slug: 'split', label: 'Split PDF', desc: 'Extract pages or split a PDF into multiple files.', icon: '⊗', cat: 'Organize', badge: ' Instant' },
   { slug: 'organize', label: 'Organize PDF', desc: 'Reorder, delete, and rearrange pages with ease.', icon: '⊞', cat: 'Organize', badge: ' Instant' },
   { slug: 'compress', label: 'Compress PDF', desc: 'Reduce PDF file size without losing quality.', icon: '↘', cat: 'Optimize', badge: ' Instant' },
-  { slug: 'repair', label: 'Repair PDF', desc: 'Fix damaged or corrupted PDF files.', icon: '⚙', cat: 'Optimize', badge: '⚡ Instant' },
+  { slug: 'repair', label: 'Repair PDF', desc: 'Fix damaged or corrupted PDF files.', icon: '⚙', cat: 'Optimize', badge: ' Instant' },
   { slug: 'pdf-to-pdfa', label: 'PDF to PDF/A', desc: 'Convert to ISO-compliant archival format.', icon: '◈', cat: 'Optimize', badge: ' Async' },
   { slug: 'pdf-to-word', label: 'PDF to Word', desc: 'Convert PDF to editable DOC/DOCX documents.', icon: '⇒', cat: 'Convert', badge: ' Async' },
   { slug: 'word-to-pdf', label: 'Word to PDF', desc: 'Turn Word documents into professional PDFs.', icon: '⇐', cat: 'Convert', badge: ' Async' },
