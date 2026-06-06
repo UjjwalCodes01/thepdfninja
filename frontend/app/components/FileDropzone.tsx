@@ -57,10 +57,10 @@ export default function FileDropzone({ acceptedTypes, acceptedLabel, multiFile, 
       >
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
           <span style={{ 
-            background: '#e32028', color: 'white', 
+            background: 'var(--orange)', color: 'white', 
             fontSize: '1.5rem', fontWeight: 700, 
             padding: '24px 48px', borderRadius: '8px',
-            boxShadow: '0 4px 14px rgba(227,32,40,0.3)',
+            boxShadow: '0 4px 14px rgba(245,98,45,0.35)',
             pointerEvents: 'none',
             display: 'inline-block'
           }}>
