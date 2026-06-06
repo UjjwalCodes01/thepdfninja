@@ -57,78 +57,77 @@ def split_pdf(input_paths, output_path, options):
 
 
 # =============================================================
-# 3. COMPRESS PDF (Ghostscript → PyMuPDF → pypdf fallback)
+# 3. COMPRESS PDF (Ghostscript → PyMuPDF lossless → PyMuPDF re-render)
 # Options: {"quality": "screen" | "ebook" | "printer" | "prepress"}
 # =============================================================
 def compress_pdf(input_paths, output_path, options):
+    import io
     output = output_path + ".pdf"
     quality = options.get("quality", "ebook")
-    valid = {"screen", "ebook", "printer", "prepress"}
-    if quality not in valid:
+    if quality not in {"screen", "ebook", "printer", "prepress"}:
         quality = "ebook"
 
-    # Map quality level to JPEG image compression strength (lower = smaller file)
     jpeg_quality = {"screen": 35, "ebook": 60, "printer": 80, "prepress": 95}[quality]
+    dpi         = {"screen": 72, "ebook": 96, "printer": 150, "prepress": 200}[quality]
 
-    # Try Ghostscript first (best compression, won't be available in Lambda)
+    # ── Stage 1: Ghostscript (not available in Lambda, but kept for completeness) ──
     try:
         subprocess.run([
             "gs", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.4",
             f"-dPDFSETTINGS=/{quality}",
             "-dNOPAUSE", "-dQUIET", "-dBATCH",
-            f"-sOutputFile={output}",
-            input_paths[0],
+            f"-sOutputFile={output}", input_paths[0],
         ], check=True, timeout=120)
         return output
     except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
         pass
 
-    # Primary fallback: PyMuPDF — compresses streams, images, fonts, removes dead objects
+    import fitz
+
+    original_size = os.path.getsize(input_paths[0])
+
+    # ── Stage 2: Lossless PyMuPDF — garbage collection + deflate ──
     try:
-        import fitz
         doc = fitz.open(input_paths[0])
+        buf = io.BytesIO()
+        doc.save(buf, garbage=4, deflate=True, deflate_images=True,
+                 deflate_fonts=True, clean=True)
+        doc.close()
 
-        # Re-compress all images at the requested quality level
+        # If lossless alone saved ≥15%, we're done
+        if buf.tell() <= original_size * 0.85:
+            with open(output, "wb") as f:
+                f.write(buf.getvalue())
+            return output
+    except Exception:
+        buf = None
+
+    # ── Stage 3: Lossy re-render — each page → JPEG pixmap → new PDF ──
+    # This is the most effective method for image-heavy / scanned PDFs
+    try:
+        doc = fitz.open(input_paths[0])
+        zoom = dpi / 72
+        mat = fitz.Matrix(zoom, zoom)
+        new_doc = fitz.open()
+
         for page in doc:
-            for img in page.get_images(full=True):
-                xref = img[0]
-                try:
-                    base_image = doc.extract_image(xref)
-                    img_bytes = base_image["image"]
-                    colorspace = base_image.get("colorspace", 3)
+            pix = page.get_pixmap(matrix=mat, alpha=False)
+            img_bytes = pix.tobytes("jpeg", jpg_quality=jpeg_quality)
 
-                    # Re-encode as JPEG at target quality (skips tiny or alpha images)
-                    if len(img_bytes) > 4096 and colorspace >= 3:
-                        from PIL import Image
-                        import io
-                        pil_img = Image.open(io.BytesIO(img_bytes)).convert("RGB")
-                        buf = io.BytesIO()
-                        pil_img.save(buf, format="JPEG", quality=jpeg_quality, optimize=True)
-                        doc.update_stream(xref, buf.getvalue())
-                except Exception:
-                    pass  # Skip images that can't be recompressed
+            # Insert the JPEG as a full-page image in a new PDF page
+            img_page_doc = fitz.open()
+            img_page = img_page_doc.new_page(width=page.rect.width,
+                                             height=page.rect.height)
+            img_page.insert_image(img_page.rect, stream=img_bytes)
+            new_doc.insert_pdf(img_page_doc)
+            img_page_doc.close()
 
-        doc.save(
-            output,
-            garbage=4,          # Remove all unused/duplicate objects
-            deflate=True,       # Compress content streams
-            deflate_images=True,
-            deflate_fonts=True,
-            clean=True,         # Clean up stream syntax
-        )
+        new_doc.save(output, garbage=4, deflate=True, deflate_images=True)
+        new_doc.close()
         doc.close()
         return output
-    except ImportError:
-        pass
-
-    # Last resort: pypdf basic rewrite (minimal compression)
-    reader = PdfReader(input_paths[0])
-    writer = PdfWriter()
-    for page in reader.pages:
-        writer.add_page(page)
-    with open(output, "wb") as f:
-        writer.write(f)
-    return output
+    except Exception as e:
+        raise RuntimeError(f"Compression failed: {e}")
 
 
 # =============================================================
