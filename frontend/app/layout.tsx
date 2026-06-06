@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: 'https://thepdfninja.com' },
   verification: { google: 'your-google-verification-code' },
+  other: {
+    'google-adsense-account': 'ca-pub-9515530509004476'
+  }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -63,14 +66,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
-        {/* Google AdSense */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9515530509004476"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
-
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J1ZJFNX5HC"
