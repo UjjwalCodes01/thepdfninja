@@ -35,11 +35,7 @@ const CAT_ICONS: Record<string, string> = {
   Organize: '', Optimize: '', Convert: '', Edit: '', Security: '',
 };
 
-const STATS = [
-  { value: '23', label: 'Free PDF Tools', icon: '' },
-  { value: '100MB', label: 'Max File Size', icon: '' },
-  { value: '24h', label: 'Auto File Deletion', icon: '' },
-];
+
 
 const HOW = [
   { step: '1', title: 'Upload your file', desc: 'Drop your PDF or document into our secure uploader. Files are transferred via SSL encryption.', icon: '⬆' },
@@ -58,11 +54,9 @@ const WHY = [
 
 export default function HomePage() {
   const [cat, setCat] = useState('All');
-  const [search, setSearch] = useState('');
 
   const filtered = TOOLS.filter(t =>
-    (cat === 'All' || t.cat === cat) &&
-    (search === '' || t.label.toLowerCase().includes(search.toLowerCase()) || t.desc.toLowerCase().includes(search.toLowerCase()))
+    (cat === 'All' || t.cat === cat)
   );
 
   return (
@@ -117,28 +111,12 @@ export default function HomePage() {
               Convert PDF to Word
             </Link>
           </div>
-          {/* Stats */}
-          <div className="anim-fade-up anim-delay-4 stats-grid" style={{ display: 'grid', gap: '0', borderTop: '1px solid var(--border)', borderLeft: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden', maxWidth: '640px', margin: '0 auto', background: 'white', boxShadow: 'var(--shadow-sm)' }}>
-            {STATS.map((s, i) => (
-              <div key={s.label} className="stat-box" style={{ padding: '20px 12px', borderRight: '1px solid var(--border)', borderBottom: '1px solid var(--border)', textAlign: 'center' }}>
-                <p style={{ fontSize: '1.5rem', fontWeight: 900, color: 'var(--orange)', letterSpacing: '-0.03em', marginBottom: '2px' }}>{s.value}</p>
-                <p style={{ fontSize: '0.72rem', color: 'var(--text-muted)', fontWeight: 500 }}>{s.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      <style>{`
-        .stats-grid { grid-template-columns: repeat(3, 1fr); }
-        @media (max-width: 600px) {
-          .stats-grid { grid-template-columns: 1fr; }
-        }
-      `}</style>
-
       {/* ── TOOLS GRID ── */}
       <section id="tools" style={{ background: 'var(--bg)', padding: '72px 0' }}>
-        <div className="container">
+        <div className="container-wide">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
             <p className="section-label">23 Free PDF Tools</p>
             <h2 className="section-title">Choose Your PDF Tool</h2>
@@ -156,19 +134,7 @@ export default function HomePage() {
             ))}
           </div>
 
-          {/* Search */}
-          <div style={{ position: 'relative', maxWidth: '360px', margin: '0 auto 32px' }}>
-            <span style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)', fontSize: '15px' }}>🔍</span>
-            <input
-              type="search"
-              placeholder="Search PDF tools…"
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="input"
-              style={{ paddingLeft: '38px' }}
-              aria-label="Search PDF tools"
-            />
-          </div>
+
 
           {/* Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))', gap: '16px' }}>

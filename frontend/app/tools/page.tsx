@@ -9,11 +9,10 @@ const categories = ['All', ...Array.from(new Set(allTools.map(t => t.category)))
 
 export default function AllToolsPage() {
   const [activeCat, setActiveCat] = useState('All');
-  const [search, setSearch] = useState('');
+
 
   const filtered = allTools.filter(t =>
-    (activeCat === 'All' || t.category === activeCat) &&
-    (search === '' || t.label.toLowerCase().includes(search.toLowerCase()) || t.description.toLowerCase().includes(search.toLowerCase()))
+    (activeCat === 'All' || t.category === activeCat)
   );
 
   return (
@@ -30,7 +29,7 @@ export default function AllToolsPage() {
       </section>
 
       <section style={{ padding: '64px 0', background: 'var(--bg)', minHeight: '60vh' }}>
-        <div className="container">
+        <div className="container-wide">
           <div className="anim-fade-up anim-delay-2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', marginBottom: '48px' }}>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
               {categories.map(c => (
@@ -44,17 +43,7 @@ export default function AllToolsPage() {
               ))}
             </div>
 
-            <div style={{ position: 'relative', width: '100%', maxWidth: '480px' }}>
-              <span style={{ position: 'absolute', left: '16px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }}>🔍</span>
-              <input
-                type="search"
-                className="input"
-                placeholder="Search for a tool (e.g., 'merge', 'word', 'password')..."
-                value={search}
-                onChange={e => setSearch(e.target.value)}
-                style={{ paddingLeft: '44px', paddingRight: '16px', height: '48px', fontSize: '1rem', borderRadius: '100px', boxShadow: 'var(--shadow-sm)' }}
-              />
-            </div>
+
           </div>
 
           <div className="anim-fade-up anim-delay-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>

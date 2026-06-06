@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { TOOLS } from '../../lib/toolConfig';
 import ToolPageClient from './ToolPageClient';
 import ToolIcon from '../../components/ToolIcon';
-import AdUnit from '../../components/AdUnit';
 
 // We want dynamic params so the layout handles the non-existent slugs with our custom 404
 export const dynamicParams = true;
@@ -32,41 +31,17 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
 
   return (
     <>
-      {/* ── TOOL HEADER ── */}
-      <section style={{ background: 'var(--orange-light)', padding: '64px 0 48px', textAlign: 'center', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <div className="anim-fade-up">
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'white', borderRadius: '100px', fontSize: '0.82rem', fontWeight: 600, color: 'var(--orange)', marginBottom: '24px', boxShadow: 'var(--shadow-sm)' }}>
-              <div style={{ transform: 'scale(0.5)', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-8px' }}>
-                <ToolIcon tool={resolvedParams.tool} size={48} />
-              </div>
-              {t.category}
-            </div>
-          </div>
-          <h1 className="anim-fade-up anim-delay-1" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: 'var(--text)', marginBottom: '16px', letterSpacing: '-0.03em' }}>
-            Free {t.label} Online — {t.tagline}
-          </h1>
-          <p className="anim-fade-up anim-delay-2" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '600px', margin: '0 auto' }}>
-            {t.description}
-          </p>
-        </div>
-      </section>
-
-      {/* ── WORKSPACE ── */}
-      <section style={{ padding: '64px 0', background: 'var(--bg)', minHeight: '60vh' }}>
+      {/* ── WORKSPACE (Top) ── */}
+      <section style={{ background: 'var(--orange-light)', padding: '64px 0 48px', borderBottom: '1px solid var(--border)', minHeight: '50vh' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
-          {/* Top Leaderboard Ad */}
-          <div className="anim-fade-up anim-delay-2" style={{ marginBottom: '32px' }}>
-            <AdUnit slot="top-leaderboard" type="leaderboard" />
-          </div>
 
           {/* Client wrapper handles state and drag-drop */}
-          <div className="anim-fade-up anim-delay-3" style={{ background: 'white', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)', border: '1px solid var(--border)' }}>
+          <div className="anim-fade-up anim-delay-1" style={{ background: 'white', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)', border: '1px solid var(--border)' }}>
              <ToolPageClient config={t} toolSlug={resolvedParams.tool} />
           </div>
 
           {/* Secure / Trust Signals */}
-          <div className="anim-fade-up anim-delay-4" style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '32px', flexWrap: 'wrap' }}>
+          <div className="anim-fade-up anim-delay-2" style={{ display: 'flex', justifyContent: 'center', gap: '24px', marginTop: '32px', flexWrap: 'wrap' }}>
             {[
               "100% Free", "No signup required", "No email required", 
               "Works in browser — no install", "Files deleted in 1 hour", 
@@ -78,11 +53,26 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Bottom Rectangle Ad */}
-          <div className="anim-fade-up anim-delay-5" style={{ marginTop: '48px', display: 'flex', justifyContent: 'center' }}>
-            <AdUnit slot="bottom-rectangle" type="rectangle" />
+      {/* ── TOOL HEADER / TITLE (Below Workspace) ── */}
+      <section style={{ padding: '64px 0', textAlign: 'center', background: 'var(--bg)' }}>
+        <div className="container" style={{ maxWidth: '800px' }}>
+          <div className="anim-fade-up anim-delay-3">
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 16px', background: 'white', borderRadius: '100px', fontSize: '0.82rem', fontWeight: 600, color: 'var(--orange)', marginBottom: '24px', boxShadow: 'var(--shadow-sm)' }}>
+              <div style={{ transform: 'scale(0.5)', width: '24px', height: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginLeft: '-8px' }}>
+                <ToolIcon tool={resolvedParams.tool} size={48} />
+              </div>
+              {t.category}
+            </div>
           </div>
+          <h1 className="anim-fade-up anim-delay-4" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: 'var(--text)', marginBottom: '16px', letterSpacing: '-0.03em' }}>
+            Free {t.label} Online — {t.tagline}
+          </h1>
+          <p className="anim-fade-up anim-delay-5" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '600px', margin: '0 auto' }}>
+            {t.description}
+          </p>
         </div>
       </section>
 

@@ -35,7 +35,6 @@ const companyLinks = [
   { href: '/about', label: 'About Us' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Service' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 function FooterCol({ title, links, tool }: { title: string; links: { slug?: string; href?: string; label: string }[]; tool?: boolean }) {

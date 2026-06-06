@@ -61,6 +61,11 @@ body {
   margin: 0 auto;
   padding: 0 24px;
 }
+.container-wide {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
 
 /* Buttons */
 .btn {

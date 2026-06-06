@@ -53,7 +53,7 @@ export default function Header() {
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', width: '100%' }}>
           {/* Logo */}
           <Link href="/" aria-label="ThePDFNinja - Free Online PDF Tools">
-            <Logo size={30} />
+            <Logo size={45} />
           </Link>
 
           {/* Desktop nav */}
