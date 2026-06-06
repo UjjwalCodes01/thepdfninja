@@ -125,7 +125,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'WebApplication',
+              '@type': 'SoftwareApplication',
               name: `Free ${t.label} Online`,
               description: `Free online ${t.label.toLowerCase()}. No signup, no watermark.`,
               applicationCategory: 'UtilitiesApplication',

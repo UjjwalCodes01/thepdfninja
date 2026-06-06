@@ -139,7 +139,7 @@ export default async function CompressTargetPage({ params }: { params: Promise<{
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'WebApplication',
+              '@type': 'SoftwareApplication',
               name: `Compress PDF to ${sizeUpper}`,
               description: `Free online tool to compress PDF to ${sizeUpper}. No signup, no watermark.`,
               applicationCategory: 'UtilitiesApplication',

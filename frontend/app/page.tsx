@@ -68,7 +68,7 @@ export default function HomePage() {
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'WebApplication',
+              '@type': 'SoftwareApplication',
               name: 'ThePDFNinja',
               applicationCategory: 'UtilitiesApplication',
               description: 'Free online PDF tools — merge, split, compress, convert PDF files.',
@@ -84,6 +84,17 @@ export default function HomePage() {
               sameAs: [
                 'https://twitter.com/thepdfninja',
                 'https://facebook.com/thepdfninja'
+              ]
+            },
+            {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: [
+                { '@type': 'Question', name: 'Is ThePDFNinja really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, completely. All 23 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free.' } },
+                { '@type': 'Question', name: 'Is my data safe when I upload files?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. All file uploads are encrypted using 256-bit SSL/TLS. Files are processed in isolated server environments and automatically deleted from our servers within 24 hours. We never share or sell your data.' } },
+                { '@type': 'Question', name: 'What is the maximum file size?', acceptedAnswer: { '@type': 'Answer', text: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this, try compressing it first using our free Compress PDF tool.' } },
+                { '@type': 'Question', name: 'Do I need to install any software?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS.' } },
+                { '@type': 'Question', name: 'How long does processing take?', acceptedAnswer: { '@type': 'Answer', text: 'Most tools process files instantly in under 5 seconds. More complex operations like OCR, Word/Excel conversions, or large file compression may take 15–60 seconds.' } }
               ]
             }
           ])

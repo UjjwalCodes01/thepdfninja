@@ -58,7 +58,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               description: 'Free online PDF tools — merge, split, compress, convert PDF files instantly.',
               potentialAction: {
                 '@type': 'SearchAction',
-                target: 'https://thepdfninja.com/tools?q={search_term_string}',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: 'https://thepdfninja.com/tools?q={search_term_string}',
+                },
                 'query-input': 'required name=search_term_string',
               },
             }),
