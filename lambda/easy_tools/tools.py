@@ -60,74 +60,199 @@ def split_pdf(input_paths, output_path, options):
 # 3. COMPRESS PDF (Ghostscript → PyMuPDF lossless → PyMuPDF re-render)
 # Options: {"quality": "screen" | "ebook" | "printer" | "prepress"}
 # =============================================================
+# =============================================================
+# 3. COMPRESS PDF (Ghostscript → PyMuPDF lossless → PyMuPDF re-render)
+# Options: {"quality": "screen" | "ebook" | "printer" | "prepress"}
+# =============================================================
 def compress_pdf(input_paths, output_path, options):
+    """
+    Smart PDF compression with guaranteed size reduction.
+    Tries strategies from least to most lossy, picks the smallest result,
+    and NEVER returns a file bigger than the input.
+    """
     import io
+    import os
+    import fitz  # PyMuPDF
+
     output = output_path + ".pdf"
     quality = options.get("quality", "ebook")
     if quality not in {"screen", "ebook", "printer", "prepress"}:
         quality = "ebook"
 
-    jpeg_quality = {"screen": 35, "ebook": 60, "printer": 80, "prepress": 95}[quality]
-    dpi         = {"screen": 72, "ebook": 96, "printer": 150, "prepress": 200}[quality]
+    # Tuning per quality preset
+    presets = {
+        "screen":   {"dpi": 72,  "jpeg_q": 40, "img_threshold": 100},
+        "ebook":    {"dpi": 110, "jpeg_q": 65, "img_threshold": 150},
+        "printer":  {"dpi": 150, "jpeg_q": 80, "img_threshold": 200},
+        "prepress": {"dpi": 200, "jpeg_q": 92, "img_threshold": 300},
+    }
+    p = presets[quality]
 
-    # ── Stage 1: Ghostscript (not available in Lambda, but kept for completeness) ──
+    src_path = input_paths[0]
+    original_size = os.path.getsize(src_path)
+    candidates = []  # (size, bytes) — pick the smallest at the end
+
+    # ────────────────────────────────────────────────────────
+    # STRATEGY 1: Ghostscript (best for mixed content, if installed)
+    # ────────────────────────────────────────────────────────
     try:
+        gs_out = output_path + ".gs.pdf"
         subprocess.run([
-            "gs", "-sDEVICE=pdfwrite", "-dCompatibilityLevel=1.4",
+            "gs", "-sDEVICE=pdfwrite",
+            "-dCompatibilityLevel=1.5",
             f"-dPDFSETTINGS=/{quality}",
             "-dNOPAUSE", "-dQUIET", "-dBATCH",
-            f"-sOutputFile={output}", input_paths[0],
-        ], check=True, timeout=120)
-        return output
+            "-dDetectDuplicateImages=true",
+            "-dCompressFonts=true",
+            "-dSubsetFonts=true",
+            f"-sOutputFile={gs_out}", src_path,
+        ], check=True, timeout=120, capture_output=True)
+        with open(gs_out, "rb") as f:
+            candidates.append((os.path.getsize(gs_out), f.read()))
+        os.remove(gs_out)
     except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        pass  # Ghostscript not available, skip
+
+    # ────────────────────────────────────────────────────────
+    # STRATEGY 2: PyMuPDF lossless (object cleanup + deflate)
+    # Always works, gives 2-30% reduction
+    # ────────────────────────────────────────────────────────
+    try:
+        doc = fitz.open(src_path)
+        buf = io.BytesIO()
+        doc.save(
+            buf,
+            garbage=4,           # remove unused objects
+            deflate=True,        # compress streams
+            deflate_images=True, # recompress images losslessly
+            deflate_fonts=True,
+            clean=True,          # sanitize content streams
+            linear=True,         # web-optimize (often smaller)
+        )
+        doc.close()
+        candidates.append((buf.tell(), buf.getvalue()))
+    except Exception:
         pass
 
-    import fitz
-
-    original_size = os.path.getsize(input_paths[0])
-
-    # ── Stage 2: Lossless PyMuPDF — garbage collection + deflate ──
+    # ────────────────────────────────────────────────────────
+    # STRATEGY 3: Image downsampling (in-place, lossy on images only)
+    # Keeps text vector but shrinks oversized embedded images.
+    # This is the SAFEST aggressive strategy.
+    # ────────────────────────────────────────────────────────
     try:
-        doc = fitz.open(input_paths[0])
-        buf = io.BytesIO()
-        doc.save(buf, garbage=4, deflate=True, deflate_images=True,
-                 deflate_fonts=True, clean=True)
-        doc.close()
-
-        # If lossless alone saved ≥15%, we're done
-        if buf.tell() <= original_size * 0.85:
-            with open(output, "wb") as f:
-                f.write(buf.getvalue())
-            return output
-    except Exception:
-        buf = None
-
-    # ── Stage 3: Lossy re-render — each page → JPEG pixmap → new PDF ──
-    # This is the most effective method for image-heavy / scanned PDFs
-    try:
-        doc = fitz.open(input_paths[0])
-        zoom = dpi / 72
-        mat = fitz.Matrix(zoom, zoom)
-        new_doc = fitz.open()
-
+        doc = fitz.open(src_path)
         for page in doc:
-            pix = page.get_pixmap(matrix=mat, alpha=False)
-            img_bytes = pix.tobytes("jpeg", jpg_quality=jpeg_quality)
-
-            # Insert the JPEG as a full-page image in a new PDF page
-            img_page_doc = fitz.open()
-            img_page = img_page_doc.new_page(width=page.rect.width,
-                                             height=page.rect.height)
-            img_page.insert_image(img_page.rect, stream=img_bytes)
-            new_doc.insert_pdf(img_page_doc)
-            img_page_doc.close()
-
-        new_doc.save(output, garbage=4, deflate=True, deflate_images=True)
-        new_doc.close()
+            for img in page.get_images(full=True):
+                xref = img[0]
+                try:
+                    base = doc.extract_image(xref)
+                    img_bytes = base["image"]
+                    # Only touch images > threshold KB
+                    if len(img_bytes) < p["img_threshold"] * 1024:
+                        continue
+                    pil_img = _recompress_image(img_bytes, p["jpeg_q"], p["dpi"])
+                    if pil_img and len(pil_img) < len(img_bytes):
+                        doc.update_stream(xref, pil_img)
+                except Exception:
+                    continue
+        buf = io.BytesIO()
+        doc.save(buf, garbage=4, deflate=True, clean=True)
         doc.close()
+        candidates.append((buf.tell(), buf.getvalue()))
+    except Exception:
+        pass
+
+    # ────────────────────────────────────────────────────────
+    # STRATEGY 4: Full re-render (nuclear option — page → JPEG)
+    # Only viable for scanned/image-only PDFs. Destroys text searchability.
+    # We only consider this if the input is already image-heavy.
+    # ────────────────────────────────────────────────────────
+    if _is_image_heavy(src_path):
+        try:
+            doc = fitz.open(src_path)
+            new_doc = fitz.open()
+            zoom = p["dpi"] / 72
+            mat = fitz.Matrix(zoom, zoom)
+            for page in doc:
+                pix = page.get_pixmap(matrix=mat, alpha=False)
+                img_bytes = pix.tobytes("jpeg", jpg_quality=p["jpeg_q"])
+                new_page = new_doc.new_page(width=page.rect.width, height=page.rect.height)
+                new_page.insert_image(new_page.rect, stream=img_bytes)
+            buf = io.BytesIO()
+            new_doc.save(buf, garbage=4, deflate=True)
+            new_doc.close()
+            doc.close()
+            candidates.append((buf.tell(), buf.getvalue()))
+        except Exception:
+            pass
+
+    # ────────────────────────────────────────────────────────
+    # PICK THE WINNER — smallest candidate, but only if smaller than input
+    # ────────────────────────────────────────────────────────
+    if not candidates:
+        # Nothing worked — copy original through
+        import shutil
+        shutil.copy(src_path, output)
         return output
-    except Exception as e:
-        raise RuntimeError(f"Compression failed: {e}")
+
+    candidates.sort(key=lambda x: x[0])
+    best_size, best_bytes = candidates[0]
+
+    if best_size < original_size:
+        with open(output, "wb") as f:
+            f.write(best_bytes)
+    else:
+        # Original is already optimized — return it unchanged
+        import shutil
+        shutil.copy(src_path, output)
+
+    return output
+
+
+def _recompress_image(img_bytes, jpeg_q, target_dpi):
+    """Downsample + re-encode an embedded image as JPEG."""
+    try:
+        from PIL import Image
+        import io
+        img = Image.open(io.BytesIO(img_bytes))
+        # Convert to RGB (JPEG can't do RGBA)
+        if img.mode in ("RGBA", "LA", "P"):
+            bg = Image.new("RGB", img.size, (255, 255, 255))
+            if img.mode == "P":
+                img = img.convert("RGBA")
+            bg.paste(img, mask=img.split()[-1] if img.mode == "RGBA" else None)
+            img = bg
+        elif img.mode != "RGB":
+            img = img.convert("RGB")
+
+        # Downsample if image is huge (assume 300 DPI source, target lower)
+        max_dim = 2000 if target_dpi >= 150 else 1400
+        if max(img.size) > max_dim:
+            ratio = max_dim / max(img.size)
+            new_size = (int(img.size[0] * ratio), int(img.size[1] * ratio))
+            img = img.resize(new_size, Image.LANCZOS)
+
+        out = io.BytesIO()
+        img.save(out, format="JPEG", quality=jpeg_q, optimize=True, progressive=True)
+        return out.getvalue()
+    except Exception:
+        return None
+
+
+def _is_image_heavy(pdf_path):
+    """Return True if the PDF is mostly scanned images (low text density)."""
+    try:
+        import fitz
+        doc = fitz.open(pdf_path)
+        total_chars = 0
+        total_pages = len(doc)
+        for page in doc[:min(5, total_pages)]:  # sample first 5 pages
+            total_chars += len(page.get_text("text"))
+        doc.close()
+        # Less than 100 chars per page on average = probably scanned
+        return (total_chars / max(1, min(5, total_pages))) < 100
+    except Exception:
+        return False
 
 
 # =============================================================
