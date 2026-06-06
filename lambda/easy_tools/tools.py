@@ -410,12 +410,19 @@ def html_to_pdf(input_paths, output_path, options):
             return False
 
     def _xhtml2pdf(html_content):
-        """Pure-Python fallback — no binary deps needed."""
-        from xhtml2pdf import pisa
-        with open(output, "wb") as f:
-            result = pisa.CreatePDF(html_content, dest=f)
-        if result.err:
-            raise RuntimeError("xhtml2pdf encountered errors rendering the HTML")
+        """Pure-Python fallback using PyMuPDF Story API — no extra deps needed."""
+        import fitz
+        story = fitz.Story(html=html_content)
+        writer = fitz.DocumentWriter(output)
+        mediabox = fitz.paper_rect("a4")
+        where = mediabox + (36, 36, -36, -36)  # 0.5-inch margins
+        more = 1
+        while more:
+            dev = writer.begin_page(mediabox)
+            more, _ = story.place(where)
+            story.draw(dev)
+            writer.end_page()
+        writer.close()
 
     if url:
         if _try_wkhtmltopdf(url, is_url=True):
