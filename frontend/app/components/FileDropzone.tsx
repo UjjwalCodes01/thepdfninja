@@ -47,32 +47,30 @@ export default function FileDropzone({ acceptedTypes, acceptedLabel, multiFile, 
         aria-label="Upload file — drop here or click to browse"
         onKeyDown={e => e.key === 'Enter' && inputRef.current?.click()}
         style={{
-          border: `2px dashed ${dragOver ? 'var(--orange)' : 'var(--border)'}`,
-          background: dragOver ? 'var(--orange-light)' : 'var(--bg)',
-          borderRadius: 'var(--radius)',
-          padding: '48px 32px',
+          background: dragOver ? 'rgba(0,0,0,0.03)' : 'transparent',
+          borderRadius: '24px',
+          padding: '32px',
           textAlign: 'center',
           cursor: 'pointer',
           transition: 'all 0.18s ease',
         }}
       >
-        <div style={{ fontSize: '40px', marginBottom: '14px', opacity: dragOver ? 1 : 0.7 }}>
-          {dragOver ? '📂' : '📄'}
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-            <span className="btn btn-primary" style={{ pointerEvents: 'none', fontSize: '1rem', padding: '12px 24px' }}>
-              {dragOver ? 'Drop files to upload' : 'Select PDF files'}
-            </span>
-          </div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px' }}>
+          <span style={{ 
+            background: '#e32028', color: 'white', 
+            fontSize: '1.5rem', fontWeight: 700, 
+            padding: '24px 48px', borderRadius: '8px',
+            boxShadow: '0 4px 14px rgba(227,32,40,0.3)',
+            pointerEvents: 'none',
+            display: 'inline-block'
+          }}>
+            {dragOver ? 'Drop files to upload' : 'Select PDF files'}
+          </span>
           
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>
-            or drag and drop your files here
+          <p style={{ fontSize: '0.95rem', color: '#666666', fontWeight: 400, marginTop: '4px' }}>
+            or drop PDFs here
           </p>
         </div>
-        <span className="badge badge-gray" style={{ display: 'inline-block' }}>
-          {acceptedLabel} · Max 100MB
-        </span>
         <input
           ref={inputRef}
           id={`${dropId}-input`}
