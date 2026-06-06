@@ -305,7 +305,7 @@ select.input {
 .prose p { color: var(--text-secondary); line-height: 1.75; margin-bottom: 16px; font-size: 0.95rem; }
 .prose ul, .prose ol { padding-left: 20px; margin-bottom: 16px; }
 .prose li { color: var(--text-secondary); line-height: 1.7; margin-bottom: 6px; font-size: 0.95rem; }
-.prose a { color: var(--orange); text-decoration: underline; }
+.prose a:not(.btn) { color: var(--orange); text-decoration: underline; }
 .prose strong { color: var(--text); font-weight: 600; }
 
 /* Animations */
