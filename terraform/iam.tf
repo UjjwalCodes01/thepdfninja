@@ -131,6 +131,15 @@ resource "aws_iam_role_policy" "ec2_inline" {
           "logs:PutLogEvents"
         ]
         Resource = "*"
+      },
+      {
+        Effect = "Allow"
+        Action = [
+          "textract:DetectDocumentText",
+          "textract:StartDocumentTextDetection",
+          "textract:GetDocumentTextDetection"
+        ]
+        Resource = "*"
       }
     ]
   })
