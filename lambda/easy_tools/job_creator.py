@@ -25,6 +25,7 @@ HEAVY_TOOLS = {
     "pdf-to-excel",
     "scan-to-pdf",
     "pdf-to-pdfa",
+    "ocr",
 }
 
 

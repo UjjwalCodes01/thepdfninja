@@ -52,7 +52,52 @@ TOOL_HANDLERS = {
     "pdf-to-excel": pdf_to_excel.convert,
     "scan-to-pdf": scan_to_pdf.convert,
     "pdf-to-pdfa": pdf_to_pdfa.convert,
+    # "ocr" handled specially below — needs file_key for async Textract
 }
+
+
+def _ocr_via_textract(file_key, local_input, output_path, options):
+    """OCR using AWS Textract. PDFs use async S3 path; images use sync bytes."""
+    textract = boto3.client("textract", region_name=REGION)
+    is_pdf = file_key.lower().endswith(".pdf")
+
+    if is_pdf:
+        # Async Textract — requires S3 object reference (supports multi-page PDFs)
+        start = textract.start_document_text_detection(
+            DocumentLocation={"S3Object": {"Bucket": BUCKET, "Name": file_key}}
+        )
+        tx_job_id = start["JobId"]
+        status = {}
+        for _ in range(60):  # poll up to 2 minutes
+            time.sleep(2)
+            status = textract.get_document_text_detection(JobId=tx_job_id)
+            if status["JobStatus"] in ("SUCCEEDED", "FAILED"):
+                break
+        if status.get("JobStatus") != "SUCCEEDED":
+            raise RuntimeError(f"Textract failed: {status.get('StatusMessage', 'unknown')}")
+        lines = []
+        next_token = None
+        while True:
+            kwargs = {"JobId": tx_job_id}
+            if next_token:
+                kwargs["NextToken"] = next_token
+            page = textract.get_document_text_detection(**kwargs)
+            lines += [b["Text"] for b in page["Blocks"] if b["BlockType"] == "LINE"]
+            next_token = page.get("NextToken")
+            if not next_token:
+                break
+        text = "\n".join(lines)
+    else:
+        # Sync Textract — image bytes
+        with open(local_input, "rb") as f:
+            img_bytes = f.read()
+        resp = textract.detect_document_text(Document={"Bytes": img_bytes})
+        text = "\n".join([b["Text"] for b in resp["Blocks"] if b["BlockType"] == "LINE"])
+
+    output_txt = output_path + ".txt"
+    with open(output_txt, "w", encoding="utf-8") as f:
+        f.write(text)
+    return output_txt
 
 # ---------- LOGGING ----------
 logging.basicConfig(
@@ -90,10 +135,13 @@ def process_message(msg):
     log.info(f"[{job_id}] Starting {tool} for {file_key}")
     update_job(job_id, "processing")
 
-    handler = TOOL_HANDLERS.get(tool)
-    if not handler:
-        update_job(job_id, "failed", error=f"Unknown tool: {tool}")
-        return
+    # For non-OCR tools, look up the handler now
+    handler = None
+    if tool != "ocr":
+        handler = TOOL_HANDLERS.get(tool)
+        if not handler:
+            update_job(job_id, "failed", error=f"Unknown tool: {tool}")
+            return
 
     try:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -103,7 +151,16 @@ def process_message(msg):
 
             # Run converter
             output_path = os.path.join(tmpdir, f"output_{uuid.uuid4()}")
-            result_path = handler(local_input, output_path, options)
+
+            # OCR is handled inline (needs file_key for async Textract)
+            if tool == "ocr":
+                result_path = _ocr_via_textract(file_key, local_input, output_path, options)
+            else:
+                handler = TOOL_HANDLERS.get(tool)
+                if not handler:
+                    update_job(job_id, "failed", error=f"Unknown tool: {tool}")
+                    return
+                result_path = handler(local_input, output_path, options)
 
             # Upload result
             output_key = f"outputs/{job_id}/{os.path.basename(result_path)}"
