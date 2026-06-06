@@ -131,7 +131,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <p style={{ fontSize: '0.82rem', color: '#9CA3AF' }}>
-            © {new Date().getFullYear()} ThePDFNinja. All rights reserved.
+            © 2026, thepdfninja . All rights reserved. Built with ❤️ by <a href="https://digitalanaya.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', transition: 'color 0.15s' }} onMouseEnter={e => e.currentTarget.style.color = '#F5622D'} onMouseLeave={e => e.currentTarget.style.color = 'inherit'}>Anaya Digital Marketing Agency</a> .
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {companyLinks.map(l => (

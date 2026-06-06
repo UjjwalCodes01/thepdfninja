@@ -64,16 +64,6 @@ export default function AllToolsPage() {
             ))}
           </div>
 
-          {filtered.length === 0 && (
-            <div style={{ textAlign: 'center', padding: '64px 0', color: 'var(--text-muted)' }}>
-              <p style={{ fontSize: '3rem', marginBottom: '16px' }}>📭</p>
-              <h3 style={{ fontSize: '1.2rem', fontWeight: 600, color: 'var(--text)', marginBottom: '8px' }}>No tools found</h3>
-              <p>We couldn't find any tools matching "{search}". Try another keyword or browse all categories.</p>
-              <button className="btn btn-primary" style={{ marginTop: '24px' }} onClick={() => { setSearch(''); setActiveCat('All'); }}>
-                Clear Search
-              </button>
-            </div>
-          )}
         </div>
       </section>
     </>

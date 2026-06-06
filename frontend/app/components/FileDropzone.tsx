@@ -64,27 +64,6 @@ export default function FileDropzone({ acceptedTypes, acceptedLabel, multiFile, 
             <span className="btn btn-primary" style={{ pointerEvents: 'none', fontSize: '1rem', padding: '12px 24px' }}>
               {dragOver ? 'Drop files to upload' : 'Select PDF files'}
             </span>
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                alert('Google Drive integration coming soon!');
-              }}
-              style={{
-                display: 'flex', alignItems: 'center', gap: '8px', background: 'white', color: '#444',
-                border: '1px solid var(--border)', padding: '10px 16px', borderRadius: 'var(--radius)',
-                cursor: 'pointer', fontWeight: 600, fontSize: '0.9rem', boxShadow: 'var(--shadow-sm)',
-                transition: 'all 0.15s ease'
-              }}
-              onMouseEnter={(e) => e.currentTarget.style.background = '#f9fafb'}
-              onMouseLeave={(e) => e.currentTarget.style.background = 'white'}
-            >
-              <svg width="18" height="18" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 8L8 22L24 40L32 26L16 8Z" fill="#00AC47"/>
-                <path d="M32 8L24 22L40 40L48 26L32 8Z" fill="#FFBA00"/>
-                <path d="M8 22H40L32 36H16L8 22Z" fill="#0066DA"/>
-              </svg>
-              Drive
-            </button>
           </div>
           
           <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', fontWeight: 500 }}>

@@ -151,12 +151,6 @@ export default function HomePage() {
                 </span>
               </Link>
             ))}
-            {filtered.length === 0 && (
-              <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '48px', color: 'var(--text-muted)' }}>
-                <p style={{ fontSize: '2rem', marginBottom: '8px' }}>🔍</p>
-                <p style={{ fontWeight: 600 }}>No tools found for "{search}"</p>
-              </div>
-            )}
           </div>
         </div>
       </section>
