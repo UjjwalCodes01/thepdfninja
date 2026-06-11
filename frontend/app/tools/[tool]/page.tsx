@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import Link from 'next/link';
 import { TOOLS } from '../../lib/toolConfig';
 import ToolPageClient from './ToolPageClient';
 import ToolIcon from '../../components/ToolIcon';
@@ -16,10 +17,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
   if (!t) return { title: 'Tool Not Found' };
   
   return {
-    title: `${t.label} \u2013 Free Online ${t.label} | No Signup | ThePDFNinja`,
+    title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
     description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark, no email required. Files deleted automatically after 1 hour. Works on Windows, Mac, iPhone, Android.`,
     alternates: {
       canonical: `https://thepdfninja.com/tools/${resolvedParams.tool}`
+    },
+    openGraph: {
+      url: `https://thepdfninja.com/tools/${resolvedParams.tool}`,
+      title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
+      description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark.`,
     }
   };
 }
@@ -118,6 +124,28 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
         </div>
       </section>
 
+      {/* ── RELATED TOOLS ── */}
+      {t.relatedSlugs && t.relatedSlugs.length > 0 && (
+        <section style={{ padding: '60px 0', background: 'var(--bg)' }}>
+          <div className="container" style={{ maxWidth: '960px' }}>
+            <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Related PDF Tools</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+              {t.relatedSlugs.map(slug => {
+                const rt = TOOLS[slug];
+                if (!rt) return null;
+                return (
+                  <Link key={slug} href={`/tools/${slug}`} style={{ background: 'white', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)', textDecoration: 'none', color: 'inherit', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', transition: 'all 0.2s ease', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }} className="related-tool-card">
+                    <div style={{ fontSize: '2.5rem', marginBottom: '16px' }}>{rt.icon}</div>
+                    <h3 style={{ fontSize: '1.2rem', margin: '0 0 8px 0', fontWeight: 600 }}>{rt.label}</h3>
+                    <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', margin: 0, lineHeight: 1.5 }}>{rt.tagline}</p>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ── JSON-LD SCHEMAS ── */}
       <script
         type="application/ld+json"
@@ -125,7 +153,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
+              '@type': 'WebApplication',
               name: `Free ${t.label} Online`,
               description: `Free online ${t.label.toLowerCase()}. No signup, no watermark.`,
               applicationCategory: 'UtilitiesApplication',

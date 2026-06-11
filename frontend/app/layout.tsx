@@ -8,15 +8,8 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: { default: 'ThePDFNinja — Free Online PDF Converter & Editor', template: '%s | ThePDFNinja' },
+  title: { default: 'ThePDFNinja — Free Online PDF Converter & Editor', template: '%s' },
   description: 'The ultimate free online PDF editor and PDF converter. Merge PDF, compress PDF, split PDF, convert PDF to Word, Excel, JPG, PPT, and more. No signup required.',
-  keywords: [
-    'pdf to word', 'merge pdf', 'merger pdf', 'compress pdf', 'pdf to jpg', 
-    'jpg to pdf', 'word to pdf', 'pdf to excel', 'excel to pdf', 'pdf converter', 
-    'split pdf', 'pdf editor', 'pdf to ppt', 'ppt to pdf', 'png to pdf', 
-    'ocr pdf', 'pdf to text', 'rotate pdf', 'unlock pdf', 'protect pdf', 
-    'password protect pdf', 'pdf to pdf/a', 'free pdf tools'
-  ],
   authors: [{ name: 'ThePDFNinja' }],
   creator: 'ThePDFNinja',
   publisher: 'ThePDFNinja',
@@ -35,7 +28,6 @@ export const metadata: Metadata = {
     description: 'Free online PDF tools. Merge, split, compress, convert PDFs instantly.',
   },
   alternates: { canonical: 'https://thepdfninja.com' },
-  verification: { google: 'your-google-verification-code' },
   other: {
     'google-adsense-account': 'ca-pub-9515530509004476'
   }
@@ -81,6 +73,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body>
+        {/* Google AdSense (Auto Ads) */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9515530509004476"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-J1ZJFNX5HC"
