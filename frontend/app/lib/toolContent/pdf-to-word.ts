@@ -1,0 +1,36 @@
+export const pdfToWordContent = {
+  introParagraphs: [
+    "PDFs are fantastic for preserving the layout and formatting of a document across different devices, but they are notoriously difficult to edit. When you receive a PDF that needs revisions, attempting to modify it directly can be an incredibly frustrating experience. ThePDFNinja's Free Online PDF to Word Converter bridges this gap, transforming static, uneditable PDF files into fully editable Microsoft Word documents (.docx) in a matter of seconds. We utilize powerful conversion engines to ensure that your text, tables, images, and formatting are preserved as accurately as possible.",
+    "Unlike basic text-extraction tools that simply dump unformatted words onto a blank page, our converter performs a deep structural analysis of your PDF. It reconstructs paragraphs, aligns columns, and rebuilds tables so that the resulting Word document looks virtually identical to the original PDF, but with the added power of full editability. This saves you countless hours of retyping and reformatting.",
+    "Best of all, ThePDFNinja provides this premium conversion capability entirely for free. There is no need to purchase expensive software licenses like Adobe Acrobat, nor do you need to register for an account or provide an email address to download your converted file. It is a seamless, frictionless experience designed to get you back to working on your document as quickly as possible."
+  ],
+  useCases: [
+    {
+      title: "Editing Contracts and Agreements",
+      description: "Business professionals frequently receive contracts, NDAs, and agreements in PDF format. If negotiations require redlining or modifying the terms, you need the document in an editable format. Converting the PDF to Word allows you to easily track changes, add comments, and adjust clauses without having to request the original source file from the sender or manually retype pages of legal jargon."
+    },
+    {
+      title: "Updating Resumes and CVs",
+      description: "If you created a beautiful resume years ago, exported it to PDF, and subsequently lost the original Word file, updating it can be a nightmare. Our PDF to Word converter accurately extracts your resume's layout—including columns, headers, and bullet points—allowing you to easily add your latest job experience and export it back to a fresh, updated PDF."
+    },
+    {
+      title: "Extracting Data from Tables",
+      description: "Financial reports and research papers often contain crucial data locked within PDF tables. Re-entering this data manually is prone to human error and incredibly time-consuming. Converting the PDF to Word reconstructs these tables, allowing you to easily copy the structured data into Excel or directly edit the figures within the Word document."
+    },
+    {
+      title: "Translating Documents",
+      description: "Translators require editable text to utilize translation memory software or simply to overwrite the original language. Converting a source PDF into a Word document provides a clean, editable canvas while maintaining the original design, making the translation and localization process vastly more efficient."
+    }
+  ],
+  comparison: {
+    title: "How We Outperform Other Converters",
+    description: "The internet is full of PDF to Word converters, but the quality of the output varies wildly. ThePDFNinja is engineered to deliver superior results without the usual caveats.",
+    points: [
+      "Superior Formatting Retention: Cheaper converters destroy layouts, turning columns into scrambled text blocks. We utilize enterprise-grade conversion logic (powered by LibreOffice core engines) to ensure your Word document actually looks like the PDF.",
+      "100% Free, No Watermarks: Many \"free\" converters add a massive, intrusive watermark to your converted Word document, forcing you to pay to remove it. ThePDFNinja provides clean, watermark-free files every single time.",
+      "No Email Required: It is a common tactic for conversion sites to demand your email address to \"send you the file,\" immediately adding you to a spam list. We provide a direct download link on the screen the moment conversion is complete.",
+      "Unlimited Conversions: We don't cut you off after two files. Whether you are converting one document or an entire folder of archives, you can use our tool without hitting a paywall."
+    ]
+  },
+  security: "Document conversion often involves highly sensitive information, from proprietary business data to personal resumes. ThePDFNinja guarantees absolute privacy throughout the conversion process. Your files are uploaded over a secure, 256-bit AES encrypted connection and processed in a sandboxed environment. We do not use human reviewers, and our algorithms do not read or store your content. Once your PDF is converted to a Word document, our automated systems permanently delete both the original and converted files within one hour. Your data is never sold, shared, or retained."
+};

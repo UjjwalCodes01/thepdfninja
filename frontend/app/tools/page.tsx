@@ -1,71 +1,54 @@
-'use client';
-import { useState } from 'react';
-import Link from 'next/link';
+import { Metadata } from 'next';
 import { TOOLS } from '../lib/toolConfig';
-import ToolIcon from '../components/ToolIcon';
+import AllToolsPageClient from './ToolsClient';
+
+export const metadata: Metadata = {
+  title: 'All 23 Free PDF Tools Online — No Account | ThePDFNinja',
+  description: 'Browse all 23 free online PDF tools: merge, split, compress, convert, OCR, protect, and more. All completely free, no account required, no file limits, no watermarks.',
+  alternates: { canonical: 'https://thepdfninja.com/tools' },
+  openGraph: {
+    url: 'https://thepdfninja.com/tools',
+    title: 'All 23 Free PDF Tools — ThePDFNinja',
+    description: '23 free online PDF tools. No account, no watermarks, no daily limits. Merge, split, compress, convert PDF to Word, Excel, JPG, and more.',
+    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'All 23 Free PDF Tools — ThePDFNinja' }],
+  },
+};
 
 const allTools = Object.values(TOOLS);
-const categories = ['All', ...Array.from(new Set(allTools.map(t => t.category)))];
 
-export default function AllToolsPage() {
-  const [activeCat, setActiveCat] = useState('All');
-
-
-  const filtered = allTools.filter(t =>
-    (activeCat === 'All' || t.category === activeCat)
-  );
-
+export default function ToolsPage() {
   return (
     <>
-      <section style={{ background: 'var(--orange-light)', padding: '64px 0 48px', textAlign: 'center', borderBottom: '1px solid var(--border)' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <h1 className="anim-fade-up" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: 'var(--text)', marginBottom: '16px', letterSpacing: '-0.03em' }}>
-            All PDF Tools
-          </h1>
-          <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '600px', margin: '0 auto' }}>
-            Every tool you need to work with PDFs in one place. All 100% free, secure, and easy to use.
-          </p>
-        </div>
-      </section>
-
-      <section style={{ padding: '64px 0', background: 'var(--bg)', minHeight: '60vh' }}>
-        <div className="container-wide">
-          <div className="anim-fade-up anim-delay-2" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px', marginBottom: '48px' }}>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center' }}>
-              {categories.map(c => (
-                <button
-                  key={c}
-                  className={`cat-pill ${activeCat === c ? 'active' : ''}`}
-                  onClick={() => setActiveCat(c)}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-
-
-          </div>
-
-          <div className="anim-fade-up anim-delay-3" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
-            {filtered.map(t => (
-              <Link key={t.slug} href={`/tools/${t.slug}`} className="tool-card" style={{ display: 'flex', gap: '16px', alignItems: 'flex-start', padding: '24px' }}>
-                <span className="tool-card-arrow">→</span>
-                <div style={{ flexShrink: 0 }}>
-                  <ToolIcon tool={t.slug} size={56} />
-                </div>
-                <div>
-                  <h3 style={{ fontWeight: 700, fontSize: '1rem', color: 'var(--text)', marginBottom: '4px' }}>{t.label}</h3>
-                  <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '8px' }}>{t.description}</p>
-                  <span className={`badge ${t.type !== 'easy' ? 'badge-gray' : 'badge-green'}`} style={{ fontSize: '0.65rem' }}>
-                    {t.type !== 'easy' ? '🔄 Async Process' : '⚡ Instant Process'}
-                  </span>
-                </div>
-              </Link>
-            ))}
-          </div>
-
-        </div>
-      </section>
+      {/* ItemList schema — tells AI systems exactly what tools exist */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            name: 'ThePDFNinja — All 23 Free Online PDF Tools',
+            description: 'A complete list of all free online PDF tools available at ThePDFNinja.com. All tools are 100% free, require no account, and add no watermarks.',
+            url: 'https://thepdfninja.com/tools',
+            numberOfItems: allTools.length,
+            itemListElement: allTools.map((t, i) => ({
+              '@type': 'ListItem',
+              position: i + 1,
+              name: `Free ${t.label} Online`,
+              description: t.description,
+              url: `https://thepdfninja.com/tools/${t.slug}`,
+              item: {
+                '@type': 'WebApplication',
+                name: `Free ${t.label} Online`,
+                url: `https://thepdfninja.com/tools/${t.slug}`,
+                applicationCategory: 'UtilitiesApplication',
+                operatingSystem: 'All',
+                offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+              },
+            })),
+          }),
+        }}
+      />
+      <AllToolsPageClient />
     </>
   );
 }

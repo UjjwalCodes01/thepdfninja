@@ -29,14 +29,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Navigational alternatives
+  // Navigational alternatives & compare pages
   const altPages = [
-    {
-      url: `${baseUrl}/compare/ilovepdf-alternative`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    }
+    { url: `${baseUrl}/compare/ilovepdf-alternative`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/compare/smallpdf-alternative`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/compare/pdf24-alternative`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/press`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${baseUrl}/blog/best-free-pdf-tools`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
+    { url: `${baseUrl}/blog/is-it-safe-to-upload-pdfs-online`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.85 },
   ];
 
   return [...staticPages, ...toolPages, ...calcPages, ...altPages];
