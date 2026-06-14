@@ -141,7 +141,7 @@ export default function ComparePage({
       <section style={{ padding: '72px 0', background: 'var(--orange)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '640px' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em', marginBottom: '16px' }}>{ctaHeadline}</h2>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: '32px' }}>No account. No limits. No watermarks. All 23 PDF tools, completely free.</p>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: '32px' }}>No account. No limits. No watermarks. All 56 PDF tools, completely free.</p>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {tools.map(t => (
               <Link key={t.slug} href={`/tools/${t.slug}`} style={{ background: 'white', color: 'var(--orange)', fontWeight: 700, fontSize: '0.88rem', padding: '11px 20px', borderRadius: '8px', textDecoration: 'none' }}>

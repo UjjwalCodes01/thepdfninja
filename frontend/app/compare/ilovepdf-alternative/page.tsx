@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Best Free iLovePDF Alternative 2025 — No Limits, No Account | ThePDFNinja',
-  description: 'Looking for a free iLovePDF alternative with no daily limits? ThePDFNinja offers all 23 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks.',
+  description: 'Looking for a free iLovePDF alternative with no daily limits? ThePDFNinja offers all 56 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks.',
   alternates: { canonical: 'https://thepdfninja.com/compare/ilovepdf-alternative' },
   openGraph: {
     url: 'https://thepdfninja.com/compare/ilovepdf-alternative',
@@ -22,7 +22,7 @@ const COMPARE_ROWS = [
   { feature: 'Max file size (free)', them: '100MB (some tools less)', us: '100MB — all tools' },
   { feature: 'OCR / AI tools', them: 'Available (some paid)', us: '100% free — AWS Textract AI' },
   { feature: 'PDF to Word', them: 'Available', us: '100% free — LibreOffice engine' },
-  { feature: 'Total free tools', them: '25 (many restricted)', us: '23 (all completely free)' },
+  { feature: 'Total free tools', them: '25 (many restricted)', us: '56 (all completely free)' },
   { feature: 'Open source backend', them: 'Proprietary', us: 'Ghostscript + LibreOffice' },
 ];
 
@@ -46,7 +46,7 @@ export default function IlovepdfAlternativePage() {
               '@context': 'https://schema.org',
               '@type': 'WebPage',
               name: 'Best Free iLovePDF Alternative — ThePDFNinja',
-              description: 'ThePDFNinja is the best free iLovePDF alternative with no daily limits, no account required, and no watermarks on any of its 23 PDF tools.',
+              description: 'ThePDFNinja is the best free iLovePDF alternative with no daily limits, no account required, and no watermarks on any of its 56 PDF tools.',
               url: 'https://thepdfninja.com/compare/ilovepdf-alternative',
               datePublished: '2025-01-01',
               dateModified: '2026-06-01',
@@ -63,9 +63,9 @@ export default function IlovepdfAlternativePage() {
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
               mainEntity: [
-                { '@type': 'Question', name: 'Is ThePDFNinja a good free alternative to iLovePDF?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja offers all 23 PDF tools completely free with no daily limits, no account creation, and no watermarks — making it a superior free alternative to iLovePDF for most users.' } },
+                { '@type': 'Question', name: 'Is ThePDFNinja a good free alternative to iLovePDF?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja offers all 56 PDF tools completely free with no daily limits, no account creation, and no watermarks — making it a superior free alternative to iLovePDF for most users.' } },
                 { '@type': 'Question', name: 'What is the main difference between iLovePDF and ThePDFNinja?', acceptedAnswer: { '@type': 'Answer', text: 'iLovePDF uses a freemium model with daily task limits and requires account creation for advanced tools. ThePDFNinja is 100% free, unlimited, and never requires an account for any tool.' } },
-                { '@type': 'Question', name: 'Does ThePDFNinja add watermarks like some iLovePDF alternatives?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja never adds watermarks to your files. All 23 tools are completely free and watermark-free — no upgrade required.' } },
+                { '@type': 'Question', name: 'Does ThePDFNinja add watermarks like some iLovePDF alternatives?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja never adds watermarks to your files. All 56 tools are completely free and watermark-free — no upgrade required.' } },
               ],
             },
           ]),
@@ -82,7 +82,7 @@ export default function IlovepdfAlternativePage() {
             The Best Free <span style={{ color: 'var(--orange)' }}>iLovePDF Alternative</span><br />with No Limits
           </h1>
           <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.15rem', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto 36px' }}>
-            iLovePDF restricts free users to a handful of tasks per day and requires account creation for advanced tools. <strong>ThePDFNinja gives you all 23 PDF tools for free — unlimited, no account, no watermarks.</strong>
+            iLovePDF restricts free users to a handful of tasks per day and requires account creation for advanced tools. <strong>ThePDFNinja gives you all 56 PDF tools for free — unlimited, no account, no watermarks.</strong>
           </p>
           <div className="anim-fade-up anim-delay-2" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/tools" className="btn btn-primary btn-lg">Try ThePDFNinja Free →</Link>
@@ -96,7 +96,7 @@ export default function IlovepdfAlternativePage() {
         <div className="container-wide">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
-              { stat: '23', label: 'Free Tools' },
+              { stat: '56', label: 'Free Tools' },
               { stat: '0', label: 'Daily Limits' },
               { stat: '0', label: 'Account Required' },
               { stat: '0', label: 'Watermarks' },
@@ -171,9 +171,9 @@ export default function IlovepdfAlternativePage() {
         <div className="container" style={{ maxWidth: '720px' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '40px', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800 }}>Frequently Asked Questions</h2>
           {[
-            { q: 'Is ThePDFNinja a good free alternative to iLovePDF?', a: 'Yes. ThePDFNinja offers all 23 PDF tools completely free with no daily limits, no account creation, and no watermarks — making it the best free alternative to iLovePDF for the vast majority of users.' },
+            { q: 'Is ThePDFNinja a good free alternative to iLovePDF?', a: 'Yes. ThePDFNinja offers all 56 PDF tools completely free with no daily limits, no account creation, and no watermarks — making it the best free alternative to iLovePDF for the vast majority of users.' },
             { q: 'What is the main difference between iLovePDF and ThePDFNinja?', a: 'iLovePDF uses a freemium model with daily task limits and requires account creation for advanced tools. ThePDFNinja is 100% free, unlimited, and never requires an account for any tool.' },
-            { q: 'Does ThePDFNinja add watermarks?', a: 'No. ThePDFNinja never adds watermarks to your files. All 23 tools are completely free and watermark-free — no upgrade required.' },
+            { q: 'Does ThePDFNinja add watermarks?', a: 'No. ThePDFNinja never adds watermarks to your files. All 56 tools are completely free and watermark-free — no upgrade required.' },
             { q: 'Can ThePDFNinja do everything iLovePDF can?', a: 'ThePDFNinja covers all the most popular PDF tasks: merge, split, compress, convert to/from Word/Excel/PPT/JPG, rotate, watermark, protect, unlock, OCR, and more — all 100% free with no limits.' },
           ].map(({ q, a }) => (
             <details key={q} style={{ borderBottom: '1px solid var(--border)' }}>
@@ -191,7 +191,7 @@ export default function IlovepdfAlternativePage() {
       <section style={{ padding: '72px 0', background: 'var(--orange)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '640px' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em', marginBottom: '16px' }}>Try the best iLovePDF alternative now</h2>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: '32px' }}>No account. No limits. No watermarks. All 23 PDF tools, completely free.</p>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: '32px' }}>No account. No limits. No watermarks. All 56 PDF tools, completely free.</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {TOOLS.map(t => (
               <Link key={t.slug} href={`/tools/${t.slug}`} style={{ background: 'white', color: 'var(--orange)', fontWeight: 700, fontSize: '0.9rem', padding: '12px 22px', borderRadius: '8px', textDecoration: 'none' }}>

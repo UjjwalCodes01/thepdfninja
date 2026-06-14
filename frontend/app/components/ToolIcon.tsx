@@ -229,7 +229,11 @@ export default function ToolIcon({ tool, size = 48 }: { tool: string; size?: num
           <text x="28" y="44" fontFamily="monospace" fontWeight="bold" fontSize="14" fill={b}>1 2 3</text>
         </svg>
       );
-      default: return <BaseDoc x={24} y={4} scale={0.9} />;
+      default: return (
+        <svg width={size} height={size} viewBox="0 0 80 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <BaseDoc x={24} y={4} scale={0.9} />
+        </svg>
+      );
     }
   };
 

@@ -130,7 +130,7 @@ export default function Footer() {
           <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
             {[
               { icon: '🔒', text: '256-bit SSL Encrypted' },
-              { icon: '🛠️', text: '23 Free PDF Tools' },
+              { icon: '🛠️', text: '56 Free PDF Tools' },
               { icon: '🚫', text: 'No Account Required' },
               { icon: '⏱️', text: 'Files Auto-Deleted in 24h' },
               { icon: '💧', text: 'Zero Watermarks' },

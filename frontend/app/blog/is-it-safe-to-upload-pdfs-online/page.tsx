@@ -168,7 +168,7 @@ export default function IsItSafePage() {
 
           <div style={{ marginTop: '60px', padding: '40px', background: 'var(--bg)', borderRadius: '16px', textAlign: 'center' }}>
             <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '16px' }}>Ready to securely edit your PDFs?</h3>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '32px' }}>Choose from our 23 free, fully encrypted tools.</p>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '32px' }}>Choose from our 56 free, fully encrypted tools.</p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
               <Link href="/tools" style={{ background: 'var(--orange)', color: 'white', padding: '12px 32px', borderRadius: '8px', fontWeight: 700, textDecoration: 'none' }}>
                 View All Tools

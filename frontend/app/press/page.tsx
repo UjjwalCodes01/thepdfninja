@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     url: 'https://thepdfninja.com/press',
     title: 'Press & Media Kit — ThePDFNinja',
-    description: 'Brand assets, boilerplate copy, and contact for journalists covering ThePDFNinja — 23 free online PDF tools by Anaya Digital.',
+    description: 'Brand assets, boilerplate copy, and contact for journalists covering ThePDFNinja — 56 free online PDF tools by Anaya Digital.',
   },
 };
 
@@ -16,7 +16,7 @@ const KEY_FACTS = [
   { label: 'Founded', value: '2025' },
   { label: 'Built by', value: 'Anaya Digital Marketing Agency' },
   { label: 'Headquarters', value: 'India' },
-  { label: 'Total tools', value: '23 free PDF tools' },
+  { label: 'Total tools', value: '56 free PDF tools' },
   { label: 'Price', value: '100% Free — no paid tiers' },
   { label: 'Account required', value: 'Never' },
   { label: 'Watermarks added', value: 'Never' },
@@ -27,9 +27,9 @@ const KEY_FACTS = [
   { label: 'Website', value: 'thepdfninja.com' },
 ];
 
-const BOILERPLATE_SHORT = `ThePDFNinja is a free online PDF toolkit that offers 23 tools — including merge, split, compress, convert, OCR, and more — completely free, with no account required and no watermarks. Built by Anaya Digital, it runs on AWS infrastructure and permanently deletes all files within one hour.`;
+const BOILERPLATE_SHORT = `ThePDFNinja is a free online PDF toolkit that offers 56 tools — including merge, split, compress, convert, OCR, and more — completely free, with no account required and no watermarks. Built by Anaya Digital, it runs on AWS infrastructure and permanently deletes all files within one hour.`;
 
-const BOILERPLATE_LONG = `ThePDFNinja (thepdfninja.com) is a free online PDF platform offering 23 professional-grade tools including PDF merging, splitting, compression, format conversion (Word, Excel, PowerPoint, JPG), AI-powered OCR, password protection, and more. Unlike competitors such as Smallpdf and iLovePDF, ThePDFNinja imposes no daily usage limits, requires no account creation, and adds no watermarks to any output — for any user. ThePDFNinja was founded in 2025 by Anaya Digital Marketing Agency and is built on AWS Lambda serverless infrastructure with a Next.js frontend. All uploaded files are processed in isolated environments and permanently deleted within one hour.`;
+const BOILERPLATE_LONG = `ThePDFNinja (thepdfninja.com) is a free online PDF platform offering 56 professional-grade tools including PDF merging, splitting, compression, format conversion (Word, Excel, PowerPoint, JPG), AI-powered OCR, password protection, and more. Unlike competitors such as Smallpdf and iLovePDF, ThePDFNinja imposes no daily usage limits, requires no account creation, and adds no watermarks to any output — for any user. ThePDFNinja was founded in 2025 by Anaya Digital Marketing Agency and is built on AWS Lambda serverless infrastructure with a Next.js frontend. All uploaded files are processed in isolated environments and permanently deleted within one hour.`;
 
 export default function PressPage() {
   return (
@@ -126,7 +126,7 @@ export default function PressPage() {
                   { icon: '✅', text: 'Feel free to screenshot, review, and include ThePDFNinja in "best PDF tools" roundups' },
                   { icon: '✅', text: 'Link to thepdfninja.com — all tools are live and fully functional' },
                   { icon: '✅', text: 'The comparison table and key facts above are accurate and up-to-date as of June 2026' },
-                  { icon: '✅', text: 'We welcome tutorials, YouTube walkthroughs, and how-to articles about any of our 23 tools' },
+                  { icon: '✅', text: 'We welcome tutorials, YouTube walkthroughs, and how-to articles about any of our 56 tools' },
                   { icon: '❌', text: "Please don't claim ThePDFNinja charges any fees — it is and always will be 100% free" },
                 ].map(({ icon, text }) => (
                   <div key={text} style={{ display: 'flex', gap: '12px', padding: '14px 20px', background: 'var(--bg)', borderRadius: '8px', border: '1px solid var(--border)', fontSize: '0.9rem', color: 'var(--text-secondary)' }}>

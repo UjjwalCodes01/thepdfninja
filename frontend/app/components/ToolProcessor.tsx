@@ -18,6 +18,7 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
   const [errorMsg, setErrorMsg] = useState('');
   const [downloadUrl, setDownloadUrl] = useState('');
   const [jobId, setJobId] = useState('');
+  const [pdfInfoData, setPdfInfoData] = useState<any>(null);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.thepdfninja.com';
 
@@ -84,10 +85,14 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
         setJobId(data.job_id);
         await pollJob(data.job_id);
       } else {
-        setDownloadUrl(data.download_url);
+        if (tool === 'pdf-info') {
+          setPdfInfoData(data.info);
+        } else {
+          setDownloadUrl(data.download_url);
+        }
         setProgress(100);
         setStatus('done');
-        if (onSuccess) onSuccess(data.download_url);
+        if (onSuccess && data.download_url) onSuccess(data.download_url);
       }
 
     } catch (err: any) {
@@ -177,11 +182,23 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
             ✓
           </div>
           <h3 style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', marginBottom: '8px' }}>Task Complete!</h3>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>Your PDF has been successfully processed.</p>
+          
+          {tool === 'pdf-info' && pdfInfoData ? (
+            <div style={{ textAlign: 'left', background: 'var(--bg)', padding: '16px', borderRadius: 'var(--radius)', marginBottom: '24px', overflowX: 'auto', fontSize: '0.9rem' }}>
+              <pre style={{ margin: 0, color: 'var(--text)' }}>
+                {JSON.stringify(pdfInfoData, null, 2)}
+              </pre>
+            </div>
+          ) : (
+            <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>Your file has been successfully processed.</p>
+          )}
+
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href={downloadUrl} download={`processed_${tool}.pdf`} className="btn btn-primary btn-lg">
-              Download File
-            </a>
+            {tool !== 'pdf-info' && (
+              <a href={downloadUrl} download={`processed_${tool}.pdf`} className="btn btn-primary btn-lg">
+                Download File
+              </a>
+            )}
             <button onClick={onReset} className="btn btn-outline btn-lg">
               Process Another
             </button>

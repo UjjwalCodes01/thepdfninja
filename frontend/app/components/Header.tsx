@@ -131,7 +131,7 @@ export default function Header() {
                       fontWeight: 600, fontSize: '0.875rem',
                       background: 'var(--orange-light)',
                     }}>
-                      View all 23 PDF tools →
+                      View all 56 PDF tools →
                     </Link>
                   </div>
                 </div>

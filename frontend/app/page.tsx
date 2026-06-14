@@ -2,32 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ToolIcon from './components/ToolIcon';
-
-const TOOLS = [
-  { slug: 'merge', label: 'Merge PDF', desc: 'Combine multiple PDFs into one file instantly.', icon: '⊕', cat: 'Organize', badge: ' Instant' },
-  { slug: 'split', label: 'Split PDF', desc: 'Extract pages or split a PDF into multiple files.', icon: '⊗', cat: 'Organize', badge: ' Instant' },
-  { slug: 'organize', label: 'Organize PDF', desc: 'Reorder, delete, and rearrange pages with ease.', icon: '⊞', cat: 'Organize', badge: ' Instant' },
-  { slug: 'compress', label: 'Compress PDF', desc: 'Reduce PDF file size without losing quality.', icon: '↘', cat: 'Optimize', badge: ' Instant' },
-  { slug: 'repair', label: 'Repair PDF', desc: 'Fix damaged or corrupted PDF files.', icon: '⚙', cat: 'Optimize', badge: ' Instant' },
-  { slug: 'pdf-to-pdfa', label: 'PDF to PDF/A', desc: 'Convert to ISO-compliant archival format.', icon: '◈', cat: 'Optimize', badge: ' Async' },
-  { slug: 'pdf-to-word', label: 'PDF to Word', desc: 'Convert PDF to editable DOC/DOCX documents.', icon: '⇒', cat: 'Convert', badge: ' Async' },
-  { slug: 'word-to-pdf', label: 'Word to PDF', desc: 'Turn Word documents into professional PDFs.', icon: '⇐', cat: 'Convert', badge: ' Async' },
-  { slug: 'pdf-to-ppt', label: 'PDF to PowerPoint', desc: 'Convert PDF pages into editable PPT slides.', icon: '⇒', cat: 'Convert', badge: ' Async' },
-  { slug: 'ppt-to-pdf', label: 'PowerPoint to PDF', desc: 'Save presentations as shareable PDF files.', icon: '⇐', cat: 'Convert', badge: ' Async' },
-  { slug: 'pdf-to-excel', label: 'PDF to Excel', desc: 'Extract tables from PDF into Excel spreadsheets.', icon: '⇒', cat: 'Convert', badge: ' Async' },
-  { slug: 'excel-to-pdf', label: 'Excel to PDF', desc: 'Convert spreadsheets into professional PDFs.', icon: '⇐', cat: 'Convert', badge: ' Async' },
-  { slug: 'pdf-to-jpg', label: 'PDF to JPG', desc: 'Convert each PDF page to a high-quality image.', icon: '⊡', cat: 'Convert', badge: ' Instant' },
-  { slug: 'jpg-to-pdf', label: 'JPG to PDF', desc: 'Turn one or more images into a PDF document.', icon: '⊟', cat: 'Convert', badge: ' Instant' },
-  { slug: 'html-to-pdf', label: 'HTML to PDF', desc: 'Convert any webpage or HTML file into a PDF.', icon: '⊙', cat: 'Convert', badge: ' Instant' },
-  { slug: 'watermark', label: 'Watermark PDF', desc: 'Add text or image watermarks to your PDF.', icon: '◎', cat: 'Edit', badge: ' Instant' },
-  { slug: 'rotate', label: 'Rotate PDF', desc: 'Rotate pages 90°, 180° or 270° in your PDF.', icon: '↻', cat: 'Edit', badge: ' Instant' },
-  { slug: 'crop', label: 'Crop PDF', desc: 'Remove unwanted margins or crop specific areas.', icon: '⊡', cat: 'Edit', badge: ' Instant' },
-  { slug: 'page-numbers', label: 'Page Numbers', desc: 'Add page numbers with custom placement and style.', icon: '⊕', cat: 'Edit', badge: ' Instant' },
-  { slug: 'protect', label: 'Protect PDF', desc: 'Password-protect your PDF with AES encryption.', icon: '🔒', cat: 'Security', badge: ' Instant' },
-  { slug: 'unlock', label: 'Unlock PDF', desc: 'Remove password protection from your PDF.', icon: '🔓', cat: 'Security', badge: '⚡Instant' },
-  { slug: 'scan-to-pdf', label: 'Scan to PDF', desc: 'Convert scanned images into searchable PDFs.', icon: '📷', cat: 'Security', badge: ' Async' },
-  { slug: 'ocr', label: 'OCR PDF', desc: 'Extract text from scanned documents using AI.', icon: '👁', cat: 'Security', badge: ' AI' },
-];
+import { TOOL_LIST } from './lib/toolConfig';
 
 const CATS = ['All', 'Organize', 'Optimize', 'Convert', 'Edit', 'Security'];
 
@@ -54,10 +29,13 @@ const WHY = [
 
 export default function HomePage() {
   const [cat, setCat] = useState('All');
+  const [showAllTools, setShowAllTools] = useState(false);
 
-  const filtered = TOOLS.filter(t =>
-    (cat === 'All' || t.cat === cat)
+  const filtered = TOOL_LIST.filter(t =>
+    (cat === 'All' || t.category === cat)
   );
+
+  const displayedTools = showAllTools ? filtered : filtered.slice(0, 24);
 
   return (
     <>
@@ -72,12 +50,12 @@ export default function HomePage() {
               datePublished: '2025-01-01',
               dateModified: '2026-06-01',
               mainEntity: [
-                { '@type': 'Question', name: 'Is ThePDFNinja really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, completely. All 23 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free forever.' } },
+                { '@type': 'Question', name: 'Is ThePDFNinja really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, completely. All 56 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free forever.' } },
                 { '@type': 'Question', name: 'Is my data safe when I upload files?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. All file uploads are encrypted using 256-bit SSL/TLS. Files are processed in isolated server environments and automatically deleted from our servers within 24 hours. We never share or sell your data.' } },
                 { '@type': 'Question', name: 'What is the maximum file size?', acceptedAnswer: { '@type': 'Answer', text: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this, try compressing it first using our free Compress PDF tool.' } },
                 { '@type': 'Question', name: 'Do I need to install any software?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS.' } },
                 { '@type': 'Question', name: 'How long does processing take?', acceptedAnswer: { '@type': 'Answer', text: 'Most tools process files instantly in under 5 seconds. More complex operations like OCR, Word/Excel conversions, or large file compression may take 15-60 seconds.' } },
-                { '@type': 'Question', name: 'How does ThePDFNinja compare to ilovepdf or smallpdf?', acceptedAnswer: { '@type': 'Answer', text: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits and no forced account creation. We offer 23 tools with no watermarks added and no file size restrictions on most tools up to 100MB.' } },
+                { '@type': 'Question', name: 'How does ThePDFNinja compare to ilovepdf or smallpdf?', acceptedAnswer: { '@type': 'Answer', text: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits and no forced account creation. We offer 56 tools with no watermarks added and no file size restrictions on most tools up to 100MB.' } },
               ]
             }
           )
@@ -98,7 +76,7 @@ export default function HomePage() {
             Merge PDF, split PDF, compress PDF, and convert PDF to Word, JPG, Excel, and PPT online. ThePDFNinja handles everything without software installations, subscriptions, or watermarks.
           </p>
           <p className="anim-fade-up anim-delay-2" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--orange)', marginBottom: '12px', letterSpacing: '0.03em' }}>
-            23 tools &middot; 100% Free &middot; No signup &middot; No watermark &middot; Files deleted in 24h
+            56 tools &middot; 100% Free &middot; No signup &middot; No watermark &middot; Files deleted in 24h
           </p>
           <div className="anim-fade-up anim-delay-3" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '52px' }}>
             <Link href="#tools" className="btn btn-primary btn-lg">
@@ -116,7 +94,7 @@ export default function HomePage() {
         <div className="container-wide">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
-              { stat: '23', label: 'Free PDF Tools' },
+              { stat: '56', label: 'Free PDF Tools' },
               { stat: '100MB', label: 'Max File Size' },
               { stat: '1 hr', label: 'Auto-Delete Guarantee' },
               { stat: '0', label: 'Watermarks Added' },
@@ -136,7 +114,7 @@ export default function HomePage() {
       <section id="tools" style={{ background: 'var(--bg)', padding: '72px 0' }}>
         <div className="container-wide">
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <p className="section-label">23 Free PDF Tools</p>
+            <p className="section-label">56 Free PDF Tools</p>
             <h2 className="section-title">Choose Your PDF Tool</h2>
             <p className="section-subtitle" style={{ margin: '0 auto' }}>
               Every tool you need to work with PDF files — free, fast, and secure. No downloads required.
@@ -156,20 +134,34 @@ export default function HomePage() {
 
           {/* Grid */}
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 250px), 1fr))', gap: '16px' }}>
-            {filtered.map(t => (
+            {displayedTools.map(t => {
+              const badge = t.type === 'ocr' ? ' AI' : t.type === 'heavy' ? ' Async' : ' Instant';
+              return (
               <Link key={t.slug} href={`/tools/${t.slug}`} className="tool-card">
                 <span className="tool-card-arrow">→</span>
                 <div style={{ marginBottom: '16px' }}>
                   <ToolIcon tool={t.slug} size={56} />
                 </div>
                 <h3 style={{ fontWeight: 700, fontSize: '1.05rem', color: 'var(--text)', marginBottom: '6px', letterSpacing: '-0.01em' }}>{t.label}</h3>
-                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '16px' }}>{t.desc}</p>
-                <span className={`badge ${t.badge.includes('AI') ? 'badge-blue' : t.badge.includes('Async') ? 'badge-gray' : 'badge-green'}`} style={{ fontSize: '0.7rem' }}>
-                  {t.badge}
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', lineHeight: 1.5, marginBottom: '16px' }}>{t.description}</p>
+                <span className={`badge ${badge.includes('AI') ? 'badge-blue' : badge.includes('Async') ? 'badge-gray' : 'badge-green'}`} style={{ fontSize: '0.7rem' }}>
+                  {badge}
                 </span>
               </Link>
-            ))}
+            )})}
           </div>
+
+          {!showAllTools && (
+            <div style={{ textAlign: 'center', marginTop: '32px' }}>
+              <button 
+                onClick={() => setShowAllTools(true)}
+                className="btn btn-outline btn-lg"
+                style={{ padding: '12px 32px' }}
+              >
+                Explore All {TOOL_LIST.length} Tools
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
@@ -266,7 +258,7 @@ export default function HomePage() {
           </div>
           <blockquote style={{ margin: '40px 0 0', padding: '24px 32px', background: 'var(--orange-light)', borderLeft: '4px solid var(--orange)', borderRadius: '0 var(--radius) var(--radius) 0' }}>
             <p style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: 'var(--text)', lineHeight: 1.6 }}>
-              &ldquo;ThePDFNinja is the only major PDF toolkit that is 100% free, unlimited, and requires zero account creation &mdash; for all 23 tools.&rdquo;
+              &ldquo;ThePDFNinja is the only major PDF toolkit that is 100% free, unlimited, and requires zero account creation &mdash; for all 56 tools.&rdquo;
             </p>
           </blockquote>
         </div>
@@ -280,12 +272,12 @@ export default function HomePage() {
             <h2 className="section-title">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: 'Is ThePDFNinja really free?', a: 'Yes, completely. All 23 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free forever.' },
+            { q: 'Is ThePDFNinja really free?', a: 'Yes, completely. All 56 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free forever.' },
             { q: 'Is my data safe when I upload files?', a: 'Absolutely. All file uploads are encrypted using 256-bit SSL/TLS. Files are processed in isolated server environments and automatically deleted from our servers within 24 hours. We never share, sell, or access your data.' },
             { q: 'What is the maximum file size?', a: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this limit, try compressing it first using our free Compress PDF tool.' },
             { q: 'Do I need to install any software?', a: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS — any device with a modern browser.' },
             { q: 'How long does processing take?', a: 'Most tools process files instantly in under 5 seconds. More complex operations like OCR, Word/Excel conversions, or large file compression may take 15–60 seconds.' },
-            { q: 'How does ThePDFNinja compare to ilovepdf and smallpdf?', a: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits, no account required, and no watermarks — for all 23 tools. Competitors restrict free users to 2 tasks per day or add watermarks on free plans.' },
+            { q: 'How does ThePDFNinja compare to ilovepdf and smallpdf?', a: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits, no account required, and no watermarks — for all 56 tools. Competitors restrict free users to 2 tasks per day or add watermarks on free plans.' },
           ].map((faq, i) => (
             <details key={i} style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0' }}>
               <summary style={{
