@@ -61,32 +61,26 @@ export default function HomePage() {
 
   return (
     <>
-      {/* SEO schema */}
+      {/* SEO schema — FAQPage only (Organization & SoftwareApp moved to layout.tsx) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify([
+          __html: JSON.stringify(
             {
               '@context': 'https://schema.org',
-              '@type': 'WebApplication',
-              name: 'ThePDFNinja',
-              applicationCategory: 'UtilitiesApplication',
-              description: 'Free online PDF tools — merge, split, compress, convert PDF files.',
-              url: 'https://thepdfninja.com',
-              offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-            },
-            {
-              '@context': 'https://schema.org',
-              '@type': 'Organization',
-              name: 'ThePDFNinja',
-              url: 'https://thepdfninja.com',
-              logo: 'https://thepdfninja.com/logo.png',
-              sameAs: [
-                'https://twitter.com/thepdfninja',
-                'https://facebook.com/thepdfninja'
+              '@type': 'FAQPage',
+              datePublished: '2025-01-01',
+              dateModified: '2026-06-01',
+              mainEntity: [
+                { '@type': 'Question', name: 'Is ThePDFNinja really free?', acceptedAnswer: { '@type': 'Answer', text: 'Yes, completely. All 23 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free forever.' } },
+                { '@type': 'Question', name: 'Is my data safe when I upload files?', acceptedAnswer: { '@type': 'Answer', text: 'Absolutely. All file uploads are encrypted using 256-bit SSL/TLS. Files are processed in isolated server environments and automatically deleted from our servers within 24 hours. We never share or sell your data.' } },
+                { '@type': 'Question', name: 'What is the maximum file size?', acceptedAnswer: { '@type': 'Answer', text: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this, try compressing it first using our free Compress PDF tool.' } },
+                { '@type': 'Question', name: 'Do I need to install any software?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS.' } },
+                { '@type': 'Question', name: 'How long does processing take?', acceptedAnswer: { '@type': 'Answer', text: 'Most tools process files instantly in under 5 seconds. More complex operations like OCR, Word/Excel conversions, or large file compression may take 15-60 seconds.' } },
+                { '@type': 'Question', name: 'How does ThePDFNinja compare to ilovepdf or smallpdf?', acceptedAnswer: { '@type': 'Answer', text: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits and no forced account creation. We offer 23 tools with no watermarks added and no file size restrictions on most tools up to 100MB.' } },
               ]
             }
-          ])
+          )
         }}
       />
 
@@ -103,6 +97,9 @@ export default function HomePage() {
           <p className="anim-fade-up anim-delay-2" style={{ fontSize: 'clamp(1rem, 2vw, 1.15rem)', color: 'var(--text-muted)', lineHeight: 1.7, marginBottom: '36px', maxWidth: '640px', margin: '0 auto 36px' }}>
             Merge PDF, split PDF, compress PDF, and convert PDF to Word, JPG, Excel, and PPT online. ThePDFNinja handles everything without software installations, subscriptions, or watermarks.
           </p>
+          <p className="anim-fade-up anim-delay-2" style={{ fontSize: '0.9rem', fontWeight: 600, color: 'var(--orange)', marginBottom: '12px', letterSpacing: '0.03em' }}>
+            23 tools &middot; 100% Free &middot; No signup &middot; No watermark &middot; Files deleted in 24h
+          </p>
           <div className="anim-fade-up anim-delay-3" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '52px' }}>
             <Link href="#tools" className="btn btn-primary btn-lg">
               Explore All PDF Tools
@@ -110,6 +107,27 @@ export default function HomePage() {
             <Link href="/tools/pdf-to-word" className="btn btn-outline btn-lg">
               Convert PDF to Word
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS CALLOUT ── */}
+      <section style={{ background: 'var(--orange)', padding: '28px 0' }}>
+        <div className="container-wide">
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
+            {[
+              { stat: '23', label: 'Free PDF Tools' },
+              { stat: '100MB', label: 'Max File Size' },
+              { stat: '1 hr', label: 'Auto-Delete Guarantee' },
+              { stat: '0', label: 'Watermarks Added' },
+              { stat: '0', label: 'Accounts Required' },
+              { stat: '256-bit', label: 'AES SSL Encryption' },
+            ].map((s, i) => (
+              <div key={s.label} style={{ textAlign: 'center', padding: '8px 32px', borderRight: i < 5 ? '1px solid rgba(255,255,255,0.3)' : 'none' }}>
+                <div style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em' }}>{s.stat}</div>
+                <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', fontWeight: 500, marginTop: '2px' }}>{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -206,6 +224,54 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── COMPARISON TABLE ── */}
+      <section className="section" style={{ background: 'white' }}>
+        <div className="container" style={{ maxWidth: '820px' }}>
+          <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+            <p className="section-label">How we compare</p>
+            <h2 className="section-title">ThePDFNinja vs. the Alternatives</h2>
+            <p className="section-subtitle" style={{ margin: '0 auto' }}>
+              The only major free PDF toolkit with zero account requirements and no daily limits.
+            </p>
+          </div>
+          <div style={{ overflowX: 'auto' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+              <thead>
+                <tr>
+                  <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: 'var(--text)', borderBottom: '2px solid var(--border)', background: 'var(--bg)' }}>Feature</th>
+                  <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 700, color: 'white', background: 'var(--orange)', borderBottom: '2px solid var(--orange)' }}>ThePDFNinja ⭐</th>
+                  <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 700, color: 'var(--text)', borderBottom: '2px solid var(--border)', background: 'var(--bg)' }}>ilovepdf</th>
+                  <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 700, color: 'var(--text)', borderBottom: '2px solid var(--border)', background: 'var(--bg)' }}>smallpdf</th>
+                </tr>
+              </thead>
+              <tbody>
+                {[
+                  ['Price', '100% Free', 'Free (limited)', 'Free (2 tasks/day)'],
+                  ['Account required', '✅ Never', '⚠️ For some tools', '⚠️ After limit'],
+                  ['Watermarks added', '✅ None', '✅ None', '❌ On free plan'],
+                  ['Daily usage limit', '✅ Unlimited', '❌ Limited', '❌ 2 per day'],
+                  ['Max file size', '✅ 100MB', '⚠️ 100MB', '⚠️ 5MB free'],
+                  ['File auto-delete', '✅ Within 1 hour', '✅ Within 1 hour', '⚠️ 1 hour'],
+                  ['AI / OCR tool', '✅ Included free', '✅ Included', '⚠️ Pro only'],
+                ].map(([feature, us, ilove, small], i) => (
+                  <tr key={feature} style={{ background: i % 2 === 0 ? 'white' : 'var(--bg)' }}>
+                    <td style={{ padding: '12px 20px', color: 'var(--text)', fontWeight: 500, borderBottom: '1px solid var(--border)' }}>{feature}</td>
+                    <td style={{ padding: '12px 20px', textAlign: 'center', color: 'var(--text)', fontWeight: 600, borderBottom: '1px solid var(--border)', background: 'rgba(245,98,45,0.05)' }}>{us}</td>
+                    <td style={{ padding: '12px 20px', textAlign: 'center', color: 'var(--text-muted)', borderBottom: '1px solid var(--border)' }}>{ilove}</td>
+                    <td style={{ padding: '12px 20px', textAlign: 'center', color: 'var(--text-muted)', borderBottom: '1px solid var(--border)' }}>{small}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <blockquote style={{ margin: '40px 0 0', padding: '24px 32px', background: 'var(--orange-light)', borderLeft: '4px solid var(--orange)', borderRadius: '0 var(--radius) var(--radius) 0' }}>
+            <p style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: 'var(--text)', lineHeight: 1.6 }}>
+              &ldquo;ThePDFNinja is the only major PDF toolkit that is 100% free, unlimited, and requires zero account creation &mdash; for all 23 tools.&rdquo;
+            </p>
+          </blockquote>
+        </div>
+      </section>
+
       {/* ── FAQ ── */}
       <section className="section" style={{ background: 'white' }}>
         <div className="container" style={{ maxWidth: '720px' }}>
@@ -214,11 +280,12 @@ export default function HomePage() {
             <h2 className="section-title">Frequently Asked Questions</h2>
           </div>
           {[
-            { q: 'Is ThePDFNinja really free?', a: 'Yes, completely. All 23 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free.' },
-            { q: 'Is my data safe when I upload files?', a: 'Absolutely. All file uploads are encrypted using 256-bit SSL/TLS. Files are processed in isolated server environments and automatically deleted from our servers within 24 hours. We never share or sell your data.' },
-            { q: 'What is the maximum file size?', a: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this, try compressing it first using our free Compress PDF tool.' },
-            { q: 'Do I need to install any software?', a: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS.' },
+            { q: 'Is ThePDFNinja really free?', a: 'Yes, completely. All 23 PDF tools are free to use with no usage limits, no watermarks, and no account required. We are funded independently and committed to keeping this service free forever.' },
+            { q: 'Is my data safe when I upload files?', a: 'Absolutely. All file uploads are encrypted using 256-bit SSL/TLS. Files are processed in isolated server environments and automatically deleted from our servers within 24 hours. We never share, sell, or access your data.' },
+            { q: 'What is the maximum file size?', a: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this limit, try compressing it first using our free Compress PDF tool.' },
+            { q: 'Do I need to install any software?', a: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS — any device with a modern browser.' },
             { q: 'How long does processing take?', a: 'Most tools process files instantly in under 5 seconds. More complex operations like OCR, Word/Excel conversions, or large file compression may take 15–60 seconds.' },
+            { q: 'How does ThePDFNinja compare to ilovepdf and smallpdf?', a: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits, no account required, and no watermarks — for all 23 tools. Competitors restrict free users to 2 tasks per day or add watermarks on free plans.' },
           ].map((faq, i) => (
             <details key={i} style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0' }}>
               <summary style={{

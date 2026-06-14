@@ -33,6 +33,10 @@ const securityLinks = [
 ];
 const companyLinks = [
   { href: '/about', label: 'About Us' },
+  { href: '/press', label: 'Press & Media' },
+  { href: '/blog/best-free-pdf-tools', label: 'Best PDF Tools 2025' },
+  { href: '/compare/ilovepdf-alternative', label: 'iLovePDF Alternative' },
+  { href: '/compare/smallpdf-alternative', label: 'Smallpdf Alternative' },
   { href: '/privacy', label: 'Privacy Policy' },
   { href: '/terms', label: 'Terms of Service' },
 ];
@@ -121,11 +125,22 @@ export default function Footer() {
           <FooterCol title="Company" links={companyLinks} />
         </div>
 
-        {/* SEO Keywords Block */}
-        <div style={{ padding: '24px 0', borderTop: '1px solid #E5E7EB', marginBottom: '24px' }}>
-          <p style={{ fontSize: '0.75rem', color: '#9CA3AF', lineHeight: 1.6, margin: 0 }}>
-            <strong>ThePDFNinja</strong> is your go-to <a href="/tools/pdf-to-word" style={{ color: 'inherit', textDecoration: 'none' }}>PDF to Word</a> and <a href="/tools/word-to-pdf" style={{ color: 'inherit', textDecoration: 'none' }}>Word to PDF</a> converter. Whether you need to <a href="/tools/merge" style={{ color: 'inherit', textDecoration: 'none' }}>merge PDF</a>, <a href="/tools/split" style={{ color: 'inherit', textDecoration: 'none' }}>split PDF</a>, or <a href="/tools/compress" style={{ color: 'inherit', textDecoration: 'none' }}>compress PDF</a>, our free PDF editor online makes it simple. Easily convert <a href="/tools/pdf-to-jpg" style={{ color: 'inherit', textDecoration: 'none' }}>PDF to JPG</a>, <a href="/tools/jpg-to-pdf" style={{ color: 'inherit', textDecoration: 'none' }}>JPG to PDF</a>, <a href="/tools/png-to-pdf" style={{ color: 'inherit', textDecoration: 'none' }}>PNG to PDF</a>, <a href="/tools/pdf-to-excel" style={{ color: 'inherit', textDecoration: 'none' }}>PDF to Excel</a>, <a href="/tools/excel-to-pdf" style={{ color: 'inherit', textDecoration: 'none' }}>Excel to PDF</a>, <a href="/tools/pdf-to-ppt" style={{ color: 'inherit', textDecoration: 'none' }}>PDF to PPT</a>, and <a href="/tools/ppt-to-pdf" style={{ color: 'inherit', textDecoration: 'none' }}>PPT to PDF</a>. Need advanced features? Use our tool to <a href="/tools/ocr" style={{ color: 'inherit', textDecoration: 'none' }}>OCR PDF</a>, convert <a href="/tools/pdf-to-text" style={{ color: 'inherit', textDecoration: 'none' }}>PDF to Text</a>, <a href="/tools/rotate" style={{ color: 'inherit', textDecoration: 'none' }}>rotate PDF</a>, <a href="/tools/unlock" style={{ color: 'inherit', textDecoration: 'none' }}>unlock PDF</a>, <a href="/tools/protect" style={{ color: 'inherit', textDecoration: 'none' }}>protect PDF</a> (password protect PDF), or validate <a href="/tools/pdf-to-pdfa" style={{ color: 'inherit', textDecoration: 'none' }}>PDF to PDF/A</a>. No software required — the ultimate free PDF converter for all devices.
-          </p>
+        {/* Trust Signals */}
+        <div style={{ padding: '20px 0', borderTop: '1px solid #E5E7EB', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
+            {[
+              { icon: '🔒', text: '256-bit SSL Encrypted' },
+              { icon: '🛠️', text: '23 Free PDF Tools' },
+              { icon: '🚫', text: 'No Account Required' },
+              { icon: '⏱️', text: 'Files Auto-Deleted in 24h' },
+              { icon: '💧', text: 'Zero Watermarks' },
+              { icon: '☁️', text: 'Powered by AWS' },
+            ].map(s => (
+              <span key={s.text} style={{ fontSize: '0.78rem', color: '#6B7280', display: 'flex', alignItems: 'center', gap: '5px' }}>
+                <span>{s.icon}</span> {s.text}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Bottom bar */}
