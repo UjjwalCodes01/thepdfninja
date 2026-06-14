@@ -7,4 +7,12 @@ from . import (
     pdf_to_excel,
     scan_to_pdf,
     pdf_to_pdfa,
+    # new document converters
+    txt_to_pdf,
+    rtf_to_pdf,
+    odt_to_pdf,
+    csv_to_pdf,
+    epub_to_pdf,
+    md_to_pdf,
+    pdf_to_txt,
 )

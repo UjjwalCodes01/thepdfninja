@@ -13,6 +13,7 @@ s3 = boto3.client("s3")
 BUCKET = os.environ["BUCKET_NAME"]
 
 ALLOWED_CONTENT_TYPES = {
+    # existing
     "application/pdf",
     "image/jpeg",
     "image/png",
@@ -25,6 +26,18 @@ ALLOWED_CONTENT_TYPES = {
     "application/vnd.ms-excel",
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     "text/html",
+    # new image formats
+    "image/webp",
+    "image/heic",
+    "image/heif",
+    "image/svg+xml",
+    # new document formats
+    "text/plain",
+    "text/csv",
+    "text/markdown",
+    "application/rtf",
+    "application/epub+zip",
+    "application/vnd.oasis.opendocument.text",
 }
 
 MAX_SIZE_MB = 100

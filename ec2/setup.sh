@@ -25,6 +25,8 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y \
     ghostscript \
     qpdf \
     poppler-utils \
+    calibre \
+    librsvg2-bin \
     git \
     unzip \
     awscli
@@ -38,7 +40,8 @@ pip3 install --break-system-packages \
     pdf2image \
     camelot-py[base] \
     openpyxl \
-    python-docx
+    python-docx \
+    markdown
 
 # 3. Create worker user + dir
 useradd -m -s /bin/bash worker || true

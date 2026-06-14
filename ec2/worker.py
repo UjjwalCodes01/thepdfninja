@@ -28,6 +28,14 @@ from converters import (
     pdf_to_excel,
     scan_to_pdf,
     pdf_to_pdfa,
+    # new document converters
+    txt_to_pdf,
+    rtf_to_pdf,
+    odt_to_pdf,
+    csv_to_pdf,
+    epub_to_pdf,
+    md_to_pdf,
+    pdf_to_txt,
 )
 
 # ---------- CONFIG ----------
@@ -44,15 +52,24 @@ table = dynamodb.Table(TABLE_NAME)
 
 # ---------- TOOL ROUTING ----------
 TOOL_HANDLERS = {
-    "word-to-pdf": word_to_pdf.convert,
-    "ppt-to-pdf": ppt_to_pdf.convert,
+    # existing
+    "word-to-pdf":  word_to_pdf.convert,
+    "ppt-to-pdf":   ppt_to_pdf.convert,
     "excel-to-pdf": excel_to_pdf.convert,
-    "pdf-to-word": pdf_to_word.convert,
-    "pdf-to-ppt": pdf_to_ppt.convert,
+    "pdf-to-word":  pdf_to_word.convert,
+    "pdf-to-ppt":   pdf_to_ppt.convert,
     "pdf-to-excel": pdf_to_excel.convert,
-    "scan-to-pdf": scan_to_pdf.convert,
-    "pdf-to-pdfa": pdf_to_pdfa.convert,
+    "scan-to-pdf":  scan_to_pdf.convert,
+    "pdf-to-pdfa":  pdf_to_pdfa.convert,
     # "ocr" handled specially below — needs file_key for async Textract
+    # new document converters
+    "txt-to-pdf":   txt_to_pdf.convert,
+    "rtf-to-pdf":   rtf_to_pdf.convert,
+    "odt-to-pdf":   odt_to_pdf.convert,
+    "csv-to-pdf":   csv_to_pdf.convert,
+    "epub-to-pdf":  epub_to_pdf.convert,
+    "md-to-pdf":    md_to_pdf.convert,
+    "pdf-to-txt":   pdf_to_txt.convert,
 }
 
 

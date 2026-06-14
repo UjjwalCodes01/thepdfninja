@@ -15,14 +15,19 @@ mkdir -p "$LAYER_DIR/python"
 mkdir -p "$LAYER_DIR/bin"
 mkdir -p "$LAYER_DIR/lib"
 
-# 1. Python deps using Docker (matches Lambda runtime)
-echo "[1/3] Installing Python deps via Docker..."
+# 1. Python deps + system libs using Docker (matches Lambda runtime)
+echo "[1/3] Installing Python deps + native libs via Docker..."
 docker run --rm \
     -v "$LAYER_DIR/python":/out \
     -v "$PROJECT_DIR/lambda/easy_tools/requirements.txt":/req.txt \
     --platform linux/amd64 \
     public.ecr.aws/sam/build-python3.11:latest \
-    pip install -r /req.txt -t /out
+    bash -c "
+      apt-get update -qq && \
+      apt-get install -y -q libcairo2 libpango-1.0-0 libpangocairo-1.0-0 \
+                            libgdk-pixbuf2.0-0 libheif-dev && \
+      pip install -r /req.txt -t /out
+    "
 
 # 2. Download pre-built binaries (qpdf, ghostscript, poppler, wkhtmltopdf)
 echo "[2/3] Downloading binaries..."

@@ -17,6 +17,7 @@ QUEUE_URL = os.environ["QUEUE_URL"]
 BUCKET = os.environ["BUCKET_NAME"]
 
 HEAVY_TOOLS = {
+    # existing
     "word-to-pdf",
     "ppt-to-pdf",
     "excel-to-pdf",
@@ -26,6 +27,14 @@ HEAVY_TOOLS = {
     "scan-to-pdf",
     "pdf-to-pdfa",
     "ocr",
+    # new document converters
+    "txt-to-pdf",
+    "rtf-to-pdf",
+    "odt-to-pdf",
+    "csv-to-pdf",
+    "epub-to-pdf",
+    "md-to-pdf",
+    "pdf-to-txt",
 }
 
 
