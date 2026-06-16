@@ -24,6 +24,7 @@ ssh -o StrictHostKeyChecking=no ubuntu@"$EC2_IP" <<EOF
     sudo aws s3 cp s3://$BUCKET/_deploy/worker.py /opt/pdfninja/worker.py
     sudo aws s3 sync s3://$BUCKET/_deploy/converters/ /opt/pdfninja/converters/ --delete
     sudo chown -R worker:worker /opt/pdfninja
+    sudo su - worker -c 'pip3 install markdown'
     sudo systemctl restart pdfninja
     sudo systemctl status pdfninja --no-pager
 EOF
