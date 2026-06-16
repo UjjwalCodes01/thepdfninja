@@ -12,6 +12,25 @@ interface ToolProcessorProps {
   onReset: () => void;
 }
 
+// Browser often returns empty string for text-based file types.
+// This map ensures we always send the correct MIME type to the server.
+const MIME_FALLBACKS: Record<string, string> = {
+  '.txt':  'text/plain',
+  '.csv':  'text/csv',
+  '.md':   'text/markdown',
+  '.rtf':  'application/rtf',
+  '.epub': 'application/epub+zip',
+  '.odt':  'application/vnd.oasis.opendocument.text',
+  '.html': 'text/html',
+  '.htm':  'text/html',
+};
+
+function getContentType(file: File): string {
+  if (file.type) return file.type;
+  const ext = '.' + file.name.split('.').pop()?.toLowerCase();
+  return MIME_FALLBACKS[ext] || 'application/octet-stream';
+}
+
 export default function ToolProcessor({ tool, files, options, onSuccess, onError, apiPath, isAsync, onReset }: ToolProcessorProps) {
   const [status, setStatus] = useState<'idle' | 'uploading' | 'processing' | 'done' | 'error'>('idle');
   const [progress, setProgress] = useState(0);
@@ -21,6 +40,12 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
   const [pdfInfoData, setPdfInfoData] = useState<any>(null);
 
   const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.thepdfninja.com';
+
+  // Auto-start processing as soon as this component mounts
+  useEffect(() => {
+    startProcess();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const startProcess = async () => {
     setStatus('uploading');
@@ -36,25 +61,26 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
       const fileKeys: string[] = [];
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
+        const contentType = getContentType(file);
         
         // Get presigned URL
         const uploadRes = await fetch(`${apiUrl}/v1/upload`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ filename: file.name, content_type: file.type || 'application/pdf' })
+          body: JSON.stringify({ filename: file.name, content_type: contentType })
         });
         
         if (!uploadRes.ok) throw new Error('Failed to secure upload link from server.');
         const { upload_url, file_key } = await uploadRes.json();
 
-        // Put file to S3
+        // Put file to S3 — Content-Type must match the presigned URL exactly
         const putRes = await fetch(upload_url, {
           method: 'PUT',
-          headers: { 'Content-Type': file.type || 'application/pdf' },
+          headers: { 'Content-Type': contentType },
           body: file
         });
 
-        if (!putRes.ok) throw new Error(`Failed to upload ${file.name}`);
+        if (!putRes.ok) throw new Error(`Failed to upload ${file.name} (HTTP ${putRes.status})`);
         fileKeys.push(file_key);
         
         // Update progress roughly
@@ -143,11 +169,8 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
       {status === 'idle' && (
         <div className="anim-fade-up">
           <p style={{ fontWeight: 600, fontSize: '1.1rem', marginBottom: '16px', color: 'var(--text)' }}>
-            Ready to process {files.length} file{files.length !== 1 ? 's' : ''}
+            Starting…
           </p>
-          <button onClick={startProcess} className="btn btn-primary btn-lg" style={{ width: '100%', maxWidth: '300px' }}>
-            Process PDF
-          </button>
         </div>
       )}
 
