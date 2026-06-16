@@ -70,21 +70,61 @@ export default function ToolPageClient({ config, toolSlug }: { config: ToolConfi
                 <label style={{ display: 'block', fontSize: '0.9rem', fontWeight: 600, color: 'var(--text)', marginBottom: '8px' }}>
                   {opt.label}
                 </label>
-                {opt.type === 'select' ? (
-                  <select
-                    className="input"
-                    value={options[opt.key]}
-                    onChange={e => setOptions({ ...options, [opt.key]: e.target.value })}
-                  >
-                    {opt.options?.map(c => <option key={c} value={c}>{c}</option>)}
-                  </select>
+                {opt.key === 'pages' ? (
+                  <div>
+                    <div style={{ display: 'flex', gap: '12px', marginBottom: options[opt.key] !== 'all' ? '12px' : '0' }}>
+                      <button
+                        className={`btn ${options[opt.key] === 'all' ? 'btn-primary' : 'btn-outline'}`}
+                        onClick={() => setOptions({ ...options, [opt.key]: 'all' })}
+                        style={{ flex: 1, padding: '10px' }}
+                      >
+                        All Pages
+                      </button>
+                      <button
+                        className={`btn ${options[opt.key] !== 'all' ? 'btn-primary' : 'btn-outline'}`}
+                        onClick={() => setOptions({ ...options, [opt.key]: options[opt.key] === 'all' ? '' : options[opt.key] })}
+                        style={{ flex: 1, padding: '10px' }}
+                      >
+                        Specific Pages
+                      </button>
+                    </div>
+                    {options[opt.key] !== 'all' && (
+                      <div className="anim-fade-up">
+                        <input
+                          type="text"
+                          className="input"
+                          placeholder="e.g. 1, 3, 5-10"
+                          value={options[opt.key]}
+                          onChange={e => setOptions({ ...options, [opt.key]: e.target.value })}
+                          autoFocus
+                        />
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '6px' }}>
+                          Enter comma-separated pages or ranges.
+                        </p>
+                      </div>
+                    )}
+                  </div>
+                ) : opt.type === 'select' ? (
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                    {opt.options?.map(c => (
+                      <button
+                        key={c}
+                        className={`btn ${options[opt.key] === c ? 'btn-primary' : 'btn-outline'}`}
+                        onClick={() => setOptions({ ...options, [opt.key]: c })}
+                        style={{ flex: 1, minWidth: '80px', padding: '10px', fontSize: '1rem' }}
+                      >
+                        {c}{opt.key === 'angle' ? '° ↻' : ''}
+                      </button>
+                    ))}
+                  </div>
                 ) : opt.type === 'number' ? (
                   <input
                     type="number"
                     className="input"
                     min={opt.min} max={opt.max}
+                    step={opt.key === 'opacity' ? 0.1 : 1}
                     value={options[opt.key]}
-                    onChange={e => setOptions({ ...options, [opt.key]: parseInt(e.target.value) })}
+                    onChange={e => setOptions({ ...options, [opt.key]: opt.key === 'opacity' ? parseFloat(e.target.value) : parseInt(e.target.value) })}
                   />
                 ) : opt.type === 'text' ? (
                   <input
