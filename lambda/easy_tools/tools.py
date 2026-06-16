@@ -905,20 +905,32 @@ def image_to_grayscale(input_paths, output_path, options):
 
 # ── PDF → PNG ──────────────────────────────────────────────
 def pdf_to_png(input_paths, output_path, options):
+    # Use PyMuPDF (fitz) — already in the Lambda layer, zero system deps.
+    # pdf2image/poppler is NOT available in Lambda.
+    import fitz
     import zipfile
-    from pdf2image import convert_from_path
+
     dpi = int(options.get("dpi", 150))
-    images = convert_from_path(input_paths[0], dpi=dpi)
-    if len(images) == 1:
+    mat = fitz.Matrix(dpi / 72, dpi / 72)
+
+    doc = fitz.open(input_paths[0])
+    pages = list(doc.pages())
+
+    if len(pages) == 1:
         output = output_path + ".png"
-        images[0].save(output, "PNG")
+        pix = pages[0].get_pixmap(matrix=mat, alpha=False)
+        pix.save(output)
+        doc.close()
         return output
+
     zip_path = output_path + ".zip"
     with zipfile.ZipFile(zip_path, "w") as zf:
-        for i, img in enumerate(images):
+        for i, page in enumerate(pages):
+            pix = page.get_pixmap(matrix=mat, alpha=False)
             p = f"/tmp/page_{i+1}.png"
-            img.save(p, "PNG")
+            pix.save(p)
             zf.write(p, f"page_{i+1}.png")
+    doc.close()
     return zip_path
 
 
@@ -961,14 +973,34 @@ def extract_pages(input_paths, output_path, options):
 
 # ── PDF → TIFF ─────────────────────────────────────────────
 def pdf_to_tiff(input_paths, output_path, options):
-    from pdf2image import convert_from_path
+    # Use PyMuPDF (fitz) — already in the Lambda layer, zero system deps.
+    # pdf2image/poppler is NOT available in Lambda.
+    import fitz
+    from PIL import Image
+    import io
+
     dpi = int(options.get("dpi", 200))
     output = output_path + ".tiff"
-    images = convert_from_path(input_paths[0], dpi=dpi)
-    if len(images) == 1:
-        images[0].save(output, "TIFF")
+    mat = fitz.Matrix(dpi / 72, dpi / 72)  # 72 pt/inch → scale to target DPI
+
+    doc = fitz.open(input_paths[0])
+    pil_images = []
+    for page in doc:
+        pix = page.get_pixmap(matrix=mat, alpha=False)
+        img = Image.open(io.BytesIO(pix.tobytes("png")))
+        pil_images.append(img.convert("RGB"))
+    doc.close()
+
+    if not pil_images:
+        raise ValueError("PDF has no pages")
+
+    if len(pil_images) == 1:
+        pil_images[0].save(output, "TIFF", dpi=(dpi, dpi))
     else:
-        images[0].save(output, "TIFF", save_all=True, append_images=images[1:])
+        pil_images[0].save(
+            output, "TIFF", dpi=(dpi, dpi),
+            save_all=True, append_images=pil_images[1:]
+        )
     return output
 
 
