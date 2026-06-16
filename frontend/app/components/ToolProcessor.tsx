@@ -207,10 +207,44 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
           <h3 style={{ fontWeight: 800, fontSize: '1.4rem', color: 'var(--text)', marginBottom: '8px' }}>Task Complete!</h3>
           
           {tool === 'pdf-info' && pdfInfoData ? (
-            <div style={{ textAlign: 'left', background: 'var(--bg)', padding: '16px', borderRadius: 'var(--radius)', marginBottom: '24px', overflowX: 'auto', fontSize: '0.9rem' }}>
-              <pre style={{ margin: 0, color: 'var(--text)' }}>
-                {JSON.stringify(pdfInfoData, null, 2)}
-              </pre>
+            <div style={{ textAlign: 'left', background: 'var(--bg)', border: '1px solid var(--border)', padding: '24px', borderRadius: 'var(--radius)', marginBottom: '24px', color: 'var(--text)', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.05)' }}>
+              <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginBottom: '16px', borderBottom: '1px solid var(--border)', paddingBottom: '12px' }}>Document Properties</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Pages</span>
+                  <span style={{ fontWeight: 600, fontSize: '1.2rem' }}>{pdfInfoData.page_count || 0}</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>File Size</span>
+                  <span style={{ fontWeight: 600, fontSize: '1.2rem' }}>{pdfInfoData.file_size_kb ? `${pdfInfoData.file_size_kb.toLocaleString()} KB` : 'N/A'}</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Page Size</span>
+                  <span style={{ fontWeight: 600, fontSize: '1.2rem' }}>{pdfInfoData.page_size_mm ? `${Math.round(pdfInfoData.page_size_mm.width)} × ${Math.round(pdfInfoData.page_size_mm.height)} mm` : 'Unknown'}</span>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                  <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Encrypted</span>
+                  <span style={{ fontWeight: 600, fontSize: '1.2rem', color: pdfInfoData.encrypted ? 'var(--orange)' : 'var(--text)' }}>{pdfInfoData.encrypted ? 'Yes 🔒' : 'No 🔓'}</span>
+                </div>
+              </div>
+
+              <h4 style={{ fontSize: '1.2rem', fontWeight: 700, marginTop: '32px', marginBottom: '16px', borderBottom: '1px solid var(--border)', paddingBottom: '12px' }}>Metadata</h4>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px' }}>
+                {[
+                  { label: 'Title', value: pdfInfoData.title },
+                  { label: 'Author', value: pdfInfoData.author },
+                  { label: 'Creator', value: pdfInfoData.creator },
+                  { label: 'Producer', value: pdfInfoData.producer },
+                  { label: 'Subject', value: pdfInfoData.subject },
+                ].map((item, i) => (
+                  item.value ? (
+                    <div key={i} style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>{item.label}</span>
+                      <span style={{ fontWeight: 500, fontSize: '1rem', wordBreak: 'break-word' }}>{item.value}</span>
+                    </div>
+                  ) : null
+                ))}
+              </div>
             </div>
           ) : (
             <p style={{ color: 'var(--text-muted)', marginBottom: '24px' }}>Your file has been successfully processed.</p>
