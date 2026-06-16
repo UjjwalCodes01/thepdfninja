@@ -27,6 +27,7 @@ DEBIAN_FRONTEND=noninteractive apt-get install -y \
     poppler-utils \
     calibre \
     librsvg2-bin \
+    wkhtmltopdf \
     git \
     unzip \
     awscli
