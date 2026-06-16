@@ -20,8 +20,7 @@ export default function ToolPageClient({ config, toolSlug }: { config: ToolConfi
     if (nextFiles.length > 0) {
       if (!config.multiFile) {
         // Only auto-advance for single-file tools
-        const needsOptions = config.options?.some(opt => opt.defaultValue === undefined || opt.defaultValue === '');
-        if (config.options?.length && needsOptions) {
+        if (config.options?.length) {
           setStep('options');
         } else {
           setStep('process');
@@ -51,10 +50,9 @@ export default function ToolPageClient({ config, toolSlug }: { config: ToolConfi
         {files.length > 0 && (
           <div style={{ marginTop: '24px', textAlign: 'center' }}>
              <button className="btn btn-primary btn-lg" onClick={() => {
-               const needsOptions = config.options?.some(opt => opt.defaultValue === undefined || opt.defaultValue === '');
-               setStep(config.options?.length && needsOptions ? 'options' : 'process');
+               setStep(config.options?.length ? 'options' : 'process');
              }}>
-               {config.options?.length && config.options.some(opt => opt.defaultValue === undefined || opt.defaultValue === '') ? 'Configure Options →' : 'Process PDF →'}
+               {config.options?.length ? 'Configure Options →' : 'Process PDF →'}
              </button>
           </div>
         )}
