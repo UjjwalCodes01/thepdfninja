@@ -34,17 +34,21 @@ def run(input_path: str, output_path: str, options: dict) -> str:
         buf = io.BytesIO()
         doc = fitz.open(input_path)
         out_doc = fitz.open()
+        
+        zoom = dpi / 72
+        mat = fitz.Matrix(zoom, zoom)
+        
         for page in doc:
-            pix = page.get_pixmap(dpi=dpi, colorspace=fitz.csRGB)
-            img_pdf = fitz.open("pdf", pix.pdfocr_tobytes())
-            out_doc.insert_pdf(img_pdf)
+            pix = page.get_pixmap(matrix=mat, alpha=False)
+            img_bytes = pix.tobytes("jpeg", jpg_quality=jpeg_q)
+            new_page = out_doc.new_page(width=page.rect.width, height=page.rect.height)
+            new_page.insert_image(new_page.rect, stream=img_bytes)
 
         out_doc.save(
             buf,
             deflate=True,
             garbage=4,
             clean=True,
-            linear=False,
         )
         doc.close()
         out_doc.close()
@@ -69,10 +73,12 @@ def run(input_path: str, output_path: str, options: dict) -> str:
         buf = io.BytesIO()
         doc = fitz.open(input_path)
         out_doc = fitz.open()
+        mat = fitz.Matrix(30 / 72, 30 / 72)
         for page in doc:
-            pix = page.get_pixmap(dpi=30, colorspace=fitz.csRGB)
-            img_pdf = fitz.open("pdf", pix.pdfocr_tobytes())
-            out_doc.insert_pdf(img_pdf)
+            pix = page.get_pixmap(matrix=mat, alpha=False)
+            img_bytes = pix.tobytes("jpeg", jpg_quality=15)
+            new_page = out_doc.new_page(width=page.rect.width, height=page.rect.height)
+            new_page.insert_image(new_page.rect, stream=img_bytes)
         out_doc.save(buf, deflate=True, garbage=4, clean=True)
         doc.close()
         out_doc.close()
