@@ -35,6 +35,7 @@ HEAVY_TOOLS = {
     "epub-to-pdf",
     "md-to-pdf",
     "pdf-to-txt",
+    "compress-to-size",
 }
 
 
