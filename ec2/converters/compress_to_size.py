@@ -23,6 +23,18 @@ def run(input_path: str, output_path: str, options: dict) -> str:
         shutil.copy(input_path, output_path)
         return output_path
 
+    # First, try a lossless \"light\" compression (just cleaning up garbage and deflating)
+    light_buf = io.BytesIO()
+    doc_light = fitz.open(input_path)
+    doc_light.save(light_buf, garbage=4, deflate=True, clean=True)
+    doc_light.close()
+    
+    light_size = light_buf.tell()
+    if light_size <= target_bytes:
+        with open(output_path, "wb") as f:
+            f.write(light_buf.getvalue())
+        return output_path
+
     best_result = None
     best_size = float("inf")
 
@@ -55,9 +67,12 @@ def run(input_path: str, output_path: str, options: dict) -> str:
 
         size = buf.tell()
 
-        if size <= target_bytes:
-            best_result = buf.getvalue()
+        # Track the smallest size we've seen, even if it doesn't hit the target
+        if size < best_size:
             best_size = size
+            best_result = buf.getvalue()
+
+        if size <= target_bytes:
             dpi_low = dpi + 1  # Try higher quality
         else:
             dpi_high = dpi - 1  # Need to compress more
@@ -65,24 +80,16 @@ def run(input_path: str, output_path: str, options: dict) -> str:
         if dpi_low > dpi_high:
             break
 
-    if best_result:
+    # Final check: if even the rasterized version is larger than our light compression,
+    # or larger than the original file, fallback to the light compression.
+    if best_size > min(original_size, light_size):
+        if light_size < original_size:
+            with open(output_path, "wb") as f:
+                f.write(light_buf.getvalue())
+        else:
+            shutil.copy(input_path, output_path)
+    else:
         with open(output_path, "wb") as f:
             f.write(best_result)
-    else:
-        # Even at lowest quality it's still too big — just save lowest quality attempt
-        buf = io.BytesIO()
-        doc = fitz.open(input_path)
-        out_doc = fitz.open()
-        mat = fitz.Matrix(30 / 72, 30 / 72)
-        for page in doc:
-            pix = page.get_pixmap(matrix=mat, alpha=False)
-            img_bytes = pix.tobytes("jpeg", jpg_quality=15)
-            new_page = out_doc.new_page(width=page.rect.width, height=page.rect.height)
-            new_page.insert_image(new_page.rect, stream=img_bytes)
-        out_doc.save(buf, deflate=True, garbage=4, clean=True)
-        doc.close()
-        out_doc.close()
-        with open(output_path, "wb") as f:
-            f.write(buf.getvalue())
 
     return output_path
