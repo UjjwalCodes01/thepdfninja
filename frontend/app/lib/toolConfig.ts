@@ -1145,7 +1145,7 @@ export const TOOLS: Record<string, ToolConfig> = {
     tagline: 'Exact file sizes',
     description: 'Compress your PDF file to be exactly under a specific size (e.g. under 200KB) for government portals.',
     category: 'Optimize',
-    type: 'easy',
+    type: 'async',
     icon: '🗜️',
     ninjaWeapon: 'Iron Fan',
     ninjaImage: '/ninja_compress.png',

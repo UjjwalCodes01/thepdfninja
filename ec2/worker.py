@@ -36,6 +36,7 @@ from converters import (
     epub_to_pdf,
     md_to_pdf,
     pdf_to_txt,
+    compress_to_size,
 )
 
 # ---------- CONFIG ----------
@@ -69,7 +70,8 @@ TOOL_HANDLERS = {
     "csv-to-pdf":   csv_to_pdf.convert,
     "epub-to-pdf":  epub_to_pdf.convert,
     "md-to-pdf":    md_to_pdf.convert,
-    "pdf-to-txt":   pdf_to_txt.convert,
+    "pdf-to-txt":        pdf_to_txt.convert,
+    "compress-to-size":  compress_to_size.run,
 }
 
 
