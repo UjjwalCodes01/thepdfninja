@@ -32,5 +32,17 @@ export const pdfToPptContent = {
       "Anonymous Processing: We never ask for your email address to deliver the file. The conversion happens instantly in your browser, and the download begins automatically."
     ]
   },
-  security: "Business presentations often contain highly proprietary data, upcoming product roadmaps, or confidential financial projections. ThePDFNinja is engineered to ensure this data remains completely private. We secure your file transfer using 256-bit AES encryption, preventing interception. The conversion to PowerPoint takes place entirely within an isolated, sandboxed cloud server—no human ever views your slides. To guarantee your absolute security, our automated privacy protocol deletes both your original PDF and the newly generated .pptx file from our servers within one hour of processing."
+  security: "Business presentations often contain highly proprietary data, upcoming product roadmaps, or confidential financial projections. ThePDFNinja is engineered to ensure this data remains completely private. We secure your file transfer using 256-bit AES encryption, preventing interception. The conversion to PowerPoint takes place entirely within an isolated, sandboxed cloud server—no human ever views your slides. To guarantee your absolute security, our automated privacy protocol deletes both your original PDF and the newly generated .pptx file from our servers within one hour of processing.",
+  faqs: [
+    { q: "Will my PDF layout be preserved as slides?", a: "Yes, our converter matches each page of your PDF to an individual PowerPoint slide, maintaining the placement of text boxes, images, and backgrounds." },
+    { q: "Can I edit the text in the converted PPT slide?", a: "Yes, the converter attempts to reconstruct the PDF text into editable PowerPoint text blocks, allowing you to update contents and change fonts easily." },
+    { q: "Can I convert scanned PDFs to PowerPoint?", a: "Yes, the tool uses OCR to recognize text on scanned pages, turning the image snapshots into editable slides with editable text layers." },
+    { q: "Is there a page limit for converting to PPT?", a: "No, you can convert multi-page decks up to 100MB completely free." },
+    { q: "Are my business decks secure?", a: "Absolutely. All presentation files are processed in isolated virtual servers and permanently deleted within one hour." },
+  ],
+  whyUse: [
+    "Turn static PDF files and reports into editable Microsoft PowerPoint presentations instantly.",
+    "Maintain slide structures, text positions, and image placements without starting from scratch.",
+    "Free browser conversion with OCR support, zero download caps, and automated file deletion.",
+  ]
 };

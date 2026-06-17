@@ -3,7 +3,7 @@ import ComparePage from '../ComparePageTemplate';
 
 export const metadata: Metadata = {
   title: 'Best Free Smallpdf Alternative 2025 — Unlimited, No Account | ThePDFNinja',
-  description: 'The best free Smallpdf alternative with no 2-task daily limit. ThePDFNinja gives you 56 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks, unlimited.',
+  description: 'The best free Smallpdf alternative with no 2-task daily limit. ThePDFNinja gives you 65 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks, unlimited.',
   alternates: { canonical: 'https://thepdfninja.com/compare/smallpdf-alternative' },
   openGraph: {
     url: 'https://thepdfninja.com/compare/smallpdf-alternative',
@@ -20,13 +20,13 @@ export default function SmallpdfAlternativePage() {
       competitor="Smallpdf"
       slug="smallpdf-alternative"
       headline="Smallpdf Alternative — No 2-Task Limit"
-      hook="Smallpdf restricts free users to just 2 tasks per day and requires an account. ThePDFNinja gives you all 56 PDF tools — unlimited, free, no account needed, no file size restrictions."
+      hook="Smallpdf restricts free users to just 2 tasks per day and requires an account. ThePDFNinja gives you all 65 PDF tools — unlimited, free, no account needed, no file size restrictions."
       statsBar={[
         { stat: 'Unlimited', label: 'Daily Use' },
         { stat: '0', label: 'Account Required' },
         { stat: '100MB', label: 'Max File Size' },
         { stat: '0', label: 'Watermarks' },
-        { stat: '56', label: 'Free Tools' },
+        { stat: '65', label: 'Free Tools' },
         { stat: '$0', label: 'Price Forever' },
       ]}
       compareRows={[
@@ -34,11 +34,13 @@ export default function SmallpdfAlternativePage() {
         { feature: 'Daily task limit', them: 'Only 2 free tasks per day', us: 'Unlimited — no caps ever' },
         { feature: 'Account required', them: 'Yes — required for most tools', us: 'Never — zero signup required' },
         { feature: 'Watermarks on output', them: 'Added on some free-plan outputs', us: 'Never — all tools watermark-free' },
-        { feature: 'File size (free)', them: '5MB cap on some tools', us: '100MB — all tools, all users' },
+        { feature: 'Max file size (any tier)', them: 'Up to 2GB (on Pro plans)', us: 'Strict 100MB limit per file' },
+        { feature: 'Offline support', them: 'Desktop & Mobile apps available', us: 'No — Web-only (requires internet)' },
+        { feature: 'Cloud integrations', them: 'Direct Google Drive & Dropbox sync', us: 'No — Manual upload/download only' },
         { feature: 'File auto-deletion', them: '1 hour', us: 'Within 1 hour — guaranteed' },
         { feature: 'OCR / AI tools', them: 'Pro plan only — starts at $9/mo', us: '100% free — AWS Textract AI' },
         { feature: 'PDF to Word', them: 'Limited quality on free plan', us: '100% free — full quality output' },
-        { feature: 'Total free tools', them: '21 (many behind paywall)', us: '56 — all completely free' },
+        { feature: 'Total free tools', them: '21 (many behind paywall)', us: '65 — all completely free' },
       ]}
       whySwitchItems={[
         { title: 'No 2-task daily limit — ever', body: "Smallpdf's free plan is famously restrictive — just 2 tasks per day before you hit a wall. ThePDFNinja has zero daily limits. Process as many PDFs as you need, any day, forever free." },
@@ -63,7 +65,7 @@ export default function SmallpdfAlternativePage() {
       faqSchema={[
         { '@type': 'Question', name: 'Is ThePDFNinja better than Smallpdf for free users?', acceptedAnswer: { '@type': 'Answer', text: "Yes. Smallpdf limits free users to 2 tasks/day, requires an account, and caps files at 5MB. ThePDFNinja is unlimited, free, no account, 100MB files." } },
         { '@type': 'Question', name: "What is Smallpdf's daily free limit?", acceptedAnswer: { '@type': 'Answer', text: "Smallpdf free plan = 2 tasks/day. ThePDFNinja has no daily limit — ever." } },
-        { '@type': 'Question', name: 'Does ThePDFNinja add watermarks like Smallpdf?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja never adds watermarks. All 56 tools are completely watermark-free for all users.' } },
+        { '@type': 'Question', name: 'Does ThePDFNinja add watermarks like Smallpdf?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja never adds watermarks. All 65 tools are completely watermark-free for all users.' } },
       ]}
     />
   );

@@ -3,14 +3,14 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About ThePDFNinja — Free PDF Tools Built by Anaya Digital',
-  description: 'Learn about ThePDFNinja, built by Anaya Digital Marketing Agency. Our mission: free, fast, and private PDF tools for everyone. 56 tools, no signup, no watermarks.',
+  description: 'Learn about ThePDFNinja, built by Anaya Digital Marketing Agency. Our mission: free, fast, and private PDF tools for everyone. 65 tools, no signup, no watermarks.',
   alternates: {
     canonical: 'https://thepdfninja.com/about',
   },
   openGraph: {
     url: 'https://thepdfninja.com/about',
     title: 'About ThePDFNinja — Free PDF Tools Built by Anaya Digital',
-    description: 'ThePDFNinja provides 56 free online PDF tools with no account required. Built and maintained by Anaya Digital Marketing Agency.',
+    description: 'ThePDFNinja provides 65 free online PDF tools with no account required. Built and maintained by Anaya Digital Marketing Agency.',
     images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — About Us' }],
   },
 };
@@ -37,7 +37,7 @@ export default function AboutPage() {
             name: 'ThePDFNinja',
             url: 'https://thepdfninja.com',
             logo: 'https://thepdfninja.com/og-image.png',
-            description: 'ThePDFNinja provides 56 free online PDF tools including merge, split, compress, convert PDF to Word, Excel, JPG, and more. Built by Anaya Digital.',
+            description: 'ThePDFNinja provides 65 free online PDF tools including merge, split, compress, convert PDF to Word, Excel, JPG, and more. Built by Anaya Digital.',
             foundingDate: '2025',
             founder: {
               '@type': 'Organization',
@@ -76,7 +76,7 @@ export default function AboutPage() {
         <div className="container-wide">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
-              { stat: '56', label: 'Free PDF Tools' },
+              { stat: '65', label: 'Free PDF Tools' },
               { stat: '2025', label: 'Founded' },
               { stat: '100MB', label: 'Max File Size' },
               { stat: '1 hr', label: 'File Auto-Delete' },
@@ -126,7 +126,7 @@ export default function AboutPage() {
               PDF is the universal language of documents on the internet. Yet editing and manipulating them has remained surprisingly difficult without expensive proprietary software. ThePDFNinja democratizes document management.
             </p>
             <p>
-              By leveraging modern web technologies — including a <strong>Next.js</strong> frontend, <strong>AWS Lambda</strong> serverless processing, and <strong>Ghostscript / LibreOffice</strong> on the backend — we offer 56 premium-grade PDF tools directly in your browser. No installation, no account, no friction.
+              By leveraging modern web technologies — including a <strong>Next.js</strong> frontend, <strong>AWS Lambda</strong> serverless processing, and <strong>Ghostscript / LibreOffice</strong> on the backend — we offer 65 premium-grade PDF tools directly in your browser. No installation, no account, no friction.
             </p>
 
             <h2>What We Offer</h2>
@@ -152,7 +152,7 @@ export default function AboutPage() {
 
             <h2>Always Free — Here&rsquo;s How</h2>
             <p>
-              You might wonder how we can offer 56 complex tools for free. ThePDFNinja is supported by minimal, non-intrusive advertising (Google AdSense) and efficient serverless infrastructure on AWS. This allows us to keep the core service 100% free forever, with no watermarks, no file limits, and no required accounts.
+              You might wonder how we can offer 65 complex tools for free. ThePDFNinja is supported by minimal, non-intrusive advertising (Google AdSense) and efficient serverless infrastructure on AWS. This allows us to keep the core service 100% free forever, with no watermarks, no file limits, and no required accounts.
             </p>
 
             <h2>Technology Stack</h2>
@@ -182,7 +182,7 @@ export default function AboutPage() {
             </div>
             <div style={{ marginTop: '24px', textAlign: 'center' }}>
               <Link href="/tools" className="btn btn-primary btn-lg">
-                View All 56 Tools
+                View All 65 Tools
               </Link>
             </div>
           </div>

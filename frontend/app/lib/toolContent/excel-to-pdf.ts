@@ -32,5 +32,17 @@ export const excelToPdfContent = {
       "Instant Cloud Processing: Trying to render a massive spreadsheet with thousands of rows into a PDF can freeze a standard laptop. We offload this intensive process to our high-performance AWS cloud servers, delivering results instantly."
     ]
   },
-  security: "Financial models, employee rosters, and business budgets contain highly confidential information. ThePDFNinja guarantees absolute privacy when converting your spreadsheets. Your Excel files are uploaded over a secure 256-bit AES encrypted connection. The conversion to PDF occurs within an isolated, automated cloud server—no human will ever see your financial data. To ensure total security, both the original Excel file you uploaded and the resulting PDF are permanently and irretrievably deleted from our servers within one hour of conversion. Your proprietary data remains entirely yours."
+  security: "Financial models, employee rosters, and business budgets contain highly confidential information. ThePDFNinja guarantees absolute privacy when converting your spreadsheets. Your Excel files are uploaded over a secure 256-bit AES encrypted connection. The conversion to PDF occurs within an isolated, automated cloud server—no human will ever see your financial data. To ensure total security, both the original Excel file you uploaded and the resulting PDF are permanently and irretrievably deleted from our servers within one hour of conversion. Your proprietary data remains entirely yours.",
+  faqs: [
+    { q: "Will my spreadsheet gridlines appear in the PDF?", a: "You can configure whether to display or hide gridlines in the final PDF, allowing you to choose between a raw spreadsheet look or a clean, professional table format." },
+    { q: "How does the tool handle multiple sheets in an Excel file?", a: "Our converter automatically converts all active worksheets inside your Excel workbook, rendering each sheet into a separate section of the PDF, or you can select specific sheets to convert." },
+    { q: "Can I fit my Excel sheet onto a single PDF page width?", a: "Yes, our engine fits the columns to the A4 or Letter page width in landscape or portrait mode, ensuring your columns are not awkwardly split across pages." },
+    { q: "Does this tool support formulas?", a: "The converter reads the calculated values of all cells. It does not display the formulas themselves, ensuring your proprietary formulas remain private while the data is fully visible." },
+    { q: "Is there a row limit for Excel files?", a: "No. Our cloud-based conversion engine handles massive spreadsheets with thousands of rows, processing them efficiently in the cloud." },
+  ],
+  whyUse: [
+    "Lock your spreadsheet data and formatting into a universally viewable PDF that cannot be accidentally modified.",
+    "Ensure complex charts, tables, and graphs look professional and render identically on all screens.",
+    "Protect proprietary business logic by exporting only cell values, without sharing the formulas.",
+  ]
 };

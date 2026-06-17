@@ -32,5 +32,16 @@ export const protectContent = {
       "Zero Account Requirements: You don't need to hand over your email address to secure a document. Our tool is instantaneous, anonymous, and requires no sign-up."
     ]
   },
-  security: "When you use ThePDFNinja to password-protect a document, you are utilizing an architecture built entirely around privacy. Your original, unencrypted file is uploaded via a secure TLS connection. The AES encryption process happens within an isolated, sandboxed server environment. Once the encryption is complete, our automated systems instantly trigger a deletion protocol. Your original file and the newly encrypted PDF are permanently and irretrievably purged from our servers within one hour. We retain no copies of your document and, crucially, we never log or save the password you created."
+  security: "When you use ThePDFNinja to password-protect a document, you are utilizing an architecture built entirely around privacy. Your original, unencrypted file is uploaded via a secure TLS connection. The AES encryption process happens within an isolated, sandboxed server environment. Once the encryption is complete, our automated systems instantly trigger a deletion protocol. Your original file and the newly encrypted PDF are permanently and irretrievably purged from our servers within one hour. We retain no copies of your document and, crucially, we never log or save the password you created.",
+  faqs: [
+    { q: "What standard of encryption does this tool use to protect my PDF?", a: "We encrypt your PDF using industry-standard AES (Advanced Encryption Standard) with 128-bit or 256-bit keys. This is the same standard used by governments and financial institutions, making brute-force decryption virtually impossible." },
+    { q: "If I forget the password I set, can ThePDFNinja recover or reset it?", a: "No. We utilize a strict zero-knowledge security architecture. The password you type is processed purely in-memory to encrypt the file and is never logged, saved, or sent to our databases. If you lose the password, the document is lost forever." },
+    { q: "Will my password-protected PDF open in any standard PDF reader?", a: "Yes. Our encrypted PDFs follow the official PDF specification. They will open on any device (Mac, Windows, iOS, Android) and in any standard PDF reader (Adobe Acrobat, Chrome, Safari, Apple Preview) once the correct password is entered." },
+    { q: "Can I set passwords for multiple PDF files at once?", a: "Yes, you can upload a batch of PDF documents, apply your desired password, and our system will encrypt each document in parallel, providing them all back to you inside a single ZIP file." }
+  ],
+  whyUse: [
+    "We use standard AES 128/256-bit encryption keys that prevent unauthorized opening, text copying, editing, and printing of your files.",
+    "A zero-knowledge execution environment ensures that your password is never written to disk, keeping your secrets 100% private.",
+    "Get professional-grade security without expensive Adobe Pro licensing, annoying registration screens, or file size constraints, with complete file purging within 1 hour."
+  ]
 };

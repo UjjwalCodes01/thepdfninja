@@ -32,5 +32,16 @@ export const ocrContent = {
       "No Account Required: You don't need to surrender your email address to access our AI tools. You can upload, extract, and download anonymously."
     ]
   },
-  security: "Processing documents with Artificial Intelligence requires transmitting them to powerful cloud servers, which naturally raises privacy concerns. ThePDFNinja is committed to absolute security. Your files are transferred using 256-bit AES encryption. The OCR process occurs within isolated AWS containers, meaning no human ever views your documents. Furthermore, we explicitly opt out of allowing AWS or any other third party to use your uploaded documents to train their machine learning models. Once the text extraction is complete, both your original scan and the resulting searchable PDF are permanently deleted from our servers within one hour."
+  security: "Processing documents with Artificial Intelligence requires transmitting them to powerful cloud servers, which naturally raises privacy concerns. ThePDFNinja is committed to absolute security. Your files are transferred using 256-bit AES encryption. The OCR process occurs within isolated AWS containers, meaning no human ever views your documents. Furthermore, we explicitly opt out of allowing AWS or any other third party to use your uploaded documents to train their machine learning models. Once the text extraction is complete, both your original scan and the resulting searchable PDF are permanently deleted from our servers within one hour.",
+  faqs: [
+    { q: "What is the difference between a normal scanned PDF and an OCR-processed PDF?", a: "A normal scanned PDF contains flat image layers, meaning the text is non-selectable and unsearchable. OCR (Optical Character Recognition) processes these images to detect characters and injects an invisible, selectable text layer directly beneath the visuals, allowing you to search (Ctrl+F) and copy-paste text." },
+    { q: "What languages does the OCR tool support?", a: "Our AI-powered engine supports English, Spanish, French, German, Italian, Portuguese, and standard Latin-script languages, ensuring highly accurate grammatical accents and character recognition." },
+    { q: "Can the OCR engine recognize handwritten text or low-quality camera snapshots?", a: "Our tool utilizes advanced machine learning models that excel at reading low-contrast scans, tilted pages, and digital camera snapshots. While highly readable print handwriting can be extracted, complex cursive or messy handwriting may have reduced accuracy." },
+    { q: "Is there a limit on the number of pages I can OCR?", a: "To ensure stable and fast server processing times, our free OCR tool supports documents up to 50 pages or 100MB. There are no daily limits on the total number of files you can process." }
+  ],
+  whyUse: [
+    "We use enterprise-grade neural networks (powered by AWS Textract core) rather than outdated open-source library engines to ensure maximum layout and word accuracy.",
+    "Our system builds dual-layer PDFs that preserve the exact original scan visuals while embedding a clean, searchable text layer behind it.",
+    "Unlike competitors that charge premium subscriptions or impose daily document limits, we offer unlimited OCR operations up to 50 pages per file with 1-hour automated file purging."
+  ]
 };

@@ -32,5 +32,17 @@ export const repairContent = {
       "Instant Cloud Processing: Attempting to repair a massive file on a slow laptop can cause the machine to freeze. We offload the heavy computational lifting to our AWS cloud servers, delivering results in seconds."
     ]
   },
-  security: "When you are trying to recover a broken document, you are often dealing with highly sensitive or irreplicable data. ThePDFNinja's recovery environment is fortified with 256-bit AES encryption to ensure secure transmission of your corrupted file. The deep-scan repair process is completely automated within an isolated, sandboxed server; no human technician ever views your data. Once the recovery attempt is complete, our automated privacy protocol kicks in. Both your original corrupted file and the salvaged PDF are permanently and irretrievably purged from our servers within one hour. We rescue your data, and then we destroy our copies."
+  security: "When you are trying to recover a broken document, you are often dealing with highly sensitive or irreplicable data. ThePDFNinja's recovery environment is fortified with 256-bit AES encryption to ensure secure transmission of your corrupted file. The deep-scan repair process is completely automated within an isolated, sandboxed server; no human technician ever views your data. Once the recovery attempt is complete, our automated privacy protocol kicks in. Both your original corrupted file and the salvaged PDF are permanently and irretrievably purged from our servers within one hour. We rescue your data, and then we destroy our copies.",
+  faqs: [
+    { q: "How does the PDF Repair tool work?", a: "Our tool scans the binary structure of a corrupt PDF, rebuilds broken cross-reference tables (xref), restores damaged object streams, and recovers whatever page content remains readable." },
+    { q: "Can you repair any broken PDF?", a: "We can repair PDFs with minor structural damage, corrupt headers, or broken indexes. If the file is completely overwritten or has 0 bytes of data, it may be impossible to recover." },
+    { q: "Will repairing a PDF restore deleted text?", a: "No, repair tools restore files that became corrupted during downloads or transfer. It cannot recover text that was intentionally deleted or overwritten." },
+    { q: "Does this work on password-protected PDFs?", a: "You must supply the password to open the file first, as our repair engine must be able to read the decrypted stream to repair internal corruptions." },
+    { q: "Are my files safe during the repair process?", a: "Absolutely. All processing occurs in isolated server environments, and files are permanently purged within one hour." },
+  ],
+  whyUse: [
+    "Recover corrupted, unopenable, or damaged PDF documents by rebuilding their internal structures.",
+    "Restore access to critical data from interrupted downloads or broken email attachments.",
+    "Free, private recovery utility with zero ads in documents and automated file deletion.",
+  ]
 };

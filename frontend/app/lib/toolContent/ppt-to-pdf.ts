@@ -32,5 +32,17 @@ export const pptToPdfContent = {
       "Instant Cloud Processing: Trying to render a massive 100-slide presentation into a PDF can freeze a standard laptop. We offload this intensive process to our high-performance AWS cloud servers, delivering results instantly."
     ]
   },
-  security: "Business pitch decks, financial reviews, and internal training presentations contain highly confidential information. ThePDFNinja guarantees absolute privacy when converting your slides. Your PowerPoint files are uploaded over a secure 256-bit AES encrypted connection. The conversion to PDF occurs within an isolated, automated cloud server—no human will ever see your presentation. To ensure total security, both the original .pptx file you uploaded and the resulting PDF are permanently and irretrievably deleted from our servers within one hour of conversion. Your proprietary data remains entirely yours."
+  security: "Business pitch decks, financial reviews, and internal training presentations contain highly confidential information. ThePDFNinja guarantees absolute privacy when converting your slides. Your PowerPoint files are uploaded over a secure 256-bit AES encrypted connection. The conversion to PDF occurs within an isolated, automated cloud server—no human will ever see your presentation. To ensure total security, both the original .pptx file you uploaded and the resulting PDF are permanently and irretrievably deleted from our servers within one hour of conversion. Your proprietary data remains entirely yours.",
+  faqs: [
+    { q: "Will my PowerPoint animations work in the PDF?", a: "No, PDF is a static document format. Slide transitions, animations, and video playbacks will be converted into static images on their respective pages." },
+    { q: "Does the converter preserve slide dimensions?", a: "Yes, standard 4:3 and widescreen 16:9 PowerPoint layouts are preserved in the PDF, maintaining the slide scale and page boundaries." },
+    { q: "Do I need Microsoft Office to convert PPT to PDF?", a: "No, our cloud-based engine processes PowerPoint files (.ppt and .pptx) without requiring Office or any desktop software." },
+    { q: "Can I convert slides in bulk?", a: "Yes, you can upload multiple slide decks simultaneously and convert them to PDFs, downloading them in a ZIP archive." },
+    { q: "Are my presentations safe?", a: "Yes. All presentation data is processed over secure connections and permanently wiped within one hour." },
+  ],
+  whyUse: [
+    "Lock your presentation slides into a visually stable PDF format for sharing, printing, or projection.",
+    "Ensure fonts, layouts, and image position look identical on any laptop, tablet, or smartphone.",
+    "Free service with no email required, no download limitations, and secure automatic deletion.",
+  ]
 };

@@ -32,5 +32,16 @@ export const organizeContent = {
       "Zero Account Requirements: You can curate, clean up, and reorganize your sensitive documents without ever handing over your email address or personal details."
     ]
   },
-  security: "Reorganizing your documents often involves viewing the contents of highly sensitive files. ThePDFNinja ensures your privacy is protected at every step. We utilize state-of-the-art 256-bit encryption to secure your connection. Our visual thumbnail generation happens dynamically in an isolated environment, and we do not cache or store images of your document pages. Once you apply your changes and download the reorganized PDF, our automated privacy protocol completely purges your original file and the new document from our servers within one hour. Your private documents remain exactly that—private."
+  security: "Reorganizing your documents often involves viewing the contents of highly sensitive files. ThePDFNinja ensures your privacy is protected at every step. We utilize state-of-the-art 256-bit encryption to secure your connection. Our visual thumbnail generation happens dynamically in an isolated environment, and we do not cache or store images of your document pages. Once you apply your changes and download the reorganized PDF, our automated privacy protocol completely purges your original file and the new document from our servers within one hour. Your private documents remain exactly that—private.",
+  faqs: [
+    { q: "What page management tasks can I complete in the organizer?", a: "Our organizer is a multi-action workspace. You can drag and drop pages to reorder them, click the delete icon on specific page thumbnails to remove them, and rotate individual pages to correct scanning alignment issues." },
+    { q: "Can I combine and organize pages from multiple PDF files at once?", a: "Yes, absolutely. You can upload multiple PDF documents into the dashboard. The system will compile all their pages into a single layout grid, allowing you to merge, delete, and re-sequence pages from different sources." },
+    { q: "Is there a page count limit for visual organization?", a: "Our visual drag-and-drop workspace supports up to 200 pages to ensure smooth browser performance. For larger files, we recommend using our PDF Splitter first to manage chapters individually." },
+    { q: "Will the formatting or text quality change after organizing?", a: "No. The organizer directly manipulates the page tree pointers inside the PDF structure. Text formatting, hyperlinks, fonts, and images are preserved with 100% fidelity." }
+  ],
+  whyUse: [
+    "An intuitive visual workspace that aggregates reordering, deleting, and rotating into a single, seamless step, saving you time.",
+    "Support for multi-file combining directly inside the layout editor, making it easy to build a new document from multiple different sources.",
+    "Enjoy unrestricted access for files up to 100MB, zero watermarks, and no login prerequisites, backed by automated 1-hour deletion."
+  ]
 };

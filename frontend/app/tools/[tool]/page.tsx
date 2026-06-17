@@ -109,13 +109,13 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             {/* ── FAQs ── */}
             <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Frequently Asked Questions</h2>
             <div style={{ display: 'grid', gap: '16px', marginBottom: '48px' }}>
-              {[
+              {(seoContent?.faqs || [
                 { q: `Is this ${t.label.toLowerCase()} tool free?`, a: `Yes, ThePDFNinja's ${t.label.toLowerCase()} tool is 100% free to use. There are no hidden fees, subscriptions, or credit cards required.` },
                 { q: `How do I ${t.label.toLowerCase()} for free?`, a: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free.` },
                 { q: `Do you store my files?`, a: `No. All files uploaded to ThePDFNinja are strictly confidential and are automatically and permanently deleted from our servers after 1 hour.` },
                 { q: `Does this work on Mac, iPhone, and Android?`, a: `Yes, as a web-based tool, it works flawlessly across all operating systems and devices, including Mac, Windows, iOS (iPhone/iPad), Android, and Linux.` },
                 { q: `Will there be a watermark on my file?`, a: `Absolutely not. We never add watermarks to your documents.` },
-              ].map((faq, i) => (
+              ]).map((faq, i) => (
                 <div key={i} style={{ background: 'var(--bg)', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
                   <h3 style={{ marginTop: 0, marginBottom: '8px', fontSize: '1.1rem' }}>{faq.q}</h3>
                   <p style={{ margin: 0, color: 'var(--text-secondary)' }}>{faq.a}</p>
@@ -123,8 +123,8 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               ))}
             </div>
 
-            {seoContent ? (
-              <div style={{ display: 'grid', gap: '48px', marginTop: '24px' }}>
+            {seoContent && (
+              <div style={{ display: 'grid', gap: '48px', marginTop: '24px', marginBottom: '48px' }}>
                 <div>
                   <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>The Ultimate Free {t.label} Tool</h2>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -164,22 +164,20 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                   <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}>{seoContent.security}</p>
                 </div>
               </div>
-            ) : (
-              <>
-                <h2>Why use ThePDFNinja to {t.label.toLowerCase()}?</h2>
-                <p>
-                  ThePDFNinja provides the fastest, most reliable way to {t.label.toLowerCase()} online.
-                  Unlike other tools that force you to create accounts, pay subscription fees, or deal with heavy watermarks,
-                  our {t.label} tool is completely free and accessible directly from your browser.
-                </p>
-                <p>
-                  We prioritize your privacy above all else. Every document uploaded for {t.label.toLowerCase()} is processed in an isolated environment using AES-256 SSL encryption. Once your task is complete, the original and processed files are permanently deleted from our servers within 1 hour. We guarantee that your data is never read, analyzed, or shared with third parties.
-                </p>
-                <p>
-                  Whether you are working from a desktop PC, a Mac, or a mobile device, you can easily {t.label.toLowerCase()} anywhere, anytime, without installing any software.
-                </p>
-              </>
             )}
+
+            <div style={{ marginTop: '48px' }}>
+              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>Why use ThePDFNinja to {t.label.toLowerCase()}?</h2>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                {(seoContent?.whyUse || [
+                  `ThePDFNinja provides the fastest, most reliable way to ${t.label.toLowerCase()} online. Unlike other tools that force you to create accounts, pay subscription fees, or deal with heavy watermarks, our ${t.label} tool is completely free and accessible directly from your browser.`,
+                  `We prioritize your privacy above all else. Every document uploaded for ${t.label.toLowerCase()} is processed in an isolated environment using AES-256 SSL encryption. Once your task is complete, the original and processed files are permanently deleted from our servers within 1 hour. We guarantee that your data is never read, analyzed, or shared with third parties.`,
+                  `Whether you are working from a desktop PC, a Mac, or a mobile device, you can easily ${t.label.toLowerCase()} anywhere, anytime, without installing any software.`
+                ]).map((p, i) => (
+                  <p key={i} style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}>{p}</p>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -247,13 +245,20 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
               datePublished: '2025-01-01',
-              mainEntity: [
-                { '@type': 'Question', name: `Is this ${t.label.toLowerCase()} tool free?`, acceptedAnswer: { '@type': 'Answer', text: `Yes, ThePDFNinja's ${t.label.toLowerCase()} tool is 100% free to use with no hidden fees, subscriptions, or credit cards required. There are no usage limits and no watermarks added to your files.` } },
-                { '@type': 'Question', name: `How do I ${t.label.toLowerCase()} for free?`, acceptedAnswer: { '@type': 'Answer', text: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free. No account creation is required.` } },
-                { '@type': 'Question', name: `Do you store my files after ${t.label.toLowerCase()}?`, acceptedAnswer: { '@type': 'Answer', text: `No. All files uploaded to ThePDFNinja are strictly confidential and are automatically and permanently deleted from our servers within 1 hour of processing. We never access or share your documents.` } },
-                { '@type': 'Question', name: `Does this work on Mac, iPhone, and Android?`, acceptedAnswer: { '@type': 'Answer', text: `Yes. As a fully web-based tool, it works on all operating systems and devices — Mac, Windows, Linux, iOS (iPhone/iPad), and Android — with no software to install.` } },
-                { '@type': 'Question', name: `Will there be a watermark on my file?`, acceptedAnswer: { '@type': 'Answer', text: `Absolutely not. ThePDFNinja never adds watermarks, logos, or branding of any kind to your processed documents.` } },
-              ]
+              mainEntity: (seoContent?.faqs || [
+                { q: `Is this ${t.label.toLowerCase()} tool free?`, a: `Yes, ThePDFNinja's ${t.label.toLowerCase()} tool is 100% free to use. There are no hidden fees, subscriptions, or credit cards required.` },
+                { q: `How do I ${t.label.toLowerCase()} for free?`, a: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free.` },
+                { q: `Do you store my files?`, a: `No. All files uploaded to ThePDFNinja are strictly confidential and are automatically and permanently deleted from our servers within 1 hour.` },
+                { q: `Does this work on Mac, iPhone, and Android?`, a: `Yes, as a web-based tool, it works flawlessly across all operating systems and devices, including Mac, Windows, iOS (iPhone/iPad), Android, and Linux.` },
+                { q: `Will there be a watermark on my file?`, a: `Absolutely not. We never add watermarks to your documents.` },
+              ]).map(faq => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: {
+                  '@type': 'Answer',
+                  text: faq.a
+                }
+              }))
             }
           ])
         }}

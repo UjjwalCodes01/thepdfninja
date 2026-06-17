@@ -59,7 +59,7 @@ export default function TermsPage() {
 
             <h2>6. File Storage and Deletion</h2>
             <p>
-              As outlined in our Privacy Policy, we do not permanently store your files. All uploaded files and processed output files are automatically deleted within 24 hours. We are not responsible for the loss of any data or files uploaded to the Service. You are solely responsible for keeping backups of your original documents.
+              As outlined in our Privacy Policy, we do not permanently store your files. All uploaded files and processed output files are automatically deleted within 1 hour. We are not responsible for the loss of any data or files uploaded to the Service. You are solely responsible for keeping backups of your original documents.
             </p>
 
             <h2>7. Revisions and Errata</h2>

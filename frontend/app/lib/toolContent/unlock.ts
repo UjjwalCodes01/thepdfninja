@@ -32,5 +32,16 @@ export const unlockContent = {
       "100% Cloud-Based: Desktop unlockers often come bundled with malware or intrusive toolbars. Our tool runs entirely in the cloud—you never install anything, ensuring your computer remains perfectly safe."
     ]
   },
-  security: "When you are removing encryption from a highly sensitive document (like a bank statement or an NDA), the platform you use must be flawless in its security practices. ThePDFNinja utilizes 256-bit AES encryption to secure the connection between your browser and our servers. The decryption process happens within an isolated, sandboxed environment without any human monitoring. Because the resulting file is now completely unsecured, our automated privacy protocol immediately and irretrievably deletes both the original upload and the unlocked file from our servers within one hour. Your private data remains yours alone."
+  security: "When you are removing encryption from a highly sensitive document (like a bank statement or an NDA), the platform you use must be flawless in its security practices. ThePDFNinja utilizes 256-bit AES encryption to secure the connection between your browser and our servers. The decryption process happens within an isolated, sandboxed environment without any human monitoring. Because the resulting file is now completely unsecured, our automated privacy protocol immediately and irretrievably deletes both the original upload and the unlocked file from our servers within one hour. Your private data remains yours alone.",
+  faqs: [
+    { q: "Can this tool unlock a PDF if I do not know the password?", a: "If the PDF has an 'open password' (requires a password to view the content), you must provide the correct password to unlock it; we do not offer brute-force hacking tools. However, if the file only has print, copy, or edit restrictions, our tool can strip those restrictions automatically without needing a password." },
+    { q: "Will unlocking the PDF alter or degrade any page content?", a: "No. Unlocking a PDF only modifies the security flags and decrypts the file stream. The text, fonts, images, layouts, and page structures are completely untouched and preserved with 100% fidelity." },
+    { q: "What security standards are supported for unlocking?", a: "Our decryption engine supports all major PDF encryption standards, including standard Acrobat password security, 128-bit RC4, 128-bit AES, and high-security 256-bit AES encryption." },
+    { q: "Can I unlock multiple password-protected PDFs at once?", a: "Yes, you can upload multiple locked PDFs in one batch. You will be prompted to enter the password for each file, and our tool will decrypt them in parallel, giving you a zipped folder of unlocked PDFs." }
+  ],
+  whyUse: [
+    "We provide quick, one-click removal of open passwords and instant stripping of print, edit, and copy permissions from secured documents.",
+    "A zero-knowledge decryption model ensures that the passwords you enter to decrypt files are processed strictly in-memory and are never stored.",
+    "No registration barriers, no limit on the number of unlocked files, and absolutely no watermarks, backed by complete cloud file purging within 1 hour."
+  ]
 };

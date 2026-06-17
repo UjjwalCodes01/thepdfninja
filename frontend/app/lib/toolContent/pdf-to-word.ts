@@ -32,5 +32,16 @@ export const pdfToWordContent = {
       "Unlimited Conversions: We don't cut you off after two files. Whether you are converting one document or an entire folder of archives, you can use our tool without hitting a paywall."
     ]
   },
-  security: "Document conversion often involves highly sensitive information, from proprietary business data to personal resumes. ThePDFNinja guarantees absolute privacy throughout the conversion process. Your files are uploaded over a secure, 256-bit AES encrypted connection and processed in a sandboxed environment. We do not use human reviewers, and our algorithms do not read or store your content. Once your PDF is converted to a Word document, our automated systems permanently delete both the original and converted files within one hour. Your data is never sold, shared, or retained."
+  security: "Document conversion often involves highly sensitive information, from proprietary business data to personal resumes. ThePDFNinja guarantees absolute privacy throughout the conversion process. Your files are uploaded over a secure, 256-bit AES encrypted connection and processed in a sandboxed environment. We do not use human reviewers, and our algorithms do not read or store your content. Once your PDF is converted to a Word document, our automated systems permanently delete both the original and converted files within one hour. Your data is never sold, shared, or retained.",
+  faqs: [
+    { q: "Will the converted Word document be fully editable?", a: "Yes, the resulting .docx file is fully editable. You can edit, delete, or add text, change font sizes and colors, resize or replace images, and modify tables in Microsoft Word, Google Docs, or LibreOffice." },
+    { q: "Can I convert scanned PDF documents to editable Word files?", a: "Yes. Our converter uses integrated OCR (Optical Character Recognition) to recognize text inside scanned pages and images, transforming them into editable text elements in the final Word document." },
+    { q: "How do you handle password-protected PDF files?", a: "If the file is locked with an open password, you must first remove the password using our Unlock PDF tool before uploading it for conversion." },
+    { q: "Will the formatting and fonts look identical to the PDF?", a: "Our converter uses advanced layout analysis to keep columns, margins, and tables intact. Common fonts (like Arial, Calibri, Times New Roman) are mapped directly, while custom or rare fonts will be substituted with closely matching system fonts." }
+  ],
+  whyUse: [
+    "We use advanced semantic reconstruction to rebuild layouts with paragraph flows, tables, and lists, rather than simply dumping text onto a page.",
+    "Our OCR integration allows you to process scanned invoices, contracts, or book pages, converting them into editable digital copy.",
+    "Enjoy watermark-free downloads with no daily limits or sign-up requirements, protected by strict 256-bit SSL encryption and 1-hour auto-deletion."
+  ]
 };

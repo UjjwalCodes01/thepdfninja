@@ -32,5 +32,16 @@ export const mergeContent = {
       "Faster Cloud Processing: Built on AWS Lambda, our serverless backend spins up dedicated resources for your specific merge task. This means you aren't waiting in a queue behind thousands of other users. Merging happens almost instantaneously."
     ]
   },
-  security: "When you upload documents to merge—whether they are confidential legal contracts, sensitive financial statements, or personal health records—security is paramount. ThePDFNinja employs end-to-end 256-bit AES SSL encryption during the transfer of your files. Once your PDFs reach our servers, they are processed in an isolated, secure environment. Most importantly, we operate on a strict auto-deletion policy. Both your original uploaded files and the newly merged PDF are permanently purged from our servers within one hour of processing. We do not retain copies, we do not inspect your data, and we do not sell your information."
+  security: "When you upload documents to merge—whether they are confidential legal contracts, sensitive financial statements, or personal health records—security is paramount. ThePDFNinja employs end-to-end 256-bit AES SSL encryption during the transfer of your files. Once your PDFs reach our servers, they are processed in an isolated, secure environment. Most importantly, we operate on a strict auto-deletion policy. Both your original uploaded files and the newly merged PDF are permanently purged from our servers within one hour of processing. We do not retain copies, we do not inspect your data, and we do not sell your information.",
+  faqs: [
+    { q: "Is there a limit to the number of PDF files I can merge?", a: "You can upload and merge up to 50 individual PDF files in a single operation. The overall combined file size limit is 100MB, and you can perform unlimited merge operations daily." },
+    { q: "Can I rearrange the order of files or pages before merging?", a: "Yes, absolutely. Once you upload your files, our interface allows you to drag and drop the document thumbnails to arrange them in the exact order you want them merged." },
+    { q: "Will my links, formatting, and bookmarks be preserved after merging?", a: "Yes. Our merger tool uses low-level PDF manipulation that stitches the page trees directly. This ensures that all interactive elements, hyperlinks, text formatting, and bookmarks remain perfectly intact." },
+    { q: "Can I merge password-protected PDF documents?", a: "To merge password-protected files, you must first decrypt them using our Unlock PDF tool. Once the restrictions are removed, you can upload and merge them with other files." }
+  ],
+  whyUse: [
+    "Our merger features an interactive visual editor that allows you to drag, drop, and rearrange files and pages in a clean, logical grid before compilation.",
+    "Unlike competitors that inject branding watermark headers or restrict merge capacity to two files per day, we offer 100% clean, watermark-free document compilation.",
+    "All file transfers are secured with SSL/TLS encryption, and files are automatically deleted from our secure AWS systems within 1 hour."
+  ]
 };

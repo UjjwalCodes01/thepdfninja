@@ -76,7 +76,7 @@ export default function Footer() {
               Your PDF toolkit, completely free.
             </h2>
             <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.92rem' }}>
-              No account needed. Files auto-deleted in 24 hours. 100% secure.
+              No account needed. Files auto-deleted in 1 hour. 100% secure.
             </p>
           </div>
           <Link href="/tools" style={{
@@ -110,7 +110,7 @@ export default function Footer() {
               {[
                 { label: ' SSL', bg: '#EEF3FF', color: '#1B4DBF' },
                 { label: ' Fast', bg: '#FFF0EB', color: '#F5622D' },
-                { label: ' 24h', bg: '#F0FDF4', color: '#16A34A' },
+                { label: ' 1h', bg: '#F0FDF4', color: '#16A34A' },
               ].map(b => (
                 <span key={b.label} style={{ fontSize: '0.68rem', fontWeight: 700, padding: '3px 8px', borderRadius: '100px', background: b.bg, color: b.color }}>
                   {b.label}
@@ -130,9 +130,9 @@ export default function Footer() {
           <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
             {[
               { icon: '🔒', text: '256-bit SSL Encrypted' },
-              { icon: '🛠️', text: '56 Free PDF Tools' },
+              { icon: '🛠️', text: '65 Free PDF Tools' },
               { icon: '🚫', text: 'No Account Required' },
-              { icon: '⏱️', text: 'Files Auto-Deleted in 24h' },
+              { icon: '⏱️', text: 'Files Auto-Deleted in 1h' },
               { icon: '💧', text: 'Zero Watermarks' },
               { icon: '☁️', text: 'Powered by AWS' },
             ].map(s => (

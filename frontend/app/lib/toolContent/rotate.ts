@@ -32,5 +32,16 @@ export const rotateContent = {
       "100% Free, No Watermarks: We never add logos, watermarks, or branding to your corrected documents. You get your exact file back, just facing the right direction."
     ]
   },
-  security: "Fixing the orientation of a document should never put your privacy at risk. Whether you are rotating a scanned driver's license, a confidential medical record, or a proprietary schematic, ThePDFNinja guarantees complete data security. Your files are transferred using bank-grade 256-bit AES encryption. Our servers process the rotation in an isolated environment without any human interaction. Most importantly, we operate under a strict, automated deletion policy: your original PDF and the permanently rotated version are permanently purged from our system within one hour of processing."
+  security: "Fixing the orientation of a document should never put your privacy at risk. Whether you are rotating a scanned driver's license, a confidential medical record, or a proprietary schematic, ThePDFNinja guarantees complete data security. Your files are transferred using bank-grade 256-bit AES encryption. Our servers process the rotation in an isolated environment without any human interaction. Most importantly, we operate under a strict, automated deletion policy: your original PDF and the permanently rotated version are permanently purged from our system within one hour of processing.",
+  faqs: [
+    { q: "Is the page rotation applied by this tool permanent?", a: "Yes. Unlike PDF viewers that only rotate the view locally in your browser tab, ThePDFNinja modifies the internal rotation metadata (the /Rotate key) inside the PDF file structure. The change is permanent and will display correctly in all readers and printouts." },
+    { q: "Can I rotate only a single page instead of the entire document?", a: "Yes, absolutely. Our visual dashboard shows page-by-page thumbnails of your uploaded PDF. You can hover over and rotate any individual page 90, 180, or 270 degrees, or click 'Rotate All' to rotate every page together." },
+    { q: "What degrees of rotation are supported?", a: "You can rotate pages 90 degrees clockwise (right), 90 degrees counterclockwise (left), or 180 degrees (upside down) to correct any scanning errors." },
+    { q: "Will rotating pages alter the text, links, or image quality?", a: "No. Rotating a page only changes the coordinate viewport angle of the page within the PDF's structural metadata. Your text remains searchable, links remain clickable, and images lose zero quality." }
+  ],
+  whyUse: [
+    "We write the rotation coordinates directly into the PDF document dictionary, making the orientation change permanent and universal.",
+    "A visual, page-by-page grid preview lets you selectively rotate only the skewed or upside-down pages of a large document.",
+    "No registration is required, there are no limits on page numbers or files, and no watermarks are added, with 100% automated 1-hour deletion."
+  ]
 };

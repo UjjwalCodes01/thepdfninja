@@ -32,5 +32,16 @@ export const wordToPdfContent = {
       "Unlimited Usage: Whether you are converting a one-page letter or a 500-page manuscript, our tool handles it instantly, and we never cap your daily usage."
     ]
   },
-  security: "Whether you are converting a confidential business proposal, a legal contract draft, or your personal resume, your data privacy is paramount. ThePDFNinja's conversion pipeline is secured with 256-bit AES encryption. The transformation from Word to PDF happens entirely within an isolated, automated cloud server—no human eyes will ever see your document. To guarantee your security, both the original Word file you uploaded and the resulting PDF are permanently deleted from our servers within one hour of conversion. We don't store your data, and we don't read your content."
+  security: "Whether you are converting a confidential business proposal, a legal contract draft, or your personal resume, your data privacy is paramount. ThePDFNinja's conversion pipeline is secured with 256-bit AES encryption. The transformation from Word to PDF happens entirely within an isolated, automated cloud server—no human eyes will ever see your document. To guarantee your security, both the original Word file you uploaded and the resulting PDF are permanently deleted from our servers within one hour of conversion. We don't store your data, and we don't read your content.",
+  faqs: [
+    { q: "Does this converter support both .doc and .docx formats?", a: "Yes, our converter fully supports older MS Word files (.doc) as well as modern XML-based documents (.docx) created in newer versions of Word, Office 365, or Google Docs." },
+    { q: "Will the hyperlinks and tables in my Word document remain functional in the PDF?", a: "Yes, absolutely. Our system preserves interactive elements. All hyperlinks, email addresses, table structures, and tables of contents remain fully active and clickable in the converted PDF." },
+    { q: "Do you support converting multiple Word documents at once?", a: "Yes, you can upload multiple Word documents at the same time. Our tool will process all of them in parallel and bundle the output PDFs into a single ZIP file for easy download." },
+    { q: "Why did a font in my converted PDF look slightly different?", a: "If your document uses custom, proprietary, or localized fonts that are not globally standard, our system replaces them with the closest matching open-source typeface to maintain layout positioning and page breaks." }
+  ],
+  whyUse: [
+    "We use server-side LibreOffice instances to interpret Word styling, rendering columns, headers, footnotes, and margins accurately.",
+    "Our converter keeps links, tables of contents, and cross-references active, producing a highly professional and interactive PDF.",
+    "There are no account registration requirements, no conversion caps, and no watermark stamps, and files are automatically auto-deleted in 1 hour."
+  ]
 };
