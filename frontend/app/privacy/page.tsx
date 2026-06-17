@@ -55,10 +55,14 @@ export default function PrivacyPage() {
               <li><strong>How Google Uses Data:</strong> For a detailed overview of how Google uses information from sites or apps that use their services, please read the official Google Partner privacy document at <a href="https://google.com/policies/privacy/partners" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--orange)' }}>google.com/policies/privacy/partners</a>.</li>
             </ul>
 
-            <h2>4. Third-Party Service Providers</h2>
+            <h2>4. Third-Party Service Providers & Analytics</h2>
             <p>
-              We utilize Amazon Web Services (AWS) to host our application and process files. AWS maintains industry-leading security and compliance standards. Your files are processed in isolated, secure environments within AWS.
+              We utilize third-party services to operate, analyze, and optimize our website:
             </p>
+            <ul>
+              <li><strong>Hosting & Processing:</strong> We utilize Amazon Web Services (AWS) to host our application and process files. AWS maintains industry-leading security and compliance standards. Your files are processed in isolated, secure environments within AWS.</li>
+              <li><strong>User Behavior Analytics:</strong> We partner with Microsoft Clarity to capture how you use and interact with our website through behavioral metrics, heatmaps, and session replays to improve and optimize our user experience. User interaction data is captured using first- and third-party cookies and other tracking technologies. For more details on Microsoft’s data collection practices, please review the <a href="https://privacy.microsoft.com/en-us/privacystatement" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--orange)' }}>Microsoft Privacy Statement</a>.</li>
+            </ul>
 
             <h2>5. No Sale of Personal Data</h2>
             <p>
