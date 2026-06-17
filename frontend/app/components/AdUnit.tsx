@@ -42,7 +42,7 @@ export default function AdUnit({ slot, type = 'rectangle', className = '' }: AdU
       <ins
         className="adsbygoogle"
         style={style}
-        data-ad-client="ca-pub-0000000000000000" // Replace with real Publisher ID
+        data-ad-client="ca-pub-9515530509004476"
         data-ad-slot={slot}
         data-ad-format={type === 'leaderboard' || type === 'mobile' ? 'horizontal' : 'auto'}
         data-full-width-responsive="true"
