@@ -15,7 +15,7 @@ existing_tools = r"""  merge: {
     acceptedLabel: 'PDF files only',
     multiFile: true,
     outputExt: 'pdf',
-    tips: ['Upload files in the order you want them merged', 'You can upload up to 20 PDFs at once', 'Files are deleted from our servers after 24 hours'],
+    tips: ['Upload files in the order you want them merged', 'You can upload up to 20 PDFs at once', 'Files are deleted from our servers after 1 hour'],
     relatedSlugs: ['split', 'organize', 'compress'],
   },
   split: {

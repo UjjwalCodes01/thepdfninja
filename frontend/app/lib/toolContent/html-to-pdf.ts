@@ -32,5 +32,17 @@ export const htmlToPdfContent = {
       "Instant Cloud Capture: Rendering a heavy webpage with massive images and complex scripts can freeze your browser. We offload this intensive rendering process to our AWS cloud servers, delivering the PDF instantly."
     ]
   },
-  security: "When capturing a webpage—whether it is a public news article or a private transaction receipt—your digital privacy is essential. ThePDFNinja's architecture is designed to protect your data at every step. Your URL requests are transmitted over a secure 256-bit AES encrypted connection. The web rendering process occurs within an isolated, anonymous cloud container, meaning our servers do not use your personal cookies or session data to access the page. To guarantee absolute security, our automated privacy protocol deletes the generated PDF snapshot from our servers within one hour of conversion. We don't track the URLs you convert, and we don't keep your files."
+  security: "When capturing a webpage—whether it is a public news article or a private transaction receipt—your digital privacy is essential. ThePDFNinja's architecture is designed to protect your data at every step. Your URL requests are transmitted over a secure 256-bit AES encrypted connection. The web rendering process occurs within an isolated, anonymous cloud container, meaning our servers do not use your personal cookies or session data to access the page. To guarantee absolute security, our automated privacy protocol deletes the generated PDF snapshot from our servers within one hour of conversion. We don't track the URLs you convert, and we don't keep your files.",
+  faqs: [
+    { q: "Can I convert an active URL to a PDF?", a: "Yes, simply paste the full URL of the webpage, and our cloud browser will render it exactly as it appears and convert it to a PDF." },
+    { q: "Can I upload a raw .html file to convert it?", a: "Yes, you can upload raw HTML files along with basic CSS files, and our converter will compile and render them into a formatted PDF document." },
+    { q: "Will the PDF preserve hyperlinks from the webpage?", a: "Yes, all active hyperlinks on the HTML page are preserved as clickable links in the resulting PDF." },
+    { q: "How does the tool handle Javascript-heavy pages?", a: "Our cloud browser waits for dynamic scripts and styles to load before capturing the page layout, ensuring that charts, graphs, and widgets render correctly." },
+    { q: "Are login-protected pages supported?", a: "No, our public converter cannot bypass logins, paywalls, or CAPTCHAs. It can only convert publicly accessible webpages." },
+  ],
+  whyUse: [
+    "Save entire webpages, online articles, or raw HTML files as offline, printable PDFs.",
+    "Ensure Javascript, CSS layouts, and embedded web fonts render with professional styling.",
+    "Quick, free cloud rendering with no signups, no watermarks, and a strict 1-hour deletion policy.",
+  ]
 };

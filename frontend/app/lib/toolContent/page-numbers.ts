@@ -32,5 +32,16 @@ export const pageNumbersContent = {
       "Lightning Fast Processing: Stamping numbers onto a 500-page document can cause other web tools to crash. Our AWS serverless infrastructure handles massive files instantly and reliably."
     ]
   },
-  security: "Formatting a document should never come at the cost of your privacy. Whether you are numbering a proprietary business plan or a confidential legal manuscript, ThePDFNinja treats your data with the highest level of security. Your files are uploaded via an encrypted 256-bit AES connection. The pagination process is completely automated within an isolated cloud environment—no human ever accesses your files. To guarantee your privacy, our systems are programmed to automatically and permanently delete both your original upload and the numbered PDF within one hour."
+  security: "Formatting a document should never come at the cost of your privacy. Whether you are numbering a proprietary business plan or a confidential legal manuscript, ThePDFNinja treats your data with the highest level of security. Your files are uploaded via an encrypted 256-bit AES connection. The pagination process is completely automated within an isolated cloud environment—no human ever accesses your files. To guarantee your privacy, our systems are programmed to automatically and permanently delete both your original upload and the numbered PDF within one hour.",
+  faqs: [
+    { q: "Can I skip numbering on the cover page or table of contents?", a: "Yes. Our tool allows you to specify a starting page offset. You can choose to skip page 1 (or any number of beginning pages) so that numbering begins on page 2 or later, keeping your title pages clean." },
+    { q: "Where can I position the page numbers on my pages?", a: "You can choose from six standard placements: Top Left, Top Center, Top Right, Bottom Left, Bottom Center, or Bottom Right, ensuring the numbers do not clash with existing headers or footers." },
+    { q: "What numbering formats do you support?", a: "We support standard numbers (1, 2, 3...), dynamic 'Page X of Y' formatting (which automatically calculates the total page count), and custom prefix text (e.g., 'Doc - 1')." },
+    { q: "Will the numbers overlap with my existing page text?", a: "To prevent overlapping, we recommend placing page numbers in the bottom-right or bottom-center margins, where standard document margins typically leave ample white space." }
+  ],
+  whyUse: [
+    "Granular numbering options that let you define custom offsets, start numbers, and skip title or preface pages easily.",
+    "Dynamic 'Page X of Y' formatting capabilities that make reading, printing, and archiving multi-page documents highly professional.",
+    "No email registration required, no usage limits or premium features locked behind paywalls, with automated file deletion in 1 hour."
+  ]
 };

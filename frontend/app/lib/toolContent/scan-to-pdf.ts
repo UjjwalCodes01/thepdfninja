@@ -32,5 +32,17 @@ export const scanToPdfContent = {
       "Batch Processing Support: You can upload dozens of photos at once. Our cloud infrastructure processes them in parallel and merges them into a single PDF, far faster than a mobile processor can handle."
     ]
   },
-  security: "Scanning and digitizing physical documents often involves capturing highly sensitive personal data—from social security numbers on tax forms to credit card details on receipts. ThePDFNinja provides a secure sanctuary for your digitization needs. Your images are uploaded over an encrypted 256-bit AES connection. The image enhancement and PDF generation happen in an isolated cloud environment. To ensure your absolute privacy, our automated system deletes your original photos and the resulting PDF document from our servers within one hour of processing. We do not keep, analyze, or train AI models on your private documents."
+  security: "Scanning and digitizing physical documents often involves capturing highly sensitive personal data—from social security numbers on tax forms to credit card details on receipts. ThePDFNinja provides a secure sanctuary for your digitization needs. Your images are uploaded over an encrypted 256-bit AES connection. The image enhancement and PDF generation happen in an isolated cloud environment. To ensure your absolute privacy, our automated system deletes your original photos and the resulting PDF document from our servers within one hour of processing. We do not keep, analyze, or train AI models on your private documents.",
+  faqs: [
+    { q: "How does the Scan to PDF tool work?", a: "You upload images of document pages (captured via a scanner or your smartphone camera), and our tool cleans the images and compiles them sequentially into a single PDF file." },
+    { q: "Can I crop or rotate the images before generating the PDF?", a: "Yes, you can rotate and re-order the page images visually before finalizing the PDF generation." },
+    { q: "Will the scanned PDF text be searchable?", a: "The basic scanner compiles pages as images. To make the text selectable and searchable, we recommend running our OCR tool on the generated PDF afterwards." },
+    { q: "What image formats are supported for PDF generation?", a: "We support compiling JPG, PNG, HEIC, BMP, and WebP images into a PDF document." },
+    { q: "Are my scanned document images kept private?", a: "Yes, all uploads and output files are processed securely and automatically deleted from our servers after 1 hour." },
+  ],
+  whyUse: [
+    "Compile camera snapshots and scanned photos into clean, professional PDF documents instantly.",
+    "Order and rotate pages visually before converting to ensure correct reading layouts.",
+    "Free cloud compiler with no signups, no watermarks, and a strict 1-hour auto-delete policy.",
+  ]
 };

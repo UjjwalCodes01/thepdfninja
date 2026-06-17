@@ -32,5 +32,16 @@ export const cropContent = {
       "Zero Account Requirements: You can clean up your sensitive documents without ever handing over your email address or personal details. It is instantaneous and anonymous."
     ]
   },
-  security: "When you upload a document to crop it—whether it is a financial statement you are preparing for a presentation or a personal legal document—your privacy is our top priority. ThePDFNinja secures your connection with 256-bit AES encryption. The cropping process is fully automated on our isolated cloud servers, meaning no human eyes ever see your data. To ensure absolute confidentiality, our system is programmed to permanently and irretrievably delete your original file and the newly cropped PDF within one hour of processing."
+  security: "When you upload a document to crop it—whether it is a financial statement you are preparing for a presentation or a personal legal document—your privacy is our top priority. ThePDFNinja secures your connection with 256-bit AES encryption. The cropping process is fully automated on our isolated cloud servers, meaning no human eyes ever see your data. To ensure absolute confidentiality, our system is programmed to permanently and irretrievably delete your original file and the newly cropped PDF within one hour of processing.",
+  faqs: [
+    { q: "Does this tool crop all pages of the PDF or just a single page?", a: "You can choose. You can apply the crop selection box globally to every page in the PDF (ideal for removing uniform margins) or crop a single page to isolate a specific chart or table." },
+    { q: "Can I undo the crop after downloading the document?", a: "No. Our tool performs a permanent geometry rewrite (/MediaBox and /CropBox adjustment) inside the PDF. We recommend keeping a backup of the original uncropped document in case you need to revert." },
+    { q: "Will cropping the PDF decrease the file size?", a: "Yes, in many cases it will. Because we modify the page structure definitions and restrict the page coordinates to a smaller window, the document consumes fewer rendering resources, which often reduces the final file size." },
+    { q: "Is there a page count limit for the PDF Cropper?", a: "No. As long as the total upload file size is under 100MB, you can crop documents with any number of pages, entirely for free." }
+  ],
+  whyUse: [
+    "A visual bounding-box selector that allows you to drag margins and preview the exact crop boundaries in real-time, eliminating guesswork.",
+    "True geometric cropping that alters the underlying PDF page viewport properties, preventing cropped content from reappearing on different readers.",
+    "Enjoy watermark-free, unlimited crops with no registration forms, secured by 256-bit TLS encryption and a strict 1-hour deletion policy."
+  ]
 };

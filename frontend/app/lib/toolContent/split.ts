@@ -32,5 +32,16 @@ export const splitContent = {
       "No Sign-Up Hurdles: You shouldn't have to surrender your email address just to extract a page from a document. With ThePDFNinja, there is zero account creation required."
     ]
   },
-  security: "We treat your documents with the utmost respect and security. Whether you are splitting confidential legal case files or proprietary business plans, you can trust that your data is safe. All file transfers to and from ThePDFNinja are secured using 256-bit AES encryption. Once processed, our automated systems ensure that your original uploaded PDF and the resulting split files are permanently deleted from our servers within one hour. We have no interest in your data; our only goal is to provide a reliable tool."
+  security: "We treat your documents with the utmost respect and security. Whether you are splitting confidential legal case files or proprietary business plans, you can trust that your data is safe. All file transfers to and from ThePDFNinja are secured using 256-bit AES encryption. Once processed, our automated systems ensure that your original uploaded PDF and the resulting split files are permanently deleted from our servers within one hour. We have no interest in your data; our only goal is to provide a reliable tool.",
+  faqs: [
+    { q: "How do I specify which pages to split or extract?", a: "You can enter individual page numbers separated by commas (e.g., 1, 3, 5), define continuous ranges (e.g., 10-20), or choose the 'Burst' option to extract every single page of the document as a separate PDF file." },
+    { q: "Will the split pages retain their original visual quality?", a: "Yes. Our tool extracts pages directly from the underlying PDF document structure without re-encoding images or rasterizing text. This guarantees 100% preservation of quality, formatting, fonts, and hyperlinks." },
+    { q: "Can I split scanned PDF files?", a: "Yes. Scanned PDFs are fully supported and can be split or extracted using the same page selection options. The output files will contain the scanned pages exactly as they appeared originally." },
+    { q: "Is there a page limit for splitting a PDF?", a: "There are no page count limits. Whether your document has 5 pages or 500 pages, our system handles it easily. The only limitation is that the total upload file size must be under 100MB." }
+  ],
+  whyUse: [
+    "We offer precise extraction modes—including custom page selection, page range extraction, and full document bursting—in an easy-to-use visual editor.",
+    "Unlike other free PDF splitters that degrade document quality or alter internal hyperlinks, our low-level page-tree splitting keeps your original layout intact.",
+    "We don't restrict you with daily conversion limits, email signups, or watermark branding, and we secure your documents with automated 1-hour purging."
+  ]
 };

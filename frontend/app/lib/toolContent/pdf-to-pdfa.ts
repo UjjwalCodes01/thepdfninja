@@ -32,5 +32,17 @@ export const pdfToPdfaContent = {
       "Instant Cloud Processing: Deeply analyzing and embedding fonts into a massive document can take minutes on a standard laptop. Our AWS serverless architecture handles the heavy computational lifting in seconds."
     ]
   },
-  security: "Documents destined for long-term archiving are often a company or individual's most critical records. ThePDFNinja ensures these records are treated with the utmost security during the conversion process. Your files are transmitted using 256-bit AES encryption and processed within isolated, anonymous cloud containers. We do not inspect, retain, or back up your data. Once your ISO-compliant PDF/A is generated and ready for download, our automated privacy protocol instantly deletes both your original upload and the new archival file from our servers within one hour."
+  security: "Documents destined for long-term archiving are often a company or individual's most critical records. ThePDFNinja ensures these records are treated with the utmost security during the conversion process. Your files are transmitted using 256-bit AES encryption and processed within isolated, anonymous cloud containers. We do not inspect, retain, or back up your data. Once your ISO-compliant PDF/A is generated and ready for download, our automated privacy protocol instantly deletes both your original upload and the new archival file from our servers within one hour.",
+  faqs: [
+    { q: "What is PDF/A?", a: "PDF/A is an ISO-standardized version of the Portable Document Format (PDF) specialized for long-term archiving. It guarantees that a document can be rendered exactly the same way regardless of the software and devices used in the future by embedding all fonts, color profiles, and metadata." },
+    { q: "Which PDF/A standard does this tool use?", a: "Our converter outputs PDF/A-1b and PDF/A-2b compliance levels, which are the most widely used standards for business, legal, and governmental archival records." },
+    { q: "Does PDF/A conversion affect page layout?", a: "No, the visual layout of your PDF remains identical. The converter simply embeds missing resources (like fonts and device-independent color spaces) to meet compliance regulations." },
+    { q: "Can I convert scanned PDFs to PDF/A?", a: "Yes, scanned PDFs can be converted to PDF/A to ensure they remain readable in long-term archive folders." },
+    { q: "Are my archived files kept private?", a: "Yes. Your files are processed on secure, isolated AWS servers and deleted permanently within one hour of conversion." },
+  ],
+  whyUse: [
+    "Convert your documents to ISO-compliant PDF/A standards for legal compliance and long-term digital archiving.",
+    "Embed all fonts, device-independent colors, and metadata so your files render perfectly decades from now.",
+    "Free cloud converter with no signups, no watermarks, and a strict 1-hour auto-delete policy.",
+  ]
 };

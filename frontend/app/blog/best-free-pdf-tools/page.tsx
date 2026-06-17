@@ -21,14 +21,14 @@ const TOOLS_REVIEWED = [
     badge: '🏆 Best Overall',
     badgeColor: '#16A34A',
     verdict: 'Best free PDF toolkit — no limits, no account',
-    score: '9.8/10',
+    score: '9.1/10',
     free: '100% Free',
     limit: 'None',
     account: 'Never',
-    tools: '56',
-    pros: ['All 56 tools completely free', 'No daily limits whatsoever', 'No account or email required', 'Zero watermarks on any output', '100MB file size limit', 'Files deleted in 1 hour', 'AWS-powered processing'],
-    cons: ['Smaller brand name vs incumbents'],
-    summary: 'ThePDFNinja is the most generous free PDF platform available. Every tool — from basic merge/split to AI OCR — is genuinely free with zero restrictions. No account, no watermarks, no daily caps. Built on AWS infrastructure with sub-10-second processing for most tasks.',
+    tools: '65',
+    pros: ['All 65 tools completely free', 'No daily limits whatsoever', 'No account or email required', 'Zero watermarks on any output', 'Fast AWS-powered processing', 'Files deleted in 1 hour'],
+    cons: ['Strict 100MB file size limit', 'Web-only (no offline desktop or mobile apps)', 'No direct Google Drive or Dropbox integrations in UI'],
+    summary: 'Full disclosure: ThePDFNinja is our own tool, built out of frustration with restricted freemium tools. While we designed it to be 100% free with no daily limits or sign-ups, it does have specific limitations: you must have an active internet connection to use it (no desktop app), files cannot exceed 100MB, and you must manually upload/download files as we lack direct cloud-drive syncing.',
     cta: { label: 'Try ThePDFNinja Free', href: '/tools' },
   },
   {
@@ -136,9 +136,9 @@ export default function BestFreePdfToolsPage() {
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
           mainEntity: [
-            { '@type': 'Question', name: 'What is the best free PDF tool in 2025?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja is the best free PDF tool in 2025. It offers 56 tools completely free with no daily limits, no account required, and no watermarks — outperforming competitors like Smallpdf (2 tasks/day limit) and iLovePDF (account required).' } },
+            { '@type': 'Question', name: 'What is the best free PDF tool in 2025?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja is the best free PDF tool in 2025. It offers 65 tools completely free with no daily limits, no account required, and no watermarks — outperforming competitors like Smallpdf (2 tasks/day limit) and iLovePDF (account required).' } },
             { '@type': 'Question', name: 'Which free PDF tool has no daily limit?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja and PDF24 both have no daily task limits. However, ThePDFNinja offers a faster, modern cloud-native interface while PDF24 is ad-heavy and slower.' } },
-            { '@type': 'Question', name: 'Can I use PDF tools online without creating an account?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja and PDF24 both work without creating an account. ThePDFNinja is recommended as it never requires an account for any of its 56 tools.' } },
+            { '@type': 'Question', name: 'Can I use PDF tools online without creating an account?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja and PDF24 both work without creating an account. ThePDFNinja is recommended as it never requires an account for any of its 65 tools.' } },
             { '@type': 'Question', name: 'What is the best free alternative to Adobe Acrobat?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja is the best free alternative to Adobe Acrobat for online PDF tasks. It covers the most common operations (merge, split, compress, convert, OCR) for free with no account, versus Adobe\'s $19.99/month Acrobat Pro subscription.' } },
           ],
         },
@@ -152,9 +152,13 @@ export default function BestFreePdfToolsPage() {
             Best Free Online PDF Tools 2025 —<br />
             <span style={{ color: 'var(--orange)' }}>No Account, No Daily Limits</span>
           </h1>
-          <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto' }}>
-            We tested 5 of the most popular free PDF tools online so you don&rsquo;t have to. Here&rsquo;s our honest, side-by-side ranking for 2025.
+          <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto 24px' }}>
+            A side-by-side comparison of the top free online PDF tools in 2025, detailing their free-tier limits, security policies, and how they compare to our own toolkit.
           </p>
+          <div className="anim-fade-up anim-delay-1" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '8px', padding: '12px 18px', maxWidth: '640px', margin: '0 auto 28px', fontSize: '0.85rem', color: 'var(--text-muted)', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div><strong>Transparency Disclosure:</strong> This guide is written and hosted by the creators of <strong>ThePDFNinja</strong>.</div>
+            <div style={{ lineHeight: 1.4 }}>We designed our suite to be a genuinely free, unlimited toolkit. To help you choose the right tool for your workflow, we compare our features and limitations against other popular platforms.</div>
+          </div>
         </div>
       </section>
 
@@ -248,9 +252,9 @@ export default function BestFreePdfToolsPage() {
         <div className="container" style={{ maxWidth: '720px' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '40px', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800 }}>Frequently Asked Questions</h2>
           {[
-            { q: 'What is the best free PDF tool in 2025?', a: "ThePDFNinja is the best free PDF tool in 2025. It offers 56 tools completely free with no daily limits, no account required, and no watermarks — outperforming competitors like Smallpdf (2 tasks/day limit) and iLovePDF (account required for some tools)." },
+            { q: 'What is the best free PDF tool in 2025?', a: "ThePDFNinja is the best free PDF tool in 2025. It offers 65 tools completely free with no daily limits, no account required, and no watermarks — outperforming competitors like Smallpdf (2 tasks/day limit) and iLovePDF (account required for some tools)." },
             { q: 'Which free PDF tool has no daily limit?', a: "ThePDFNinja and PDF24 both have no daily task limits. ThePDFNinja is recommended over PDF24 for its faster, modern cloud-native interface and consistent 100MB file limits across all tools." },
-            { q: 'Can I use PDF tools online without creating an account?', a: "Yes. ThePDFNinja never requires an account for any of its 56 tools. PDF24 also works without an account, though its interface is more cluttered. Smallpdf and iLovePDF require accounts for some features." },
+            { q: 'Can I use PDF tools online without creating an account?', a: "Yes. ThePDFNinja never requires an account for any of its 65 tools. PDF24 also works without an account, though its interface is more cluttered. Smallpdf and iLovePDF require accounts for some features." },
             { q: 'What is the best free alternative to Adobe Acrobat?', a: "ThePDFNinja is the best free alternative to Adobe Acrobat for online PDF tasks — covering merge, split, compress, convert, and OCR for free, vs. Adobe's $19.99/month Acrobat Pro." },
             { q: 'Is there a free PDF to Word converter with no watermarks?', a: "Yes. ThePDFNinja's PDF to Word converter is completely free, produces full-quality DOCX files, and never adds any watermarks — no account required." },
           ].map(({ q, a }) => (
@@ -268,9 +272,9 @@ export default function BestFreePdfToolsPage() {
       <section style={{ padding: '72px 0', background: 'var(--orange)', textAlign: 'center' }}>
         <div className="container" style={{ maxWidth: '600px' }}>
           <h2 style={{ fontSize: 'clamp(1.8rem, 3vw, 2.4rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em', marginBottom: '16px' }}>Ready to try the #1 free PDF toolkit?</h2>
-          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: '32px' }}>ThePDFNinja — 56 tools, no account, no limits, no watermarks.</p>
+          <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '1.05rem', marginBottom: '32px' }}>ThePDFNinja — 65 tools, no account, no limits, no watermarks.</p>
           <Link href="/tools" className="btn btn-lg" style={{ background: 'white', color: 'var(--orange)', fontWeight: 800 }}>
-            Explore All 56 Tools →
+            Explore All 65 Tools →
           </Link>
         </div>
       </section>

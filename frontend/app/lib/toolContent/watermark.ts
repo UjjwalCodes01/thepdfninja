@@ -32,5 +32,16 @@ export const watermarkContent = {
       "Unlimited Processing: Watermark a 2-page invoice or a 500-page manuscript—our AWS-powered backend handles it in seconds, and we never cap your daily usage."
     ]
   },
-  security: "Documents that require watermarks are often highly sensitive, proprietary, or confidential. ThePDFNinja's architecture is built to protect this sensitive data. All file transfers occur over an encrypted 256-bit AES connection. The watermarking process is fully automated within isolated cloud containers; no human ever views your files. Most critically, our system ensures that your original document and the newly watermarked PDF are permanently deleted from our servers within one hour. You retain absolute privacy and control over your intellectual property."
+  security: "Documents that require watermarks are often highly sensitive, proprietary, or confidential. ThePDFNinja's architecture is built to protect this sensitive data. All file transfers occur over an encrypted 256-bit AES connection. The watermarking process is fully automated within isolated cloud containers; no human ever views your files. Most critically, our system ensures that your original document and the newly watermarked PDF are permanently deleted from our servers within one hour. You retain absolute privacy and control over your intellectual property.",
+  faqs: [
+    { q: "Can I use both custom text and logo images as watermarks?", a: "Yes. You can choose to type a custom text string (like 'DRAFT' or 'CONFIDENTIAL') and adjust its font, size, and rotation, or upload an image file (such as a transparent PNG or JPG of your company logo) to stamp onto the document." },
+    { q: "Is it possible to adjust the transparency/opacity of the watermark?", a: "Yes, you have full control over the opacity slider, ranging from 10% (very subtle/ghosted) to 100% (fully solid). We recommend an opacity of 15% to 25% to ensure the underlying text remains perfectly legible." },
+    { q: "Does the watermark get applied to all pages of the PDF?", a: "Yes. The tool stamps the watermark onto every single page of the document at the same coordinates. You can also configure page ranges if you only want the watermark applied to specific pages." },
+    { q: "Can someone easily remove the watermark I add with this tool?", a: "Our tool flattens and merges the watermark directly into the PDF's page content stream. While determined users with specialized vector editors might attempt extraction, it is highly secure and cannot be deleted using standard PDF readers or viewers." }
+  ],
+  whyUse: [
+    "Our tool offers flexible text styling and image support, giving you total control over transparency, rotation angles, sizing, and alignment.",
+    "We embed watermarks deeply into the PDF stream layers to maximize the difficulty of removal or editing by third parties.",
+    "Enjoy watermark-free service (we never add a 'created by ThePDFNinja' watermark to your files) with no account requirements and auto-deletion in 1 hour."
+  ]
 };

@@ -19,7 +19,7 @@ export default function AllToolsPageClient() {
       <section style={{ background: 'var(--orange-light)', padding: '64px 0 48px', textAlign: 'center', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <h1 className="anim-fade-up" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 800, color: 'var(--text)', marginBottom: '16px', letterSpacing: '-0.03em' }}>
-            All 56 Free PDF Tools Online
+            All {allTools.length} Free PDF Tools Online
           </h1>
           <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '600px', margin: '0 auto' }}>
             Every tool you need to work with PDFs in one place. All 100% free, secure, and easy to use — no account, no watermarks, no limits.

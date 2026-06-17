@@ -55,7 +55,11 @@ export default function ComparePage({
           <h1 className="anim-fade-up" style={{ fontSize: 'clamp(2.2rem, 5vw, 3.4rem)', fontWeight: 900, color: 'var(--text)', marginBottom: '24px', letterSpacing: '-0.04em', lineHeight: 1.1 }}>
             The Best Free <span style={{ color: 'var(--orange)' }}>{headline}</span>
           </h1>
-          <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto 36px' }}>{hook}</p>
+          <p className="anim-fade-up anim-delay-1" style={{ fontSize: '1.1rem', color: 'var(--text-secondary)', lineHeight: 1.7, maxWidth: '640px', margin: '0 auto 24px' }}>{hook}</p>
+          <div className="anim-fade-up anim-delay-1" style={{ background: 'white', border: '1px solid var(--border)', borderRadius: '8px', padding: '12px 18px', maxWidth: '640px', margin: '0 auto 28px', fontSize: '0.85rem', color: 'var(--text-muted)', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+            <div><strong>Transparency Disclosure:</strong> This comparison is created and maintained by the creators of <strong>ThePDFNinja</strong>.</div>
+            <div style={{ lineHeight: 1.4 }}>We designed our service to address common limits and paywalls. While we strive to maintain accurate competitor specs, we recommend visiting each provider's official site to evaluate their current tiers and terms yourself.</div>
+          </div>
           <div className="anim-fade-up anim-delay-2" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <Link href="/tools" className="btn btn-primary btn-lg">Try ThePDFNinja Free →</Link>
             <Link href={`/tools/${tools[0].slug}`} className="btn btn-outline btn-lg">{tools[0].label}</Link>

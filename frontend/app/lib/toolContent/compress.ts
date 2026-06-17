@@ -32,5 +32,16 @@ export const compressContent = {
       "Privacy by Default: You shouldn't have to risk your data privacy just to make a file smaller. We don't ask for your email, and we never keep your files."
     ]
   },
-  security: "Compressing documents online shouldn't involve compromising your privacy. When you use ThePDFNinja to shrink your PDFs, your connection is secured via 256-bit encryption, ensuring your data is safe from interception. We process your files on secure, isolated AWS servers. Once the compression is complete, our system triggers an automatic deletion protocol. Both the original heavy PDF and the newly compressed version are permanently and irretrievably deleted from our servers within one hour. Your business reports, personal IDs, and confidential data remain entirely yours."
+  security: "Compressing documents online shouldn't involve compromising your privacy. When you use ThePDFNinja to shrink your PDFs, your connection is secured via 256-bit encryption, ensuring your data is safe from interception. We process your files on secure, isolated AWS servers. Once the compression is complete, our system triggers an automatic deletion protocol. Both the original heavy PDF and the newly compressed version are permanently and irretrievably deleted from our servers within one hour. Your business reports, personal IDs, and confidential data remain entirely yours.",
+  faqs: [
+    { q: "Will compressing a PDF degrade the quality of its images or text?", a: "ThePDFNinja uses smart optimization algorithms that downsample images to web-friendly resolutions while keeping typography and layouts crisp. For typical documents and presentations, the visual difference is virtually unnoticeable, yet the file size is reduced significantly." },
+    { q: "What is the maximum file size limit for the compressor?", a: "We support file uploads of up to 100MB per file for compression, completely free of charge. There are no daily limits on the number of files you can compress." },
+    { q: "Are compressed PDFs accepted by portals like government and university websites?", a: "Yes, our compressed PDFs strictly adhere to standard PDF/A and PDF specifications. They are ideal for electronic filing systems (like court portals, UPSC, NEET, or university application systems) that enforce strict size limits." },
+    { q: "Do you support batch compression of multiple files?", a: "Yes. You can select and upload multiple PDF documents simultaneously. Our compressor will process each file and provide them as a single convenient ZIP download." }
+  ],
+  whyUse: [
+    "Our PDF Compressor utilizes intelligent context-aware downsampling to shrink your document size by up to 70% or more, without destroying the legibility of text or graphics.",
+    "Unlike common freemium tools that enforce a 2-file daily limit or inject watermark logos unless you upgrade, ThePDFNinja offers unlimited watermark-free compression.",
+    "We secure your data via 256-bit SSL/TLS encryption, processing all documents in isolated cloud containers that delete everything permanently within 1 hour."
+  ]
 };

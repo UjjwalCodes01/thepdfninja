@@ -32,5 +32,17 @@ export const pdfToExcelContent = {
       "Lightning Fast Cloud Processing: Complex data extraction can cause desktop computers to freeze. We offload this heavy processing to our powerful AWS servers, delivering your Excel file in seconds."
     ]
   },
-  security: "Financial data, bank statements, and proprietary business metrics are highly sensitive. When you use ThePDFNinja to convert a PDF to Excel, you are guaranteed absolute privacy. Your files are transferred via an encrypted 256-bit AES connection. The data extraction process is fully automated within isolated cloud containers; no human ever views your documents. To ensure your data remains strictly confidential, our automated privacy protocol permanently deletes both your original PDF and the newly generated Excel file from our servers within one hour of conversion."
+  security: "Financial data, bank statements, and proprietary business metrics are highly sensitive. When you use ThePDFNinja to convert a PDF to Excel, you are guaranteed absolute privacy. Your files are transferred via an encrypted 256-bit AES connection. The data extraction process is fully automated within isolated cloud containers; no human ever views your documents. To ensure your data remains strictly confidential, our automated privacy protocol permanently deletes both your original PDF and the newly generated Excel file from our servers within one hour of conversion.",
+  faqs: [
+    { q: "Will the table structure be preserved when converting PDF to Excel?", a: "Yes, our advanced conversion engine recognizes grid patterns and column spacing to accurately reconstruct your PDF tables into editable Excel cells." },
+    { q: "Can I convert scanned PDF tables to Excel?", a: "Yes, if your PDF is a scanned document, our tool uses OCR (Optical Character Recognition) to extract numbers and text and place them into columns." },
+    { q: "Does the converter support bulk conversion?", a: "Currently, we process files individually to ensure the complex grid extraction yields the highest quality spreadsheet possible." },
+    { q: "Are my financial spreadsheets secure?", a: "Absolutely. We secure all uploads with 256-bit AES encryption. Files are processed in isolated virtual servers and permanently deleted within one hour." },
+    { q: "Will I get a watermarked file?", a: "No, we never add watermarks to your documents, and all conversions are 100% free with no signups required." },
+  ],
+  whyUse: [
+    "Extract tables and data from locked PDF documents into clean, editable Microsoft Excel spreadsheets.",
+    "Retain table formatting and align numbers correctly in rows and columns without manual data entry.",
+    "Free OCR support for scanned documents, processed with high security and auto-deletion.",
+  ]
 };

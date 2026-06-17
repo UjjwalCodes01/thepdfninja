@@ -32,5 +32,16 @@ export const jpgToPdfContent = {
       "Instant Cloud Processing: Uploading and compiling dozens of high-res photos can crash a mobile browser. We offload this intensive process to our high-performance AWS cloud servers, delivering results instantly."
     ]
   },
-  security: "Whether you are compiling personal family photos, scanned identity documents, or proprietary design work, your privacy is our top priority. ThePDFNinja secures your image uploads using 256-bit AES encryption, preventing interception. The PDF generation process happens entirely within an isolated, automated cloud server—no human will ever see your images. To guarantee your absolute security, our automated privacy protocol deletes both your original JPG files and the generated PDF from our servers within one hour of processing. Your memories and documents remain entirely yours."
+  security: "Whether you are compiling personal family photos, scanned identity documents, or proprietary design work, your privacy is our top priority. ThePDFNinja secures your image uploads using 256-bit AES encryption, preventing interception. The PDF generation process happens entirely within an isolated, automated cloud server—no human will ever see your images. To guarantee your absolute security, our automated privacy protocol deletes both your original JPG files and the generated PDF from our servers within one hour of processing. Your memories and documents remain entirely yours.",
+  faqs: [
+    { q: "Is there a limit to how many JPG images I can merge into one PDF?", a: "You can upload and convert up to 50 images in a single operation. The combined upload size must be under 100MB, and you can perform as many conversions per day as you want." },
+    { q: "Can I rearrange the order of the images before converting?", a: "Yes, our interactive visual layout lets you drag and drop the uploaded image thumbnails to rearrange them in the exact sequence you want them to appear in the final PDF pages." },
+    { q: "Will the PDF conversion reduce the quality of my photos?", a: "No. ThePDFNinja embeds the image data directly into the PDF wrapper without applying extra lossy compression, maintaining 100% of the original photo resolution and sharpness." },
+    { q: "Does this tool support other image formats like PNG or WebP?", a: "Yes, absolutely. Our converter handles JPG, JPEG, PNG, WebP, GIF, and BMP formats, allowing you to mix and match image formats in the same batch." }
+  ],
+  whyUse: [
+    "We use auto-layout fitting that configures the PDF page boundary to match the image aspect ratio, preventing cropped graphics or uneven borders.",
+    "A visual, drag-and-drop workspace gives you full control over page ordering before the final compilation step.",
+    "No watermark branding, no sign-up screens, and unlimited usage, backed by TLS encryption and auto-purging within 1 hour."
+  ]
 };
