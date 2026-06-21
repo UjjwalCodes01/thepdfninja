@@ -79,7 +79,7 @@ export default function HomePage() {
             65 tools &middot; 100% Free &middot; No signup &middot; No watermark &middot; Files deleted in 1h
           </p>
           <div className="anim-fade-up anim-delay-3" style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '52px' }}>
-            <Link href="#tools" className="btn btn-primary btn-lg">
+            <Link href="/tools" className="btn btn-primary btn-lg">
               Explore All PDF Tools
             </Link>
             <Link href="/tools/pdf-to-word" className="btn btn-outline btn-lg">
