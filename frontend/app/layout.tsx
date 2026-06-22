@@ -8,6 +8,7 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.thepdfninja.com'),
   title: { default: 'ThePDFNinja — Free Online PDF Converter & Editor', template: '%s' },
   description: 'The ultimate free online PDF editor and PDF converter. Merge PDF, compress PDF, split PDF, convert PDF to Word, Excel, JPG, PPT, and more. No signup required.',
   authors: [{ name: 'Anaya Digital', url: 'https://digitalanaya.com' }],
@@ -17,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://thepdfninja.com',
+    url: 'https://www.thepdfninja.com',
     siteName: 'ThePDFNinja',
     title: 'ThePDFNinja — Free Online PDF Tools',
     description: 'Free online PDF tools: merge, split, compress, and convert PDFs instantly. No signup needed.',
     images: [
       {
-        url: 'https://thepdfninja.com/og-image.png',
+        url: 'https://www.thepdfninja.com/og-image.png',
         width: 1200,
         height: 630,
         alt: 'ThePDFNinja — 65 Free Online PDF Tools',
@@ -34,9 +35,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ThePDFNinja — Free Online PDF Tools',
     description: 'Free online PDF tools. Merge, split, compress, convert PDFs instantly.',
-    images: ['https://thepdfninja.com/og-image.png'],
+    images: ['https://www.thepdfninja.com/og-image.png'],
   },
-  alternates: { canonical: 'https://thepdfninja.com' },
+  alternates: { canonical: 'https://www.thepdfninja.com' },
   other: {
     'google-adsense-account': 'ca-pub-9515530509004476'
   }

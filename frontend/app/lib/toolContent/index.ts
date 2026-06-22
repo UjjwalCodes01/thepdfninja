@@ -15,6 +15,14 @@ export interface ToolSEOContent {
     a: string;
   }[];
   whyUse?: string[];
+  comparisonTable?: {
+    headers: string[];
+    rows: {
+      feature: string;
+      us: string;
+      them: string;
+    }[];
+  };
 }
 
 export async function getToolContent(slug: string): Promise<ToolSEOContent | null> {

@@ -2,7 +2,7 @@ export const mergeContent = {
   introParagraphs: [
     "Merging PDF files is one of the most common document management tasks, yet finding a reliable, free tool that doesn't compromise on speed, quality, or privacy can be challenging. ThePDFNinja's Free Online PDF Merger is engineered to solve exactly this problem. Whether you're a student compiling research papers, a professional assembling a monthly report from various departments, or just trying to keep your personal records organized, our tool gives you the power to seamlessly stitch multiple PDF documents into a single, cohesive file.",
     "Unlike many other online PDF services that restrict the number of files you can merge, limit the file size, or force you to endure a barrage of advertisements, ThePDFNinja offers an unhindered experience. Our platform is built on modern, cloud-native architecture, ensuring that even large, graphic-heavy PDFs are processed in seconds. We believe that basic document utilities should be universally accessible, which is why we never ask you to create an account, verify an email address, or provide any personal information.",
-    "Furthermore, we understand that order matters. Our intuitive drag-and-drop interface allows you to easily arrange your files exactly how you want them to appear in the final document. You have total control over the sequence of your pages before you hit the merge button. It's the perfect balance of simplicity and professional-grade capability."
+    "Furthermore, we understand that order matters. Our intuitive drag-and-drop interface allows you to easily arrange your files exactly how you want them to appear in the final document. You have total control over the sequence of your pages before you hit the merge button. It's the perfect balance of simplicity and professional-grade capability. Whether you are dealing with two simple text documents or fifty high-resolution image PDFs, our engine handles the heavy lifting effortlessly, creating a unified file ready for sharing or archiving."
   ],
   useCases: [
     {
@@ -22,6 +22,17 @@ export const mergeContent = {
       description: "For personal use, merging PDFs is an excellent way to digitize and organize your life. Combine your monthly utility bills into a single annual archive, merge your tax returns with supporting W-2s and receipts, or compile travel itineraries, flight tickets, and hotel bookings into one easy-to-access travel document. It declutters your hard drive and makes retrieving important information a breeze."
     }
   ],
+  comparisonTable: {
+    headers: ["Feature", "ThePDFNinja Merger", "Competitor Mergers"],
+    rows: [
+      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
+      { feature: "Daily Task Limits", us: "Unlimited", them: "2 tasks per day" },
+      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
+      { feature: "Max Files Per Merge", us: "Up to 50 files", them: "Often limited to 5-10 files" },
+      { feature: "Max File Size", us: "100MB", them: "10MB - 15MB on free plans" },
+      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" }
+    ]
+  },
   comparison: {
     title: "Why Our PDF Merger is Superior",
     description: "You might be wondering how ThePDFNinja compares to industry giants like Adobe Acrobat, Smallpdf, or iLovePDF. The difference lies in our commitment to a genuinely free, unrestricted user experience.",
@@ -32,12 +43,12 @@ export const mergeContent = {
       "Faster Cloud Processing: Built on AWS Lambda, our serverless backend spins up dedicated resources for your specific merge task. This means you aren't waiting in a queue behind thousands of other users. Merging happens almost instantaneously."
     ]
   },
-  security: "When you upload documents to merge—whether they are confidential legal contracts, sensitive financial statements, or personal health records—security is paramount. ThePDFNinja employs end-to-end 256-bit AES SSL encryption during the transfer of your files. Once your PDFs reach our servers, they are processed in an isolated, secure environment. Most importantly, we operate on a strict auto-deletion policy. Both your original uploaded files and the newly merged PDF are permanently purged from our servers within one hour of processing. We do not retain copies, we do not inspect your data, and we do not sell your information.",
+  security: "When you upload documents to merge—whether they are confidential legal contracts, sensitive financial statements, or personal health records—security is paramount. ThePDFNinja employs end-to-end 256-bit AES SSL encryption during the transfer of your files. Once your PDFs reach our servers, they are processed in an isolated, secure environment. Most importantly, we operate on a strict auto-deletion policy. Both your original uploaded files and the newly merged PDF are permanently purged from our servers within 1 hour of processing. We do not retain copies, we do not inspect your data, and we do not sell your information. This ensures complete peace of mind for enterprise and personal users alike.",
   faqs: [
-    { q: "Is there a limit to the number of PDF files I can merge?", a: "You can upload and merge up to 50 individual PDF files in a single operation. The overall combined file size limit is 100MB, and you can perform unlimited merge operations daily." },
-    { q: "Can I rearrange the order of files or pages before merging?", a: "Yes, absolutely. Once you upload your files, our interface allows you to drag and drop the document thumbnails to arrange them in the exact order you want them merged." },
-    { q: "Will my links, formatting, and bookmarks be preserved after merging?", a: "Yes. Our merger tool uses low-level PDF manipulation that stitches the page trees directly. This ensures that all interactive elements, hyperlinks, text formatting, and bookmarks remain perfectly intact." },
-    { q: "Can I merge password-protected PDF documents?", a: "To merge password-protected files, you must first decrypt them using our Unlock PDF tool. Once the restrictions are removed, you can upload and merge them with other files." }
+    { q: "Is there a limit to the number of PDF files I can merge?", a: "You can upload and merge up to 50 individual PDF files in a single operation. The overall combined file size limit is 100MB per file, and you can perform unlimited merge operations daily. If you need to merge more than 50 files, you can merge the first batch, download the result, and merge it with the next batch." },
+    { q: "Can I rearrange the order of files or pages before merging?", a: "Yes, absolutely. Once you upload your files, our intuitive visual interface allows you to drag and drop the document thumbnails to arrange them in the exact order you want them merged. This ensures your final document flows logically." },
+    { q: "Will my links, formatting, and bookmarks be preserved after merging?", a: "Yes. Our merger tool uses low-level PDF manipulation that stitches the page trees directly. This ensures that all interactive elements, hyperlinks, text formatting, internal links, and bookmarks remain perfectly intact without any degradation." },
+    { q: "Can I merge password-protected PDF documents?", a: "To merge password-protected files, you must first decrypt them using our Unlock PDF tool. Once the restrictions are removed, you can upload and merge them with your other files seamlessly." }
   ],
   whyUse: [
     "Our merger features an interactive visual editor that allows you to drag, drop, and rearrange files and pages in a clean, logical grid before compilation.",

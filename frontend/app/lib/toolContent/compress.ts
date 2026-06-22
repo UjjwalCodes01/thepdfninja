@@ -22,6 +22,17 @@ export const compressContent = {
       description: "For users working primarily on mobile devices, tablets, or laptops with limited SSD storage, keeping massive uncompressed PDFs can quickly eat up available space. Compressing your archived PDFs, digital textbooks, and scanned receipts allows you to maintain your entire digital library locally without constantly battling \"Storage Full\" warnings."
     }
   ],
+  comparisonTable: {
+    headers: ["Feature", "ThePDFNinja", "Competitors"],
+    rows: [
+      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
+      { feature: "Daily Task Limits", us: "Unlimited", them: "2 tasks per day" },
+      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
+      { feature: "Max File Size", us: "100MB", them: "10MB - 15MB on free plans" },
+      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" },
+      { feature: "File Retention", us: "Deleted in 1 hour", them: "Kept for 24+ hours" }
+    ]
+  },
   comparison: {
     title: "Why ThePDFNinja Compression is Unmatched",
     description: "The internet is flooded with PDF compressors, but they are not created equal. Here is why ThePDFNinja is the preferred choice for power users and professionals alike.",
@@ -32,7 +43,7 @@ export const compressContent = {
       "Privacy by Default: You shouldn't have to risk your data privacy just to make a file smaller. We don't ask for your email, and we never keep your files."
     ]
   },
-  security: "Compressing documents online shouldn't involve compromising your privacy. When you use ThePDFNinja to shrink your PDFs, your connection is secured via 256-bit encryption, ensuring your data is safe from interception. We process your files on secure, isolated AWS servers. Once the compression is complete, our system triggers an automatic deletion protocol. Both the original heavy PDF and the newly compressed version are permanently and irretrievably deleted from our servers within one hour. Your business reports, personal IDs, and confidential data remain entirely yours.",
+  security: "Compressing documents online shouldn't involve compromising your privacy. When you use ThePDFNinja to shrink your PDFs, your connection is secured via 256-bit encryption, ensuring your data is safe from interception. We process your files on secure, isolated AWS servers. Once the compression is complete, our system triggers an automatic deletion protocol. Both the original heavy PDF and the newly compressed version are permanently and irretrievably deleted from our servers within 1 hour. Your business reports, personal IDs, and confidential data remain entirely yours.",
   faqs: [
     { q: "Will compressing a PDF degrade the quality of its images or text?", a: "ThePDFNinja uses smart optimization algorithms that downsample images to web-friendly resolutions while keeping typography and layouts crisp. For typical documents and presentations, the visual difference is virtually unnoticeable, yet the file size is reduced significantly." },
     { q: "What is the maximum file size limit for the compressor?", a: "We support file uploads of up to 100MB per file for compression, completely free of charge. There are no daily limits on the number of files you can compress." },

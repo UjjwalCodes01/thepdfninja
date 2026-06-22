@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { TOOLS } from './lib/toolConfig';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://thepdfninja.com';
+  const baseUrl = 'https://www.thepdfninja.com';
 
   // Core static pages
   const staticPages = ['', '/about', '/privacy', '/terms', '/tools'].map(route => ({

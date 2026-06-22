@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
       description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark.`,
       images: [
         {
-          url: 'https://www.thepdfninja.com/og-image.png',
+          url: `https://www.thepdfninja.com${t.ninjaImage}`,
           width: 1200,
           height: 630,
           alt: `Free ${t.label} Online \u2013 ThePDFNinja`,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
     },
     twitter: {
       card: 'summary_large_image',
-      images: ['https://www.thepdfninja.com/og-image.png'],
+      images: [`https://www.thepdfninja.com${t.ninjaImage}`],
     },
   };
 }
@@ -91,7 +91,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
       <section style={{ padding: '80px 0', background: 'white' }}>
         <div className="container" style={{ maxWidth: '800px' }}>
           <div className="prose">
-            <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>How to {t.label.toLowerCase()} online free</h2>
+            <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>How to use this tool</h2>
             <div style={{ display: 'grid', gap: '24px', marginBottom: '64px' }}>
               {t.tips.map((tip, i) => (
                 <div key={i} style={{ display: 'flex', gap: '16px', background: 'var(--bg)', padding: '24px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
@@ -110,9 +110,9 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             <h2 style={{ textAlign: 'center', marginBottom: '40px' }}>Frequently Asked Questions</h2>
             <div style={{ display: 'grid', gap: '16px', marginBottom: '48px' }}>
               {(seoContent?.faqs || [
-                { q: `Is this ${t.label.toLowerCase()} tool free?`, a: `Yes, ThePDFNinja's ${t.label.toLowerCase()} tool is 100% free to use. There are no hidden fees, subscriptions, or credit cards required.` },
-                { q: `How do I ${t.label.toLowerCase()} for free?`, a: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free.` },
-                { q: `Do you store my files?`, a: `No. All files uploaded to ThePDFNinja are strictly confidential and are automatically and permanently deleted from our servers after 1 hour.` },
+                { q: `Is this tool free?`, a: `Yes, ThePDFNinja's ${t.label} tool is 100% free to use. There are no hidden fees, subscriptions, or credit cards required.` },
+                { q: `How do I use this tool?`, a: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free.` },
+                { q: `Do you store my files?`, a: `No. All files uploaded to ThePDFNinja are strictly confidential and are automatically and permanently deleted from our servers within 1 hour.` },
                 { q: `Does this work on Mac, iPhone, and Android?`, a: `Yes, as a web-based tool, it works flawlessly across all operating systems and devices, including Mac, Windows, iOS (iPhone/iPad), Android, and Linux.` },
                 { q: `Will there be a watermark on my file?`, a: `Absolutely not. We never add watermarks to your documents.` },
               ]).map((faq, i) => (
@@ -159,6 +159,42 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                   </div>
                 </div>
 
+                {seoContent.comparisonTable && (
+                  <div style={{ marginBottom: '48px' }}>
+                    <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>How We Compare</h2>
+                    <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'white' }}>
+                      <table style={{ width: '100%', minWidth: '600px', borderCollapse: 'collapse', textAlign: 'left' }}>
+                        <thead>
+                          <tr style={{ background: 'var(--bg)', borderBottom: '2px solid var(--border)' }}>
+                            <th style={{ padding: '16px', fontWeight: 700, width: '40%' }}>{seoContent.comparisonTable.headers[0] || 'Feature'}</th>
+                            <th style={{ padding: '16px', fontWeight: 700, width: '30%' }}>{seoContent.comparisonTable.headers[1] || 'ThePDFNinja'}</th>
+                            <th style={{ padding: '16px', fontWeight: 700, width: '30%' }}>{seoContent.comparisonTable.headers[2] || 'Competitors'}</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {seoContent.comparisonTable.rows.map((row, i) => (
+                            <tr key={i} style={{ borderBottom: i === seoContent.comparisonTable!.rows.length - 1 ? 'none' : '1px solid var(--border)' }}>
+                              <td style={{ padding: '16px', fontWeight: 600, color: 'var(--text)' }}>{row.feature}</td>
+                              <td style={{ padding: '16px', color: 'var(--text-secondary)' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                  <span style={{ color: 'var(--green)', fontSize: '1.1rem' }}>✓</span>
+                                  <span>{row.us}</span>
+                                </div>
+                              </td>
+                              <td style={{ padding: '16px', color: 'var(--text-secondary)' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                  <span style={{ color: 'var(--orange)', fontSize: '1.1rem' }}>⚠</span>
+                                  <span>{row.them}</span>
+                                </div>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                )}
+
                 <div>
                   <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '16px' }}>Enterprise-Grade Security</h2>
                   <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}>{seoContent.security}</p>
@@ -167,12 +203,12 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             )}
 
             <div style={{ marginTop: '48px' }}>
-              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>Why use ThePDFNinja to {t.label.toLowerCase()}?</h2>
+              <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>Why choose ThePDFNinja?</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                 {(seoContent?.whyUse || [
-                  `ThePDFNinja provides the fastest, most reliable way to ${t.label.toLowerCase()} online. Unlike other tools that force you to create accounts, pay subscription fees, or deal with heavy watermarks, our ${t.label} tool is completely free and accessible directly from your browser.`,
-                  `We prioritize your privacy above all else. Every document uploaded for ${t.label.toLowerCase()} is processed in an isolated environment using AES-256 SSL encryption. Once your task is complete, the original and processed files are permanently deleted from our servers within 1 hour. We guarantee that your data is never read, analyzed, or shared with third parties.`,
-                  `Whether you are working from a desktop PC, a Mac, or a mobile device, you can easily ${t.label.toLowerCase()} anywhere, anytime, without installing any software.`
+                  `ThePDFNinja provides the fastest, most reliable way to process your files online. Unlike other tools that force you to create accounts, pay subscription fees, or deal with heavy watermarks, our tool is completely free and accessible directly from your browser.`,
+                  `We prioritize your privacy above all else. Every document uploaded to our platform is processed in an isolated environment using AES-256 SSL encryption. Once your task is complete, the original and processed files are permanently deleted from our servers within 1 hour. We guarantee that your data is never read, analyzed, or shared with third parties.`,
+                  `Whether you are working from a desktop PC, a Mac, or a mobile device, you can easily use our suite of tools anywhere, anytime, without installing any software.`
                 ]).map((p, i) => (
                   <p key={i} style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}>{p}</p>
                 ))}
@@ -222,7 +258,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
             {
               '@context': 'https://schema.org',
               '@type': 'HowTo',
-              name: `How to ${t.label.toLowerCase()} online for free`,
+              name: `How to use our free ${t.label} tool`,
               description: `Step-by-step guide to ${t.label.toLowerCase()} using ThePDFNinja. Free, no signup required.`,
               datePublished: '2025-01-01',
               step: t.tips.map((tip: string, i: number) => ({
@@ -246,8 +282,8 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               '@type': 'FAQPage',
               datePublished: '2025-01-01',
               mainEntity: (seoContent?.faqs || [
-                { q: `Is this ${t.label.toLowerCase()} tool free?`, a: `Yes, ThePDFNinja's ${t.label.toLowerCase()} tool is 100% free to use. There are no hidden fees, subscriptions, or credit cards required.` },
-                { q: `How do I ${t.label.toLowerCase()} for free?`, a: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free.` },
+                { q: `Is this tool free?`, a: `Yes, ThePDFNinja's ${t.label} tool is 100% free to use. There are no hidden fees, subscriptions, or credit cards required.` },
+                { q: `How do I use this tool?`, a: `Simply upload your document using the box above, configure any necessary options, and our servers will instantly process your file for free.` },
                 { q: `Do you store my files?`, a: `No. All files uploaded to ThePDFNinja are strictly confidential and are automatically and permanently deleted from our servers within 1 hour.` },
                 { q: `Does this work on Mac, iPhone, and Android?`, a: `Yes, as a web-based tool, it works flawlessly across all operating systems and devices, including Mac, Windows, iOS (iPhone/iPad), Android, and Linux.` },
                 { q: `Will there be a watermark on my file?`, a: `Absolutely not. We never add watermarks to your documents.` },

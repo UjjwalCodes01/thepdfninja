@@ -2,7 +2,7 @@ export const splitContent = {
   introParagraphs: [
     "Dealing with massive, multi-page PDF documents can be overwhelming, especially when you only need a fraction of the information contained within them. ThePDFNinja's Free Online PDF Splitter is designed to help you extract exactly what you need with surgical precision. Whether you are dealing with a 500-page legal manuscript, an extensive corporate annual report, or a scanned textbook, our tool empowers you to break it down into manageable, relevant pieces in seconds.",
     "Many desktop applications and online services make splitting a PDF an unnecessarily complex and expensive ordeal. They often require you to download bulky software, sign up for trial accounts, or navigate confusing interfaces just to extract a single page. ThePDFNinja eliminates all of this friction. Our web-based platform is intuitive, lightning-fast, and completely free to use. You don't need to be a technical expert to use it—just upload your file, select your pages, and download your new document.",
-    "Our PDF splitting tool offers flexible extraction modes to suit any scenario. You can choose to burst a document into individual, single-page PDFs, or you can specify exact page ranges to extract a continuous section. No matter how you choose to split your file, the original formatting, images, and text quality are preserved flawlessly. It is the ultimate tool for document curation and management."
+    "Our PDF splitting tool offers flexible extraction modes to suit any scenario. You can choose to burst a document into individual, single-page PDFs, or you can specify exact page ranges to extract a continuous section. No matter how you choose to split your file, the original formatting, images, and text quality are preserved flawlessly. It is the ultimate tool for document curation and management. Stop sending massive files when you only need to share a single page, and regain control over your digital documents today."
   ],
   useCases: [
     {
@@ -22,6 +22,17 @@ export const splitContent = {
       description: "When preparing contracts or agreements for electronic signature via platforms like DocuSign or Adobe Sign, you may only need the client to sign a specific addendum or signature page, not the entire 50-page master agreement. Splitting the PDF allows you to extract just the relevant signature pages, streamlining the signing process for your clients and reducing confusion."
     }
   ],
+  comparisonTable: {
+    headers: ["Feature", "ThePDFNinja", "Competitors"],
+    rows: [
+      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
+      { feature: "Daily Task Limits", us: "Unlimited", them: "2 tasks per day" },
+      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
+      { feature: "Max File Size", us: "100MB", them: "10MB - 15MB on free plans" },
+      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" },
+      { feature: "File Retention", us: "Deleted in 1 hour", them: "Kept for 24+ hours" }
+    ]
+  },
   comparison: {
     title: "ThePDFNinja vs. Other PDF Splitters",
     description: "While there are many tools available to split PDFs, ThePDFNinja stands out by offering a premium experience without the premium price tag or restrictive limitations.",
@@ -32,12 +43,12 @@ export const splitContent = {
       "No Sign-Up Hurdles: You shouldn't have to surrender your email address just to extract a page from a document. With ThePDFNinja, there is zero account creation required."
     ]
   },
-  security: "We treat your documents with the utmost respect and security. Whether you are splitting confidential legal case files or proprietary business plans, you can trust that your data is safe. All file transfers to and from ThePDFNinja are secured using 256-bit AES encryption. Once processed, our automated systems ensure that your original uploaded PDF and the resulting split files are permanently deleted from our servers within one hour. We have no interest in your data; our only goal is to provide a reliable tool.",
+  security: "We treat your documents with the utmost respect and security. Whether you are splitting confidential legal case files or proprietary business plans, you can trust that your data is safe. All file transfers to and from ThePDFNinja are secured using 256-bit AES encryption. Once processed, our automated systems ensure that your original uploaded PDF and the resulting split files are permanently deleted from our servers within 1 hour. We have no interest in your data, we do not train AI models on your files, and we do not sell your email address. Our only goal is to provide a reliable tool for your document management needs.",
   faqs: [
     { q: "How do I specify which pages to split or extract?", a: "You can enter individual page numbers separated by commas (e.g., 1, 3, 5), define continuous ranges (e.g., 10-20), or choose the 'Burst' option to extract every single page of the document as a separate PDF file." },
-    { q: "Will the split pages retain their original visual quality?", a: "Yes. Our tool extracts pages directly from the underlying PDF document structure without re-encoding images or rasterizing text. This guarantees 100% preservation of quality, formatting, fonts, and hyperlinks." },
-    { q: "Can I split scanned PDF files?", a: "Yes. Scanned PDFs are fully supported and can be split or extracted using the same page selection options. The output files will contain the scanned pages exactly as they appeared originally." },
-    { q: "Is there a page limit for splitting a PDF?", a: "There are no page count limits. Whether your document has 5 pages or 500 pages, our system handles it easily. The only limitation is that the total upload file size must be under 100MB." }
+    { q: "Will the split pages retain their original visual quality?", a: "Yes. Our tool extracts pages directly from the underlying PDF document structure without re-encoding images or rasterizing text. This guarantees 100% preservation of quality, formatting, fonts, and internal hyperlinks." },
+    { q: "Can I split scanned PDF files?", a: "Yes. Scanned PDFs are fully supported and can be split or extracted using the same page selection options. The output files will contain the scanned pages exactly as they appeared originally in high resolution." },
+    { q: "Is there a page limit for splitting a PDF?", a: "There are no page count limits. Whether your document has 5 pages or 500 pages, our system handles it easily. The only limitation is that the total upload file size must be under 100MB per task." }
   ],
   whyUse: [
     "We offer precise extraction modes—including custom page selection, page range extraction, and full document bursting—in an easy-to-use visual editor.",
