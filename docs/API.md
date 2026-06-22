@@ -221,7 +221,7 @@ Status codes: `400` (bad input), `404` (not found), `500` (server error).
 
 - Input files auto-delete from S3 within 1 day (lifecycle policy)
 - Output files auto-delete within 1 day
-- Job records auto-delete from DynamoDB after 24 hours (TTL)
+- Job records auto-delete from DynamoDB after 1 hour (TTL)
 - No logging of file contents
 
 ---

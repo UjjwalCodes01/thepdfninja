@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: { params: Promise<{ size: str
     title: `Compress PDF to ${sizeUpper} Free Online | No Signup | ThePDFNinja`,
     description: `Free online tool to compress PDF to exactly ${sizeUpper}. Best for Indian government forms, UPSC, NEET, and bank applications. No signup, no watermark.`,
     alternates: {
-      canonical: `https://thepdfninja.com/tools/compress-pdf-to-${resolvedParams.size}`
+      canonical: `https://www.thepdfninja.com/tools/compress-pdf-to-${resolvedParams.size}`
     }
   };
 }

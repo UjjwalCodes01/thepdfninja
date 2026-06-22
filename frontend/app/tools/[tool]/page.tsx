@@ -21,15 +21,15 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
     title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
     description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark, no email required. Files deleted automatically after 1 hour. Works on Windows, Mac, iPhone, Android.`,
     alternates: {
-      canonical: `https://thepdfninja.com/tools/${resolvedParams.tool}`
+      canonical: `https://www.thepdfninja.com/tools/${resolvedParams.tool}`
     },
     openGraph: {
-      url: `https://thepdfninja.com/tools/${resolvedParams.tool}`,
+      url: `https://www.thepdfninja.com/tools/${resolvedParams.tool}`,
       title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
       description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark.`,
       images: [
         {
-          url: 'https://thepdfninja.com/og-image.png',
+          url: 'https://www.thepdfninja.com/og-image.png',
           width: 1200,
           height: 630,
           alt: `Free ${t.label} Online \u2013 ThePDFNinja`,
@@ -38,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
     },
     twitter: {
       card: 'summary_large_image',
-      images: ['https://thepdfninja.com/og-image.png'],
+      images: ['https://www.thepdfninja.com/og-image.png'],
     },
   };
 }
@@ -236,9 +236,9 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
               '@context': 'https://schema.org',
               '@type': 'BreadcrumbList',
               itemListElement: [
-                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://thepdfninja.com' },
-                { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://thepdfninja.com/tools' },
-                { '@type': 'ListItem', position: 3, name: t.label, item: `https://thepdfninja.com/tools/${resolvedParams.tool}` }
+                { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.thepdfninja.com' },
+                { '@type': 'ListItem', position: 2, name: 'Tools', item: 'https://www.thepdfninja.com/tools' },
+                { '@type': 'ListItem', position: 3, name: t.label, item: `https://www.thepdfninja.com/tools/${resolvedParams.tool}` }
               ]
             },
             {

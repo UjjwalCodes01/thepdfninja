@@ -34,7 +34,7 @@ export default function Pdf24AlternativePage() {
         { feature: 'Account required', them: 'No', us: 'No — never' },
         { feature: 'Interface quality', them: 'Cluttered, ad-heavy UI', us: 'Modern, clean, fast UI' },
         { feature: 'Processing speed', them: 'Can be slow on free plan', us: 'Sub-10s for most operations' },
-        { feature: 'File auto-deletion', them: '1–24 hours', us: 'Within 1 hour — guaranteed' },
+        { feature: 'File auto-deletion', them: '1–1 hour', us: 'Within 1 hour — guaranteed' },
         { feature: 'Max file size', them: 'Varies by tool', us: '100MB — all tools, consistent' },
         { feature: 'Mobile experience', them: 'Functional but basic', us: 'Fully responsive, app-quality' },
         { feature: 'OCR / AI tools', them: 'Available', us: '100% free — AWS Textract AI' },

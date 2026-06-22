@@ -18,7 +18,7 @@ const COMPARE_ROWS = [
   { feature: 'Daily task limit', them: 'Strict limits (2–5 per day free)', us: 'Unlimited — no limits ever' },
   { feature: 'Account required', them: 'Yes — email required for many tools', us: 'Never — zero signup' },
   { feature: 'Watermarks on output', them: 'Added on free plan for some tools', us: 'Never — zero watermarks' },
-  { feature: 'File auto-deletion', them: 'Up to 24 hours', us: 'Within 1 hour' },
+  { feature: 'File auto-deletion', them: 'Up to 1 hour', us: 'Within 1 hour' },
   { feature: 'Max file size (any tier)', them: 'Up to 4GB (on Premium plans)', us: 'Strict 100MB limit per file' },
   { feature: 'Offline support', them: 'Desktop & Mobile apps available', us: 'No — Web-only (requires internet)' },
   { feature: 'Cloud integrations', them: 'Direct Google Drive & Dropbox sync', us: 'No — Manual upload/download only' },

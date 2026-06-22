@@ -152,7 +152,7 @@ export default function IsItSafePage() {
             This is arguably the most critical aspect of our security framework. Even with world-class encryption, the safest file is one that no longer exists on a server.
           </p>
           <p>
-            Competitors like DropFile or RaptorPDF often keep your files for 24 hours, or even days if you create an account. <strong>ThePDFNinja operates on a strict 1-hour deletion protocol.</strong>
+            Competitors like DropFile or RaptorPDF often keep your files for 1 hour, or even days if you create an account. <strong>ThePDFNinja operates on a strict 1-hour deletion protocol.</strong>
           </p>
           <p>
             Exactly 60 minutes after your file is processed, our automated cron jobs trigger a hard deletion. Both the original file you uploaded and the processed file you generated are permanently and irretrievably purged from the AWS servers. We do not keep backups of user files. If you forget to download your converted PDF and 61 minutes pass, you will have to upload and convert it again.

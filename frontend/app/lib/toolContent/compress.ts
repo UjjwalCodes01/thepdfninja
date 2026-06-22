@@ -28,7 +28,7 @@ export const compressContent = {
     points: [
       "No Extreme Degradation: Many free compressors aggressively destroy image quality, leaving you with blurry, pixelated documents. Our smart compression strikes the perfect balance, preserving readability and visual fidelity while reducing file size.",
       "100MB Free Limit: Competitors like Smallpdf often restrict free users to very small file sizes, forcing you to pay if you want to compress a larger document. We support files up to 100MB for all users, 100% free.",
-      "Zero Daily Caps: Whether you need to compress one file for an email or fifty files for a website migration, ThePDFNinja imposes zero daily limits. You never have to wait 24 hours to process your next file.",
+      "Zero Daily Caps: Whether you need to compress one file for an email or fifty files for a website migration, ThePDFNinja imposes zero daily limits. You never have to wait 1 hour to process your next file.",
       "Privacy by Default: You shouldn't have to risk your data privacy just to make a file smaller. We don't ask for your email, and we never keep your files."
     ]
   },

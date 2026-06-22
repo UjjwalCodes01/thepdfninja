@@ -12,7 +12,7 @@ resource "aws_dynamodb_table" "jobs" {
     type = "S"
   }
 
-  # TTL - auto-delete job records after 24 hours
+  # TTL - auto-delete job records after 1 hour
   ttl {
     attribute_name = "expires_at"
     enabled        = true

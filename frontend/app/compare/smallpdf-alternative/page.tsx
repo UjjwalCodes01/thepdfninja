@@ -50,7 +50,7 @@ export default function SmallpdfAlternativePage() {
       ]}
       faqs={[
         { q: 'Is ThePDFNinja better than Smallpdf for free users?', a: "Yes. Smallpdf limits free users to just 2 tasks per day, requires an account, and caps file sizes at 5MB for some tools. ThePDFNinja is unlimited, completely free, no account required, and allows 100MB files." },
-        { q: "What is Smallpdf's daily free task limit?", a: "Smallpdf's free plan allows only 2 PDF tasks per day. After that, you need to wait 24 hours or upgrade to a paid plan starting at $9/month. ThePDFNinja has no such limit — ever." },
+        { q: "What is Smallpdf's daily free task limit?", a: "Smallpdf's free plan allows only 2 PDF tasks per day. After that, you need to wait 1 hour or upgrade to a paid plan starting at $9/month. ThePDFNinja has no such limit — ever." },
         { q: 'Does ThePDFNinja have OCR like Smallpdf Pro?', a: "Yes. ThePDFNinja's OCR PDF tool uses AWS Textract AI to extract text from scanned documents and images — completely free, no Pro subscription needed." },
         { q: 'Can ThePDFNinja handle large PDFs like Smallpdf Pro?', a: 'ThePDFNinja supports files up to 100MB on all tools for all users — far more generous than Smallpdf\'s 5MB cap on the free plan.' },
       ]}
