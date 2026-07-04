@@ -91,7 +91,7 @@ export default function HomePage() {
 
       {/* ── STATS CALLOUT ── */}
       <section style={{ background: 'var(--orange)', padding: '28px 0' }}>
-        <div className="container-wide">
+        <div className="container">
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {[
               { stat: '65', label: 'Free PDF Tools' },
@@ -101,13 +101,18 @@ export default function HomePage() {
               { stat: '0', label: 'Accounts Required' },
               { stat: '256-bit', label: 'AES SSL Encryption' },
             ].map((s, i) => (
-              <div key={s.label} style={{ textAlign: 'center', padding: '8px 32px', borderRight: i < 5 ? '1px solid rgba(255,255,255,0.3)' : 'none' }}>
+              <div key={s.label} className="stat-item" style={{ textAlign: 'center', padding: '8px 20px', borderRight: i < 5 ? '1px solid rgba(255,255,255,0.3)' : 'none' }}>
                 <div style={{ fontSize: 'clamp(1.4rem, 3vw, 2rem)', fontWeight: 900, color: 'white', letterSpacing: '-0.03em' }}>{s.stat}</div>
                 <div style={{ fontSize: '0.75rem', color: 'rgba(255,255,255,0.85)', fontWeight: 500, marginTop: '2px' }}>{s.label}</div>
               </div>
             ))}
           </div>
         </div>
+        <style>{`
+          @media (max-width: 600px) {
+            .stat-item { padding: 6px 10px !important; border-right: none !important; }
+          }
+        `}</style>
       </section>
 
       {/* ── TOOLS GRID ── */}
