@@ -32,7 +32,7 @@ export const imageCropContent = {
       "Zero Installation: The entire process takes place in your browser, works on all platforms, and deletes your files in 1 hour."
 ]
   },
-  security: "We take data security very seriously. All image uploads are secured with 256-bit SSL/TLS encryption. Your photos are processed in isolated environments and permanently deleted from our servers within 1 hour.",
+  security: "Cropping happens on an isolated server reached only through encrypted TLS, so the image you trim is never exposed in transit or to other users. The uncropped original and the cropped output are both erased automatically within sixty minutes. We keep no cache, perform no content scanning, and share nothing with outside services.",
   faqs: [
     { q: "How do I crop an image?", a: "Upload your image, adjust the crop box overlay to select the area you want to keep, and click crop to download the result instantly." },
     { q: "Can I crop to specific aspect ratios?", a: "Yes, you can choose from common aspect ratio presets like 1:1, 16:9, 4:3, or use a custom freeform cropping window." },

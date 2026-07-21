@@ -32,7 +32,7 @@ export const grayscalePdfContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your documents are handled with maximum security. All files are uploaded via SSL encryption, processed in isolated virtual servers, and automatically deleted within 1 hour. We never access, review, or store your files.",
+  security: "Converting a PDF to greyscale is done on an isolated worker protected by end-to-end 256-bit encryption. The colour original and the greyscale copy are both deleted automatically within the hour. We do not read the pages, extract their text, or share the document with anyone — the operation changes only how the file prints, not who can see it.",
   faqs: [
     { q: "Why convert a PDF to grayscale?", a: "Converting a PDF to grayscale (black and white) strips out heavy color data from embedded images, reducing file sizes and saving expensive color printer ink." },
     { q: "Does the text remain sharp in grayscale?", a: "Yes, all vector text and lines remain perfectly sharp and readable; only the color values are converted to black and white values." },

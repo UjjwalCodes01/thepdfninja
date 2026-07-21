@@ -32,7 +32,7 @@ export const rtfToPdfContent = {
       "No Signup Required: Start converting RTF to PDF instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original RTF and the generated PDF documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "Rich Text documents often come from word processors and may contain drafts you would rather keep private. Your RTF is encrypted on upload, converted to PDF on a locked-down server, and then both files are erased within an hour. We never open the document, keep a copy, or route it through outside services.",
   faqs: [
     { q: "What is an RTF file?", a: "RTF (Rich Text Format) is a cross-platform document format that supports text formatting and simple graphics. It is supported by most word processors but can render differently depending on the application used to open it." },
     { q: "Will the text formatting of my RTF file be preserved?", a: "Yes, our converter preserves text colors, sizes, bold/italic styles, margins, and alignments, rendering them into a consistent, unalterable PDF layout." },

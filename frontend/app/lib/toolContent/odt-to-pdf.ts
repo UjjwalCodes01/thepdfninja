@@ -32,7 +32,7 @@ export const odtToPdfContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original ODT and the generated PDF documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "OpenDocument files are processed in a private, single-use container reached only through encrypted TLS. The uploaded ODT and the generated PDF are wiped automatically within sixty minutes, leaving no residue on our systems. Your content is never inspected, retained for any purpose, or shared with third parties — it simply becomes a PDF and disappears.",
   faqs: [
     { q: "What is an ODT file?", a: "ODT (OpenDocument Text) is the default document format used by open-source word processors like LibreOffice and OpenOffice. It is not always compatible with Microsoft Word or standard mobile viewers." },
     { q: "Will the ODT file formatting be preserved in the PDF?", a: "Yes, our conversion engine accurately preserves fonts, spacing, tables, headers, footers, and margins from your ODT file, locking them into a fixed PDF layout." },

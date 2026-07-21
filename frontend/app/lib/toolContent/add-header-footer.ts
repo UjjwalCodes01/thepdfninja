@@ -32,7 +32,7 @@ export const addHeaderFooterContent = {
       "Instant Browser Processing: Upload, customize your text, and download your formatted PDF in seconds on any device."
 ]
   },
-  security: "Your privacy is our priority. All file uploads are secured with 256-bit SSL encryption. Documents are processed in isolated virtual servers and are permanently deleted from our system within 1 hour. We never store or inspect your content.",
+  security: "Adding headers or footers to a PDF is handled on a single-use worker behind 256-bit encryption, so the document you are branding stays private throughout. The source PDF and the stamped output are erased automatically within the hour. We never inspect the pages, keep a copy, or expose your file to advertising, analytics, or any outside service.",
   faqs: [
     { q: "Can I use different headers or footers on the first page?", a: "Yes, our tool allows you to exclude the first page from page numbering, headers, and footers, which is ideal for cover pages and titles." },
     { q: "What styling options are available for the headers and footers?", a: "You can customize the font size, font family, position (left, center, right), margins, and color of the text to match your document's design." },

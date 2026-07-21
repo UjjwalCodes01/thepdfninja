@@ -32,7 +32,7 @@ export const bmpToJpgContent = {
       "No Signup Required: Start converting BMP to JPG instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original BMP and the generated JPG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "Older BMP files are uncompressed and can be large, so we process them on a dedicated, sandboxed worker reached only through an encrypted channel. The bitmap is re-encoded to JPG, returned to you, and then both files are erased within the hour. No copies are retained, no content is analysed, and your image is never exposed to any outside service.",
   faqs: [
     { q: "Why should I convert BMP images to JPG?", a: "BMP files are uncompressed raster images, which makes them very large in file size. JPG files use compression algorithms to dramatically reduce file size while maintaining excellent visual quality, making them easier to email or host on websites." },
     { q: "Will my image lose quality during the BMP to JPG conversion?", a: "JPG uses lossy compression, which results in a tiny, minor loss of detail, but we use high-quality compression settings to ensure that the difference is virtually indistinguishable to the naked eye." },

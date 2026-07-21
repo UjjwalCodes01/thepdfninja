@@ -32,7 +32,7 @@ export const reversePagesContent = {
       "Zero Signup Barriers: No account setup, no emails, no credit cards. Start reversing pages immediately, watermark-free."
 ]
   },
-  security: "We prioritize your privacy. All uploads are secured via 256-bit SSL encryption. Once the pages are reversed, the files are deleted from our servers automatically within 1 hour. We do not store, view, or share your document contents.",
+  security: "Reversing the page order of a PDF is a closed, private operation: the file is encrypted on upload, reordered on an isolated server, returned, and then deleted along with the original within sixty minutes. At no point is the document read, cached, or shared. Your pages come back in the new order and every copy on our side is gone within the hour.",
   faqs: [
     { q: "How does the Reverse Pages tool work?", a: "It reverses the page sequence of your PDF. For example, a 10-page document will be reorganized so page 10 becomes page 1, page 9 becomes page 2, and so on." },
     { q: "Why would I need to reverse PDF pages?", a: "This tool is highly useful when a scanner feeds pages in reverse order, or when printing documents that print face-up and need their order flipped to read correctly." },

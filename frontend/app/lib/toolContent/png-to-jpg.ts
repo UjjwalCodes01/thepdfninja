@@ -32,7 +32,7 @@ export const pngToJpgContent = {
       "Zero Installation: The entire conversion takes place in your web browser. All files are deleted automatically within 1 hour."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original PNG and the generated JPG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "PNG files often carry hidden metadata and transparency data that you may not want to pass along. When you convert a PNG to JPG here, the upload travels over an encrypted TLS connection and the image is flattened and re-encoded on an isolated server that no other job can touch. Both the original PNG and the finished JPG are erased within one hour, and at no point is the picture opened, indexed, or shared.",
   faqs: [
     { q: "Why convert PNG to JPG?", a: "PNG files are lossless and can be very large in size. Converting them to JPG applies compression, which reduces file sizes by up to 80%, making them ideal for web pages, sharing on social media, or emailing." },
     { q: "Will transparent areas in my PNG turn black when converted to JPG?", a: "Since JPG does not support transparency, transparent regions in your PNG will be rendered with a solid white background, which is the web standard." },

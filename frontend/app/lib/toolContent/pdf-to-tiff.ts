@@ -32,7 +32,7 @@ export const pdfToTiffContent = {
       "No Signup Required: Start converting your PDFs to TIFF instantly in your browser without filling out registration forms."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original PDF and the generated TIFF images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your document contents.",
+  security: "Rendering a PDF into high-resolution TIFF images is handled in a private sandbox reached only over encrypted TLS, so confidential pages are never exposed. The source PDF and the generated TIFFs are erased within sixty minutes, with no copies cached and no content indexed. Your document is converted and then completely removed from our systems.",
   faqs: [
     { q: "Why convert PDF to TIFF?", a: "TIFF is a high-quality, lossless image format widely used in desktop publishing, photography, and archiving. It is also required by many digital document management systems and electronic fax services." },
     { q: "Will the converter merge multiple PDF pages into a single multi-page TIFF?", a: "Yes, our converter supports generating multi-page TIFF files where all pages of your PDF are bundled into a single TIFF file, or you can choose to download separate single-page TIFFs in a ZIP archive." },

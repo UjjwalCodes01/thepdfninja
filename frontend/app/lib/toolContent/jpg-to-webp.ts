@@ -32,7 +32,7 @@ export const jpgToWebpContent = {
       "No Signup Required: Start converting JPG to WebP instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original JPG and the generated WebP images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "Compressing a JPG into modern WebP happens in a private, single-use worker protected by 256-bit encryption end to end. The photo is re-encoded and returned to you, then the original JPG and the new WebP are both purged within the hour. There is no human review, no data mining of your images, and no sharing with advertising or analytics partners.",
   faqs: [
     { q: "What is the advantage of WebP over JPG?", a: "WebP is a modern image format developed by Google that offers significantly better compression than JPG, yielding file sizes that are typically 30% smaller without losing quality." },
     { q: "Will converting my images to WebP speed up my website?", a: "Yes, smaller image sizes directly correlate to faster webpage loads, which improves SEO and user experience." },

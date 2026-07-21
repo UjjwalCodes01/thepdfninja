@@ -32,7 +32,7 @@ export const heicToPngContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original HEIC and the generated PNG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "Converting Apple's HEIC format to universal PNG is done over a secure TLS link inside an isolated environment that no other user can reach. We never read the embedded metadata, never store the image beyond the automatic sixty-minute wipe, and never share it. What you upload is converted and then permanently removed, original and output together.",
   faqs: [
     { q: "Why convert HEIC to PNG instead of JPG?", a: "Converting HEIC to PNG is best when you need lossless quality, or if your HEIC image has a transparent background that you want to preserve." },
     { q: "Does this tool support bulk conversions?", a: "Yes, you can upload multiple HEIC photos from your camera roll or computer and convert them to PNG in a single batch." },

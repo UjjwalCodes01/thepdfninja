@@ -32,7 +32,7 @@ export const imageResizeContent = {
       "Zero Setup: Works entirely in your web browser. No accounts or software required, and all files are deleted in 1 hour."
 ]
   },
-  security: "We prioritize your privacy and data security. All uploads are secured with 256-bit SSL encryption. All documents are processed on secure cloud servers and are permanently deleted within 1 hour, ensuring your files remain completely confidential.",
+  security: "Resizing your image is a self-contained operation: the file is encrypted on upload, scaled on a private worker, returned, and then deleted — original and result — inside the one-hour window. At no stage is the picture viewed by a person, retained for training, or handed to a third party. Your dimensions change; your privacy does not.",
   faqs: [
     { q: "Can I resize an image by exact pixels?", a: "Yes, you can enter the exact width and height in pixels to resize your image to specific requirements." },
     { q: "Will the image aspect ratio distort?", a: "By default, the tool locks the aspect ratio so that modifying one dimension automatically scales the other, preventing image distortion." },

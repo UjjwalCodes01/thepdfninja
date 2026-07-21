@@ -32,7 +32,7 @@ export const webpToPngContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original WebP and the generated PNG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "Your WebP upload is encrypted the moment it leaves your browser and decoded into a transparent-friendly PNG on a server isolated from every other request. We never inspect the image, never keep a copy beyond the automatic one-hour deletion window, and never expose it to outside services. The conversion is a closed loop: in, converted, gone.",
   faqs: [
     { q: "Why convert WebP to PNG?", a: "Converting WebP to PNG is best when you need a lossless version of the image for detailed editing, or when you want to preserve WebP's transparent backgrounds in software that doesn't support WebP." },
     { q: "Will WebP transparency be preserved in PNG?", a: "Yes, the transparency alpha channels of the WebP file are fully mapped and preserved in the output PNG file." },

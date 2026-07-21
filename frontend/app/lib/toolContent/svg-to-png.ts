@@ -32,7 +32,7 @@ export const svgToPngContent = {
       "Zero Installation: The entire conversion takes place in your web browser. All files are deleted automatically within 1 hour."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original SVG and the generated PNG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "SVG files are code-based and can reference external resources; our rasteriser renders your SVG to a flat PNG inside a hardened sandbox with no outbound access, over an encrypted connection. Nothing about the vector — its markup, fonts, or embedded data — is stored beyond the automatic one-hour deletion, inspected, or shared with anyone.",
   faqs: [
     { q: "What is an SVG file?", a: "SVG is a vector graphic format used for logos, icons, and illustrations. While it scales infinitely, it is not supported by all social media, email clients, or standard image viewers." },
     { q: "Will my converted PNG lose quality?", a: "Since SVG is a vector format, our converter renders it at high resolution, giving you a sharp, clean PNG without pixelation." },

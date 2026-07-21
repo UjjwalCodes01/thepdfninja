@@ -32,7 +32,7 @@ export const mdToPdfContent = {
       "No Signup Required: Start converting Markdown to PDF instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original MD and the generated PDF documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "Markdown files can hold everything from private notes to unpublished documentation. Yours is encrypted the moment you upload it and rendered to PDF inside an isolated worker that is destroyed after the task. The source .md and the output PDF are both deleted within the hour, and nothing is logged, analysed, or passed to any external service.",
   faqs: [
     { q: "How does the Markdown to PDF converter format my document?", a: "Our converter parses your Markdown (.md) file and styles it using a clean, modern layout with distinct headers, blockquotes, code blocks, and formatted lists." },
     { q: "Can I convert files with code snippets?", a: "Yes, code snippets and blockquotes are rendered using syntax-highlighting styles, making this tool perfect for developers and technical documentation." },

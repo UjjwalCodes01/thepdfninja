@@ -32,7 +32,7 @@ export const compressToSizeContent = {
       "Zero File Retention: All uploaded and processed files are deleted automatically from our servers within 1 hour."
 ]
   },
-  security: "Your documents are handled with maximum security. All files are uploaded via SSL encryption, processed in isolated virtual servers, and automatically deleted within 1 hour. We never access, review, or store your files.",
+  security: "Compressing a PDF to a precise KB target can require multiple quality passes, all of which run in a locked, single-use environment over an encrypted connection. Your source PDF and every intermediate file are wiped within sixty minutes of finishing. We never read the document, keep a copy, or share it — important when the file is an ID, mark sheet, or bank form.",
   faqs: [
     { q: "How does the Compress to Size tool work?", a: "You enter a target file size (such as 200KB or 500KB) and upload your PDF. Our algorithm automatically adjusts image compression and quality variables to shrink the file as close to that size as possible without going over." },
     { q: "Will my PDF quality be ruined?", a: "If you request a target size that is too small for a document with many large images, the compression may look lossy. We balance compression and legibility so text remains sharp." },

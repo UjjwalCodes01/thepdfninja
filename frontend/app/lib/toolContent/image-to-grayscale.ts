@@ -32,7 +32,7 @@ export const imageToGrayscaleContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your documents are handled with maximum security. All files are uploaded via SSL encryption, processed in isolated virtual servers, and automatically deleted within 1 hour. We never access, review, or store your files.",
+  security: "Converting an image to greyscale is processed in a sandboxed, single-use environment behind 256-bit encryption. Your colour original and the greyscale result are both purged within the hour, and nothing in between is logged, analysed, or shared. The tool touches only the colour channels of your file — never its privacy.",
   faqs: [
     { q: "What does this tool do?", a: "It strips out all color saturation from your uploaded photo, yielding a clean, high-contrast black-and-white image." },
     { q: "Does this work on transparent images?", a: "Yes, it converts the colored pixels of transparent PNG or WebP files to grayscale while leaving the transparent background intact." },

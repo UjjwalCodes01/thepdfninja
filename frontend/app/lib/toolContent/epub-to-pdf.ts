@@ -32,7 +32,7 @@ export const epubToPdfContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original EPUB and the generated PDF documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "Your EPUB — often a manuscript or purchased book — is transferred under 256-bit encryption and converted to PDF on a sandboxed server that no other request can access. Both the original EPUB and the finished PDF are erased within sixty minutes. We never read the contents, keep a copy, or share the file, respecting both your privacy and the work's copyright.",
   faqs: [
     { q: "What is the benefit of converting EPUB to PDF?", a: "EPUB files have reflowable layouts that change depending on the screen size, which can make them difficult to print or read with consistent page breaks. PDF files preserve a fixed layout, ensuring consistent formatting, fonts, and page numbering across all devices and printers." },
     { q: "Will the EPUB images and chapters be preserved?", a: "Yes, our converter accurately extracts the EPUB's styling, images, chapters, and table of contents, embedding them directly into a structured PDF document." },

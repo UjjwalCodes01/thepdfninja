@@ -32,7 +32,7 @@ export const pngToWebpContent = {
       "Zero Installation: The entire conversion takes place in your web browser. All files are deleted automatically within 1 hour."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original PNG and the generated WebP images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "Every PNG you send for WebP conversion is transferred over an encrypted connection and handled in an isolated sandbox that is discarded after your job finishes. We do not open the artwork, retain it past the strict one-hour deletion, or pass it to any third party. Transparency and colour data are converted faithfully and nothing about the image is kept.",
   faqs: [
     { q: "What are the benefits of WebP compared to PNG?", a: "WebP offers both lossy and lossless compression. A lossless WebP image is about 26% smaller in file size than a PNG, while maintaining identical image quality and supporting transparency." },
     { q: "Will my transparent PNG background remain transparent in WebP?", a: "Yes, WebP supports full alpha channel transparency, so your logos and designs will retain their transparent backgrounds perfectly." },

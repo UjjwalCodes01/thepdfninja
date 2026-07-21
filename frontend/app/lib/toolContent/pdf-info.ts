@@ -32,7 +32,7 @@ export const pdfInfoContent = {
       "Zero Signup Barriers: No account setup, no emails, no credit cards. Start inspecting your PDFs immediately in your browser."
 ]
   },
-  security: "We prioritize your privacy. All uploads are secured via 256-bit SSL encryption. Once the PDF details are extracted, the files are deleted from our servers automatically within 1 hour. We do not store, view, or share your document contents.",
+  security: "Reading a PDF's metadata and structure is done entirely on our servers over a secure connection, inside a worker isolated from every other request. The file you inspect is never opened for its actual content, stored beyond the automatic one-hour deletion, or shared. We report the document's properties back to you and then erase the upload completely.",
   faqs: [
     { q: "What information does this tool extract?", a: "Our tool analyzes the PDF file and displays the page count, file size, PDF version, author, creator, page dimensions (A4, Letter, etc.), creation/modification dates, and security permissions (whether printing or copying is restricted)." },
     { q: "Does this tool edit my PDF?", a: "No, this is a read-only metadata inspector designed to give you a full summary of a PDF file's properties and structure without making any changes." },

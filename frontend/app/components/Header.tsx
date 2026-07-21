@@ -139,6 +139,7 @@ export default function Header() {
             </div>
 
             <Link href="/tools" className="nav-link" style={{ padding: '8px 10px' }}>Tools</Link>
+            <Link href="/blog" className="nav-link" style={{ padding: '8px 10px' }}>Blog</Link>
             <Link href="/about" className="nav-link" style={{ padding: '8px 10px' }}>About</Link>
             <Link href="/contact" className="nav-link" style={{ padding: '8px 10px' }}>Contact</Link>
 
@@ -182,6 +183,7 @@ export default function Header() {
         }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '24px' }}>
             <Link href="/tools" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>All Tools</Link>
+            <Link href="/blog" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>Blog</Link>
             <Link href="/about" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>About</Link>
             <Link href="/contact" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>Contact</Link>
           </div>

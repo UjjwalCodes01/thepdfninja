@@ -32,7 +32,7 @@ export const heicToJpgContent = {
       "No Signup Required: Start converting HEIC to JPG instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original HEIC and the generated JPG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "HEIC files from iPhones frequently contain GPS coordinates and device details in their metadata. When you convert HEIC to JPG here, the file is encrypted in transit and processed on a private worker; the resulting JPG is handed back and both files are deleted within an hour. Your photos are never viewed, catalogued, or forwarded anywhere — the location data goes nowhere but your own download.",
   faqs: [
     { q: "What is a HEIC file?", a: "HEIC is the default high-efficiency image format used by Apple devices (iPhone/iPad). While it saves space, it is not widely supported on Windows, Android, or old web portals." },
     { q: "Will I lose photo metadata like date and location?", a: "Our converter preserves the original EXIF metadata (such as the date taken, camera settings, and geotags) when converting from HEIC to JPG." },

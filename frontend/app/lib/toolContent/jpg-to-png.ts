@@ -32,7 +32,7 @@ export const jpgToPngContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "We prioritize your document security. All uploads are encrypted using 256-bit SSL/TLS and handled on secure, isolated AWS servers. Once converted, both your original and processed documents are automatically and permanently deleted from our servers within 1 hour.",
+  security: "Turning a JPG into a lossless PNG is handled entirely on our side over a 256-bit encrypted channel, so the photo never sits exposed in transit. Your file is processed in a sandboxed worker, converted, and then wiped — original and result alike — within sixty minutes. We keep no thumbnails, run no content analysis, and never hand your image to any third party.",
   faqs: [
     { q: "Why convert JPG to PNG?", a: "JPG is a lossy format that can show compression artifacts. PNG is lossless, which is ideal if you plan to edit the image further, add text, or use it for digital designs that require crisp edges." },
     { q: "Will converting a JPG to PNG make it transparent?", a: "No, a standard JPG does not have transparency data. The resulting PNG will have a solid background, but you can edit it later with transparency-supporting software." },

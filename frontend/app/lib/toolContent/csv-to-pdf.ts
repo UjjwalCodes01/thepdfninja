@@ -32,7 +32,7 @@ export const csvToPdfContent = {
       "No Signup Required: Start converting CSV to PDF instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original CSV and the generated PDF documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "Your CSV may hold spreadsheets of personal or financial records, so it is encrypted on upload and converted to PDF in a sandboxed, single-use environment. The original data file and the finished PDF are both wiped within the hour. We never parse your rows for content, retain a copy, or expose the data to any third-party service.",
   faqs: [
     { q: "How does the CSV to PDF converter format the data?", a: "Our converter automatically parses your comma-separated values (CSV) file and builds a clean, readable table layout with alternating row colors to make the data easy to read." },
     { q: "Will my wide CSV tables be cut off?", a: "If your CSV file has many columns, our converter will scale the columns to fit the page or let you choose landscape orientation to accommodate wider datasets." },

@@ -32,7 +32,7 @@ export const addSignatureBoxContent = {
       "Instant Browser Processing: Upload, customize your boxes, and download your formatted PDF in seconds on any device."
 ]
   },
-  security: "Your privacy is our priority. All file uploads are secured with 256-bit SSL encryption. Documents are processed in isolated virtual servers and are permanently deleted from our system within 1 hour. We never store or inspect your content.",
+  security: "Placing a signature box onto a PDF happens in an isolated, encrypted environment — fitting for documents headed for signing. Your unsigned original and the prepared file are both deleted within sixty minutes, and neither is ever read by a person or shared externally. The tool adds only the field; your contract's contents remain entirely your own.",
   faqs: [
     { q: "Does this tool support multiple signature fields?", a: "Yes, you can place multiple signature boxes throughout the document for different signees, designating roles and locations for each one." },
     { q: "Can I draw my signature or upload an image of it?", a: "Yes, our signature boxes support drawing your signature with a mouse/stylus, typing your name in standard cursive scripts, or uploading an image of your signature." },

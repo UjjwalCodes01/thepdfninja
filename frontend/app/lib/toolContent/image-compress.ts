@@ -32,7 +32,7 @@ export const imageCompressContent = {
       "Zero Installation: The entire process takes place in your web browser. All files are deleted automatically within 1 hour."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original and generated images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your files.",
+  security: "When you shrink an image here, the compression runs entirely on our servers over a 256-bit encrypted link, in a worker isolated from every other request. Your original photo and the compressed version are both removed within an hour of processing. We never study the picture's contents, keep a backup, or expose it to advertising or analytics partners.",
   faqs: [
     { q: "How does image compression work?", a: "Our tool applies smart compression algorithms (lossy for JPG/WebP and lossless for PNG) to strip out unnecessary metadata and compress pixel clusters, reducing file sizes by up to 80% with minimal loss in clarity." },
     { q: "Will my image dimensions change?", a: "No. The pixel dimensions (width and height) of your images remain exactly the same; only the file size decreases." },

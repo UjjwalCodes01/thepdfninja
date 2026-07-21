@@ -32,7 +32,7 @@ export const addTextContent = {
       "Zero Installation: The entire editing process takes place in your browser, works on all platforms, and deletes your files in 1 hour."
 ]
   },
-  security: "We take data security very seriously. All document transfers are secured with 256-bit SSL/TLS encryption. Your PDFs and the text you write are processed in isolated environments and permanently deleted from our servers within 1 hour.",
+  security: "Any text you add to a PDF here is stamped onto the document inside a private, encrypted processing environment — your edits never travel to a third party. The original file and your annotated version are both wiped within sixty minutes. We do not read what you write or the document you write it on, and nothing is cached or logged for content.",
   faqs: [
     { q: "Can I edit existing text using this tool?", a: "This tool is designed to add new text blocks, annotations, or comments on top of your PDF. If you need to edit existing characters, we recommend converting the PDF to Word first." },
     { q: "What fonts and styles are supported?", a: "We support standard web-safe fonts including Arial, Times New Roman, Courier, and Helvetica, with full control over font size, weight, alignment, and color." },

@@ -32,7 +32,7 @@ export const pdfToTxtContent = {
       "No Signup Required: Start converting PDF to TXT instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original PDF and the generated TXT documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "Extracting plain text from a PDF happens entirely on our servers over a secure connection, inside a worker isolated from other jobs. Neither the uploaded PDF nor the extracted text is kept beyond the automatic one-hour deletion, and neither is ever read by a person or shared externally. The text lands in your download and nowhere else.",
   faqs: [
     { q: "Does this tool extract all text from a PDF?", a: "Yes, it extracts all readable unicode text from your PDF file and outputs it as a clean, plain-text (.txt) file with no styling or formatting tags." },
     { q: "Can I extract text from scanned PDFs?", a: "Yes, if the PDF is scanned, our backend uses OCR to read the text in the images and write it into the plain-text file." },

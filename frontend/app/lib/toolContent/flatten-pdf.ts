@@ -32,7 +32,7 @@ export const flattenPdfContent = {
       "No Account Barriers: You don't need to sign up or log in. We provide instant, unrestricted access to all document security tools."
 ]
   },
-  security: "We prioritize your document security. All uploads are encrypted using 256-bit SSL/TLS and handled on secure, isolated AWS servers. Once flattened, both your original and processed documents are automatically and permanently deleted from our servers within 1 hour.",
+  security: "Flattening merges a PDF's form fields, layers, and annotations into static content, and the whole operation runs on an isolated worker secured by end-to-end encryption. Your interactive original and the flattened result are both deleted within the hour. We never read the form data you are flattening, retain a copy, or share it with anyone.",
   faqs: [
     { q: "What does flattening a PDF actually do?", a: "Flattening merges form fields, checkmarks, electronic signatures, and annotations into the main page background. This prevents future users from editing, altering, or removing those elements, securing the document for archiving or printing." },
     { q: "Will my PDF text still be searchable after flattening?", a: "Our tool offers two modes: flattening form fields while keeping text selectable (standard), or completely rasterizing the pages into flat images (which makes the text non-selectable for maximum security)." },

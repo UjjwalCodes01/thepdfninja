@@ -32,7 +32,7 @@ export const webpToJpgContent = {
       "No Signup Required: Start converting WebP to JPG instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original WebP and the generated JPG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "WebP images sometimes originate from websites and can embed tracking metadata. Our converter strips the file down to clean JPG pixels inside a locked-down processing environment, with every byte moving over encrypted TLS. The source WebP and the output JPG are both destroyed automatically an hour after conversion; nothing is cached, logged for content, or reused.",
   faqs: [
     { q: "Why convert WebP to JPG?", a: "WebP is an optimized web format, but it is not supported by all photo editors, older operating systems, or offline document templates. Converting to JPG makes the image universally compatible." },
     { q: "Does the conversion process reduce image quality?", a: "We use high-quality compression settings to ensure that the visual quality of the original WebP is preserved in the resulting JPG." },

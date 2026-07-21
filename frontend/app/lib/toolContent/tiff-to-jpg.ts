@@ -32,7 +32,7 @@ export const tiffToJpgContent = {
       "No Signup Required: Start converting TIFF to JPG instantly in your browser without creating an account."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original TIFF and the generated JPG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "TIFF scans often hold sensitive documents, so each upload is encrypted in transit and converted to JPG on a private, single-use server. The original TIFF and the finished JPG are both wiped automatically within sixty minutes. We never open the pages, never build searchable copies, and never route your scan through third-party services.",
   faqs: [
     { q: "Why convert TIFF to JPG?", a: "TIFF files are lossless graphics that are very large in file size and are rarely supported by standard web browsers. Converting to JPG applies compression, which reduces file sizes by up to 90%, making them web-friendly." },
     { q: "How does the tool handle multi-page TIFF files?", a: "If your TIFF contains multiple pages, our converter will output each page as an individual JPG image and package them inside a single ZIP file for download." },

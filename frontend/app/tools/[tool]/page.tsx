@@ -4,6 +4,7 @@ import { TOOLS } from '../../lib/toolConfig';
 import ToolPageClient from './ToolPageClient';
 import ToolIcon from '../../components/ToolIcon';
 import { getToolContent } from '../../lib/toolContent';
+import { isToolIndexed } from '../../lib/seoIndex';
 
 // We want dynamic params so the layout handles the non-existent slugs with our custom 404
 export const dynamicParams = true;
@@ -17,9 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
   const t = TOOLS[resolvedParams.tool];
   if (!t) return { title: 'Tool Not Found' };
   
+  const indexed = isToolIndexed(resolvedParams.tool);
+
   return {
     title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
     description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark, no email required. Files deleted automatically after 1 hour. Works on Windows, Mac, iPhone, Android.`,
+    robots: { index: indexed, follow: true, googleBot: { index: indexed, follow: true } },
     alternates: {
       canonical: `https://www.thepdfninja.com/tools/${resolvedParams.tool}`
     },

@@ -32,7 +32,7 @@ export const resizePagesContent = {
       "Zero Setup: Works entirely in your web browser. No accounts or software required, and all files are deleted in 1 hour."
 ]
   },
-  security: "We prioritize your privacy and data security. All uploads are secured with 256-bit SSL encryption. All documents are processed on secure cloud servers and are permanently deleted within 1 hour, ensuring your files remain completely confidential.",
+  security: "Resizing a PDF's page dimensions runs on a sandboxed worker reached only over encrypted TLS, keeping the document sealed off from other jobs and from us. The original and the resized copy are both purged within the hour. We do not open the pages, extract any text, or hand your file to third parties — only the page geometry changes.",
   faqs: [
     { q: "What page sizes are supported by this tool?", a: "We support resizing PDF pages to standard sizes including A4, Letter, Legal, Ledger, A3, and custom dimensions." },
     { q: "Will the content be stretched or cut off?", a: "You can choose between 'Scale content' (which fits the content to the new page size) or 'Add borders' (which pads the margins without altering the scale of your text and images)." },

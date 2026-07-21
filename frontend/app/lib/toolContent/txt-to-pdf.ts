@@ -32,7 +32,7 @@ export const txtToPdfContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original TXT and the generated PDF documents are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your documents.",
+  security: "Turning a text file into a formatted PDF runs on an isolated worker behind 256-bit encryption, so your writing is never exposed in transit or to other users. Both the source .txt and the resulting PDF are deleted automatically within sixty minutes. Nothing you type is logged, analysed, or shared — the conversion is entirely private.",
   faqs: [
     { q: "How does the text format inside the PDF?", a: "Our converter styles your plain text (.txt) file using a clean, highly legible monospaced or standard sans-serif font, preserving paragraph breaks and spacing." },
     { q: "Will my plain text layout change?", a: "The converter maintains line breaks and spacing, wrapping long lines cleanly so that no text is cut off at the margins." },

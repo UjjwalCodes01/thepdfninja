@@ -1,7 +1,18 @@
 {
   "permissions": {
     "allow": [
-      "Bash(cd /home/ujwal/Desktop/coding/thepdfninja *)"
+      "Bash(cd /home/ujwal/Desktop/coding/thepdfninja *)",
+      "Bash(curl -s -o /dev/null -w \"ads.txt HTTP status: %{http_code}\\\\n\" https://www.thepdfninja.com/ads.txt)",
+      "Bash(curl -s https://www.thepdfninja.com/ads.txt)",
+      "Bash(xargs -n1 basename)",
+      "Bash(python3 -)",
+      "Bash(python3 \"/tmp/claude-1000/-home-ujwal-Desktop-coding-thepdfninja/4ed76056-28f3-471d-ad6f-22df5aaf2dcc/scratchpad/dedupe_security.py\")",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000/contact)",
+      "Bash(curl -s http://localhost:3000/blog)",
+      "Bash(curl -s http://localhost:3000/robots.txt)",
+      "Bash(pkill -f \"next start\")",
+      "Bash(pkill -f \"next-server\")"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"

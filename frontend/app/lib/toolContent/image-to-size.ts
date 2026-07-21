@@ -32,7 +32,7 @@ export const imageToSizeContent = {
       "Zero Installation: The entire process takes place in your web browser. All files are deleted automatically within 1 hour."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original and generated images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your files.",
+  security: "Because hitting an exact file-size target means several compression passes, your image is held only briefly on an isolated worker, always under encryption, and then deleted along with every intermediate version within one hour. We never inspect the photo, retain a copy, or pass it to any third party — the size shrinks, the data stays yours.",
   faqs: [
     { q: "How do I compress an image to a specific size in KB?", a: "Upload your image, set your target size in KB (e.g. 50KB or 100KB), and our tool will adjust compression and quality settings to meet that size limit." },
     { q: "Will my image look bad if I set the target size too low?", a: "If the target is extremely small (like 10KB for a large photo), details may look compressed. We try to compress safely while preserving legibility." },

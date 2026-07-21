@@ -32,7 +32,7 @@ export const bmpToPngContent = {
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },
-  security: "Your files are kept completely private. All data is processed using 256-bit encryption. The original BMP and the generated PNG images are automatically and permanently deleted from our servers after 1 hour. We maintain zero logs of your images.",
+  security: "Your BMP upload is protected by 256-bit encryption from the instant it leaves your device until it is deleted. Conversion to PNG runs in an isolated container that is destroyed after the task, leaving nothing behind. We do not view the image, keep it past the one-hour limit, or share it — the entire exchange stays strictly between your browser and our processor.",
   faqs: [
     { q: "What is the benefit of converting BMP to PNG?", a: "Unlike JPG, PNG uses lossless compression. Converting BMP to PNG reduces file size significantly while preserving every pixel perfectly, making it ideal for screenshots, icons, and diagrams with text." },
     { q: "Does the converter support transparency?", a: "Yes, if your source image has transparency or alpha channels, the converter will preserve them and render the output PNG with a transparent background." },
