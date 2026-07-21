@@ -4,12 +4,12 @@ import ComparePage from '../ComparePageTemplate';
 export const metadata: Metadata = {
   title: 'Best Free PDF24 Alternative 2025 — No Ads, 65 Tools | ThePDFNinja',
   description: 'Looking for a PDF24 alternative without heavy ads? ThePDFNinja offers 65 free PDF tools with a clean, fast interface — merge, compress, convert, OCR — no account, no clutter.',
-  alternates: { canonical: 'https://thepdfninja.com/compare/pdf24-alternative' },
+  alternates: { canonical: 'https://www.thepdfninja.com/compare/pdf24-alternative' },
   openGraph: {
-    url: 'https://thepdfninja.com/compare/pdf24-alternative',
+    url: 'https://www.thepdfninja.com/compare/pdf24-alternative',
     title: 'Best Free PDF24 Alternative 2025 — ThePDFNinja',
     description: 'ThePDFNinja vs PDF24: cleaner interface, no heavy ads, all tools free. The best PDF24 alternative in 2025.',
-    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free PDF24 Alternative' }],
+    images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free PDF24 Alternative' }],
   },
 };
 

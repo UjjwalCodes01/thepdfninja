@@ -38,11 +38,11 @@ export default function ComparePage({
         {
           '@context': 'https://schema.org', '@type': 'WebPage',
           name: `Best Free ${competitor} Alternative — ThePDFNinja`,
-          url: `https://thepdfninja.com/compare/${slug}`,
+          url: `https://www.thepdfninja.com/compare/${slug}`,
           datePublished: '2025-01-01', dateModified: '2026-06-01',
           breadcrumb: { '@type': 'BreadcrumbList', itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://thepdfninja.com' },
-            { '@type': 'ListItem', position: 2, name: `${competitor} Alternative`, item: `https://thepdfninja.com/compare/${slug}` },
+            { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.thepdfninja.com' },
+            { '@type': 'ListItem', position: 2, name: `${competitor} Alternative`, item: `https://www.thepdfninja.com/compare/${slug}` },
           ]},
         },
         { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqSchema },

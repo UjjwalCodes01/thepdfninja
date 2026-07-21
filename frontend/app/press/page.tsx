@@ -4,9 +4,9 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Press & Media Kit — ThePDFNinja',
   description: 'Press resources for ThePDFNinja: brand assets, company description, key facts, and contact information for journalists and content creators covering free PDF tools.',
-  alternates: { canonical: 'https://thepdfninja.com/press' },
+  alternates: { canonical: 'https://www.thepdfninja.com/press' },
   openGraph: {
-    url: 'https://thepdfninja.com/press',
+    url: 'https://www.thepdfninja.com/press',
     title: 'Press & Media Kit — ThePDFNinja',
     description: 'Brand assets, boilerplate copy, and contact for journalists covering ThePDFNinja — 65 free online PDF tools by Anaya Digital.',
   },
@@ -38,11 +38,11 @@ export default function PressPage() {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
         name: 'ThePDFNinja Press & Media Kit',
-        url: 'https://thepdfninja.com/press',
+        url: 'https://www.thepdfninja.com/press',
         description: 'Press resources for ThePDFNinja including brand assets, company facts, boilerplate copy, and media contact.',
         datePublished: '2025-01-01',
         dateModified: '2026-06-01',
-        about: { '@type': 'Organization', name: 'ThePDFNinja', url: 'https://thepdfninja.com' },
+        about: { '@type': 'Organization', name: 'ThePDFNinja', url: 'https://www.thepdfninja.com' },
       }) }} />
 
       {/* Hero */}
@@ -113,7 +113,7 @@ export default function PressPage() {
               <div style={{ marginTop: '20px', padding: '20px 24px', background: 'var(--bg)', borderRadius: '8px', border: '1px solid var(--border)' }}>
                 <p style={{ fontWeight: 600, fontSize: '0.9rem', marginBottom: '6px' }}>OG / Social Preview Image</p>
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', margin: 0 }}>
-                  Available at: <code style={{ background: 'var(--border)', padding: '2px 6px', borderRadius: '4px' }}>https://thepdfninja.com/og-image.png</code> (1200×630px)
+                  Available at: <code style={{ background: 'var(--border)', padding: '2px 6px', borderRadius: '4px' }}>https://www.thepdfninja.com/og-image.png</code> (1200×630px)
                 </p>
               </div>
             </div>

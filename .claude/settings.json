@@ -12,7 +12,12 @@
       "Bash(curl -s http://localhost:3000/blog)",
       "Bash(curl -s http://localhost:3000/robots.txt)",
       "Bash(pkill -f \"next start\")",
-      "Bash(pkill -f \"next-server\")"
+      "Bash(pkill -f \"next-server\")",
+      "Bash(curl -s -o /dev/null -w \"api root: %{http_code}\\\\n\" --max-time 10 https://api.thepdfninja.com/)",
+      "Bash(getent hosts *)",
+      "Bash(nslookup api.thepdfninja.com)",
+      "Bash(rm app/components/AdUnit.tsx)",
+      "Bash(pkill -9 -f \"next\")"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"

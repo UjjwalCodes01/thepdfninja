@@ -4,12 +4,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Best Free Online PDF Tools 2025 — No Account, No Limits | ThePDFNinja',
   description: 'The 10 best free online PDF tools in 2025. Reviewed and compared: ThePDFNinja, iLovePDF, Smallpdf, PDF24, and more. Find the best free PDF editor with no account required.',
-  alternates: { canonical: 'https://thepdfninja.com/blog/best-free-pdf-tools' },
+  alternates: { canonical: 'https://www.thepdfninja.com/blog/best-free-pdf-tools' },
   openGraph: {
-    url: 'https://thepdfninja.com/blog/best-free-pdf-tools',
+    url: 'https://www.thepdfninja.com/blog/best-free-pdf-tools',
     title: 'Best Free Online PDF Tools 2025 — Reviewed & Compared',
     description: 'The definitive 2025 guide to the best free PDF tools — no account, no limits. Compare ThePDFNinja, Smallpdf, iLovePDF, PDF24, and Adobe.',
-    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'Best Free PDF Tools 2025' }],
+    images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'Best Free PDF Tools 2025' }],
   },
 };
 
@@ -110,13 +110,13 @@ export default function BestFreePdfToolsPage() {
           '@type': 'Article',
           headline: 'Best Free Online PDF Tools 2025 — No Account, No Limits',
           description: 'The definitive 2025 guide to the best free PDF tools online. Reviewed and compared: ThePDFNinja, iLovePDF, Smallpdf, PDF24, and Adobe Acrobat.',
-          url: 'https://thepdfninja.com/blog/best-free-pdf-tools',
+          url: 'https://www.thepdfninja.com/blog/best-free-pdf-tools',
           datePublished: '2025-06-01',
           dateModified: '2026-06-13',
-          author: { '@type': 'Organization', name: 'ThePDFNinja', url: 'https://thepdfninja.com' },
-          publisher: { '@type': 'Organization', name: 'ThePDFNinja', logo: { '@type': 'ImageObject', url: 'https://thepdfninja.com/og-image.png' } },
-          image: 'https://thepdfninja.com/og-image.png',
-          mainEntityOfPage: 'https://thepdfninja.com/blog/best-free-pdf-tools',
+          author: { '@type': 'Organization', name: 'ThePDFNinja', url: 'https://www.thepdfninja.com' },
+          publisher: { '@type': 'Organization', name: 'ThePDFNinja', logo: { '@type': 'ImageObject', url: 'https://www.thepdfninja.com/og-image.png' } },
+          image: 'https://www.thepdfninja.com/og-image.png',
+          mainEntityOfPage: 'https://www.thepdfninja.com/blog/best-free-pdf-tools',
         },
         {
           '@context': 'https://schema.org',
@@ -129,7 +129,7 @@ export default function BestFreePdfToolsPage() {
             position: i + 1,
             name: t.name,
             description: t.summary,
-            url: t.url.startsWith('/') ? `https://thepdfninja.com${t.url}` : t.url,
+            url: t.url.startsWith('/') ? `https://www.thepdfninja.com${t.url}` : t.url,
           })),
         },
         {

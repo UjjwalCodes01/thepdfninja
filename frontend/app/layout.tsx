@@ -4,6 +4,7 @@ import './globals.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ComplaintWidget from './components/ComplaintWidget';
+import CookieConsent from './components/CookieConsent';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
 
@@ -50,6 +51,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={inter.variable}>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* Google Consent Mode v2 — MUST run before Analytics/AdSense load.
+            Defaults to denied; granted only if the visitor previously accepted. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              window.gtag = function(){ dataLayer.push(arguments); };
+              (function(){
+                var granted = { ad_storage:'granted', ad_user_data:'granted', ad_personalization:'granted', analytics_storage:'granted' };
+                var denied  = { ad_storage:'denied',  ad_user_data:'denied',  ad_personalization:'denied',  analytics_storage:'denied' };
+                var stored = null;
+                try { stored = localStorage.getItem('pdfninja_consent'); } catch(e){}
+                var base = stored === 'granted' ? granted : denied;
+                base.wait_for_update = 500;
+                gtag('consent', 'default', base);
+              })();
+            `,
+          }}
+        />
         {/* Site-wide structured data — Organization, SoftwareApplication, WebSite */}
         <script
           type="application/ld+json"
@@ -59,7 +79,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
                 name: 'ThePDFNinja',
-                url: 'https://thepdfninja.com',
+                url: 'https://www.thepdfninja.com',
                 description: 'Free online PDF tools — merge, split, compress, convert PDF files instantly. No signup required.',
                 datePublished: '2025-01-01',
                 dateModified: '2026-06-01',
@@ -67,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'SearchAction',
                   target: {
                     '@type': 'EntryPoint',
-                    urlTemplate: 'https://thepdfninja.com/tools?q={search_term_string}',
+                    urlTemplate: 'https://www.thepdfninja.com/tools?q={search_term_string}',
                   },
                   'query-input': 'required name=search_term_string',
                 },
@@ -76,8 +96,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 '@context': 'https://schema.org',
                 '@type': 'Organization',
                 name: 'ThePDFNinja',
-                url: 'https://thepdfninja.com',
-                logo: 'https://thepdfninja.com/og-image.png',
+                url: 'https://www.thepdfninja.com',
+                logo: 'https://www.thepdfninja.com/og-image.png',
                 description: 'ThePDFNinja provides 65 free online PDF tools including merge, split, compress, and convert. Built by Anaya Digital.',
                 foundingDate: '2025',
                 knowsAbout: ['PDF editing', 'PDF conversion', 'document management', 'file compression'],
@@ -93,7 +113,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 applicationCategory: 'UtilitiesApplication',
                 operatingSystem: 'All — Windows, Mac, Linux, iOS, Android',
                 description: 'Free online PDF tools: merge, split, compress, convert PDF to Word, Excel, JPG, PowerPoint and more. 65 tools, no signup required.',
-                url: 'https://thepdfninja.com',
+                url: 'https://www.thepdfninja.com',
                 datePublished: '2025-01-01',
                 dateModified: '2026-06-01',
                 softwareVersion: '2.0',
@@ -121,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   'Scan to PDF',
                 ],
                 offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-                screenshot: 'https://thepdfninja.com/og-image.png',
+                screenshot: 'https://www.thepdfninja.com/og-image.png',
               },
             ]),
           }}
@@ -167,6 +187,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main>{children}</main>
         <Footer />
         <ComplaintWidget />
+        <CookieConsent />
         <Analytics />
       </body>
     </html>

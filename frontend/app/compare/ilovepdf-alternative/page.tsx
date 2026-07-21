@@ -4,12 +4,12 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'Best Free iLovePDF Alternative 2025 — No Limits, No Account | ThePDFNinja',
   description: 'Looking for a free iLovePDF alternative with no daily limits? ThePDFNinja offers all 56 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks.',
-  alternates: { canonical: 'https://thepdfninja.com/compare/ilovepdf-alternative' },
+  alternates: { canonical: 'https://www.thepdfninja.com/compare/ilovepdf-alternative' },
   openGraph: {
-    url: 'https://thepdfninja.com/compare/ilovepdf-alternative',
+    url: 'https://www.thepdfninja.com/compare/ilovepdf-alternative',
     title: 'Best Free iLovePDF Alternative 2025 — ThePDFNinja',
     description: 'ThePDFNinja vs iLovePDF: unlimited free PDF tools, no account required, no watermarks. The best free iLovePDF alternative available.',
-    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free iLovePDF Alternative' }],
+    images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free iLovePDF Alternative' }],
   },
 };
 
@@ -49,15 +49,15 @@ export default function IlovepdfAlternativePage() {
               '@type': 'WebPage',
               name: 'Best Free iLovePDF Alternative — ThePDFNinja',
               description: 'ThePDFNinja is the best free iLovePDF alternative with no daily limits, no account required, and no watermarks on any of its 65 PDF tools.',
-              url: 'https://thepdfninja.com/compare/ilovepdf-alternative',
+              url: 'https://www.thepdfninja.com/compare/ilovepdf-alternative',
               datePublished: '2025-01-01',
               dateModified: '2026-06-01',
               breadcrumb: {
                 '@type': 'BreadcrumbList',
                 itemListElement: [
-                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://thepdfninja.com' },
-                  { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://thepdfninja.com/compare' },
-                  { '@type': 'ListItem', position: 3, name: 'iLovePDF Alternative', item: 'https://thepdfninja.com/compare/ilovepdf-alternative' },
+                  { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.thepdfninja.com' },
+                  { '@type': 'ListItem', position: 2, name: 'Compare', item: 'https://www.thepdfninja.com/compare' },
+                  { '@type': 'ListItem', position: 3, name: 'iLovePDF Alternative', item: 'https://www.thepdfninja.com/compare/ilovepdf-alternative' },
                 ],
               },
             },

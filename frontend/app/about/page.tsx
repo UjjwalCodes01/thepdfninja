@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: 'About ThePDFNinja — Free PDF Tools Built by Anaya Digital',
   description: 'Learn about ThePDFNinja, built by Anaya Digital Marketing Agency. Our mission: free, fast, and private PDF tools for everyone. 65 tools, no signup, no watermarks.',
   alternates: {
-    canonical: 'https://thepdfninja.com/about',
+    canonical: 'https://www.thepdfninja.com/about',
   },
   openGraph: {
-    url: 'https://thepdfninja.com/about',
+    url: 'https://www.thepdfninja.com/about',
     title: 'About ThePDFNinja — Free PDF Tools Built by Anaya Digital',
     description: 'ThePDFNinja provides 65 free online PDF tools with no account required. Built and maintained by Anaya Digital Marketing Agency.',
-    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — About Us' }],
+    images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — About Us' }],
   },
 };
 
@@ -35,8 +35,8 @@ export default function AboutPage() {
             '@context': 'https://schema.org',
             '@type': 'Organization',
             name: 'ThePDFNinja',
-            url: 'https://thepdfninja.com',
-            logo: 'https://thepdfninja.com/og-image.png',
+            url: 'https://www.thepdfninja.com',
+            logo: 'https://www.thepdfninja.com/og-image.png',
             description: 'ThePDFNinja provides 65 free online PDF tools including merge, split, compress, convert PDF to Word, Excel, JPG, and more. Built by Anaya Digital.',
             foundingDate: '2025',
             founder: {

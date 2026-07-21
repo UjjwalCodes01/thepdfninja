@@ -5,13 +5,13 @@ export const metadata: Metadata = {
   title: 'Is It Safe to Upload PDFs Online? | ThePDFNinja Security Review',
   description: 'A deep dive into PDF security. Discover what happens to your files when you upload them to ThePDFNinja. Read about our 256-bit AES encryption and 1-hour deletion policy.',
   alternates: {
-    canonical: 'https://thepdfninja.com/blog/is-it-safe-to-upload-pdfs-online',
+    canonical: 'https://www.thepdfninja.com/blog/is-it-safe-to-upload-pdfs-online',
   },
   openGraph: {
     title: 'Is It Safe to Upload PDFs Online? | ThePDFNinja Security',
     description: 'A deep dive into PDF security. Discover what happens to your files when you upload them.',
-    url: 'https://thepdfninja.com/blog/is-it-safe-to-upload-pdfs-online',
-    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630 }],
+    url: 'https://www.thepdfninja.com/blog/is-it-safe-to-upload-pdfs-online',
+    images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630 }],
   }
 };
 
@@ -27,25 +27,25 @@ export default function IsItSafePage() {
               '@type': 'Article',
               headline: 'Is It Safe to Upload PDFs Online? A Complete Security Review',
               description: 'A deep dive into PDF security. Discover what happens to your files when you upload them to ThePDFNinja, including our 256-bit AES encryption and 1-hour deletion policy.',
-              image: 'https://thepdfninja.com/og-image.png',
+              image: 'https://www.thepdfninja.com/og-image.png',
               author: {
                 '@type': 'Organization',
                 name: 'ThePDFNinja Security Team',
-                url: 'https://thepdfninja.com/about'
+                url: 'https://www.thepdfninja.com/about'
               },
               publisher: {
                 '@type': 'Organization',
                 name: 'ThePDFNinja',
                 logo: {
                   '@type': 'ImageObject',
-                  url: 'https://thepdfninja.com/og-image.png'
+                  url: 'https://www.thepdfninja.com/og-image.png'
                 }
               },
               datePublished: new Date().toISOString().split('T')[0],
               dateModified: new Date().toISOString().split('T')[0],
               mainEntityOfPage: {
                 '@type': 'WebPage',
-                '@id': 'https://thepdfninja.com/blog/is-it-safe-to-upload-pdfs-online'
+                '@id': 'https://www.thepdfninja.com/blog/is-it-safe-to-upload-pdfs-online'
               }
             },
             {

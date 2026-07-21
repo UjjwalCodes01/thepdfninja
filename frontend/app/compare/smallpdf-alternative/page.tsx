@@ -4,12 +4,12 @@ import ComparePage from '../ComparePageTemplate';
 export const metadata: Metadata = {
   title: 'Best Free Smallpdf Alternative 2025 — Unlimited, No Account | ThePDFNinja',
   description: 'The best free Smallpdf alternative with no 2-task daily limit. ThePDFNinja gives you 65 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks, unlimited.',
-  alternates: { canonical: 'https://thepdfninja.com/compare/smallpdf-alternative' },
+  alternates: { canonical: 'https://www.thepdfninja.com/compare/smallpdf-alternative' },
   openGraph: {
-    url: 'https://thepdfninja.com/compare/smallpdf-alternative',
+    url: 'https://www.thepdfninja.com/compare/smallpdf-alternative',
     title: 'Best Free Smallpdf Alternative 2025 — ThePDFNinja',
     description: 'ThePDFNinja vs Smallpdf: unlimited free PDF tools, no account, no watermarks. The best Smallpdf alternative available in 2025.',
-    images: [{ url: 'https://thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free Smallpdf Alternative' }],
+    images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free Smallpdf Alternative' }],
   },
 };
 
