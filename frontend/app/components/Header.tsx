@@ -140,6 +140,7 @@ export default function Header() {
 
             <Link href="/tools" className="nav-link" style={{ padding: '8px 10px' }}>Tools</Link>
             <Link href="/about" className="nav-link" style={{ padding: '8px 10px' }}>About</Link>
+            <Link href="/contact" className="nav-link" style={{ padding: '8px 10px' }}>Contact</Link>
 
             <Link href="/tools/merge" className="btn btn-primary btn-sm" style={{ marginLeft: '12px' }}>
               Get Started Free
@@ -182,6 +183,7 @@ export default function Header() {
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '24px' }}>
             <Link href="/tools" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>All Tools</Link>
             <Link href="/about" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>About</Link>
+            <Link href="/contact" style={{ padding: '13px 0', fontWeight: 600, fontSize: '1rem', color: 'var(--text)', textDecoration: 'none', borderBottom: '1px solid var(--border-light)' }}>Contact</Link>
           </div>
           <p style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.08em', color: 'var(--text-muted)', marginBottom: '12px' }}>Popular Tools</p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>

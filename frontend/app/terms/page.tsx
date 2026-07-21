@@ -69,7 +69,7 @@ export default function TermsPage() {
 
             <h2>8. Contact</h2>
             <p>
-              If you have any questions regarding these Terms of Service, please contact us via our Contact page.
+              If you have any questions regarding these Terms of Service, please contact us via our <a href="/contact" style={{ color: 'var(--orange)' }}>Contact page</a>.
             </p>
           </div>
         </div>

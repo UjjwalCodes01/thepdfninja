@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd /home/ujwal/Desktop/coding/thepdfninja *)"
+    ],
+    "additionalDirectories": [
+      "/home/ujwal/Desktop/coding/thepdfninja"
+    ]
+  }
+}

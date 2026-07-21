@@ -2,7 +2,6 @@ import { notFound } from 'next/navigation';
 import { TOOLS } from '../../lib/toolConfig';
 import ToolPageClient from '../[tool]/ToolPageClient';
 import ToolIcon from '../../components/ToolIcon';
-import AdUnit from '../../components/AdUnit';
 
 export const dynamicParams = false;
 
@@ -75,10 +74,6 @@ export default async function CompressTargetPage({ params }: { params: Promise<{
       {/* ── WORKSPACE ── */}
       <section style={{ padding: '64px 0', background: 'var(--bg)', minHeight: '60vh' }}>
         <div className="container" style={{ maxWidth: '960px' }}>
-          <div className="anim-fade-up anim-delay-2" style={{ marginBottom: '32px' }}>
-            <AdUnit slot="top-leaderboard" type="leaderboard" />
-          </div>
-
           <div className="anim-fade-up anim-delay-3" style={{ background: 'white', borderRadius: 'var(--radius-lg)', padding: '32px', boxShadow: 'var(--shadow-md)', border: '1px solid var(--border)' }}>
              <ToolPageClient config={t} toolSlug="compress" />
           </div>
@@ -94,10 +89,6 @@ export default async function CompressTargetPage({ params }: { params: Promise<{
                 <span style={{ fontSize: '1rem', color: '#16A34A' }}>✓</span> {trust}
               </div>
             ))}
-          </div>
-
-          <div className="anim-fade-up anim-delay-5" style={{ marginTop: '48px', display: 'flex', justifyContent: 'center' }}>
-            <AdUnit slot="bottom-rectangle" type="rectangle" />
           </div>
         </div>
       </section>

@@ -76,7 +76,7 @@ export default function PrivacyPage() {
 
             <h2>7. Contact Us</h2>
             <p>
-              If you have any questions about this Privacy Policy or how we handle your data, please contact us via our Contact page.
+              If you have any questions about this Privacy Policy or how we handle your data, please contact us via our <a href="/contact" style={{ color: 'var(--orange)' }}>Contact page</a>.
             </p>
           </div>
         </div>
