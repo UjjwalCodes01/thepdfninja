@@ -143,7 +143,7 @@ export default function Header() {
             <Link href="/about" className="nav-link" style={{ padding: '8px 10px' }}>About</Link>
             <Link href="/contact" className="nav-link" style={{ padding: '8px 10px' }}>Contact</Link>
 
-            <Link href="/tools/merge" className="btn btn-primary bg-black btn-sm" style={{ marginLeft: '12px' }}>
+            <Link href="/tools/merge" className="btn btn-primary btn-sm" style={{ marginLeft: '12px' }}>
               Get Started Free
             </Link>
           </nav>

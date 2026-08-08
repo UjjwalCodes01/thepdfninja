@@ -88,7 +88,7 @@ body {
 }
 
 .btn-primary {
-  background: var(--orange);
+  background: var(--blue-dark);
   color: white;
   padding: 11px 24px;
   box-shadow: var(--shadow-orange);
