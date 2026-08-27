@@ -1,5 +1,15 @@
 // Central registry of blog posts — used by the /blog index and the sitemap so
-// they never drift apart. Add a post here when you publish its page.
+// they never drift apart.
+//
+// Two sources feed it:
+//   1. LEGACY_POSTS below — the original hand-written articles, each still its
+//      own page.tsx under app/blog/<slug>/.
+//   2. app/blog/content/ — data-driven articles rendered by app/blog/[slug]/.
+//
+// Anything added to content/ shows up on the index and in the sitemap with no
+// further wiring.
+
+import { ARTICLES } from './content';
 
 export interface BlogPostMeta {
   slug: string;
@@ -12,7 +22,7 @@ export interface BlogPostMeta {
   emoji: string;
 }
 
-export const BLOG_POSTS: BlogPostMeta[] = [
+const LEGACY_POSTS: BlogPostMeta[] = [
   {
     slug: 'heic-to-jpg-iphone-photos',
     title: "Why Your iPhone Photos Won't Open on Windows (HEIC Explained)",
@@ -104,3 +114,11 @@ export const BLOG_POSTS: BlogPostMeta[] = [
     emoji: '🔒',
   },
 ];
+
+/** Every post, newest first. */
+export const BLOG_POSTS: BlogPostMeta[] = [
+  ...LEGACY_POSTS,
+  ...ARTICLES.map(({ slug, title, excerpt, date, dateLabel, readMinutes, category, emoji }) => ({
+    slug, title, excerpt, date, dateLabel, readMinutes, category, emoji,
+  })),
+].sort((a, b) => b.date.localeCompare(a.date));
