@@ -15,4 +15,5 @@ from . import (
     epub_to_pdf,
     md_to_pdf,
     pdf_to_txt,
+    compress_to_size,
 )

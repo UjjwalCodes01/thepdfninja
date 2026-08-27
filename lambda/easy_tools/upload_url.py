@@ -1,13 +1,19 @@
 """
 Upload URL Generator
-Generates a presigned S3 PUT URL so clients upload directly to S3
-(bypasses API Gateway 10MB payload limit).
+Generates a presigned S3 POST so clients upload directly to S3, bypassing the
+API Gateway 10 MB payload limit.
+
+POST rather than PUT because only the POST form policy can carry a
+content-length-range condition, which is what actually enforces the 100 MB
+cap. With a presigned PUT the limit would be advisory only.
 """
 
 import json
 import os
 import uuid
 import boto3
+
+from _http import respond
 
 s3 = boto3.client("s3")
 BUCKET = os.environ["BUCKET_NAME"]
@@ -41,6 +47,7 @@ ALLOWED_CONTENT_TYPES = {
 }
 
 MAX_SIZE_MB = 100
+MAX_SIZE_BYTES = MAX_SIZE_MB * 1024 * 1024
 
 
 def lambda_handler(event, context):
@@ -61,22 +68,27 @@ def lambda_handler(event, context):
         safe_filename = filename.replace("/", "_").replace("\\", "_")[:100]
         file_key = f"{prefix}/{file_id}/{safe_filename}"
 
-        # Presigned PUT URL (valid 15 min)
-        upload_url = s3.generate_presigned_url(
-            "put_object",
-            Params={
-                "Bucket": BUCKET,
-                "Key": file_key,
-                "ContentType": content_type,
-            },
+        # A presigned POST is used rather than a presigned PUT because only POST
+        # can carry a content-length-range condition. With a PUT URL the size
+        # limit is advisory only and a caller can push an object of any size
+        # into the bucket.
+        presigned = s3.generate_presigned_post(
+            Bucket=BUCKET,
+            Key=file_key,
+            Fields={"Content-Type": content_type},
+            Conditions=[
+                {"Content-Type": content_type},
+                ["content-length-range", 1, MAX_SIZE_BYTES],
+            ],
             ExpiresIn=900,
-            HttpMethod="PUT",
         )
 
         return _resp(200, {
-            "upload_url": upload_url,
+            "upload_url": presigned["url"],
+            "fields": presigned["fields"],
             "file_key": file_key,
             "max_size_mb": MAX_SIZE_MB,
+            "max_size_bytes": MAX_SIZE_BYTES,
             "expires_in": 900,
         }, event)
 
@@ -84,30 +96,5 @@ def lambda_handler(event, context):
         return _resp(500, {"error": str(e)}, event)
 
 
-ALLOWED_ORIGINS = {
-    "https://thepdfninja.com",
-    "https://www.thepdfninja.com",
-}
-
-
-def _cors_origin(event):
-    origin = (event.get("headers") or {}).get("origin") or \
-             (event.get("headers") or {}).get("Origin") or ""
-    if origin in ALLOWED_ORIGINS:
-        return origin
-    if origin.startswith("http://localhost:") or origin.startswith("http://127.0.0.1:"):
-        return origin
-    return "https://thepdfninja.com"
-
-
 def _resp(status, body, event=None):
-    return {
-        "statusCode": status,
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": _cors_origin(event or {}),
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-        },
-        "body": json.dumps(body),
-    }
+    return respond(status, body, event, methods="POST, OPTIONS")

@@ -14,11 +14,14 @@ Exception: pdf_info returns a JSON dict directly (no file).
 """
 
 import json
+import logging
 import os
 import uuid
 import tempfile
 import subprocess
 import boto3
+
+from _http import respond
 
 from tools import (
     # existing 14 PDF tools
@@ -57,6 +60,9 @@ from tools import (
     # india-specific tools
     compress_to_size, pdf_info, image_to_size, resize_to_passport,
 )
+
+log = logging.getLogger()
+log.setLevel(logging.INFO)
 
 s3 = boto3.client("s3")
 BUCKET = os.environ["BUCKET_NAME"]
@@ -158,10 +164,20 @@ def lambda_handler(event, context):
             output_key = f"outputs/{uuid.uuid4()}/{os.path.basename(result_path)}"
             s3.upload_file(result_path, BUCKET, output_key)
 
-            # Presigned download URL (1 hr)
+            # Presigned download URL (1 hr).
+            # The browser ignores <a download> on a cross-origin URL, so the
+            # filename has to be signed into the request itself - otherwise the
+            # user gets the raw S3 key (output_<uuid>) as the filename.
+            ext = os.path.splitext(result_path)[1]
             download_url = s3.generate_presigned_url(
                 "get_object",
-                Params={"Bucket": BUCKET, "Key": output_key},
+                Params={
+                    "Bucket": BUCKET,
+                    "Key": output_key,
+                    "ResponseContentDisposition": (
+                        f'attachment; filename="thepdfninja_{tool}{ext}"'
+                    ),
+                },
                 ExpiresIn=3600,
             )
 
@@ -172,37 +188,19 @@ def lambda_handler(event, context):
                 "expires_in": 3600,
             }, event)
 
-    except Exception as e:
-        import traceback
-        return _resp(500, {"error": str(e), "trace": traceback.format_exc()}, event)
+    except ValueError as e:
+        # ValueError is what the tool functions raise for bad user input
+        # (unsupported URL, missing option, ...). Those messages are written
+        # for the caller, so they are safe and useful to return.
+        return _resp(400, {"error": str(e)}, event)
 
-
-ALLOWED_ORIGINS = {
-    "https://thepdfninja.com",
-    "https://www.thepdfninja.com",
-}
-
-
-def _cors_origin(event):
-    """Return the request Origin if allowed, else the production domain."""
-    origin = (event.get("headers") or {}).get("origin") or \
-             (event.get("headers") or {}).get("Origin") or ""
-    if origin in ALLOWED_ORIGINS:
-        return origin
-    # Allow any localhost port for dev
-    if origin.startswith("http://localhost:") or origin.startswith("http://127.0.0.1:"):
-        return origin
-    return "https://thepdfninja.com"
+    except Exception:
+        # Anything else is an internal fault. The traceback goes to CloudWatch;
+        # the caller gets a generic message so we do not leak file paths,
+        # library versions or bucket internals.
+        log.exception("Tool execution failed")
+        return _resp(500, {"error": "Processing failed. Please try again."}, event)
 
 
 def _resp(status, body, event=None):
-    return {
-        "statusCode": status,
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": _cors_origin(event or {}),
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-        },
-        "body": json.dumps(body),
-    }
+    return respond(status, body, event, methods="POST, OPTIONS")

@@ -10,7 +10,7 @@ resource "aws_sqs_queue" "heavy_jobs_dlq" {
 
 resource "aws_sqs_queue" "heavy_jobs" {
   name                       = "${local.prefix}-heavy-jobs"
-  visibility_timeout_seconds = 600 # 10 min - long enough for any conversion
+  visibility_timeout_seconds = 600  # 10 min - long enough for any conversion
   message_retention_seconds  = 3600 # 1 hour
   receive_wait_time_seconds  = 20   # Long polling (cheaper)
 
@@ -20,24 +20,7 @@ resource "aws_sqs_queue" "heavy_jobs" {
   })
 }
 
-# Allow S3 to send messages to this queue
-resource "aws_sqs_queue_policy" "heavy_jobs" {
-  queue_url = aws_sqs_queue.heavy_jobs.id
-
-  policy = jsonencode({
-    Version = "2012-10-17"
-    Statement = [
-      {
-        Effect    = "Allow"
-        Principal = { Service = "s3.amazonaws.com" }
-        Action    = "sqs:SendMessage"
-        Resource  = aws_sqs_queue.heavy_jobs.arn
-        Condition = {
-          ArnEquals = {
-            "aws:SourceArn" = aws_s3_bucket.files.arn
-          }
-        }
-      }
-    ]
-  })
-}
+# No resource policy is attached to this queue. S3 previously needed
+# sqs:SendMessage here for a bucket notification that has since been removed
+# (see terraform/s3.tf). The only writer now is the job_creator Lambda, which
+# is authorised through its own IAM role in iam.tf.

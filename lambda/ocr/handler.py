@@ -13,6 +13,8 @@ import os
 import time
 import boto3
 
+from _http import respond
+
 textract = boto3.client("textract")
 s3 = boto3.client("s3")
 BUCKET = os.environ["BUCKET_NAME"]
@@ -99,30 +101,5 @@ def _async_textract(file_key):
     return "\n".join(lines)
 
 
-ALLOWED_ORIGINS = {
-    "https://thepdfninja.com",
-    "https://www.thepdfninja.com",
-}
-
-
-def _cors_origin(event):
-    origin = (event.get("headers") or {}).get("origin") or \
-             (event.get("headers") or {}).get("Origin") or ""
-    if origin in ALLOWED_ORIGINS:
-        return origin
-    if origin.startswith("http://localhost:") or origin.startswith("http://127.0.0.1:"):
-        return origin
-    return "https://thepdfninja.com"
-
-
 def _resp(status, body, event=None):
-    return {
-        "statusCode": status,
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": _cors_origin(event or {}),
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-        },
-        "body": json.dumps(body),
-    }
+    return respond(status, body, event, methods="POST, OPTIONS")

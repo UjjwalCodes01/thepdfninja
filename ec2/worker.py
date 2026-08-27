@@ -144,23 +144,38 @@ def update_job(job_id, status, **extra):
 
 
 def process_message(msg):
-    """Process a single SQS message."""
+    """
+    Process a single SQS message.
+
+    Returns True when the job reached a terminal state that has been recorded
+    in DynamoDB (complete or failed) — the message can then be deleted.
+    Raises when the failure is infrastructural (DynamoDB or SQS unreachable,
+    message unreadable), so the message stays on the queue, gets retried, and
+    eventually lands in the DLQ.
+    """
     body = json.loads(msg["Body"])
+
+    # S3 bucket notifications used to be wired to this queue and may still be
+    # sitting in it. They carry no job_id, so drop them rather than retrying.
+    if "Records" in body and "job_id" not in body:
+        log.warning("Discarding S3 event notification found on the job queue")
+        return True
+
     job_id = body["job_id"]
     tool = body["tool"]
     file_key = body["file_key"]
     options = body.get("options", {})
 
     log.info(f"[{job_id}] Starting {tool} for {file_key}")
-    update_job(job_id, "processing")
 
-    # For non-OCR tools, look up the handler now
     handler = None
     if tool != "ocr":
         handler = TOOL_HANDLERS.get(tool)
         if not handler:
             update_job(job_id, "failed", error=f"Unknown tool: {tool}")
-            return
+            return True
+
+    update_job(job_id, "processing")
 
     try:
         with tempfile.TemporaryDirectory() as tmpdir:
@@ -175,10 +190,6 @@ def process_message(msg):
             if tool == "ocr":
                 result_path = _ocr_via_textract(file_key, local_input, output_path, options)
             else:
-                handler = TOOL_HANDLERS.get(tool)
-                if not handler:
-                    update_job(job_id, "failed", error=f"Unknown tool: {tool}")
-                    return
                 result_path = handler(local_input, output_path, options)
 
             # Upload result
@@ -186,12 +197,17 @@ def process_message(msg):
             s3.upload_file(result_path, BUCKET, output_key)
 
             update_job(job_id, "complete", output_key=output_key)
-            log.info(f"[{job_id}] Done → {output_key}")
+            log.info(f"[{job_id}] Done -> {output_key}")
 
     except Exception as e:
+        # The conversion itself failed. That is a terminal outcome for this
+        # job — retrying the same input would fail the same way — so record it
+        # and let the message be deleted.
         err_msg = f"{type(e).__name__}: {str(e)}"
         log.error(f"[{job_id}] FAILED: {err_msg}\n{traceback.format_exc()}")
         update_job(job_id, "failed", error=err_msg)
+
+    return True
 
 
 def main():
@@ -211,15 +227,19 @@ def main():
 
             for msg in messages:
                 try:
-                    process_message(msg)
+                    handled = process_message(msg)
                 except Exception as e:
-                    log.error(f"Message processing failed: {e}")
+                    # Infrastructural failure — do not delete. The visibility
+                    # timeout returns the message to the queue and, after
+                    # maxReceiveCount attempts, SQS moves it to the DLQ.
+                    log.error(f"Message processing failed, leaving on queue: {e}")
+                    handled = False
 
-                # Delete from queue regardless (DLQ handles real failures)
-                sqs.delete_message(
-                    QueueUrl=QUEUE_URL,
-                    ReceiptHandle=msg["ReceiptHandle"],
-                )
+                if handled:
+                    sqs.delete_message(
+                        QueueUrl=QUEUE_URL,
+                        ReceiptHandle=msg["ReceiptHandle"],
+                    )
 
         except Exception as e:
             log.error(f"Polling error: {e}")

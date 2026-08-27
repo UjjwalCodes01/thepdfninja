@@ -32,7 +32,7 @@ export default function PrivacyPage() {
             <p>The most important thing you need to know about how we handle your files is this: <strong>We do not keep them.</strong></p>
             <ul>
               <li><strong>Temporary Storage:</strong> When you upload a file to ThePDFNinja, it is temporarily stored on our secure cloud servers solely for the purpose of processing your requested task (e.g., merging, compressing).</li>
-              <li><strong>Automatic Deletion:</strong> All uploaded files and processed output files are permanently and automatically deleted from our servers within exactly 1 hour of upload.</li>
+              <li><strong>Automatic Deletion:</strong> All uploaded files and processed output files are permanently and automatically deleted from our servers within 1 hour of upload.</li>
               <li><strong>No Data Mining:</strong> We do not open, read, analyze, or extract data from the contents of your documents.</li>
               <li><strong>Encryption:</strong> All data transfers between your browser and our servers are encrypted using modern TLS (Transport Layer Security) with AES-256 bit encryption.</li>
             </ul>

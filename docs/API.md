@@ -2,7 +2,9 @@
 
 Base URL: `https://<api-id>.execute-api.us-east-1.amazonaws.com/prod`
 
-All endpoints accept and return `application/json`. All endpoints have CORS enabled (`*` origin — lock down in production).
+All endpoints accept and return `application/json`.
+
+CORS is restricted to `https://thepdfninja.com` and `https://www.thepdfninja.com`. Any other origin receives the production domain in `Access-Control-Allow-Origin`, so the browser blocks the response. `http://localhost:*` is echoed back only when the `ALLOW_LOCALHOST_ORIGINS` Lambda env var is `true` (Terraform variable `allow_localhost_origins`, default `false`).
 
 ---
 
@@ -11,8 +13,8 @@ All endpoints accept and return `application/json`. All endpoints have CORS enab
 Every conversion follows this pattern:
 
 ```
-1. POST /v1/upload           → get presigned S3 upload URL
-2. PUT  <upload_url>          → upload your file directly to S3
+1. POST /v1/upload           → get presigned S3 POST (url + fields)
+2. POST <upload_url>          → multipart upload straight to S3
 3. POST /v1/tools/<tool>      → run tool (returns download URL)
    OR
    POST /v1/jobs/<tool>       → create job (returns job_id)
@@ -24,7 +26,9 @@ Every conversion follows this pattern:
 
 ## POST /v1/upload
 
-Generate a presigned S3 PUT URL. Frontend uploads directly to S3, bypassing API Gateway's 10 MB payload limit (max file size: 100 MB).
+Generate a presigned S3 **POST**. The frontend uploads directly to S3, bypassing API Gateway's 10 MB payload limit.
+
+POST is used rather than PUT because only the POST form policy can carry a `content-length-range` condition — that is what enforces the 100 MB cap. S3 rejects an oversized upload with `403 EntityTooLarge`.
 
 **Request body:**
 ```json
@@ -42,14 +46,21 @@ Generate a presigned S3 PUT URL. Frontend uploads directly to S3, bypassing API 
 **Response (200):**
 ```json
 {
-  "upload_url": "https://pdfninja-files-....s3.amazonaws.com/inputs/abc-uuid/document.pdf?X-Amz-...",
+  "upload_url": "https://pdfninja-files-....s3.amazonaws.com/",
+  "fields": {
+    "Content-Type": "application/pdf",
+    "key": "inputs/abc-uuid/document.pdf",
+    "policy": "eyJleHBpcmF0aW9uIjoi...",
+    "x-amz-signature": "..."
+  },
   "file_key": "inputs/abc-uuid/document.pdf",
   "max_size_mb": 100,
+  "max_size_bytes": 104857600,
   "expires_in": 900
 }
 ```
 
-Upload URL expires in 15 minutes.
+**Uploading:** send a `multipart/form-data` POST to `upload_url` with every entry of `fields` first, then the file last under the field name `file`. S3 returns `204 No Content` on success. The signed policy expires in 15 minutes.
 
 **Allowed content types:** `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`, `image/bmp`, `application/msword`, `application/vnd.openxmlformats-officedocument.wordprocessingml.document`, `application/vnd.ms-powerpoint`, `application/vnd.openxmlformats-officedocument.presentationml.presentation`, `application/vnd.ms-excel`, `application/vnd.openxmlformats-officedocument.spreadsheetml.sheet`, `text/html`.
 
@@ -74,7 +85,9 @@ Runs in < 60 seconds, returns result immediately.
 | Crop | `/v1/tools/crop` | `file_key`, `options.{left,bottom,right,top}` (points) |
 | JPG → PDF | `/v1/tools/jpg-to-pdf` | `file_keys: [...]` |
 | PDF → JPG | `/v1/tools/pdf-to-jpg` | `file_key`, `options.dpi` |
-| HTML → PDF | `/v1/tools/html-to-pdf` | `options.url` OR `options.html` |
+| HTML → PDF | `/v1/tools/html-to-pdf` | `options.url` OR `options.html` (or upload an `.html` file) |
+
+`options.url` must be an `http`/`https` URL that resolves to a public IP address. Anything else — `file://`, `localhost`, private ranges, link-local — is rejected with `400`. Redirects are re-checked at every hop, and the fetched page is capped at 20 MB.
 
 **Example request:**
 ```json
@@ -206,7 +219,9 @@ All errors return:
 }
 ```
 
-Status codes: `400` (bad input), `404` (not found), `500` (server error).
+Status codes: `400` (bad input), `404` (not found), `429` (rate limited), `500` (server error).
+
+`400` carries a specific, actionable message (unsupported option, URL not allowed, file too large). `500` is deliberately generic — the detail is in CloudWatch, not the response, so internal paths and library versions are not exposed.
 
 ---
 
@@ -219,10 +234,13 @@ Status codes: `400` (bad input), `404` (not found), `500` (server error).
 
 ## Privacy
 
-- Input files auto-delete from S3 within 1 day (lifecycle policy)
-- Output files auto-delete within 1 day
-- Job records auto-delete from DynamoDB after 1 hour (TTL)
-- No logging of file contents
+- Input and output files are deleted from S3 within 1 hour. A cleanup Lambda
+  (`pdfninja-cleanup`) sweeps every 5 minutes and removes anything older than
+  55 minutes, so nothing survives past the hour. S3 lifecycle rules on
+  `inputs/`, `heavy-inputs/` and `outputs/` are a 1-day backstop only —
+  lifecycle cannot express sub-day expiry.
+- Job records auto-delete from DynamoDB after 1 hour (TTL).
+- No logging of file contents.
 
 ---
 

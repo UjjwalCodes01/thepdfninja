@@ -9,6 +9,8 @@ import uuid
 import time
 import boto3
 
+from _http import respond
+
 sqs = boto3.client("sqs")
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table(os.environ["TABLE_NAME"])
@@ -57,7 +59,10 @@ def lambda_handler(event, context):
         # Generate job ID
         job_id = str(uuid.uuid4())
         now = int(time.time())
-        expires_at = now + 86400  # 24h TTL
+        # Matches the DynamoDB TTL documented in terraform/dynamodb.tf and the
+        # 1-hour lifetime of the presigned download URL the status endpoint
+        # returns. Nothing needs the record after that.
+        expires_at = now + 3600  # 1h TTL
 
         # Write to DynamoDB
         table.put_item(Item={
@@ -91,30 +96,5 @@ def lambda_handler(event, context):
         return _resp(500, {"error": str(e)}, event)
 
 
-ALLOWED_ORIGINS = {
-    "https://thepdfninja.com",
-    "https://www.thepdfninja.com",
-}
-
-
-def _cors_origin(event):
-    origin = (event.get("headers") or {}).get("origin") or \
-             (event.get("headers") or {}).get("Origin") or ""
-    if origin in ALLOWED_ORIGINS:
-        return origin
-    if origin.startswith("http://localhost:") or origin.startswith("http://127.0.0.1:"):
-        return origin
-    return "https://thepdfninja.com"
-
-
 def _resp(status, body, event=None):
-    return {
-        "statusCode": status,
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": _cors_origin(event or {}),
-            "Access-Control-Allow-Methods": "POST, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-        },
-        "body": json.dumps(body),
-    }
+    return respond(status, body, event, methods="POST, OPTIONS")

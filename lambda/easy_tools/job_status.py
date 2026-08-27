@@ -7,6 +7,8 @@ import json
 import os
 import boto3
 
+from _http import respond
+
 s3 = boto3.client("s3")
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table(os.environ["TABLE_NAME"])
@@ -32,12 +34,20 @@ def lambda_handler(event, context):
         }
 
         if item.get("status") == "complete" and item.get("output_key"):
-            # Generate presigned download URL (valid 1 hour)
+            # Generate presigned download URL (valid 1 hour).
+            # Content-Disposition is signed in so the browser saves a sensible
+            # filename rather than the raw S3 key.
+            output_key = item["output_key"]
+            ext = os.path.splitext(output_key)[1]
+            tool = item.get("tool", "output")
             download_url = s3.generate_presigned_url(
                 "get_object",
                 Params={
                     "Bucket": BUCKET,
-                    "Key": item["output_key"],
+                    "Key": output_key,
+                    "ResponseContentDisposition": (
+                        f'attachment; filename="thepdfninja_{tool}{ext}"'
+                    ),
                 },
                 ExpiresIn=3600,
             )
@@ -53,30 +63,5 @@ def lambda_handler(event, context):
         return _resp(500, {"error": str(e)}, event)
 
 
-ALLOWED_ORIGINS = {
-    "https://thepdfninja.com",
-    "https://www.thepdfninja.com",
-}
-
-
-def _cors_origin(event):
-    origin = (event.get("headers") or {}).get("origin") or \
-             (event.get("headers") or {}).get("Origin") or ""
-    if origin in ALLOWED_ORIGINS:
-        return origin
-    if origin.startswith("http://localhost:") or origin.startswith("http://127.0.0.1:"):
-        return origin
-    return "https://thepdfninja.com"
-
-
 def _resp(status, body, event=None):
-    return {
-        "statusCode": status,
-        "headers": {
-            "Content-Type": "application/json",
-            "Access-Control-Allow-Origin": _cors_origin(event or {}),
-            "Access-Control-Allow-Methods": "GET, OPTIONS",
-            "Access-Control-Allow-Headers": "Content-Type",
-        },
-        "body": json.dumps(body, default=str),
-    }
+    return respond(status, body, event, methods="GET, OPTIONS")

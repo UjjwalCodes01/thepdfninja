@@ -9,6 +9,21 @@ from pypdf import PdfReader, PdfWriter, PdfMerger
 from pypdf.generic import RectangleObject
 
 
+def _scratch_dir(output_path):
+    """
+    A per-invocation directory for intermediate files.
+
+    output_path lives inside the TemporaryDirectory the handler creates and
+    tears down, so anything written here disappears when the request ends.
+    Writing straight to /tmp instead would leave one caller's page images on
+    the container's disk for the next caller, and would slowly fill the
+    ephemeral volume across warm invocations.
+    """
+    d = output_path + "_scratch"
+    os.makedirs(d, exist_ok=True)
+    return d
+
+
 # =============================================================
 # 1. MERGE PDF
 # =============================================================
@@ -33,13 +48,14 @@ def split_pdf(input_paths, output_path, options):
     mode = options.get("mode", "all")
 
     zip_path = output_path + ".zip"
+    scratch = _scratch_dir(output_path)
 
     with zipfile.ZipFile(zip_path, "w") as zf:
         if mode == "all":
             for i, page in enumerate(reader.pages):
                 writer = PdfWriter()
                 writer.add_page(page)
-                page_path = f"/tmp/page_{i+1}.pdf"
+                page_path = os.path.join(scratch, f"page_{i+1}.pdf")
                 with open(page_path, "wb") as f:
                     writer.write(f)
                 zf.write(page_path, f"page_{i+1}.pdf")
@@ -49,7 +65,7 @@ def split_pdf(input_paths, output_path, options):
                 writer = PdfWriter()
                 for i in range(start - 1, min(end, len(reader.pages))):
                     writer.add_page(reader.pages[i])
-                part_path = f"/tmp/part_{idx+1}.pdf"
+                part_path = os.path.join(scratch, f"part_{idx+1}.pdf")
                 with open(part_path, "wb") as f:
                     writer.write(f)
                 zf.write(part_path, f"part_{idx+1}.pdf")
@@ -515,6 +531,7 @@ def pdf_to_jpg(input_paths, output_path, options):
     import zipfile
     dpi = int(options.get("dpi", 150))
     zip_path = output_path + ".zip"
+    scratch = _scratch_dir(output_path)
 
     # Primary: PyMuPDF — pure Python, no external binary needed
     try:
@@ -524,7 +541,7 @@ def pdf_to_jpg(input_paths, output_path, options):
         with zipfile.ZipFile(zip_path, "w") as zf:
             for i, page in enumerate(doc):
                 pix = page.get_pixmap(matrix=mat, alpha=False)
-                img_path = f"/tmp/page_{i+1}.jpg"
+                img_path = os.path.join(scratch, f"page_{i+1}.jpg")
                 pix.save(img_path)
                 zf.write(img_path, f"page_{i+1}.jpg")
         return zip_path
@@ -536,7 +553,7 @@ def pdf_to_jpg(input_paths, output_path, options):
     images = convert_from_path(input_paths[0], dpi=dpi)
     with zipfile.ZipFile(zip_path, "w") as zf:
         for i, img in enumerate(images):
-            img_path = f"/tmp/page_{i+1}.jpg"
+            img_path = os.path.join(scratch, f"page_{i+1}.jpg")
             img.save(img_path, "JPEG", quality=90)
             zf.write(img_path, f"page_{i+1}.jpg")
     return zip_path
@@ -547,6 +564,51 @@ def pdf_to_jpg(input_paths, output_path, options):
 # Options: {"url": "https://..."} OR {"html": "<html>...</html>"}
 # Also accepts an uploaded .html file via input_paths
 # =============================================================
+# Anything that is not a plain public web page is refused before we fetch it:
+# file:// would let a caller read the Lambda filesystem (including
+# /proc/self/environ, which holds this function's AWS credentials), and an
+# internal address would turn this endpoint into a proxy into the VPC.
+_ALLOWED_URL_SCHEMES = {"http", "https"}
+MAX_FETCH_BYTES = 20 * 1024 * 1024
+
+
+def _validate_public_url(url):
+    """
+    Reject any URL that is not an http(s) URL pointing at a public IP address.
+    Raises ValueError with a caller-safe message; returns the URL unchanged.
+    """
+    import ipaddress
+    import socket
+    from urllib.parse import urlparse
+
+    try:
+        parsed = urlparse(url)
+    except ValueError:
+        raise ValueError("Malformed URL")
+
+    if parsed.scheme.lower() not in _ALLOWED_URL_SCHEMES:
+        raise ValueError("Only http:// and https:// URLs are supported")
+
+    host = parsed.hostname
+    if not host:
+        raise ValueError("URL is missing a hostname")
+
+    port = parsed.port or (443 if parsed.scheme.lower() == "https" else 80)
+    try:
+        infos = socket.getaddrinfo(host, port, proto=socket.IPPROTO_TCP)
+    except socket.gaierror:
+        raise ValueError(f"Could not resolve host: {host}")
+
+    for info in infos:
+        ip = ipaddress.ip_address(info[4][0])
+        # is_global excludes private, loopback, link-local (169.254.169.254),
+        # reserved and unspecified ranges in both IPv4 and IPv6.
+        if not ip.is_global or ip.is_multicast:
+            raise ValueError("URL resolves to a non-public address")
+
+    return url
+
+
 def html_to_pdf(input_paths, output_path, options):
     output = output_path + ".pdf"
     url = options.get("url")
@@ -560,16 +622,26 @@ def html_to_pdf(input_paths, output_path, options):
     if not url and not html_str:
         raise ValueError("Upload an HTML file, or provide options.url or options.html")
 
+    if url:
+        _validate_public_url(url)
+
     def _try_wkhtmltopdf(source, is_url=False):
         """Returns True if wkhtmltopdf succeeded."""
+        # --disable-local-file-access stops the rendered page from pulling in
+        # local files via <img src="file:///...">, XHR or a redirect.
+        base = ["wkhtmltopdf", "--quiet", "--disable-local-file-access"]
         try:
             if is_url:
-                subprocess.run(["wkhtmltopdf", "--quiet", source, output], check=True, timeout=30)
+                subprocess.run(base + [source, output], check=True, timeout=30)
             else:
-                html_file = output_path + ".html"
-                with open(html_file, "w", encoding="utf-8") as f:
-                    f.write(source)
-                subprocess.run(["wkhtmltopdf", "--quiet", html_file, output], check=True, timeout=30)
+                # Feed the markup on stdin rather than writing it to disk, so
+                # there is no local input file for the renderer to pivot from.
+                subprocess.run(
+                    base + ["-", output],
+                    input=source.encode("utf-8"),
+                    check=True,
+                    timeout=30,
+                )
             return True
         except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
             return False
@@ -594,8 +666,21 @@ def html_to_pdf(input_paths, output_path, options):
             return output
         # wkhtmltopdf unavailable — fetch the URL content and render as HTML
         import urllib.request
-        with urllib.request.urlopen(url, timeout=15) as resp:
-            html_str = resp.read().decode("utf-8", errors="replace")
+
+        class _SafeRedirectHandler(urllib.request.HTTPRedirectHandler):
+            """Re-validate every hop so a redirect cannot reach a private host."""
+
+            def redirect_request(self, req, fp, code, msg, headers, newurl):
+                _validate_public_url(newurl)
+                return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+        opener = urllib.request.build_opener(_SafeRedirectHandler)
+        with opener.open(url, timeout=15) as resp:
+            # Cap the read so a huge or endless response cannot exhaust memory.
+            raw = resp.read(MAX_FETCH_BYTES + 1)
+        if len(raw) > MAX_FETCH_BYTES:
+            raise ValueError("Page is too large to convert (limit 20 MB)")
+        html_str = raw.decode("utf-8", errors="replace")
 
     # At this point html_str is set (either from upload, options, or URL fetch)
     if _try_wkhtmltopdf(html_str, is_url=False):
@@ -750,11 +835,12 @@ def tiff_to_jpg(input_paths, output_path, options):
     else:
         # Multi-frame TIFF → ZIP of JPEGs
         zip_path = output_path + ".zip"
+        scratch = _scratch_dir(output_path)
         with zipfile.ZipFile(zip_path, "w") as zf:
             for i, frame in enumerate(frames):
-                p = f"/tmp/frame_{i+1}.jpg"
-                frame.save(p, "JPEG", quality=quality, optimize=True)
-                zf.write(p, f"page_{i+1}.jpg")
+                frame_path = os.path.join(scratch, f"frame_{i+1}.jpg")
+                frame.save(frame_path, "JPEG", quality=quality, optimize=True)
+                zf.write(frame_path, f"page_{i+1}.jpg")
         return zip_path
 
 
@@ -924,12 +1010,13 @@ def pdf_to_png(input_paths, output_path, options):
         return output
 
     zip_path = output_path + ".zip"
+    scratch = _scratch_dir(output_path)
     with zipfile.ZipFile(zip_path, "w") as zf:
         for i, page in enumerate(pages):
             pix = page.get_pixmap(matrix=mat, alpha=False)
-            p = f"/tmp/page_{i+1}.png"
-            pix.save(p)
-            zf.write(p, f"page_{i+1}.png")
+            page_png = os.path.join(scratch, f"page_{i+1}.png")
+            pix.save(page_png)
+            zf.write(page_png, f"page_{i+1}.png")
     doc.close()
     return zip_path
 

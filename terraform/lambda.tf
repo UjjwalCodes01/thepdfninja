@@ -44,8 +44,9 @@ resource "aws_lambda_function" "easy_tools" {
 
   environment {
     variables = {
-      BUCKET_NAME = aws_s3_bucket.files.id
-      REGION      = local.region
+      BUCKET_NAME             = aws_s3_bucket.files.id
+      REGION                  = local.region
+      ALLOW_LOCALHOST_ORIGINS = tostring(var.allow_localhost_origins)
     }
   }
 
@@ -58,8 +59,17 @@ resource "aws_lambda_function" "easy_tools" {
 
 data "archive_file" "upload_url" {
   type        = "zip"
-  source_file = "${path.module}/../lambda/easy_tools/upload_url.py"
   output_path = "${path.module}/../lambda/build/upload_url.zip"
+
+  # Bundles the shared CORS/response helper alongside the handler.
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/upload_url.py")
+    filename = "upload_url.py"
+  }
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/_http.py")
+    filename = "_http.py"
+  }
 }
 
 resource "aws_lambda_function" "upload_url" {
@@ -75,7 +85,8 @@ resource "aws_lambda_function" "upload_url" {
 
   environment {
     variables = {
-      BUCKET_NAME = aws_s3_bucket.files.id
+      BUCKET_NAME             = aws_s3_bucket.files.id
+      ALLOW_LOCALHOST_ORIGINS = tostring(var.allow_localhost_origins)
     }
   }
 }
@@ -84,8 +95,17 @@ resource "aws_lambda_function" "upload_url" {
 
 data "archive_file" "job_creator" {
   type        = "zip"
-  source_file = "${path.module}/../lambda/easy_tools/job_creator.py"
   output_path = "${path.module}/../lambda/build/job_creator.zip"
+
+  # Bundles the shared CORS/response helper alongside the handler.
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/job_creator.py")
+    filename = "job_creator.py"
+  }
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/_http.py")
+    filename = "_http.py"
+  }
 }
 
 resource "aws_lambda_function" "job_creator" {
@@ -101,9 +121,10 @@ resource "aws_lambda_function" "job_creator" {
 
   environment {
     variables = {
-      BUCKET_NAME = aws_s3_bucket.files.id
-      QUEUE_URL   = aws_sqs_queue.heavy_jobs.url
-      TABLE_NAME  = aws_dynamodb_table.jobs.name
+      BUCKET_NAME             = aws_s3_bucket.files.id
+      QUEUE_URL               = aws_sqs_queue.heavy_jobs.url
+      TABLE_NAME              = aws_dynamodb_table.jobs.name
+      ALLOW_LOCALHOST_ORIGINS = tostring(var.allow_localhost_origins)
     }
   }
 }
@@ -112,8 +133,17 @@ resource "aws_lambda_function" "job_creator" {
 
 data "archive_file" "job_status" {
   type        = "zip"
-  source_file = "${path.module}/../lambda/easy_tools/job_status.py"
   output_path = "${path.module}/../lambda/build/job_status.zip"
+
+  # Bundles the shared CORS/response helper alongside the handler.
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/job_status.py")
+    filename = "job_status.py"
+  }
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/_http.py")
+    filename = "_http.py"
+  }
 }
 
 resource "aws_lambda_function" "job_status" {
@@ -129,8 +159,9 @@ resource "aws_lambda_function" "job_status" {
 
   environment {
     variables = {
-      BUCKET_NAME = aws_s3_bucket.files.id
-      TABLE_NAME  = aws_dynamodb_table.jobs.name
+      BUCKET_NAME             = aws_s3_bucket.files.id
+      TABLE_NAME              = aws_dynamodb_table.jobs.name
+      ALLOW_LOCALHOST_ORIGINS = tostring(var.allow_localhost_origins)
     }
   }
 }
@@ -139,8 +170,16 @@ resource "aws_lambda_function" "job_status" {
 
 data "archive_file" "ocr" {
   type        = "zip"
-  source_dir  = "${path.module}/../lambda/ocr"
   output_path = "${path.module}/../lambda/build/ocr.zip"
+
+  source {
+    content  = file("${path.module}/../lambda/ocr/handler.py")
+    filename = "handler.py"
+  }
+  source {
+    content  = file("${path.module}/../lambda/easy_tools/_http.py")
+    filename = "_http.py"
+  }
 }
 
 resource "aws_lambda_function" "ocr" {
@@ -156,7 +195,14 @@ resource "aws_lambda_function" "ocr" {
 
   environment {
     variables = {
-      BUCKET_NAME = aws_s3_bucket.files.id
+      BUCKET_NAME             = aws_s3_bucket.files.id
+      ALLOW_LOCALHOST_ORIGINS = tostring(var.allow_localhost_origins)
     }
   }
+}
+
+variable "allow_localhost_origins" {
+  type        = bool
+  description = "Echo http://localhost:* back in Access-Control-Allow-Origin. Leave false in production; set true only for a local/dev stack."
+  default     = false
 }

@@ -1,6 +1,6 @@
 # ThePDFNinja — Backend
 
-Serverless + EC2 hybrid AWS backend powering 23 file conversion tools (PDF, Office, OCR).
+Serverless + EC2 hybrid AWS backend powering 67 file conversion tools (PDF, image, Office, OCR).
 
 ## Quick start
 
@@ -38,23 +38,27 @@ pdfninja/
 │   ├── lambda.tf          # All Lambda functions + layer
 │   ├── ec2.tf             # t3.micro worker + EIP + SG
 │   ├── api_gateway.tf     # REST API + routes
+│   ├── cleanup.tf         # Retention sweeper + EventBridge schedule
 │   └── outputs.tf         # Printed after apply
 │
 ├── lambda/
-│   ├── easy_tools/        # 14 sync PDF tools
+│   ├── easy_tools/        # 50 sync tools
 │   │   ├── handler.py     # Router for all tools
 │   │   ├── tools.py       # Implementations
-│   │   ├── upload_url.py  # Presigned URL generator
+│   │   ├── upload_url.py  # Presigned POST generator
 │   │   ├── job_creator.py # Queues heavy jobs
 │   │   ├── job_status.py  # Status poller
+│   │   ├── _http.py       # Shared CORS/response helper
 │   │   └── requirements.txt
+│   ├── cleanup/
+│   │   └── handler.py     # Retention sweeper (1-hour deletion)
 │   └── ocr/
 │       └── handler.py     # Textract integration
 │
 ├── ec2/
 │   ├── setup.sh           # Bootstrap (LibreOffice + systemd)
 │   ├── worker.py          # SQS poller
-│   └── converters/        # 8 heavy converters
+│   └── converters/        # 16 heavy converters
 │
 ├── scripts/
 │   ├── build_layer.sh     # Build Lambda layer with binaries
@@ -67,14 +71,25 @@ pdfninja/
 
 ## Tools available
 
-**14 Easy tools (Lambda, sync, < 60s):**
-merge, split, compress, rotate, watermark, protect, unlock, organize, page-numbers, repair, crop, jpg-to-pdf, pdf-to-jpg, html-to-pdf
+The authoritative lists are `TOOL_MAP` in `lambda/easy_tools/handler.py` (sync)
+and `HEAVY_TOOLS` in `lambda/easy_tools/job_creator.py` (async). The frontend
+registry in `frontend/app/lib/toolConfig.ts` must stay in sync with both.
 
-**8 Heavy tools (EC2 + LibreOffice, async, 5-60s):**
-word-to-pdf, ppt-to-pdf, excel-to-pdf, pdf-to-word, pdf-to-ppt, pdf-to-excel, scan-to-pdf, pdf-to-pdfa
+**50 Easy tools (Lambda, sync, < 60s)** — PDF editing (merge, split, compress,
+rotate, watermark, protect, unlock, organize, page-numbers, repair, crop,
+delete/extract/reverse pages, flatten, redact, n-up, resize, add text/header/
+signature box, remove metadata, linearize, grayscale, pdf-info), image
+conversion (png/jpg/webp/heic/bmp/tiff/svg in most combinations, compress,
+resize, crop, grayscale), PDF↔image (jpg-to-pdf, pdf-to-jpg/png/tiff),
+html-to-pdf, and the India-specific compress-to-size, image-to-size and
+resize-to-passport.
 
-**1 OCR tool (AWS Textract):**
-ocr (works on PDFs and images)
+**17 Heavy tools (EC2 + LibreOffice, async, 5-60s):**
+word-to-pdf, ppt-to-pdf, excel-to-pdf, pdf-to-word, pdf-to-ppt, pdf-to-excel,
+scan-to-pdf, pdf-to-pdfa, txt-to-pdf, rtf-to-pdf, odt-to-pdf, csv-to-pdf,
+epub-to-pdf, md-to-pdf, pdf-to-txt, compress-to-size, ocr.
+
+**OCR** runs on AWS Textract and works on both PDFs and images.
 
 ## Cost
 

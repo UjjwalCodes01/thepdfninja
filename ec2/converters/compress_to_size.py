@@ -14,6 +14,10 @@ import fitz  # PyMuPDF
 
 
 def run(input_path: str, output_path: str, options: dict) -> str:
+    # Every converter returns a path with the right extension - the worker
+    # derives the uploaded object name from it, so a bare path means the user
+    # downloads a file their OS cannot open.
+    output_path = output_path + ".pdf"
     target_kb = int(options.get("target_kb", 200))
     target_bytes = target_kb * 1024
     original_size = os.path.getsize(input_path)

@@ -40,6 +40,13 @@ resource "aws_iam_role_policy" "lambda_inline" {
         Resource = "${aws_s3_bucket.files.arn}/*"
       },
       {
+        # ListBucket is on the bucket itself, not its objects. The retention
+        # sweeper needs it to enumerate what has aged out.
+        Effect   = "Allow"
+        Action   = ["s3:ListBucket"]
+        Resource = aws_s3_bucket.files.arn
+      },
+      {
         Effect = "Allow"
         Action = [
           "dynamodb:PutItem",

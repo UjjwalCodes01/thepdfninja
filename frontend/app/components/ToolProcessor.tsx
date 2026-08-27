@@ -9,6 +9,7 @@ interface ToolProcessorProps {
   onError?: (msg: string) => void;
   apiPath: string;
   isAsync: boolean;
+  outputExt?: string;
   onReset: () => void;
 }
 
@@ -31,7 +32,7 @@ function getContentType(file: File): string {
   return MIME_FALLBACKS[ext] || 'application/octet-stream';
 }
 
-export default function ToolProcessor({ tool, files, options, onSuccess, onError, apiPath, isAsync, onReset }: ToolProcessorProps) {
+export default function ToolProcessor({ tool, files, options, onSuccess, onError, apiPath, isAsync, outputExt, onReset }: ToolProcessorProps) {
   const [status, setStatus] = useState<'idle' | 'uploading' | 'processing' | 'done' | 'error'>('idle');
   const [progress, setProgress] = useState(0);
   const [errorMsg, setErrorMsg] = useState('');
@@ -63,24 +64,50 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
         const file = files[i];
         const contentType = getContentType(file);
         
-        // Get presigned URL
+        // Get presigned upload credentials
         const uploadRes = await fetch(`${apiUrl}/v1/upload`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ filename: file.name, content_type: contentType })
         });
-        
+
         if (!uploadRes.ok) throw new Error('Failed to secure upload link from server.');
-        const { upload_url, file_key } = await uploadRes.json();
+        const { upload_url, file_key, fields, max_size_mb } = await uploadRes.json();
 
-        // Put file to S3 — Content-Type must match the presigned URL exactly
-        const putRes = await fetch(upload_url, {
-          method: 'PUT',
-          headers: { 'Content-Type': contentType },
-          body: file
-        });
+        // Check the size here too, so an oversized file gets a readable message
+        // rather than an opaque 403 from S3 rejecting the upload policy.
+        const limitMb = max_size_mb || 100;
+        if (file.size > limitMb * 1024 * 1024) {
+          throw new Error(
+            `${file.name} is ${(file.size / 1024 / 1024).toFixed(1)} MB — the limit is ${limitMb} MB.`
+          );
+        }
 
-        if (!putRes.ok) throw new Error(`Failed to upload ${file.name} (HTTP ${putRes.status})`);
+        let uploadOk: boolean;
+        let uploadStatus: number;
+
+        if (fields) {
+          // Presigned POST. The signed policy (including the size limit) rides
+          // in the form fields, and S3 requires the file part to come last.
+          const form = new FormData();
+          Object.entries(fields as Record<string, string>).forEach(([k, v]) => form.append(k, v));
+          form.append('file', file);
+          const postRes = await fetch(upload_url, { method: 'POST', body: form });
+          uploadOk = postRes.ok;
+          uploadStatus = postRes.status;
+        } else {
+          // Presigned PUT — the older backend shape. Kept so the frontend can
+          // deploy ahead of the Lambda without breaking uploads.
+          const putRes = await fetch(upload_url, {
+            method: 'PUT',
+            headers: { 'Content-Type': contentType },
+            body: file
+          });
+          uploadOk = putRes.ok;
+          uploadStatus = putRes.status;
+        }
+
+        if (!uploadOk) throw new Error(`Failed to upload ${file.name} (HTTP ${uploadStatus})`);
         fileKeys.push(file_key);
         
         // Update progress roughly
@@ -252,7 +279,7 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
 
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             {tool !== 'pdf-info' && (
-              <a href={downloadUrl} download={`processed_${tool}.pdf`} className="btn btn-primary btn-lg">
+              <a href={downloadUrl} download={`thepdfninja_${tool}.${outputExt || 'pdf'}`} className="btn btn-primary btn-lg">
                 Download File
               </a>
             )}

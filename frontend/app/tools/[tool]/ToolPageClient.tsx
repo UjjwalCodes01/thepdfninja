@@ -154,6 +154,7 @@ export default function ToolPageClient({ config, toolSlug }: { config: ToolConfi
           options={options}
           apiPath={config.apiPath}
           isAsync={config.type !== 'easy'}
+          outputExt={config.outputExt}
           onReset={() => {
             setFiles([]);
             setStep('upload');
