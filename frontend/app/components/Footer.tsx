@@ -35,6 +35,7 @@ const companyLinks = [
   { href: '/about', label: 'About Us' },
   { href: '/contact', label: 'Contact' },
   { href: '/blog', label: 'Blog' },
+  { href: '/reviews', label: 'Reviews' },
   { href: '/press', label: 'Press & Media' },
   { href: '/blog/best-free-pdf-tools', label: 'Best PDF Tools 2025' },
   { href: '/compare/ilovepdf-alternative', label: 'iLovePDF Alternative' },

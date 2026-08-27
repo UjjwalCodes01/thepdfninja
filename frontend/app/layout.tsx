@@ -7,6 +7,7 @@ import ComplaintWidget from './components/ComplaintWidget';
 import CookieConsent from './components/CookieConsent';
 import Script from 'next/script';
 import { Analytics } from '@vercel/analytics/next';
+import { getReviews, MIN_REVIEWS_FOR_RATING } from './lib/reviews';
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', variable: '--font-inter' });
 
@@ -46,7 +47,12 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  // Sitewide star rating. getReviews() never throws, so an unreachable API
+  // just means no rating markup this render rather than a broken site.
+  const { aggregate } = await getReviews();
+  const showRating = aggregate.count >= MIN_REVIEWS_FOR_RATING;
+
   return (
     <html lang="en" className={inter.variable}>
       <head>
@@ -109,6 +115,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               {
                 '@context': 'https://schema.org',
                 '@type': 'SoftwareApplication',
+                '@id': 'https://www.thepdfninja.com/#software',
                 name: 'ThePDFNinja',
                 applicationCategory: 'UtilitiesApplication',
                 operatingSystem: 'All — Windows, Mac, Linux, iOS, Android',
@@ -142,6 +149,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 ],
                 offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
                 screenshot: 'https://www.thepdfninja.com/og-image.png',
+                ...(showRating
+                  ? {
+                      aggregateRating: {
+                        '@type': 'AggregateRating',
+                        ratingValue: aggregate.average,
+                        ratingCount: aggregate.count,
+                        bestRating: 5,
+                        worstRating: 1,
+                      },
+                    }
+                  : {}),
               },
             ]),
           }}

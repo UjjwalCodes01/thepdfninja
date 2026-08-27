@@ -210,6 +210,83 @@ Sync for single-page images (< 5 MB). PDFs use async Textract internally (the AP
 
 ---
 
+## GET /v1/reviews — Customer reviews
+
+Public. Returns only reviews that a human has approved.
+
+**Response (200):**
+```json
+{
+  "reviews": [
+    {
+      "id": "550e8400-...",
+      "rating": 5,
+      "name": "Priya S.",
+      "role": "CA student",
+      "tool": "compress-to-size",
+      "title": "Hit 200KB first try",
+      "body": "The SSC portal only accepts 200KB...",
+      "created_at": 1780000000
+    }
+  ],
+  "aggregate": {
+    "count": 12,
+    "average": 4.75,
+    "distribution": { "1": 0, "2": 0, "3": 1, "4": 1, "5": 10 }
+  }
+}
+```
+
+Pending and rejected reviews are never included. The frontend caches this for 5 minutes.
+
+---
+
+## POST /v1/reviews — Submit a review
+
+Public, unauthenticated. **Always stored with `status: "pending"`** — a submission is invisible to the site until it is approved.
+
+**Request:**
+```json
+{
+  "rating": 5,
+  "name": "Priya S.",
+  "role": "CA student",
+  "tool": "compress-to-size",
+  "title": "Hit 200KB first try",
+  "body": "The SSC portal only accepts 200KB and this got me there.",
+  "website": ""
+}
+```
+
+| Field | Required | Rules |
+|---|---|---|
+| `rating` | yes | integer, 1–5 |
+| `name` | yes | 2–60 chars |
+| `body` | yes | 20–1500 chars, no URLs |
+| `role` | no | ≤ 60 chars |
+| `title` | no | ≤ 100 chars |
+| `tool` | no | ≤ 60 chars, a tool slug |
+| `website` | no | honeypot — must be empty; any value is rejected |
+
+**Response (201):**
+```json
+{ "ok": true, "message": "Thanks! Your review has been received and will appear once we have read it." }
+```
+
+**Abuse controls:** one submission per IP per 24 hours (`429` after that), honeypot field, length caps, and a URL/domain blocklist. The rate-limit marker is a sparse item in the same DynamoDB table carrying a TTL, so it expires on its own and never appears in the reviews index.
+
+### Moderating
+
+```bash
+bash scripts/moderate_reviews.sh list           # pending queue
+bash scripts/moderate_reviews.sh approve <id>   # publish it
+bash scripts/moderate_reviews.sh reject <id>    # keep, never serve
+```
+
+Set the `review_notify_email` Terraform variable to get an SNS email whenever something is waiting. AWS sends a one-time subscription confirmation link you must click.
+
+---
+
 ## Errors
 
 All errors return:

@@ -65,3 +65,40 @@ cd - > /dev/null
 SIZE=$(du -h "$LAYER_ZIP" | cut -f1)
 echo "===== Layer built: $LAYER_ZIP ($SIZE) ====="
 echo "Note: Layer must be < 250MB unzipped. Check with: unzip -l $LAYER_ZIP | tail -1"
+
+# 4. Upload to S3.
+#
+# terraform's aws_lambda_layer_version reads the zip from
+# s3://<bucket>/_layer/layer.zip - building it locally is not enough. Skipping
+# this step makes `terraform apply` fail with:
+#   InvalidParameterValueException: ... S3 Error Code: NoSuchKey
+# and that failure cascades into the easy-tools Lambda, the /v1/tools
+# integration, the deployment and the stage, leaving the API returning 403.
+#
+# The bucket is created by the same terraform config, so on a brand new
+# environment the order is: terraform apply (bucket is created, layer step
+# fails) -> this script -> terraform apply again.
+echo "[4/4] Uploading layer to S3..."
+
+BUCKET="${LAYER_BUCKET:-}"
+if [ -z "$BUCKET" ]; then
+    BUCKET=$(cd "$PROJECT_DIR/terraform" && terraform output -raw bucket_name 2>/dev/null || true)
+fi
+
+if [ -z "$BUCKET" ]; then
+    echo ""
+    echo "  !! Could not determine the S3 bucket, so the layer was NOT uploaded."
+    echo "     The bucket does not exist until terraform has created it."
+    echo ""
+    echo "     Run 'terraform apply' once to create the bucket, then re-run this"
+    echo "     script, then apply again. Or set the bucket explicitly:"
+    echo "       LAYER_BUCKET=my-bucket bash scripts/build_layer.sh"
+    exit 1
+fi
+
+REGION=$(cd "$PROJECT_DIR/terraform" && terraform output -raw aws_region 2>/dev/null || echo "us-east-1")
+aws s3 cp "$LAYER_ZIP" "s3://$BUCKET/_layer/layer.zip" --region "$REGION"
+
+echo ""
+echo "===== Done. Layer is at s3://$BUCKET/_layer/layer.zip ====="
+echo "Now run: cd terraform && terraform apply"

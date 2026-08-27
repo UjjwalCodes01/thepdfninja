@@ -36,3 +36,8 @@ output "test_curl_upload" {
   value       = "curl -X POST ${aws_api_gateway_stage.prod.invoke_url}/v1/upload -H 'Content-Type: application/json' -d '{\"filename\":\"test.pdf\",\"content_type\":\"application/pdf\"}'"
   description = "Test command - generate upload URL"
 }
+
+output "aws_region" {
+  value       = local.region
+  description = "Region the stack is deployed in. Scripts read this so they do not depend on the CLI default, which is often a different region."
+}

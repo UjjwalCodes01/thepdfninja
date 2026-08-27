@@ -20,6 +20,7 @@ locals {
     job_creator = aws_lambda_function.job_creator.invoke_arn
     job_status  = aws_lambda_function.job_status.invoke_arn
     ocr         = aws_lambda_function.ocr.invoke_arn
+    reviews     = aws_lambda_function.reviews.invoke_arn
   }
 }
 
@@ -63,10 +64,10 @@ resource "aws_api_gateway_method" "upload_options" {
   authorization = "NONE"
 }
 resource "aws_api_gateway_integration" "upload_options" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.upload.id
-  http_method = aws_api_gateway_method.upload_options.http_method
-  type        = "MOCK"
+  rest_api_id       = aws_api_gateway_rest_api.main.id
+  resource_id       = aws_api_gateway_resource.upload.id
+  http_method       = aws_api_gateway_method.upload_options.http_method
+  type              = "MOCK"
   request_templates = { "application/json" = "{\"statusCode\": 200}" }
 }
 resource "aws_api_gateway_method_response" "upload_options_200" {
@@ -135,10 +136,10 @@ resource "aws_api_gateway_method" "tools_options" {
   authorization = "NONE"
 }
 resource "aws_api_gateway_integration" "tools_options" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.tool_name.id
-  http_method = aws_api_gateway_method.tools_options.http_method
-  type        = "MOCK"
+  rest_api_id       = aws_api_gateway_rest_api.main.id
+  resource_id       = aws_api_gateway_resource.tool_name.id
+  http_method       = aws_api_gateway_method.tools_options.http_method
+  type              = "MOCK"
   request_templates = { "application/json" = "{\"statusCode\": 200}" }
 }
 resource "aws_api_gateway_method_response" "tools_options_200" {
@@ -207,10 +208,10 @@ resource "aws_api_gateway_method" "jobs_options" {
   authorization = "NONE"
 }
 resource "aws_api_gateway_integration" "jobs_options" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.jobs_tool.id
-  http_method = aws_api_gateway_method.jobs_options.http_method
-  type        = "MOCK"
+  rest_api_id       = aws_api_gateway_rest_api.main.id
+  resource_id       = aws_api_gateway_resource.jobs_tool.id
+  http_method       = aws_api_gateway_method.jobs_options.http_method
+  type              = "MOCK"
   request_templates = { "application/json" = "{\"statusCode\": 200}" }
 }
 resource "aws_api_gateway_method_response" "jobs_options_200" {
@@ -279,10 +280,10 @@ resource "aws_api_gateway_method" "jobs_status_options" {
   authorization = "NONE"
 }
 resource "aws_api_gateway_integration" "jobs_status_options" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.jobs_status_id.id
-  http_method = aws_api_gateway_method.jobs_status_options.http_method
-  type        = "MOCK"
+  rest_api_id       = aws_api_gateway_rest_api.main.id
+  resource_id       = aws_api_gateway_resource.jobs_status_id.id
+  http_method       = aws_api_gateway_method.jobs_status_options.http_method
+  type              = "MOCK"
   request_templates = { "application/json" = "{\"statusCode\": 200}" }
 }
 resource "aws_api_gateway_method_response" "jobs_status_options_200" {
@@ -341,10 +342,10 @@ resource "aws_api_gateway_method" "ocr_options" {
   authorization = "NONE"
 }
 resource "aws_api_gateway_integration" "ocr_options" {
-  rest_api_id = aws_api_gateway_rest_api.main.id
-  resource_id = aws_api_gateway_resource.ocr.id
-  http_method = aws_api_gateway_method.ocr_options.http_method
-  type        = "MOCK"
+  rest_api_id       = aws_api_gateway_rest_api.main.id
+  resource_id       = aws_api_gateway_resource.ocr.id
+  http_method       = aws_api_gateway_method.ocr_options.http_method
+  type              = "MOCK"
   request_templates = { "application/json" = "{\"statusCode\": 200}" }
 }
 resource "aws_api_gateway_method_response" "ocr_options_200" {
@@ -369,6 +370,86 @@ resource "aws_api_gateway_integration_response" "ocr_options" {
     "method.response.header.Access-Control-Allow-Origin"  = "'*'"
   }
   depends_on = [aws_api_gateway_integration.ocr_options]
+}
+
+# ---------- /v1/reviews (customer reviews: submit + read) ----------
+
+resource "aws_api_gateway_resource" "reviews" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  parent_id   = aws_api_gateway_resource.v1.id
+  path_part   = "reviews"
+}
+
+# GET - public list of approved reviews
+resource "aws_api_gateway_method" "reviews_get" {
+  rest_api_id   = aws_api_gateway_rest_api.main.id
+  resource_id   = aws_api_gateway_resource.reviews.id
+  http_method   = "GET"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "reviews_get" {
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.reviews.id
+  http_method             = aws_api_gateway_method.reviews_get.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = local.lambda_integrations.reviews
+}
+
+# POST - submit a review (stored as pending)
+resource "aws_api_gateway_method" "reviews_post" {
+  rest_api_id   = aws_api_gateway_rest_api.main.id
+  resource_id   = aws_api_gateway_resource.reviews.id
+  http_method   = "POST"
+  authorization = "NONE"
+}
+
+resource "aws_api_gateway_integration" "reviews_post" {
+  rest_api_id             = aws_api_gateway_rest_api.main.id
+  resource_id             = aws_api_gateway_resource.reviews.id
+  http_method             = aws_api_gateway_method.reviews_post.http_method
+  integration_http_method = "POST"
+  type                    = "AWS_PROXY"
+  uri                     = local.lambda_integrations.reviews
+}
+
+# CORS OPTIONS preflight for /v1/reviews
+resource "aws_api_gateway_method" "reviews_options" {
+  rest_api_id   = aws_api_gateway_rest_api.main.id
+  resource_id   = aws_api_gateway_resource.reviews.id
+  http_method   = "OPTIONS"
+  authorization = "NONE"
+}
+resource "aws_api_gateway_integration" "reviews_options" {
+  rest_api_id       = aws_api_gateway_rest_api.main.id
+  resource_id       = aws_api_gateway_resource.reviews.id
+  http_method       = aws_api_gateway_method.reviews_options.http_method
+  type              = "MOCK"
+  request_templates = { "application/json" = "{\"statusCode\": 200}" }
+}
+resource "aws_api_gateway_method_response" "reviews_options_200" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.reviews.id
+  http_method = aws_api_gateway_method.reviews_options.http_method
+  status_code = "200"
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = true
+    "method.response.header.Access-Control-Allow-Methods" = true
+    "method.response.header.Access-Control-Allow-Origin"  = true
+  }
+}
+resource "aws_api_gateway_integration_response" "reviews_options" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.reviews.id
+  http_method = aws_api_gateway_method.reviews_options.http_method
+  status_code = aws_api_gateway_method_response.reviews_options_200.status_code
+  response_parameters = {
+    "method.response.header.Access-Control-Allow-Headers" = "'Content-Type,X-Amz-Date,Authorization,X-Api-Key'"
+    "method.response.header.Access-Control-Allow-Methods" = "'GET,POST,OPTIONS'"
+    "method.response.header.Access-Control-Allow-Origin"  = "'*'"
+  }
+  depends_on = [aws_api_gateway_integration.reviews_options]
 }
 
 # ---------- LAMBDA PERMISSIONS (allow API Gateway to invoke) ----------
@@ -413,6 +494,14 @@ resource "aws_lambda_permission" "ocr" {
   source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
 }
 
+resource "aws_lambda_permission" "reviews" {
+  statement_id  = "AllowAPIGatewayInvokeReviews"
+  action        = "lambda:InvokeFunction"
+  function_name = aws_lambda_function.reviews.function_name
+  principal     = "apigateway.amazonaws.com"
+  source_arn    = "${aws_api_gateway_rest_api.main.execution_arn}/*/*"
+}
+
 # ---------- DEPLOYMENT + STAGE ----------
 
 resource "aws_api_gateway_deployment" "main" {
@@ -428,17 +517,21 @@ resource "aws_api_gateway_deployment" "main" {
       aws_api_gateway_resource.jobs_tool.id,
       aws_api_gateway_resource.jobs_status_id.id,
       aws_api_gateway_resource.ocr.id,
+      aws_api_gateway_resource.reviews.id,
       aws_api_gateway_integration.upload.id,
       aws_api_gateway_integration.tools.id,
       aws_api_gateway_integration.jobs_create.id,
       aws_api_gateway_integration.jobs_status.id,
       aws_api_gateway_integration.ocr.id,
+      aws_api_gateway_integration.reviews_get.id,
+      aws_api_gateway_integration.reviews_post.id,
       # OPTIONS CORS preflight integration responses — must be here so CORS changes trigger redeploy
       aws_api_gateway_integration_response.upload_options.response_parameters,
       aws_api_gateway_integration_response.tools_options.response_parameters,
       aws_api_gateway_integration_response.jobs_options.response_parameters,
       aws_api_gateway_integration_response.jobs_status_options.response_parameters,
       aws_api_gateway_integration_response.ocr_options.response_parameters,
+      aws_api_gateway_integration_response.reviews_options.response_parameters,
     ]))
   }
 
@@ -452,6 +545,8 @@ resource "aws_api_gateway_deployment" "main" {
     aws_api_gateway_integration.jobs_create,
     aws_api_gateway_integration.jobs_status,
     aws_api_gateway_integration.ocr,
+    aws_api_gateway_integration.reviews_get,
+    aws_api_gateway_integration.reviews_post,
   ]
 }
 
@@ -468,7 +563,7 @@ resource "aws_api_gateway_method_settings" "all" {
   method_path = "*/*"
 
   settings {
-    throttling_rate_limit  = 50  # req/sec
+    throttling_rate_limit  = 50 # req/sec
     throttling_burst_limit = 100
     metrics_enabled        = true
     logging_level          = "ERROR"

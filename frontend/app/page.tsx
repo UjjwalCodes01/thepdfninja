@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import ToolIcon from './components/ToolIcon';
+import ReviewsStrip from './components/ReviewsStrip';
 import { TOOL_LIST } from './lib/toolConfig';
 
 const CATS = ['All', 'Organize', 'Optimize', 'Convert', 'Edit', 'Security'];
@@ -268,6 +269,9 @@ export default function HomePage() {
           </blockquote>
         </div>
       </section>
+
+      {/* ── REVIEWS ── */}
+      <ReviewsStrip />
 
       {/* ── FAQ ── */}
       <section className="section" style={{ background: 'white' }}>

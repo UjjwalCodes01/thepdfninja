@@ -39,6 +39,7 @@ pdfninja/
 │   ├── ec2.tf             # t3.micro worker + EIP + SG
 │   ├── api_gateway.tf     # REST API + routes
 │   ├── cleanup.tf         # Retention sweeper + EventBridge schedule
+│   ├── reviews.tf         # Reviews table + Lambda + SNS alerts
 │   └── outputs.tf         # Printed after apply
 │
 ├── lambda/
@@ -52,6 +53,9 @@ pdfninja/
 │   │   └── requirements.txt
 │   ├── cleanup/
 │   │   └── handler.py     # Retention sweeper (1-hour deletion)
+│   ├── reviews/
+│   │   ├── handler.py     # Customer reviews (submit + read, moderated)
+│   │   └── test_handler.py
 │   └── ocr/
 │       └── handler.py     # Textract integration
 │
@@ -62,7 +66,8 @@ pdfninja/
 │
 ├── scripts/
 │   ├── build_layer.sh     # Build Lambda layer with binaries
-│   └── deploy_ec2.sh      # Sync EC2 worker code from local → S3 → EC2
+│   ├── deploy_ec2.sh      # Sync EC2 worker code from local → S3 → EC2
+│   └── moderate_reviews.sh # Approve / reject customer reviews
 │
 └── docs/
     ├── AGENT.md           # Full deployment guide for coding agent

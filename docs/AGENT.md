@@ -97,7 +97,21 @@ The Lambda layer contains all heavy dependencies (Ghostscript, qpdf, poppler, wk
 bash scripts/build_layer.sh
 ```
 
-This produces `lambda/layer.zip` (~80-150 MB). Verify:
+This produces `lambda/layer.zip` (~80-150 MB) **and uploads it to
+`s3://<bucket>/_layer/layer.zip`**, which is where Terraform reads it from.
+Building it locally without uploading is not enough.
+
+Chicken-and-egg on a brand new environment: the bucket is created by the same
+Terraform config, so the layer cannot be uploaded before the first apply. The
+order is:
+
+```bash
+cd terraform && terraform apply     # creates the bucket; the layer step fails
+cd .. && bash scripts/build_layer.sh   # now the bucket exists, uploads the zip
+cd terraform && terraform apply     # completes
+```
+
+Verify:
 
 ```bash
 ls -lh lambda/layer.zip

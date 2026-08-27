@@ -40,7 +40,15 @@ resource "aws_lambda_function" "easy_tools" {
   filename         = data.archive_file.easy_tools.output_path
   source_code_hash = data.archive_file.easy_tools.output_base64sha256
 
-  layers = [aws_lambda_layer_version.pdf_tools.arn]
+  # pdf_tools is managed here. Anything in var.extra_lambda_layers was created
+  # outside this configuration and is only looked up, so that an apply keeps it
+  # attached instead of silently detaching it. pdfninja-image-extras carries
+  # pillow-heif and cairosvg; dropping it breaks heic-to-jpg, heic-to-png and
+  # svg-to-png in production.
+  layers = concat(
+    [aws_lambda_layer_version.pdf_tools.arn],
+    [for l in data.aws_lambda_layer_version.extra : l.arn],
+  )
 
   environment {
     variables = {
@@ -205,4 +213,19 @@ variable "allow_localhost_origins" {
   type        = bool
   description = "Echo http://localhost:* back in Access-Control-Allow-Origin. Leave false in production; set true only for a local/dev stack."
   default     = false
+}
+
+# ---------- LAYERS CREATED OUTSIDE THIS CONFIG ----------
+# Looked up, never managed. Set to [] for a fresh environment where these do
+# not exist yet.
+
+variable "extra_lambda_layers" {
+  type        = list(string)
+  description = "Names of existing Lambda layers that must stay attached to the easy-tools function but are not managed by this configuration."
+  default     = ["pdfninja-image-extras"]
+}
+
+data "aws_lambda_layer_version" "extra" {
+  for_each   = toset(var.extra_lambda_layers)
+  layer_name = each.value
 }

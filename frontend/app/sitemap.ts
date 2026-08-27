@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.thepdfninja.com';
 
   // Core static pages
-  const staticPages = ['', '/about', '/contact', '/blog', '/privacy', '/terms', '/tools'].map(route => ({
+  const staticPages = ['', '/about', '/contact', '/blog', '/reviews', '/privacy', '/terms', '/tools'].map(route => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
