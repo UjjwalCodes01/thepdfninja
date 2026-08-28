@@ -12,7 +12,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "We make an online tool, so treat this accordingly — but there are real cases where you should install something instead.",
     "date": "2026-09-04",
     "dateLabel": "September 4, 2026",
-    "readMinutes": 7,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "⚖️",
     "keywords": [
@@ -75,6 +75,54 @@ export const comparisonsArticles: BlogArticle[] = [
         "p": "Online for routine, non-sensitive work: [merging](/tools/merge), [compressing](/tools/compress), [converting](/tools/pdf-to-word), [rotating](/tools/rotate). Desktop for confidential documents, bulk automation and substantial editing."
       },
       {
+        "h2": "The questions worth asking any online service"
+      },
+      {
+        "p": "Rather than a general judgement about whether online tools are safe, it is more useful to have a checklist you can apply to a specific one."
+      },
+      {
+        "ol": [
+          "**Is the whole flow HTTPS,** including the file upload itself, not only the page you are looking at?",
+          "**Is a retention period stated as a number?** 'We take privacy seriously' is not a retention policy.",
+          "**Is deletion described as automatic and enforced,** or only promised?",
+          "**Is an account required?** Every identifier linked to your document is a linkage that did not have to exist.",
+          "**Where is processing done?** Jurisdiction matters for regulated data.",
+          "**Is there a stated position on staff access?** Few services address it; the ones that do are usually the ones that thought about it."
+        ]
+      },
+      {
+        "p": "None of those guarantee anything on their own. Together they tell you whether a service has considered the question or is repeating reassuring phrases."
+      },
+      {
+        "h2": "Where the boundary actually falls in practice"
+      },
+      {
+        "p": "Rather than 'sensitive or not', it is more useful to think about what you would have to do if the file leaked."
+      },
+      {
+        "p": "If the answer is 'nothing, it is a manual' — use whatever is convenient. If the answer is 'notify a regulator', 'inform a client', 'report a breach' or 'consult a lawyer', that is your signal to work offline regardless of any policy you have read."
+      },
+      {
+        "p": "That framing is more reliable than trying to classify documents in the abstract, because it forces you to think about consequences rather than categories."
+      },
+      {
+        "h2": "A reasonable middle ground"
+      },
+      {
+        "p": "Much sensitive material can be processed online safely by removing what makes it sensitive first."
+      },
+      {
+        "ul": [
+          "**[Redact](/tools/pdf-redact) identifiers locally,** then use online tools on the redacted version.",
+          "**[Extract](/tools/extract-pages) only the pages that need processing** rather than uploading a whole confidential file.",
+          "**[Split](/tools/split) and process components separately** so no single upload contains the complete picture.",
+          "**Strip [metadata](/tools/remove-metadata) before uploading,** not after."
+        ]
+      },
+      {
+        "p": "This is not paranoia; it is the same instinct that stops you emailing a full database when a summary would do. Send the minimum that accomplishes the task."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -107,7 +155,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "Some paid features are worth it. Others are free features held behind a paywall. Knowing which is which saves real money.",
     "date": "2026-09-14",
     "dateLabel": "September 14, 2026",
-    "readMinutes": 7,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "💰",
     "keywords": [
@@ -195,6 +243,75 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "We are free for all 65 tools with no task limits, watermarks or account. That is possible because these operations are genuinely cheap to run at scale — not because we are being generous."
       },
       {
+        "h2": "How to evaluate a free tool before trusting it"
+      },
+      {
+        "p": "'Free' covers a wide range of business models, and the model tells you what to expect."
+      },
+      {
+        "table": {
+          "headers": [
+            "Model",
+            "Signals",
+            "What to watch"
+          ],
+          "rows": [
+            [
+              "Ad-supported",
+              "Display advertising, no limits",
+              "Ad quality; some networks are aggressive"
+            ],
+            [
+              "Freemium",
+              "Task caps, watermarks, size limits",
+              "The free tier may not do the job"
+            ],
+            [
+              "Loss leader",
+              "Free tool, paid product elsewhere",
+              "Usually stable and well maintained"
+            ],
+            [
+              "Open source",
+              "Downloadable, no service",
+              "Runs locally; requires setup"
+            ],
+            [
+              "Unclear",
+              "No visible revenue at all",
+              "Ask what is being monetised"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "That last row is the one to be cautious about. A service with no apparent business model and no advertising is being funded somehow, and if the answer is not obvious it is worth knowing before uploading anything you care about."
+      },
+      {
+        "h2": "Where paid tools earn their money"
+      },
+      {
+        "p": "To be fair to the paid market, some things genuinely are hard and worth paying for."
+      },
+      {
+        "p": "**Text editing** is the clearest case. Reconstructing flowing paragraphs from positioned glyphs, so that editing a sentence reflows the rest sensibly, is difficult engineering that Adobe has been refining for decades. Free tools manage small corrections; they do not manage rewriting a page."
+      },
+      {
+        "p": "**Accessibility tagging** is another. Producing a properly tagged, PDF/UA-compliant document with correct reading order and alternative text is specialist work, and in regulated contexts it is not optional."
+      },
+      {
+        "p": "**Certified digital signatures** involve certificate authorities, timestamping services and audit infrastructure that costs real money to operate."
+      },
+      {
+        "h2": "A sensible split for most people"
+      },
+      {
+        "p": "Use free tools for the operations that are genuinely commodity — merging, splitting, compressing, rotating, converting between formats. That is the large majority of what anyone actually does with a PDF."
+      },
+      {
+        "p": "Pay when you hit one of the genuinely hard problems: heavy text editing, compliance-grade accessibility, certified signatures, or bulk automation. And when you do pay, buy for that specific capability rather than for a bundle whose other features you already have for nothing."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -227,7 +344,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "Why merging a PDF costs nothing and compressing it costs something — and why you should never compress a compressed file.",
     "date": "2026-09-22",
     "dateLabel": "September 22, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "🔬",
     "keywords": [
@@ -313,6 +430,87 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "Converting a lossy file to a lossless format does not restore anything. A JPG saved as PNG is a perfect copy of an already-degraded image, in a much larger file."
       },
       {
+        "h2": "Seeing generation loss in practice"
+      },
+      {
+        "p": "The abstract warning about compounding damage becomes concrete quickly if you try it."
+      },
+      {
+        "p": "Take a photograph, save it as JPEG at quality 80, open it, save again at 80, and repeat. After one save the difference from the original is invisible. After five, edges have begun to soften. After twenty, blocking artefacts are obvious in flat areas like skies, and fine texture has turned to mush."
+      },
+      {
+        "p": "What is happening is that each pass discards detail based on what the encoder judges imperceptible — but it is judging the *already-degraded* image, so it removes a further layer of what remains. The errors accumulate rather than cancelling."
+      },
+      {
+        "p": "This is why the working rule is absolute: **always compress from the original**. A file that has been through three tools has been through three generations, whatever the final quality setting said."
+      },
+      {
+        "h2": "Which PDF operations are actually lossless"
+      },
+      {
+        "table": {
+          "headers": [
+            "Operation",
+            "Lossless?",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "[Merge](/tools/merge) / [split](/tools/split)",
+              "Yes",
+              "Pages copied verbatim"
+            ],
+            [
+              "[Rotate](/tools/rotate)",
+              "Yes",
+              "Sets a page attribute only"
+            ],
+            [
+              "[Crop](/tools/crop)",
+              "Yes",
+              "Sets a view box; content retained"
+            ],
+            [
+              "[Delete pages](/tools/delete-pages)",
+              "Yes",
+              "For remaining pages"
+            ],
+            [
+              "[Page numbers](/tools/page-numbers) / [watermark](/tools/watermark)",
+              "Yes, but permanent",
+              "Nothing degrades; nothing undoes"
+            ],
+            [
+              "[Flatten](/tools/flatten-pdf)",
+              "Structurally lossy",
+              "Appearance kept; interactivity gone"
+            ],
+            [
+              "[Greyscale](/tools/grayscale-pdf)",
+              "Lossy",
+              "Colour discarded permanently"
+            ],
+            [
+              "[Compress](/tools/compress)",
+              "Lossy for images",
+              "Text and vectors unaffected"
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "Why text survives compression unharmed"
+      },
+      {
+        "p": "People are often surprised that compressing a PDF softens its images but leaves the text perfectly sharp. The reason is that they are stored completely differently."
+      },
+      {
+        "p": "Text is stored as character codes plus a font reference — an instruction to draw a specific glyph at a specific size and position. That description is already compact, and shrinking the file does not change it. The renderer draws the glyph mathematically at whatever resolution the display or printer offers, so it is sharp at any zoom."
+      },
+      {
+        "p": "Images are grids of pixels, and the only way to make a grid of pixels smaller is to have fewer of them or describe them less precisely. Both are visible. This is also why a scanned page — which is an image of text — degrades under compression while a typed page does not."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -345,7 +543,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "The most commonly disappointing conversion, and the structural reason behind it.",
     "date": "2026-09-30",
     "dateLabel": "September 30, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Comparisons",
     "emoji": "🔁",
     "keywords": [
@@ -430,6 +628,47 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "Realistic expectation for [PDF to Word](/tools/pdf-to-word) is roughly 75–85% layout fidelity on an ordinary document. That is good enough to edit from and not good enough to send without checking."
       },
       {
+        "h2": "What to fix first in a converted document"
+      },
+      {
+        "p": "Converted documents are best repaired in a specific order, because fixing structure before content avoids doing the same work twice."
+      },
+      {
+        "ol": [
+          "**Styles first.** Apply proper heading styles to anything that should be a heading. Conversion usually produces direct formatting that looks right and behaves wrongly.",
+          "**Tables second.** These carry the most conversion damage. Check every table against the source before touching anything else.",
+          "**Spacing third.** Remove empty paragraphs used as spacing and replace with paragraph spacing properties.",
+          "**Content last.** Only once the document is structurally sound should you start editing what it says."
+        ]
+      },
+      {
+        "p": "Doing this in the reverse order — editing text in a structurally broken document — means your edits get disrupted when you subsequently fix the structure."
+      },
+      {
+        "h2": "Why tables are the hard part"
+      },
+      {
+        "p": "A PDF has no concept of a table. Where borders are drawn, a converter can infer cell boundaries from the lines. Where they are not, it must infer them from alignment alone, and alignment is ambiguous."
+      },
+      {
+        "p": "Consider a two-column list of names and figures with no borders. Is that a table, or is it two columns of text? Is a wrapped name one cell over two lines, or two cells? A human reads the intent instantly; a converter guesses, and its guess is wrong reasonably often."
+      },
+      {
+        "p": "This is why bordered tables convert well and borderless ones do not — the borders are not decoration, they are the structural information the converter needs."
+      },
+      {
+        "h2": "When not to convert at all"
+      },
+      {
+        "ul": [
+          "**You only need the words.** [PDF to text](/tools/pdf-to-txt) is faster and cleaner.",
+          "**You only need numbers from a table.** [PDF to Excel](/tools/pdf-to-excel) targets that directly.",
+          "**You need to change one word.** Edit in place; converting is disproportionate.",
+          "**Layout must be preserved exactly.** Conversion cannot guarantee that. Edit in place or rebuild from the source.",
+          "**The source file exists.** Ask for it. Thirty seconds of asking beats an hour of repair."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -462,7 +701,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "Three different answers to 'how do I edit this PDF', each right for a different situation.",
     "date": "2026-10-08",
     "dateLabel": "October 8, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "✏️",
     "keywords": [
@@ -554,6 +793,51 @@ export const comparisonsArticles: BlogArticle[] = [
         "p": "Find the source file. If the PDF was exported from Word or Google Docs, editing the original and re-exporting gives a perfect result in a fraction of the time. Ask whoever sent it before you start reconstructing."
       },
       {
+        "h2": "What in-place editing can and cannot do"
+      },
+      {
+        "p": "Editing text directly in a PDF works better than its reputation suggests for small changes, and fails predictably for larger ones. Knowing where the line falls saves a lot of frustration."
+      },
+      {
+        "p": "**Reliable:** correcting a typo, changing a date, updating a phone number, altering a figure — anything where the replacement is a similar length to the original and sits within one line."
+      },
+      {
+        "p": "**Unreliable:** anything that changes the length of a line or paragraph. Because a PDF stores glyph positions rather than flowing text, inserting a sentence does not push the following text down. Editors attempt to compensate within a paragraph, and the result is usually visibly uneven spacing."
+      },
+      {
+        "p": "**Not possible without pain:** restructuring, reordering paragraphs, changing typeface throughout, altering anything in a two-column layout where reflow would need to move text between columns."
+      },
+      {
+        "h2": "The round-trip through Word"
+      },
+      {
+        "p": "For substantial editing, converting out and back is usually faster than fighting an editor, and it is worth being clear-eyed about what it costs."
+      },
+      {
+        "ol": [
+          "[Convert to Word](/tools/pdf-to-word). Expect roughly 75–85% layout fidelity on an ordinary document.",
+          "**Fix the layout first, before editing content.** Tables and spacing are where conversion errors cluster, and correcting them is easier before you have also changed the text.",
+          "Make your edits in a tool that actually reflows.",
+          "Export back to PDF — export, not print, so links and structure survive.",
+          "**Compare against the original PDF** page by page. This is the step people skip and it is where you catch a table that silently lost a row."
+        ]
+      },
+      {
+        "p": "This is clearly worse than having the source file, which is why asking for it first is always worth thirty seconds."
+      },
+      {
+        "h2": "Editing a scanned document"
+      },
+      {
+        "p": "A scan has no text to edit — the page is a picture. There are two approaches and both have real drawbacks."
+      },
+      {
+        "p": "**OCR then edit** gives you a text layer over the image, but editing that layer changes the invisible text while the visible picture stays as it was. The document then says two different things depending on whether you read it or search it, which is a genuinely bad outcome."
+      },
+      {
+        "p": "**OCR then convert to Word** reconstructs an editable document from the recognised text, discarding the original image. That works, and you inherit every OCR error as real text — so proofread before relying on it, particularly names, dates and figures."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -586,7 +870,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "If someone gave you a number, one of these tools is right and the other will waste your afternoon.",
     "date": "2026-10-16",
     "dateLabel": "October 16, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "🎚️",
     "keywords": [
@@ -666,6 +950,48 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "Whichever you use, prepare first. [Greyscale](/tools/grayscale-pdf) and [crop](/tools/crop) before compressing, and the compressor has less to destroy — you get a better-looking file at the same size."
       },
       {
+        "h2": "How compress-to-size finds the setting"
+      },
+      {
+        "p": "Understanding the mechanism explains both why it is better than guessing and where it runs out of room."
+      },
+      {
+        "p": "The tool compresses at a mid-range quality, measures the result, and compares it to your target. Too large, and it tries a lower quality; comfortably under, it tries higher. Each iteration halves the remaining range, so it converges in a handful of passes on the highest quality that still fits."
+      },
+      {
+        "p": "Doing this by hand means several rounds of compress-check-adjust, and people usually stop at the first setting that fits rather than the best one that fits — which means accepting worse quality than necessary."
+      },
+      {
+        "h2": "When the target cannot be met"
+      },
+      {
+        "p": "The search has a floor. Below a certain quality the output stops shrinking meaningfully, because what remains is structural rather than image data. If your target is below that floor, the tool returns the smallest it achieved, which will exceed your limit."
+      },
+      {
+        "p": "That is a signal to change the input rather than the setting:"
+      },
+      {
+        "ol": [
+          "**Reduce page count.** [Extract](/tools/extract-pages) only what is required. Usually the largest single lever.",
+          "**[Greyscale](/tools/grayscale-pdf).** Removes two thirds of image data before compression begins.",
+          "**[Crop](/tools/crop).** Scanner borders and wide margins are real data.",
+          "**Rescan lower.** A clean 200 DPI capture beats a 600 DPI one degraded to the same size.",
+          "**Split the submission** if the portal accepts multiple files."
+        ]
+      },
+      {
+        "h2": "Setting a sensible target"
+      },
+      {
+        "p": "Two habits prevent avoidable failures."
+      },
+      {
+        "p": "**Aim below the limit, not at it.** Target 90% of the stated maximum. This absorbs the KB-versus-KiB ambiguity, any overhead the portal adds, and the small variation between what a tool reports and what the filesystem records."
+      },
+      {
+        "p": "**Check for a stated minimum.** Some portals reject files that are too small, on the reasonable assumption that a 3KB document is a blank placeholder. Compressing as hard as possible can fail this check, which produces a particularly confusing error message."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -698,7 +1024,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "The same PDF gives 400KB in one tool and 1.2MB in another. Here is what separates them.",
     "date": "2026-10-26",
     "dateLabel": "October 26, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "⚙️",
     "keywords": [
@@ -771,6 +1097,75 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "If compression barely changes your file, it is probably already efficient. Look instead at whether you need every page — [extracting](/tools/extract-pages) the relevant ones beats any compression setting."
       },
       {
+        "h2": "Downsampling, and choosing a target resolution"
+      },
+      {
+        "p": "Downsampling accounts for most of the size reduction in an image-heavy PDF, and the target resolution is the single most consequential setting."
+      },
+      {
+        "table": {
+          "headers": [
+            "Target DPI",
+            "Suitable for",
+            "Typical reduction from 600 DPI"
+          ],
+          "rows": [
+            [
+              "72",
+              "Screen viewing only",
+              "~98%"
+            ],
+            [
+              "150",
+              "General reading, email",
+              "~94%"
+            ],
+            [
+              "200",
+              "Reading small print",
+              "~89%"
+            ],
+            [
+              "300",
+              "Printing",
+              "~75%"
+            ],
+            [
+              "600",
+              "Archival master",
+              "None"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Those reductions look dramatic because data scales with the square of resolution — halving DPI quarters the pixel count. It is also why scanning at 600 DPI and compressing down is wasteful compared with scanning at 300 in the first place: you generate four times the data and then discard three quarters of it, having introduced no additional real detail."
+      },
+      {
+        "h2": "Font subsetting"
+      },
+      {
+        "p": "A font file contains glyphs for every character it supports — often several thousand, covering accented Latin, Greek, Cyrillic and symbols. A document using one typeface for English text needs perhaps eighty of them."
+      },
+      {
+        "p": "**Subsetting** embeds only the glyphs actually used. On a document with several embedded families this can save megabytes, and it is entirely lossless — the document renders identically."
+      },
+      {
+        "p": "The trade-off appears only if someone later edits the document and types a character whose glyph was not embedded. The reader then substitutes, which is why documents intended for further editing sometimes embed full fonts deliberately."
+      },
+      {
+        "h2": "Why a full rewrite can halve a file with no quality loss"
+      },
+      {
+        "p": "This is the strategy simpler tools skip and the one that most often produces a surprising result."
+      },
+      {
+        "p": "PDF supports incremental saving: an editor appends changes and a new cross-reference table rather than rewriting the file. Fast and crash-safe, and it means a document edited across twenty sessions contains twenty layers of history, most of it unreachable."
+      },
+      {
+        "p": "A full rewrite reads the current state, discards every object nothing references, and writes a clean file. Nothing visible changes. On a heavily edited document the saving can be enormous, and it is completely lossless — which is why [repair](/tools/repair) is worth trying on an oversized PDF even when nothing appears broken."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -803,7 +1198,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "Courts, archives and universities increasingly demand it. Here is what the format actually guarantees.",
     "date": "2026-11-03",
     "dateLabel": "November 3, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "🏛️",
     "keywords": [
@@ -854,6 +1249,76 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "Convert to PDF/A **last**, after all editing. It is a preservation format, not a working one, and many tools will refuse to edit a PDF/A without breaking compliance."
       },
       {
+        "h2": "The versions, and which to choose"
+      },
+      {
+        "p": "PDF/A has several parts and conformance levels, and the combination is usually specified for you. Where it is not:"
+      },
+      {
+        "table": {
+          "headers": [
+            "Version",
+            "Based on",
+            "Notable"
+          ],
+          "rows": [
+            [
+              "PDF/A-1",
+              "PDF 1.4",
+              "Most restrictive; no transparency, no layers"
+            ],
+            [
+              "PDF/A-2",
+              "PDF 1.7",
+              "Allows transparency, layers, JPEG2000"
+            ],
+            [
+              "PDF/A-3",
+              "PDF 1.7",
+              "As A-2, plus arbitrary embedded files"
+            ],
+            [
+              "PDF/A-4",
+              "PDF 2.0",
+              "Newest; support still uneven"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Each has conformance levels: **b** (basic) guarantees visual reproduction; **a** (accessible) additionally requires structural tagging; **u** requires Unicode mapping so text extraction is reliable."
+      },
+      {
+        "p": "If nothing is specified, **PDF/A-2b** is the pragmatic default — widely supported, not unnecessarily restrictive, and adequate for visual preservation."
+      },
+      {
+        "h2": "Why PDF/A-3 is contentious"
+      },
+      {
+        "p": "PDF/A-3 permits embedding arbitrary files, which was intended for cases like attaching source data to a report. Archivists object, reasonably, that an embedded spreadsheet in a proprietary format defeats the point — you have preserved a container whose contents may be unreadable in twenty years."
+      },
+      {
+        "p": "If you are choosing, prefer A-2 unless you have a specific need for embedded attachments and have thought about whether those attachments are themselves archivable."
+      },
+      {
+        "h2": "What conversion will change"
+      },
+      {
+        "p": "[PDF to PDF/A](/tools/pdf-to-pdfa) enforces the standard, and some of that is destructive. Expect:"
+      },
+      {
+        "ul": [
+          "**Encryption removed.** Not permitted — an archive nobody can open is not an archive.",
+          "**JavaScript and embedded media stripped.**",
+          "**Form fields flattened** or their interactivity removed, depending on the level.",
+          "**Fonts embedded,** or substituted where licensing prevents it — which can change appearance.",
+          "**External links preserved as text** but no longer guaranteed to resolve."
+        ]
+      },
+      {
+        "p": "Check the converted file against the original before treating it as your archival copy. A substituted font that shifts a table's layout is exactly the sort of thing that goes unnoticed until someone needs the document a decade later."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -886,7 +1351,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "Two operations that sound identical and produce quite different files.",
     "date": "2026-11-11",
     "dateLabel": "November 11, 2026",
-    "readMinutes": 6,
+    "readMinutes": 7,
     "category": "Comparisons",
     "emoji": "📸",
     "keywords": [
@@ -966,6 +1431,42 @@ export const comparisonsArticles: BlogArticle[] = [
         "note": "Do not process twice. Running an already-clean flatbed scan through document processing can over-sharpen and introduce artefacts that were not there."
       },
       {
+        "h2": "What document processing actually changes"
+      },
+      {
+        "p": "When a tool advertises 'scan to PDF' rather than plain conversion, it is applying a short pipeline to each image before assembly. Knowing what that pipeline does tells you when it will help and when it will hurt."
+      },
+      {
+        "ul": [
+          "**Deskew.** The image is analysed for the dominant text angle and rotated to square it. On a phone photo taken slightly off-axis this alone transforms the result, and it materially improves later [OCR](/tools/ocr) accuracy.",
+          "**Perspective correction.** Where the page edges are detectable, the image is warped so a trapezoid becomes a rectangle. This is the step that makes a photo stop looking like a photo.",
+          "**Contrast normalisation.** Lighting across a photographed page is rarely even. Local contrast adjustment lifts the shadowed side without blowing out the lit side, which a global brightness change cannot do.",
+          "**Background suppression.** Off-white paper is pushed toward white and faint show-through from the reverse side is reduced. This is where most of the file size saving comes from.",
+          "**Edge detection and crop.** The document boundary is found and everything outside it discarded."
+        ]
+      },
+      {
+        "p": "Each of those assumes it is looking at a document: dark text on light paper, straight edges, a rectangular subject. Feed it a photograph of a person and every assumption is wrong, which is why processing a holiday snapshot through a document pipeline produces something that looks bleached and over-sharpened."
+      },
+      {
+        "h2": "A practical decision rule"
+      },
+      {
+        "p": "Ask what the subject is, not where the image came from. If the subject is **a page** — anything with text on paper, whatever captured it — document processing helps. If the subject is **a scene or a person**, use plain [JPG to PDF](/tools/jpg-to-pdf) and leave the pixels alone."
+      },
+      {
+        "p": "The confusing case is a photograph *of* a document that also contains a photograph, such as an ID card or a certificate with a portrait. Document processing will clean the text and may flatten the portrait unattractively. If the portrait matters for verification, convert plainly and accept a larger file."
+      },
+      {
+        "h2": "Size in practice"
+      },
+      {
+        "p": "For a typical phone photo of an A4 page, the difference is substantial. A raw capture might be 3–5MB. Plain conversion to PDF keeps roughly that. Document processing — greyscale, background suppression, contrast — commonly brings the same page to 200–400KB while making it more legible, not less."
+      },
+      {
+        "p": "That matters when you are working toward an upload limit. Starting from a processed 300KB page and [compressing to size](/tools/compress-to-size) leaves the compressor very little to do. Starting from an unprocessed 4MB page means the compressor must discard 90% of the data, and it does that by degrading the text you need."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -998,7 +1499,7 @@ export const comparisonsArticles: BlogArticle[] = [
     "excerpt": "Every online tool receives your file. What varies is what happens next — and what you should ask before finding out.",
     "date": "2026-11-19",
     "dateLabel": "November 19, 2026",
-    "readMinutes": 7,
+    "readMinutes": 9,
     "category": "Comparisons",
     "emoji": "🛡️",
     "keywords": [
@@ -1045,6 +1546,48 @@ export const comparisonsArticles: BlogArticle[] = [
           "**Prefer tools that need no account** for one-off tasks.",
           "**Download your result promptly** — retention windows are short by design, which is the point."
         ]
+      },
+      {
+        "h2": "What a retention policy should say"
+      },
+      {
+        "p": "The difference between a meaningful commitment and reassuring language is specificity. Compare:"
+      },
+      {
+        "ul": [
+          "**Vague:** 'We take your privacy seriously and delete files regularly.' No number, no mechanism, no way to check.",
+          "**Specific:** 'Uploads and outputs are deleted within one hour by a scheduled job that runs every five minutes.' A number, a mechanism, and a claim that could be falsified."
+        ]
+      },
+      {
+        "p": "The second is not automatically true because it is specific, but it is at least the kind of statement an organisation has had to think about. The first is compatible with never deleting anything."
+      },
+      {
+        "p": "Also worth checking: does the policy distinguish between the **uploaded file** and the **output**? Both exist, both persist, and a policy that mentions only one may leave the other indefinitely."
+      },
+      {
+        "h2": "Reducing what you upload in the first place"
+      },
+      {
+        "p": "The most effective privacy measure is not choosing a better service but sending less to whichever one you use."
+      },
+      {
+        "ol": [
+          "**[Extract](/tools/extract-pages) the pages that need processing.** Compressing page 12 does not require uploading pages 1–200.",
+          "**[Redact](/tools/pdf-redact) identifiers locally** before uploading, where the tool does not need them.",
+          "**[Remove metadata](/tools/remove-metadata) first,** so author names and file paths are not part of what you send.",
+          "**[Split](/tools/split) and process separately** where no single upload then contains the full picture.",
+          "**Download the result and verify it promptly,** rather than leaving files sitting server-side."
+        ]
+      },
+      {
+        "h2": "Where the line honestly falls"
+      },
+      {
+        "p": "A useful test: if this file leaked, what would you have to do? If the answer is 'nothing much', convenience is a reasonable basis for choosing a tool. If the answer involves notifying a regulator, informing a client, or reporting a breach, work offline — regardless of any policy you have read, including ours."
+      },
+      {
+        "p": "That framing is more reliable than trying to classify documents as sensitive or not, because it makes you think about consequences rather than categories, and consequences are what actually matter."
       },
       {
         "h2": "Common questions"

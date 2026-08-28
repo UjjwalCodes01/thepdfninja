@@ -12,7 +12,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Gmail stops at 25MB, Outlook at 20MB, and corporate servers are often stricter. Here is why your file is heavy and six fixes ranked by quality retained.",
     "date": "2026-01-09",
     "dateLabel": "January 9, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "📧",
     "keywords": [
@@ -122,6 +122,46 @@ export const problemsArticles: BlogArticle[] = [
         "note": "Those 'effective' figures account for base64 encoding, which inflates attachments by about a third. If your file is close to the limit, assume it will fail."
       },
       {
+        "h2": "Working out which fix you need"
+      },
+      {
+        "p": "The six fixes are not equally applicable, and picking the wrong one wastes time. A quick diagnostic:"
+      },
+      {
+        "ol": [
+          "**Press Ctrl+F and search for a word you can see.** No result means the document is scanned — go to the scan-specific advice below. A result means it is born-digital.",
+          "**Check the page count against the size.** A born-digital document over roughly 100KB per page has embedded images or accumulated cruft.",
+          "**Look at document properties for embedded files.** A PDF can carry attachments, and a 30MB file might be a 200KB document wrapped around a spreadsheet.",
+          "**Scroll through at thumbnail zoom.** Photographic pages are immediately obvious and tell you where the weight is."
+        ]
+      },
+      {
+        "h2": "For scanned documents specifically"
+      },
+      {
+        "p": "Scans account for most oversized PDFs and respond to a different sequence than born-digital files. In order of effect:"
+      },
+      {
+        "ul": [
+          "**[Greyscale](/tools/grayscale-pdf) first.** For a colour scan of black text this typically removes 40–60% for no visible change. Nothing else comes close for effort.",
+          "**[Crop](/tools/crop) the scanner borders.** Real data, not just tidiness.",
+          "**[Delete blank pages](/tools/delete-pages)** from duplex scans, which are often half the page count.",
+          "**Then [compress](/tools/compress).** By this point the compressor has far less to destroy."
+        ]
+      },
+      {
+        "h2": "When a link is genuinely the right answer"
+      },
+      {
+        "p": "Past about 20MB, email stops being a sensible transport regardless of what the limits technically allow, and it is worth being direct with the recipient about that."
+      },
+      {
+        "p": "The practical advantages are not only yours. A link gives the recipient a resumable download rather than a mailbox-blocking attachment, gives you delivery confirmation, lets you revoke access later, and lets you replace the file with a corrected version without sending a second email that everyone ignores."
+      },
+      {
+        "p": "The one thing to check is whether your recipient can reach the link. Corporate networks block some file-sharing services outright, and a link that fails is worse than an attachment that bounces, because the bounce at least tells you."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -154,7 +194,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "'The file is damaged and could not be repaired.' Before you give up on the document, work out which of four very different problems you actually have.",
     "date": "2026-01-16",
     "dateLabel": "January 16, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🚫",
     "keywords": [
@@ -221,6 +261,51 @@ export const problemsArticles: BlogArticle[] = [
         "note": "Always work on a copy. Repair tools rewrite structure, and if the attempt makes matters worse you want the original untouched."
       },
       {
+        "h2": "Reading a PDF's first and last bytes"
+      },
+      {
+        "p": "Two checks tell you most of what you need, and both work in any text editor — Notepad, TextEdit, anything. The file will look like nonsense; you are only reading the very beginning and very end."
+      },
+      {
+        "p": "**The start** should read `%PDF-` followed by a version number such as `1.7`. Anything else means the file is not a PDF at all, whatever the extension says."
+      },
+      {
+        "p": "**The end** should contain `%%EOF`, usually on the final line, preceded by `startxref` and a number. If that marker is missing, the file was truncated — the download or copy did not finish — and no repair tool can reconstruct bytes that never arrived."
+      },
+      {
+        "p": "For a large file, most editors let you jump to the end with Ctrl+End. You do not need to load the whole thing to check."
+      },
+      {
+        "h2": "Why truncation is so common"
+      },
+      {
+        "p": "It happens more than people expect because the failure is silent. A download interrupted at 95% leaves a file that looks approximately the right size in a file manager, has the right name, and shows no error. Nothing tells you it is incomplete until you open it."
+      },
+      {
+        "p": "Common causes: a dropped connection on a large file, a full disk that silently stopped writing, a USB drive removed before the copy flushed, or a cloud sync client that created the placeholder before finishing the transfer."
+      },
+      {
+        "p": "The fix is always the same — get the file again from the source — which is why establishing truncation early saves you from wasting time on repair tools that cannot possibly help."
+      },
+      {
+        "h2": "Recovering partial content"
+      },
+      {
+        "p": "Where a file is damaged rather than truncated, and [repair](/tools/repair) gets you a document that opens but with some pages broken, you can often salvage the good part:"
+      },
+      {
+        "ol": [
+          "Note which pages render correctly.",
+          "[Extract those pages](/tools/extract-pages) into a new document.",
+          "Check the extracted file opens cleanly on its own.",
+          "Source the missing pages separately if they matter — from the sender, from a print copy, or from an earlier version.",
+          "[Merge](/tools/merge) the recovered pages back in."
+        ]
+      },
+      {
+        "p": "A document that is 90% recovered is usually far more useful than no document, and the missing pages are at least identified rather than unknown."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -253,7 +338,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Ctrl+F finds nothing and you cannot select a word. Your scan is a photograph of a page — here is how OCR turns it back into real text.",
     "date": "2026-01-23",
     "dateLabel": "January 23, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🔍",
     "keywords": [
@@ -313,6 +398,52 @@ export const problemsArticles: BlogArticle[] = [
         "p": "If you only need the words and not the layout, [PDF to text](/tools/pdf-to-txt) is simpler. If you need to edit the document properly, [PDF to Word](/tools/pdf-to-word) reconstructs paragraphs and tables. And if the PDF was born digital rather than scanned, you do not need OCR at all — the text is already there, and a different reader will select it fine."
       },
       {
+        "h2": "Checking whether OCR actually worked"
+      },
+      {
+        "p": "OCR that runs without error can still produce output you should not rely on, and the failure is easy to miss because the page looks unchanged — the recognised text is invisible."
+      },
+      {
+        "p": "Three checks, in increasing thoroughness:"
+      },
+      {
+        "ol": [
+          "**Search for a common word** you can see on page one. If it is not found, recognition failed entirely.",
+          "**Select all and copy into a text editor.** This shows you exactly what was recognised. Skim it — garbled sections stand out immediately.",
+          "**Check the values that matter.** Names, dates, reference numbers, amounts. These are where errors are both most likely and most costly, because unusual strings get no help from the language model that corrects ordinary words."
+        ]
+      },
+      {
+        "p": "That third check is the one people skip. A 99% accurate document still contains errors, and the language model that fixes `recognitlon` into `recognition` has nothing useful to say about whether a reference number is `AB7749` or `AB7748`."
+      },
+      {
+        "h2": "Multi-column and table layouts"
+      },
+      {
+        "p": "Layout analysis runs before character recognition, and when it goes wrong the characters are recognised perfectly but assembled in the wrong order. The symptom is text that is individually correct and collectively nonsense — sentences from the left column interleaved with the right."
+      },
+      {
+        "p": "This is common with academic papers, newspapers and any document with sidebars. If you only need the words for searching, it does not matter much. If you need to read the extracted text, it matters a lot."
+      },
+      {
+        "p": "The workaround is to process columns separately: [crop](/tools/crop) the page to one column, OCR that, then repeat. Tedious, and reliable where the automatic analysis fails."
+      },
+      {
+        "h2": "What good input looks like"
+      },
+      {
+        "p": "Since recognition quality is decided almost entirely at capture, it is worth knowing the target:"
+      },
+      {
+        "ul": [
+          "**300 DPI**, greyscale, page square to within a degree.",
+          "**Even illumination** with no shadow gradient across the page.",
+          "**High contrast** — dark ink, light paper, nothing showing through from the reverse.",
+          "**No compression yet.** Whatever the scanner offers, decline it and compress after recognition.",
+          "**Flat pages.** A curled page produces a curved baseline that line detection handles badly."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -345,7 +476,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Receipts, ID documents, homework photos — portals almost always want one PDF, not twelve images. Here is how to build one properly.",
     "date": "2026-01-30",
     "dateLabel": "January 30, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🖼️",
     "keywords": [
@@ -407,6 +538,63 @@ export const problemsArticles: BlogArticle[] = [
         "note": "If the destination demands a specific size — many government portals want under 200KB — build the PDF first and finish with [compress to size](/tools/compress-to-size) rather than guessing at image quality settings."
       },
       {
+        "h2": "Getting the page order right the first time"
+      },
+      {
+        "p": "Order problems account for most of the rework here, and they come from a mismatch between how your file manager sorts and how the conversion tool reads."
+      },
+      {
+        "p": "Phone cameras name files sequentially — `IMG_0998`, `IMG_0999`, `IMG_1000`. Sorted as text, `IMG_1000` comes before `IMG_0999` because '1' precedes '9' character by character. Sorted as numbers it does not. Different tools do different things."
+      },
+      {
+        "p": "Two reliable fixes. **Rename with zero padding** — `01`, `02`, `03` — which sorts identically as text and as numbers. Or **select files in the order you want them** rather than selecting all and trusting the sort, since most tools honour selection order."
+      },
+      {
+        "p": "If the result comes out wrong regardless, [Organize PDF](/tools/organize) reorders pages without redoing the conversion."
+      },
+      {
+        "h2": "Handling orientation"
+      },
+      {
+        "p": "Phone photos carry an EXIF orientation flag rather than storing the pixels rotated. The camera records 'this image should be displayed rotated 90 degrees' and leaves the data as the sensor captured it."
+      },
+      {
+        "p": "Tools that read the flag display the photo correctly. Tools that ignore it produce a sideways page. This is why a photo that looks right in your gallery can end up rotated in a PDF."
+      },
+      {
+        "p": "Check the first page after conversion. If it is sideways, the rest probably are too, and [rotate](/tools/rotate) fixes the whole document in one operation."
+      },
+      {
+        "h2": "Choosing between the two size strategies"
+      },
+      {
+        "p": "Both work; they trade quality against convenience."
+      },
+      {
+        "table": {
+          "headers": [
+            "Approach",
+            "Quality",
+            "Effort"
+          ],
+          "rows": [
+            [
+              "Resize images, then convert",
+              "Better",
+              "More steps, per-image control"
+            ],
+            [
+              "Convert, then compress the PDF",
+              "Slightly worse",
+              "One step, exact size targeting"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "The first wins on quality because you control exactly which pixels are discarded. The second wins on convenience because [compress to size](/tools/compress-to-size) hits a stated limit precisely without arithmetic. For a portal with a hard cap, the second is usually the pragmatic choice."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -439,7 +627,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "You need pages 12 to 18 of a 200-page report. Three different tools do subtly different jobs — here is which one you actually want.",
     "date": "2026-02-06",
     "dateLabel": "February 6, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "✂️",
     "keywords": [
@@ -519,6 +707,63 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Extracting from a document you did not make"
+      },
+      {
+        "p": "Most extraction is from someone else's document, which introduces two considerations that do not arise with your own files."
+      },
+      {
+        "p": "**Restrictions.** A PDF may carry an owner password flagging extraction as not permitted. Some tools honour this and refuse. If you have the right to use the document, [unlock](/tools/unlock) removes the flag; if you do not, that is a permissions question rather than a technical one."
+      },
+      {
+        "p": "**Provenance.** An extracted subset loses the context that made it verifiable — the cover page identifying the source, the date, the issuing body. If the extract will be relied on by someone else, say what it came from. A three-page extract circulating without attribution is how documents get misread."
+      },
+      {
+        "h2": "Extracting for different purposes"
+      },
+      {
+        "table": {
+          "headers": [
+            "Purpose",
+            "Approach"
+          ],
+          "rows": [
+            [
+              "Emailing a chapter",
+              "Extract, then [compress](/tools/compress)"
+            ],
+            [
+              "Archiving a section",
+              "Extract, then [convert to PDF/A](/tools/pdf-to-pdfa)"
+            ],
+            [
+              "Quoting in another document",
+              "Extract, then [PDF to text](/tools/pdf-to-txt)"
+            ],
+            [
+              "Printing a subset",
+              "Extract, then check page size and [rotate](/tools/rotate)"
+            ],
+            [
+              "Rebuilding in a new order",
+              "Extract several ranges, then [merge](/tools/merge)"
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "Why the extracted file is bigger than expected"
+      },
+      {
+        "p": "A single page pulled from a 200-page report is frequently 1–2MB rather than the 20KB you might expect, and the reason is resource sharing."
+      },
+      {
+        "p": "A PDF stores fonts, images and colour profiles once and references them from every page that uses them. Extract one page and the extraction must bring along every resource that page references — which can include an entire embedded font family used across the document, or a logo image, or a colour profile."
+      },
+      {
+        "p": "Good extraction tools subset what they copy; simpler ones bring everything. If your extract is unexpectedly large, run [compress](/tools/compress) over it, which will discard resources the extracted pages do not actually use."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -551,7 +796,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Bank statements and payslips arrive encrypted. If you know the password but are tired of typing it, here is how to remove it permanently.",
     "date": "2026-02-13",
     "dateLabel": "February 13, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Security",
     "emoji": "🔓",
     "keywords": [
@@ -613,6 +858,51 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Identifying which password you are dealing with"
+      },
+      {
+        "p": "Before trying anything, work out which of the two mechanisms is in play — the answers are completely different."
+      },
+      {
+        "ol": [
+          "**Try to open the file.** If it demands a password before showing anything, that is a user password and the content is encrypted.",
+          "**If it opens,** try to select and copy some text. Blocked copying with the document visible means an owner password.",
+          "**Check document properties.** Most readers show a security section listing which operations are permitted: printing, copying, editing, extraction. That tells you exactly what has been restricted."
+        ]
+      },
+      {
+        "p": "A document can carry both — encrypted at rest and restricted once open. Removing the user password does not automatically clear the permissions flags, though most unlock tools handle both together."
+      },
+      {
+        "h2": "Why encrypted archives are a practical problem"
+      },
+      {
+        "p": "The case for decrypting statements you have archived is not laziness. An encrypted PDF is opaque to everything except a reader with the password:"
+      },
+      {
+        "ul": [
+          "**Desktop search cannot index it.** Your operating system's search will never find a transaction inside it.",
+          "**Backup deduplication works poorly** on encrypted files, because they compress badly and differ completely between versions.",
+          "**Bulk processing is impossible.** Extracting a year of transactions means unlocking each file first anyway.",
+          "**Long-term access depends on remembering a password** you set or were given years ago, for a document you may need in a decade."
+        ]
+      },
+      {
+        "p": "If the archive itself is secure — a locked machine, an encrypted disk, a properly protected cloud account — the per-file encryption is protecting against a threat that has already been handled, at real cost to usability."
+      },
+      {
+        "h2": "Choosing a password worth having"
+      },
+      {
+        "p": "When you are the one applying protection with [protect](/tools/protect), the encryption is sound and the password is the whole story."
+      },
+      {
+        "p": "A date of birth or an account number — the defaults banks use — is guessable in seconds by anyone who has the accompanying letter. That is acceptable for transit, where the threat is casual interception, and inadequate for storage."
+      },
+      {
+        "p": "For anything you are protecting deliberately, use a long random passphrase from a password manager, and send it by a genuinely separate channel. Emailing the password alongside the encrypted file, which happens constantly, achieves nothing at all."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -645,7 +935,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "You rotate the page, close the file, reopen it — and it is sideways again. Your reader changed the view, not the document.",
     "date": "2026-02-20",
     "dateLabel": "February 20, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "🔄",
     "keywords": [
@@ -695,6 +985,52 @@ export const problemsArticles: BlogArticle[] = [
         "p": "If pages are also out of order, [organize](/tools/organize) them. If the scan is crooked rather than rotated — a few degrees off, not ninety — rotation will not help; that needs deskewing before [OCR](/tools/ocr), or accuracy will suffer."
       },
       {
+        "h2": "Finding which pages need rotating"
+      },
+      {
+        "p": "On a long scan, identifying the affected pages is most of the work. Two approaches, depending on how many there are."
+      },
+      {
+        "p": "**Thumbnail view.** Every reader has one. Sideways pages are unmistakable at that size, and you can note the numbers as you scroll. For a 40-page document this takes under a minute and is more reliable than paging through at full size."
+      },
+      {
+        "p": "**Pattern recognition.** Scanner-induced rotation is rarely random. A duplex scanner fed a stack the wrong way round produces every second page upside down. A landscape table inserted into a portrait document is one or two pages. Knowing the cause usually tells you the pattern, which you can then verify rather than hunt for."
+      },
+      {
+        "h2": "Rotation versus skew, and why it matters for OCR"
+      },
+      {
+        "p": "These are different problems with different fixes, and confusing them wastes time."
+      },
+      {
+        "p": "**Rotation** is a 90-degree multiple — the page is sideways or upside down. It is stored as a page attribute and fixing it is lossless and instant."
+      },
+      {
+        "p": "**Skew** is a small angle, typically one to five degrees, from a page fed slightly crooked. It cannot be fixed by rotation, and it is the single largest cause of poor [OCR](/tools/ocr) results because line detection assumes horizontal baselines."
+      },
+      {
+        "p": "If your scan is both sideways and crooked, rotate first so the text is roughly horizontal, then address the skew — ideally by rescanning, since deskewing after the fact resamples the image and softens it."
+      },
+      {
+        "h2": "Where rotation fits in a workflow"
+      },
+      {
+        "p": "Rotate early, before anything that depends on page geometry:"
+      },
+      {
+        "ol": [
+          "[Delete blank pages](/tools/delete-pages) — fewer pages to inspect.",
+          "**Rotate.** Now every page is the right way up.",
+          "[Crop](/tools/crop) — margins are only meaningful once orientation is correct.",
+          "[OCR](/tools/ocr) — recognition needs horizontal text.",
+          "[Add page numbers](/tools/page-numbers) — position depends on orientation.",
+          "[Compress](/tools/compress) last."
+        ]
+      },
+      {
+        "p": "Rotating after adding page numbers puts the numbers on the side of the page, which is the sort of error that is only visible once the document is printed."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -727,7 +1063,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Merged three documents and the numbering restarts three times? Here is how to number a PDF properly, and what examiners and courts expect.",
     "date": "2026-02-27",
     "dateLabel": "February 27, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "🔢",
     "keywords": [
@@ -784,6 +1120,44 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Numbering conventions for formal submissions"
+      },
+      {
+        "p": "Where a document will be referenced by others — a court bundle, a tender, a thesis — the numbering convention is often prescribed, and where it is not, following the common one avoids questions."
+      },
+      {
+        "ul": [
+          "**Continuous arabic numerals throughout**, including appendices, is the default for legal and tender documents. A reader saying 'page 214' must land in one place.",
+          "**Roman numerals for front matter**, arabic from the body, is standard for theses and books. The contents page is iv; chapter one starts at 1.",
+          "**Section-prefixed numbering** — 3-12 for section 3, page 12 — appears in technical manuals where sections are revised independently.",
+          "**Bates numbering** — a continuous sequence across an entire disclosure set, often with a prefix — is standard in litigation."
+        ]
+      },
+      {
+        "p": "If a requirement is stated, follow it exactly. If not, continuous arabic is the safest choice, because it is unambiguous and every reader understands it without explanation."
+      },
+      {
+        "h2": "Numbering a document that will grow"
+      },
+      {
+        "p": "The awkward case is a document you will add to — a bundle assembled over weeks, a portfolio built up across a project. Numbering it early means renumbering repeatedly; numbering it late means working with an unnumbered document for the interim."
+      },
+      {
+        "p": "The usual resolution is to number sections independently and combine at the end, accepting that the interim references are section-relative. Where a stable reference is genuinely needed before the document is final, number generously — leaving gaps between sections — and accept that the sequence will have holes."
+      },
+      {
+        "h2": "Checking before distribution"
+      },
+      {
+        "ol": [
+          "Open the first and last page — confirm numbering starts and ends where expected.",
+          "Check a page in the middle: does the printed number match the reader's page counter, allowing for any front matter offset?",
+          "Look at a landscape page if there is one — the number may have landed in a margin that no longer exists.",
+          "Check the number is inside the printable area. Most printers cannot print within roughly 5mm of the paper edge.",
+          "Confirm no page has two numbers, which happens when a document was numbered twice."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -816,7 +1190,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "A watermark deters casual misuse and marks status at a glance. It is not security — here is the difference, and how to apply one well.",
     "date": "2026-03-06",
     "dateLabel": "March 6, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Security",
     "emoji": "💧",
     "keywords": [
@@ -868,6 +1242,44 @@ export const problemsArticles: BlogArticle[] = [
         "note": "Watermark a **copy**. Applying a mark draws it into the page permanently — there is no clean removal afterwards. Keep the unmarked master."
       },
       {
+        "h2": "Placement, and why diagonal is standard"
+      },
+      {
+        "p": "A watermark's placement is a trade between legibility of the mark and legibility of the document underneath, and the conventional diagonal is a considered answer rather than a default."
+      },
+      {
+        "ul": [
+          "**Diagonal across the centre.** Hardest to crop away, visible on every printout regardless of how the page is trimmed, and it crosses text at an angle rather than running along it — which paradoxically makes both easier to read than a horizontal mark competing with the lines.",
+          "**Horizontal across the centre.** Reads more naturally but interferes with text more, because it runs parallel to the lines it overlaps.",
+          "**Corner or footer.** Least intrusive, and trivially removed by cropping. Appropriate for branding, useless as a warning.",
+          "**Tiled repeatedly.** Very hard to remove and very hard to read through. Reserve for material where deterrence genuinely outweighs usability."
+        ]
+      },
+      {
+        "h2": "Watermarking for traceability"
+      },
+      {
+        "p": "A generic CONFIDENTIAL mark tells a recipient the document is sensitive. A mark carrying **their own name** tells them that if it leaks, the leak is attributable to them — and that changes behaviour considerably more."
+      },
+      {
+        "p": "This is standard practice for pre-release financial information, unpublished research and draft legal documents circulated to multiple parties. The mechanics are simple: produce one [watermarked](/tools/watermark) copy per recipient with their name in the mark, and keep a record of which copy went where."
+      },
+      {
+        "p": "It costs a few minutes per recipient and it is the difference between knowing a document leaked and knowing who leaked it."
+      },
+      {
+        "h2": "What to do about a watermark you need to remove"
+      },
+      {
+        "p": "Occasionally you need a clean copy of a document you watermarked and no longer have the original of. There is no clean removal — the mark is drawn into the page content, indistinguishable from any other graphic."
+      },
+      {
+        "p": "What people try, and what it costs: cropping only works for corner marks; covering it with a white box leaves it in the file and looks obvious in print; re-rendering the page and editing it out destroys the text layer. All of them are worse than keeping the master."
+      },
+      {
+        "note": "Watermark a copy, always. Keep the unmarked original somewhere you will find it. This is the single piece of advice that prevents the entire problem."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -900,7 +1312,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Scan a 20-page double-sided document and you often get 40 pages, half of them empty. Here is how to clean that up.",
     "date": "2026-09-01",
     "dateLabel": "September 1, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "📃",
     "keywords": [
@@ -952,6 +1364,48 @@ export const problemsArticles: BlogArticle[] = [
         "p": "A freshly cleaned scan usually benefits from two more passes: [rotate](/tools/rotate) any sheets fed the wrong way, and [OCR](/tools/ocr) so the document becomes searchable. Do OCR after deletion and before compression."
       },
       {
+        "h2": "Finding blank pages efficiently in a long scan"
+      },
+      {
+        "p": "On a 200-page scan, identifying the blanks by paging through is the slow part. Two approaches are much faster."
+      },
+      {
+        "p": "**Thumbnail view at small size.** Blank pages appear as plain white rectangles among pages with visible text blocks. Scanning a 200-page thumbnail grid takes perhaps a minute, and you can note the numbers as you go."
+      },
+      {
+        "p": "**Pattern inference.** Duplex scanning of single-sided originals produces blanks at every even position — 2, 4, 6 and so on. Confirm the pattern holds on the first ten pages and the last ten, then apply it to the whole range rather than checking each one. Verify the result afterwards by page count."
+      },
+      {
+        "h2": "Why detection sometimes misses them"
+      },
+      {
+        "p": "Automatic blank-page detection works on ink coverage: if the proportion of non-white pixels falls below a threshold, the page is considered blank. Several things defeat it."
+      },
+      {
+        "ul": [
+          "**Show-through.** Text from the printed side visible through thin paper registers as content.",
+          "**Scanner noise.** Sensor noise on a white page produces scattered non-white pixels.",
+          "**Dust and specks** on the glass.",
+          "**Page edges and shadows** where the sheet did not sit flat.",
+          "**Pre-printed furniture** — headers, footers, page numbers or a company logo on an otherwise empty page."
+        ]
+      },
+      {
+        "p": "Raising the detection threshold helps with the first four and risks deleting genuinely sparse pages. Where accuracy matters, identify them by eye and delete by number."
+      },
+      {
+        "h2": "Verifying you removed the right ones"
+      },
+      {
+        "ol": [
+          "Note the original page count before deleting.",
+          "Subtract the number of pages you removed.",
+          "Check the result matches the new page count exactly.",
+          "Scroll the thumbnails once more — a mis-typed number is immediately visible as a missing content page.",
+          "[Compress](/tools/compress) afterwards to force a full rewrite, since deletion alone often leaves the data in the file."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -984,7 +1438,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Huge margins waste screen space on a tablet and look sloppy on a scan. Cropping fixes both — with one important caveat.",
     "date": "2026-09-09",
     "dateLabel": "September 9, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "✂️",
     "keywords": [
@@ -1028,6 +1482,48 @@ export const problemsArticles: BlogArticle[] = [
         "note": "Check every page type before distributing. Title pages, chapter openers and landscape tables frequently have different margins from body pages, and a single crop applied everywhere can decapitate a heading."
       },
       {
+        "h2": "Measuring how much to crop"
+      },
+      {
+        "p": "Guessing at margin sizes leads either to a timid crop that achieves nothing or an aggressive one that clips text. Measuring takes a moment."
+      },
+      {
+        "p": "PDF measurements are in **points**: 72 points to an inch, roughly 28.35 to a centimetre. An A4 page is 595 × 842 points."
+      },
+      {
+        "p": "Most readers show cursor coordinates or offer a measuring tool. Failing that, estimate proportionally: if the text block occupies about 70% of the page width, the two margins together are 30% — roughly 89 points each on A4. Crop conservatively at first, check, and crop again if there is room."
+      },
+      {
+        "h2": "Pages that do not share the same margins"
+      },
+      {
+        "p": "This is what makes cropping risky on a long document. A single crop applied to every page assumes every page has the same layout, and most documents do not."
+      },
+      {
+        "ul": [
+          "**Title pages** are often centred with different spacing entirely.",
+          "**Chapter openers** frequently have a deep top margin by design.",
+          "**Landscape pages** — tables, figures — have margins on different edges.",
+          "**Full-bleed images** extend to the page edge and will be clipped.",
+          "**Pages with footnotes** use more of the bottom margin than pages without."
+        ]
+      },
+      {
+        "p": "Check at minimum the first page, the last page, one chapter opener and any landscape page before applying a crop to the whole document. If the layouts genuinely differ, [split](/tools/split) into groups, crop each appropriately, and [merge](/tools/merge) back."
+      },
+      {
+        "h2": "Cropping for a specific device"
+      },
+      {
+        "p": "If the goal is comfortable reading on a particular tablet or e-reader, crop to match its aspect ratio rather than simply removing margins."
+      },
+      {
+        "p": "A 4:3 tablet displaying a cropped 3:4 page fills the screen with no wasted bands. The same page cropped to an arbitrary shape leaves letterboxing at top and bottom, which wastes exactly the screen area you were trying to reclaim."
+      },
+      {
+        "p": "Work out the device's aspect ratio, then choose crop margins that bring the text block to approximately that shape. It is slightly more arithmetic and noticeably better to read."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1060,7 +1556,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Slide decks, handouts and drafts do not need one page per sheet. Here is how to tile them without making them unreadable.",
     "date": "2026-09-17",
     "dateLabel": "September 17, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🖨️",
     "keywords": [
@@ -1135,6 +1631,75 @@ export const problemsArticles: BlogArticle[] = [
         "note": "For slide decks, four-up landscape is the long-standing handout convention — large enough to read, compact enough to annotate beside."
       },
       {
+        "h2": "Working out whether the result will be readable"
+      },
+      {
+        "p": "Rather than printing and hoping, the arithmetic is simple enough to do first."
+      },
+      {
+        "p": "Two-up halves each linear dimension, so 12pt text prints at roughly 8.5pt. Four-up quarters the area, halving each dimension again — 12pt becomes about 6pt. Six-up gives roughly 5pt, and nine-up about 4pt."
+      },
+      {
+        "table": {
+          "headers": [
+            "Source text size",
+            "2-up",
+            "4-up",
+            "6-up"
+          ],
+          "rows": [
+            [
+              "14 pt heading",
+              "10 pt",
+              "7 pt",
+              "5.7 pt"
+            ],
+            [
+              "12 pt body",
+              "8.5 pt",
+              "6 pt",
+              "4.9 pt"
+            ],
+            [
+              "10 pt body",
+              "7 pt",
+              "5 pt",
+              "4.1 pt"
+            ],
+            [
+              "8 pt footnote",
+              "5.7 pt",
+              "4 pt",
+              "3.3 pt"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Comfortable reading starts around 8pt and becomes difficult below 6pt. So a 12pt document is fine at two-up, marginal at four-up, and unreadable at six. A slide deck with 24pt text is comfortable even at six-up, which is why handout layouts work for slides and not for reports."
+      },
+      {
+        "h2": "Cropping first, and why it matters so much here"
+      },
+      {
+        "p": "N-up tiles whole pages, margins included. A page that is one third margin tiles one third whitespace, so at four-up you are printing a sheet that is a third empty and text that is smaller than it needed to be."
+      },
+      {
+        "p": "[Cropping](/tools/crop) before tiling means the same sheet carries larger content. On a typical academic paper this is the difference between four-up being readable and not — the same operation, one preparatory step apart."
+      },
+      {
+        "h2": "Duplex and reading order"
+      },
+      {
+        "p": "Two things catch people out when tiling for double-sided printing."
+      },
+      {
+        "p": "**Reading order within a sheet** is normally left to right then down, but some tools offer column-major order instead. Check a two-page sample before committing a long job — discovering the order is wrong on sheet forty is expensive."
+      },
+      {
+        "p": "**Duplex binding edge.** Tiled sheets printed double-sided need the correct flip setting — long edge or short edge — or alternate sheets come out upside down. Print two sheets and check before continuing."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1167,7 +1732,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "One of the most effective size reductions available for scanned documents — and one of the least known.",
     "date": "2026-09-25",
     "dateLabel": "September 25, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "⚫",
     "keywords": [
@@ -1222,6 +1787,47 @@ export const problemsArticles: BlogArticle[] = [
         "p": "The same logic applies to individual images — [convert an image to greyscale](/tools/image-to-grayscale) before compressing a signature to a tight limit. It is often the difference between hitting 20KB legibly and not hitting it at all."
       },
       {
+        "h2": "Greyscale, bitonal and true black-and-white"
+      },
+      {
+        "p": "Three terms get used interchangeably and mean quite different things, which is why people occasionally destroy a document by choosing the wrong one."
+      },
+      {
+        "ul": [
+          "**Greyscale** keeps 256 shades from black to white. Photographs still look like photographs, shading survives, faint marks remain visible. Roughly one third the data of colour.",
+          "**Bitonal**, sometimes labelled 'black and white' or '1-bit', stores one bit per pixel: pure black or pure white, nothing between. Tiny files. Destroys photographs, grey stamps, faded ink and any subtlety.",
+          "**Colour converted to look monochrome** — a colour file where the colours happen to be greys. Looks the same, saves nothing, because it still stores three channels."
+        ]
+      },
+      {
+        "p": "The third is a real trap. Some tools 'convert to black and white' by desaturating rather than changing colour mode, so you get the appearance of greyscale with none of the file size benefit. Check the result size: if it barely moved, nothing structural changed."
+      },
+      {
+        "h2": "Deciding whether colour carries information"
+      },
+      {
+        "p": "The test is whether a reader would lose anything. Work through the document asking what each use of colour is doing:"
+      },
+      {
+        "ul": [
+          "**A chart with a colour key** — colour is the data. Do not convert.",
+          "**A red stamp on a certificate** — often authenticating. Check whether the recipient needs it.",
+          "**A signature in blue ink** — usually irrelevant, occasionally significant in a legal context.",
+          "**Coloured form field backgrounds** — decorative. Safe.",
+          "**Photographs of people or places** — depends entirely on purpose.",
+          "**Black text on white paper scanned in colour** — no information whatever. Convert."
+        ]
+      },
+      {
+        "h2": "Where greyscale fits in the sequence"
+      },
+      {
+        "p": "Convert to greyscale **before** compressing, not after. The reason is that compression allocates its quality budget across the data it is given; hand it three colour channels of essentially identical grey information and it spends effort encoding all three. Hand it one channel and the same budget goes into preserving the detail that matters."
+      },
+      {
+        "p": "In practice this is the difference between a legible 100KB scan and an unreadable one. [Greyscale](/tools/grayscale-pdf), then [crop](/tools/crop), then [compress to size](/tools/compress-to-size)."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1254,7 +1860,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "The mistake that has exposed names in court filings and salaries in public reports. Here is how to avoid making it.",
     "date": "2026-10-05",
     "dateLabel": "October 5, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🔒",
     "keywords": [
@@ -1311,6 +1917,52 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "How redaction failures actually get discovered"
+      },
+      {
+        "p": "The reason this matters more than it appears is that failed redactions are not discovered by determined attackers running specialist tools. They are discovered accidentally, by ordinary people doing ordinary things."
+      },
+      {
+        "ul": [
+          "**Selecting text to quote it.** A journalist copies a paragraph and the redacted name comes with it.",
+          "**Searching the document.** Ctrl+F finds a term that is visually blacked out.",
+          "**Opening it in a different reader.** Drawing order is not always honoured; some viewers render the text over the rectangle.",
+          "**Converting the file.** [PDF to text](/tools/pdf-to-txt) or [PDF to Word](/tools/pdf-to-word) extracts the text layer and ignores graphics entirely.",
+          "**Automated indexing.** A search engine that crawls the document indexes the underlying text."
+        ]
+      },
+      {
+        "p": "Every one of those is something a normal reader might do without any intent to defeat the redaction. That is why 'nobody would think to check' is not a defence."
+      },
+      {
+        "h2": "Redacting scanned documents"
+      },
+      {
+        "p": "Scans behave differently and the difference cuts both ways."
+      },
+      {
+        "p": "**The good news:** a scan is an image, so drawing an opaque black rectangle over part of it genuinely does obscure the pixels underneath, provided the mark is fully opaque and the file is then flattened or re-rendered so the rectangle becomes part of the image rather than an annotation on top of it."
+      },
+      {
+        "p": "**The catch:** if [OCR](/tools/ocr) has been run, there is now an invisible text layer containing everything on the page — including whatever you covered. The image is redacted; the text layer is not. Either redact before OCR, or redact the text layer explicitly."
+      },
+      {
+        "h2": "A verification routine worth making habitual"
+      },
+      {
+        "ol": [
+          "Open the redacted file.",
+          "Ctrl+A, Ctrl+C, paste into a plain text editor.",
+          "Search that text for each item you redacted.",
+          "Check document properties for the same terms in title, author or subject fields.",
+          "Check the filename.",
+          "If the source was scanned and OCRed, confirm the text layer was redacted too, not just the image."
+        ]
+      },
+      {
+        "p": "Six steps, under a minute, and it is the only thing that distinguishes a redaction that works from one that looks like it works."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1343,7 +1995,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Document properties routinely name the client whose template you reused. Two clicks to check, seconds to fix.",
     "date": "2026-10-13",
     "dateLabel": "October 13, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🕵️",
     "keywords": [
@@ -1397,6 +2049,47 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Every PDF reader exposes document properties, usually under File. Look before you send anything that leaves your organisation. It takes seconds and occasionally saves considerable embarrassment."
       },
       {
+        "h2": "Seeing what is there before you strip it"
+      },
+      {
+        "p": "It is worth looking at least once, because the contents are usually more revealing than people expect and it changes how carefully you treat the step."
+      },
+      {
+        "p": "Every reader exposes this. In most, File then Properties. You will typically find the author field populated with a full name — often not yours, if you started from a colleague's template — the producing application and version, creation and modification timestamps, and sometimes a title left over from whatever document was originally saved under that name."
+      },
+      {
+        "p": "The one that surprises people is the **file path** preserved by some producers, which can read something like `/Clients/Northgate/2026 Restructuring/draft.docx`. That single string can disclose a client relationship, a project name and a document's status."
+      },
+      {
+        "h2": "Metadata inside embedded images"
+      },
+      {
+        "p": "Stripping the document-level metadata does not touch metadata inside images embedded in the pages, and photographs carry a lot of it."
+      },
+      {
+        "p": "A phone photo embeds EXIF data: camera model, exposure settings, timestamp, and frequently **GPS coordinates** accurate to a few metres. Insert that photo into a document, export to PDF, and the coordinates travel with it."
+      },
+      {
+        "p": "For most documents this is harmless. For a photograph taken at someone's home, a confidential site, or anywhere whose location is itself sensitive, it is a genuine disclosure. Strip EXIF from images before embedding them, or [convert pages to images](/tools/pdf-to-jpg) and rebuild — which discards everything at the cost of the text layer."
+      },
+      {
+        "h2": "When metadata should be kept"
+      },
+      {
+        "p": "Stripping is not always right. Metadata serves real purposes and removing it indiscriminately loses them:"
+      },
+      {
+        "ul": [
+          "**Archival records** need creation dates and provenance to be meaningful. [PDF/A](/tools/pdf-to-pdfa) requires structured metadata for exactly this reason.",
+          "**Published work** benefits from author and title fields, which improve how the document appears in search and in reference managers.",
+          "**Internal documents** in a managed system may rely on metadata for classification and retention.",
+          "**Legal disclosure** sometimes requires metadata to be preserved intact — stripping it can itself be a problem."
+        ]
+      },
+      {
+        "p": "The rule of thumb: strip before anything leaves your organisation to an external party who does not need it. Keep it for archives, publications and internal records."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1429,7 +2122,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "The least understood useful PDF operation — and the one people confuse with redaction, sometimes expensively.",
     "date": "2026-10-21",
     "dateLabel": "October 21, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🗜️",
     "keywords": [
@@ -1484,6 +2177,77 @@ export const problemsArticles: BlogArticle[] = [
         "p": "A common and dangerous confusion. Flattening merges an annotation's *appearance* into the page. If someone drew a black box over text, flattening makes the box part of the page — and the text underneath is still there. For removal, use [redact](/tools/pdf-redact)."
       },
       {
+        "h2": "What each interactive element becomes"
+      },
+      {
+        "p": "'Everything becomes page content' is accurate but vague. Specifically:"
+      },
+      {
+        "table": {
+          "headers": [
+            "Before flattening",
+            "After flattening"
+          ],
+          "rows": [
+            [
+              "Form field with a value",
+              "The value drawn as static text"
+            ],
+            [
+              "Empty form field",
+              "Usually the field border, or nothing"
+            ],
+            [
+              "Checkbox, ticked",
+              "The tick mark drawn onto the page"
+            ],
+            [
+              "Highlight annotation",
+              "A coloured rectangle in the page content"
+            ],
+            [
+              "Sticky note comment",
+              "Usually the icon; the note text is often discarded"
+            ],
+            [
+              "Digital signature",
+              "The visual appearance only — the cryptographic validity is lost"
+            ],
+            [
+              "Hidden layer",
+              "Either merged in or discarded, depending on its visibility state"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "That signature row deserves attention. Flattening a digitally signed document keeps the picture of the signature and destroys what made it meaningful — the cryptographic binding that proves the document has not changed. Never flatten a document whose signature needs to remain verifiable."
+      },
+      {
+        "h2": "Flattening as a compatibility fix"
+      },
+      {
+        "p": "The most common practical reason to flatten is that a document displays differently for different people, and almost always the cause is interactive content."
+      },
+      {
+        "p": "Form field values are rendered live by the reader from the field's stored value. Readers differ in whether they render them at all, how they style them, and whether they include them when printing. A filled form that looks complete to you can arrive looking blank, which is a genuinely bad outcome for something like a submitted application."
+      },
+      {
+        "p": "Flattening removes the variable entirely. The values become ordinary page content and every reader draws them identically, because there is nothing left to interpret."
+      },
+      {
+        "h2": "Before you flatten, check these"
+      },
+      {
+        "ol": [
+          "**Is every field filled as intended?** After flattening you cannot correct one without rebuilding.",
+          "**Do you need the data extractable later?** Field values are machine-readable; drawn text is not.",
+          "**Is there a digital signature?** If so, flattening invalidates it.",
+          "**Are there review comments you would rather remove entirely** than merge into the page? Delete them first.",
+          "**Have you kept the original?** There is no unflatten."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1516,7 +2280,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Two mechanisms with the same name and completely different strength. Picking wrong gives you the illusion of security.",
     "date": "2026-10-29",
     "dateLabel": "October 29, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🔐",
     "keywords": [
@@ -1605,6 +2369,47 @@ export const problemsArticles: BlogArticle[] = [
         "p": "[Unlock PDF](/tools/unlock) removes both kinds, given the password where one is required. Useful for archiving material you own, or for making encrypted statements searchable in your own records."
       },
       {
+        "h2": "What the permission flags actually cover"
+      },
+      {
+        "p": "An owner password sets a set of flags, and it is worth knowing what they can and cannot express."
+      },
+      {
+        "ul": [
+          "**Printing** — can be disallowed entirely, or restricted to low resolution.",
+          "**Content copying** — blocks selecting and copying text.",
+          "**Copying for accessibility** — a separate flag. Blocking this prevents screen readers from working, which in many jurisdictions is a compliance problem in its own right.",
+          "**Editing** — blocks changes to the document.",
+          "**Annotating** — blocks adding comments while still permitting reading.",
+          "**Form filling** — can be permitted while general editing is blocked.",
+          "**Page extraction** — blocks pulling pages into a new document."
+        ]
+      },
+      {
+        "p": "That accessibility flag is the one to think about. Blocking it prevents assistive technology from reading the document aloud, which affects real users and rarely achieves anything the copying flag does not already attempt."
+      },
+      {
+        "h2": "Why owner passwords are weak by design"
+      },
+      {
+        "p": "This is not an implementation flaw. The PDF specification stores the permission flags in the file and asks readers to honour them, but the file is not encrypted — the content is fully readable, so any tool that chooses to ignore the flags can."
+      },
+      {
+        "p": "Compliant readers do honour them, which makes owner passwords useful as a statement of intent and as friction against casual copying. They are not a security control, and describing them to a client as 'the document is protected' overstates the case considerably."
+      },
+      {
+        "h2": "Practical guidance for sending sensitive documents"
+      },
+      {
+        "ol": [
+          "**Encrypt with a user password** via [protect](/tools/protect), not an owner password.",
+          "**Use a strong passphrase** from a password manager, not a date of birth.",
+          "**Send the password separately** — a different channel entirely, not a second email.",
+          "**Consider whether encryption is the right tool at all.** If the recipient should not see part of the document, [redact](/tools/pdf-redact) it; encryption protects the whole file from outsiders, not parts of it from the recipient.",
+          "**Record what you sent and to whom,** because you will be asked in six months."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1637,7 +2442,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "The most-used document operation, and the handful of ways it reliably goes wrong.",
     "date": "2026-11-06",
     "dateLabel": "November 6, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "🔗",
     "keywords": [
@@ -1685,6 +2490,49 @@ export const problemsArticles: BlogArticle[] = [
         "note": "A working order: unlock → convert everything to PDF → merge → reorder → rotate → resize → add page numbers → compress. Doing them out of order means redoing them."
       },
       {
+        "h2": "Checking the result before you send it"
+      },
+      {
+        "p": "Merging is fast enough that people skip verification, and the failure modes are all silent — nothing errors, you just distribute a document with a problem in it."
+      },
+      {
+        "p": "Four checks, none of which take long:"
+      },
+      {
+        "ol": [
+          "**Page count.** Does it equal the sum of the sources? A missing document is easy to miss when the total is 84 pages.",
+          "**First and last page of each source.** Confirms nothing was truncated and the boundaries fall where you expect.",
+          "**Orientation throughout.** Scroll the whole document at thumbnail zoom — sideways pages jump out immediately at that size and are invisible at 100%.",
+          "**Page size consistency.** Also obvious at thumbnail zoom: mixed sizes show as a ragged edge down the page strip."
+        ]
+      },
+      {
+        "h2": "Merging scanned and digital documents together"
+      },
+      {
+        "p": "A pack combining born-digital documents with scans creates a file that is half searchable. Search finds a term in the typed sections and silently misses it in the scanned ones, which is worse than a document that is entirely unsearchable — at least then you know to read it."
+      },
+      {
+        "p": "Run [OCR](/tools/ocr) on the scanned components **before** merging, not after. OCR on a merged file works, but processing the whole document re-analyses pages that already had perfectly good text layers, which is slower and occasionally degrades them."
+      },
+      {
+        "h2": "When merging is the wrong answer"
+      },
+      {
+        "p": "Combining everything into one file is not always the favour it appears. Consider keeping documents separate when:"
+      },
+      {
+        "ul": [
+          "**The recipient needs only part of it.** Sending a 200-page merged pack when they asked for one certificate makes their job harder, not easier.",
+          "**Components have different retention or confidentiality requirements.** Once merged, the whole file inherits the strictest.",
+          "**The upload form has separate fields.** Merging then means splitting again.",
+          "**Documents will be updated independently.** A merged pack goes stale the moment one component changes, and you have no way to update just that part."
+        ]
+      },
+      {
+        "p": "The question to ask is who reads the result and what they do with it. Merge for a reader working through the whole thing in order; keep separate for a reader who needs to locate one item."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1717,7 +2565,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Most people reach for 'split' when they want 'extract', then wonder why they have 200 files.",
     "date": "2026-11-16",
     "dateLabel": "November 16, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "🪓",
     "keywords": [
@@ -1785,6 +2633,45 @@ export const problemsArticles: BlogArticle[] = [
         "note": "If the document is encrypted, [unlock](/tools/unlock) it before splitting. Most tools will not operate on an encrypted file at all."
       },
       {
+        "h2": "Working out the page numbers you actually need"
+      },
+      {
+        "p": "Getting the range wrong is the commonest failure, and it is almost always the same cause: the number printed on the page is not the page's position in the file."
+      },
+      {
+        "p": "A typical report has a cover, an inside title page, a contents page and sometimes a blank leaf before the body starts. Printed page 1 is therefore file page 5. Extract pages 12–18 by their printed numbers and you get pages 8–14 of the actual content."
+      },
+      {
+        "p": "The reliable method: open the document, navigate to the first page you want, and read the number your reader shows in its page counter — not the ink on the page. Do the same for the last. Those two numbers are what the tool needs."
+      },
+      {
+        "h2": "When the ranges are not contiguous"
+      },
+      {
+        "p": "Pulling scattered pages — say the summary on page 3, the table on 47, and the conclusion on 88 — is a single extraction, not three. [Extract pages](/tools/extract-pages) accepts multiple ranges and assembles them into one document in the order given, which means you can also reorder as you extract by listing them out of sequence."
+      },
+      {
+        "p": "If you genuinely need them as separate files, extract each range separately rather than [splitting](/tools/split) the whole document and discarding 197 files."
+      },
+      {
+        "h2": "What happens to bookmarks and links"
+      },
+      {
+        "p": "Structural elements behave differently from page content and it is worth knowing which survive:"
+      },
+      {
+        "ul": [
+          "**Internal links within the extracted range** keep working — both endpoints came along.",
+          "**Internal links pointing outside the range** break. A cross-reference to page 140 has nowhere to resolve to once page 140 is gone.",
+          "**External hyperlinks** are unaffected; they point at URLs, not pages.",
+          "**Bookmarks** referencing removed pages are typically dropped. Bookmarks to retained pages usually survive but may lose their hierarchy.",
+          "**Form fields** are preserved on the pages that carry them, but any calculation referencing a field on a removed page will fail silently."
+        ]
+      },
+      {
+        "p": "For a document with heavy internal cross-referencing — a technical manual, a legal bundle — extraction produces a file with dead links. That is usually acceptable for reading, and not acceptable for distribution. If it matters, note in a covering message that the extract is a subset."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1817,7 +2704,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Two ways to make the same file, and one of them silently throws away your hyperlinks.",
     "date": "2026-11-24",
     "dateLabel": "November 24, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "📝",
     "keywords": [
@@ -1873,6 +2760,51 @@ export const problemsArticles: BlogArticle[] = [
         "p": "[Word to PDF](/tools/word-to-pdf) converts .doc and .docx server-side using LibreOffice, which renders Office formats faithfully. Useful when you have received a document you cannot open, or need a PDF from a machine without Office installed."
       },
       {
+        "h2": "Checking your export settings once"
+      },
+      {
+        "p": "Export options are usually buried and worth finding once, because the defaults vary by version and by machine — which is why the same document exported by two people produces different files."
+      },
+      {
+        "p": "The settings that matter:"
+      },
+      {
+        "ul": [
+          "**Font embedding.** Look for an option to embed fonts, and if there is a choice, embed *all* rather than only characters in use — the latter causes problems if anyone edits later.",
+          "**Document structure tags.** Sometimes called 'document structure tags for accessibility'. Preserves headings so screen readers can navigate. Enable it.",
+          "**Bookmarks from headings.** Generates a navigable outline from your heading styles. Free, and useful in anything long.",
+          "**Hyperlinks.** Usually on by default in export and always lost in print-to-PDF.",
+          "**Comments and markup.** Check whether these are included. Usually you do not want them."
+        ]
+      },
+      {
+        "h2": "Things that look different after conversion"
+      },
+      {
+        "p": "Some differences are expected rather than faults, and knowing which saves investigating them."
+      },
+      {
+        "ul": [
+          "**Line breaks shifting slightly.** Word lays out for the screen and the PDF writer for a fixed page; hyphenation and justification can differ marginally.",
+          "**Text boxes moving.** Floating objects with loose anchoring are the least predictable element in any Word document.",
+          "**Table borders thickening.** Hairline borders round up to the nearest renderable width.",
+          "**Colours shifting slightly** if the document uses a colour profile the exporter converts.",
+          "**Fields showing their last calculated value.** Page counts, dates and cross-references freeze at export."
+        ]
+      },
+      {
+        "p": "That last one catches people out: a document with an automatic date field shows the export date forever, not the current date."
+      },
+      {
+        "h2": "When you do not have Word at all"
+      },
+      {
+        "p": "[Word to PDF](/tools/word-to-pdf) renders server-side using LibreOffice, which reads .doc and .docx faithfully for ordinary documents."
+      },
+      {
+        "p": "Where to expect divergence: heavily designed documents using Word-specific features — SmartArt, complex text-box layouts, some chart types — may render differently, because these are Microsoft features LibreOffice approximates rather than reproduces. For a report, a letter or a CV, the output is indistinguishable."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1905,7 +2837,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "The default export setting is rarely the one you want, and one of them sends your speaker notes to the audience.",
     "date": "2026-12-01",
     "dateLabel": "December 1, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "📊",
     "keywords": [
@@ -1963,6 +2895,48 @@ export const problemsArticles: BlogArticle[] = [
         "p": "[PDF to PPT](/tools/pdf-to-ppt) produces one image per slide — visually faithful, but the text is not editable, because a PDF page has no slide structure to recover. If you need an editable deck, you need the original file."
       },
       {
+        "h2": "Animation builds and duplicate slides"
+      },
+      {
+        "p": "The commonest surprise in a converted deck is finding fourteen near-identical pages where there was one slide."
+      },
+      {
+        "p": "This happens when a slide reveals content progressively — bullets appearing one at a time — and the export setting captures each build stage as its own page. Useful if you want a printed record of the sequence; unhelpful if you wanted one slide."
+      },
+      {
+        "p": "Two fixes. Change the export option so animations are not expanded, which most tools offer. Or remove the animations from a copy of the deck before exporting, which also produces a cleaner handout since builds rarely make sense on paper anyway."
+      },
+      {
+        "h2": "What speaker notes reveal"
+      },
+      {
+        "p": "Worth a specific warning. 'Notes pages' export includes everything in the notes pane, and notes are written for yourself — timings, reminders, occasionally frank observations about the audience or the material."
+      },
+      {
+        "p": "Before exporting notes pages, read them. Before sending a deck at all, check whether your export included them, because some tools do so by default and the notes are not visible in normal viewing."
+      },
+      {
+        "p": "If you want to share notes deliberately, that is a good reason to use notes pages. Sending them unintentionally is a different matter entirely."
+      },
+      {
+        "h2": "Building a handout when your tool will not"
+      },
+      {
+        "p": "If your software only exports full-page slides, you can produce handouts afterwards:"
+      },
+      {
+        "ol": [
+          "Export the deck as full-page slides to PDF.",
+          "[Crop](/tools/crop) if the slides have wide unused borders — many templates do.",
+          "[N-up](/tools/n-up-pdf) at four per sheet in landscape, the standard handout layout.",
+          "[Compress](/tools/compress) if it is going out by email.",
+          "Print one test sheet to confirm the text is readable at that size."
+        ]
+      },
+      {
+        "p": "Slide text is usually 20pt or larger, so four-up prints at around 10pt — comfortably readable, which is why this layout became conventional."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1995,7 +2969,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Five settings separate a scan that is small, searchable and legible from one that is none of those things.",
     "date": "2026-12-07",
     "dateLabel": "December 7, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "🖨️",
     "keywords": [
@@ -2078,6 +3052,42 @@ export const problemsArticles: BlogArticle[] = [
         "note": "That order is not arbitrary. Every step before OCR improves recognition; compressing before OCR sabotages it."
       },
       {
+        "h2": "Why 300 DPI and not more"
+      },
+      {
+        "p": "Resolution is the setting people most often get wrong in both directions, and the reasoning is worth understanding because it explains the others."
+      },
+      {
+        "p": "Data volume scales with the *square* of resolution. Doubling from 300 to 600 DPI quadruples the file size. What you get for that is detail finer than printed text contains — ordinary body type is fully resolved at 300, so the extra pixels are recording paper fibre and scanner noise rather than information."
+      },
+      {
+        "p": "Below 200 DPI the opposite problem appears: individual characters no longer have enough pixels to be distinguished reliably, and [OCR](/tools/ocr) accuracy falls off a cliff. Between those bounds, 300 is the standard because it is where detail stops improving and size starts hurting."
+      },
+      {
+        "p": "The exception is small print — footnotes, dense tables, degraded originals — where 400 or 600 genuinely helps recognition. Scan those higher, OCR, then compress down. You get the accuracy without carrying the file size."
+      },
+      {
+        "h2": "Greyscale versus bitonal"
+      },
+      {
+        "p": "Scanner drivers often offer 'black and white' as well as greyscale, and they are not the same thing. **Bitonal** stores one bit per pixel — pure black or pure white, nothing between. It produces the smallest possible files and it destroys anything that is not already high contrast: photographs become unrecognisable, grey stamps vanish, and faded text can disappear entirely."
+      },
+      {
+        "p": "**Greyscale** keeps 256 levels. It is several times larger than bitonal and dramatically smaller than colour, and it preserves shading, seals and faint marks. For document scanning it is almost always the right middle ground."
+      },
+      {
+        "p": "Use bitonal only for clean, high-contrast typed text where file size is the binding constraint and you have checked the output. Use [greyscale](/tools/grayscale-pdf) for everything else that is ink on paper."
+      },
+      {
+        "h2": "Feeder or flatbed"
+      },
+      {
+        "p": "An automatic document feeder is faster and introduces two failure modes worth watching for: **skew**, because pages are pulled rather than placed, and **double-feeds**, where two sheets go through together and a page is silently missing from your scan."
+      },
+      {
+        "p": "Always check the page count of a fed scan against the original stack. A missing page discovered at submission is expensive; discovered immediately it costs thirty seconds. For anything under about ten pages, or anything irreplaceable, the flatbed is worth the extra minutes."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2110,7 +3120,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Do these in the wrong order and you pay in quality or repeated work. Here is the sequence that avoids both.",
     "date": "2026-12-10",
     "dateLabel": "December 10, 2026",
-    "readMinutes": 7,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "📋",
     "keywords": [
@@ -2163,6 +3173,47 @@ export const problemsArticles: BlogArticle[] = [
         "note": "You will not need every step. But if you need two of them, do them in this relative order and you will not have to redo either."
       },
       {
+        "h2": "Three sequences worth memorising"
+      },
+      {
+        "p": "Most work falls into one of a few shapes, and knowing the sequence for each removes the need to reason it out each time."
+      },
+      {
+        "p": "**Assembling a submission pack:** convert everything to PDF → [merge](/tools/merge) → [reorder](/tools/organize) → [rotate](/tools/rotate) → [delete blanks](/tools/delete-pages) → [add page numbers](/tools/page-numbers) → [compress to size](/tools/compress-to-size)."
+      },
+      {
+        "p": "**Processing a scan:** [delete blanks](/tools/delete-pages) → [rotate](/tools/rotate) → [crop](/tools/crop) → [greyscale](/tools/grayscale-pdf) → [OCR](/tools/ocr) → [compress](/tools/compress)."
+      },
+      {
+        "p": "**Preparing something for distribution:** [redact](/tools/pdf-redact) → verify the redaction → [flatten](/tools/flatten-pdf) → [remove metadata](/tools/remove-metadata) → [compress](/tools/compress) → [linearise](/tools/linearize-pdf) if publishing online."
+      },
+      {
+        "h2": "The four rules the sequences encode"
+      },
+      {
+        "ol": [
+          "**OCR before compression.** Compression removes the fine detail recognition depends on, and no amount of processing afterwards recovers it. This is the rule that costs most to break.",
+          "**Page numbers after all page operations.** Numbers are stamped ink, not live fields. Reorder after numbering and the numbers are simply wrong.",
+          "**Redact before flatten.** Flattening merges appearance into the page; it does not remove content underneath. Redacting after flattening may leave you redacting a picture of the text rather than the text.",
+          "**Compress last.** Every earlier step that removes data — cropping, greyscaling, deleting pages — means the compressor has less to destroy, so the same target size looks better."
+        ]
+      },
+      {
+        "h2": "Recovering when you get it wrong"
+      },
+      {
+        "p": "Some mistakes are cheap to undo and some are not."
+      },
+      {
+        "ul": [
+          "**Numbered before reordering?** Renumber. The old numbers are drawn into the page and will not update, so you may need to start from the unnumbered original.",
+          "**Compressed before OCR?** Start again from the original. There is no recovery.",
+          "**Flattened too early?** Start from the unflattened copy. There is no unflatten.",
+          "**Cropped too aggressively?** Usually recoverable if the tool preserved the media box.",
+          "**The general answer:** keep the original at every destructive step. It is the only thing that makes any of these cheap."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2195,7 +3246,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Either trivial or maddening, with little in between. Borders are what decide which.",
     "date": "2026-12-11",
     "dateLabel": "December 11, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "📈",
     "keywords": [
@@ -2251,6 +3302,48 @@ export const problemsArticles: BlogArticle[] = [
         "p": "If you need three numbers, read them and type them. Extraction is worth it for tables of dozens of rows, not for a handful of values where verification takes as long as retyping."
       },
       {
+        "h2": "Preparing a PDF so its tables extract better"
+      },
+      {
+        "p": "Extraction quality is largely determined before you run the tool, and a few preparatory steps materially improve results."
+      },
+      {
+        "ol": [
+          "**Confirm there is a text layer.** Ctrl+F for a value from the table. Nothing found means a scan — [OCR](/tools/ocr) first, and expect lower accuracy.",
+          "**[Extract just the pages with tables](/tools/extract-pages).** Fewer pages means the tool is not trying to interpret prose as tabular data.",
+          "**[Rotate](/tools/rotate) landscape tables upright.** Sideways tables confuse column detection.",
+          "**[Crop](/tools/crop) headers and footers** if they repeat mid-table, since they otherwise insert junk rows.",
+          "**Check for merged cells** and note where they are, so you can verify those rows afterwards."
+        ]
+      },
+      {
+        "h2": "Fixing the output rather than the extraction"
+      },
+      {
+        "p": "Some problems are easier to correct in the spreadsheet than to prevent."
+      },
+      {
+        "ul": [
+          "**Numbers stored as text** — usually from currency symbols or thousands separators. Find and replace the symbol, then convert the column to numeric.",
+          "**Parenthesised negatives** — `(1,234)` meaning −1234. A find-and-replace with a formula handles a whole column at once.",
+          "**Wrapped cells split across rows** — sort by a column that should never be blank, and the fragments group together for merging.",
+          "**Repeated header rows** — filter for the header text and delete the matches.",
+          "**Trailing spaces** from column padding, which break lookups. TRIM applied to the whole sheet."
+        ]
+      },
+      {
+        "h2": "Reconciling before you rely on it"
+      },
+      {
+        "p": "This is the step that separates usable extracted data from a quiet disaster, and it takes a minute."
+      },
+      {
+        "p": "Sum the columns that have printed totals in the source and compare. If a total matches, the column extracted cleanly. If it does not, something is wrong — a missing row, a misparsed value, a duplicated line — and you now know to look rather than discovering it in a report three weeks later."
+      },
+      {
+        "p": "Where the source has no totals, check the row count against the original and spot-check the first, last and a few middle values. Errors cluster at boundaries, so those are the highest-yield checks."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2283,7 +3376,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "All three get called 'signing a PDF'. Only one of them proves anything if it is ever contested.",
     "date": "2026-12-14",
     "dateLabel": "December 14, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "✍️",
     "keywords": [
@@ -2357,6 +3450,76 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "What an audit trail actually records"
+      },
+      {
+        "p": "The distinction between an image of a signature and a proper e-signature is not the picture — both produce a visual mark. It is what is recorded alongside it."
+      },
+      {
+        "ul": [
+          "**Who signed**, verified to some standard: an email address confirmed by a link, or stronger identity checking.",
+          "**When**, from a trusted timestamp rather than the signer's own clock.",
+          "**From where** — IP address, and sometimes device details.",
+          "**What was signed** — a hash of the exact document, so a later alteration is detectable.",
+          "**The sequence of events** — when it was sent, viewed, and signed."
+        ]
+      },
+      {
+        "p": "That record is the product. In a dispute, 'here is a picture of their signature' is weak; 'here is a record showing this document, unchanged, was opened from this address and signed at this time by someone who confirmed control of this email account' is considerably stronger."
+      },
+      {
+        "h2": "Digital signatures and why they detect tampering"
+      },
+      {
+        "p": "A cryptographic digital signature computes a hash of the document and encrypts it with a private key tied to a certificate. Any reader can verify it with the corresponding public key."
+      },
+      {
+        "p": "The consequence is that changing a single character invalidates the signature, because the hash no longer matches. This is genuinely different from the other two: it does not merely record that someone signed, it proves the document has not changed since."
+      },
+      {
+        "p": "It is also why [flattening](/tools/flatten-pdf) or [compressing](/tools/compress) a signed document breaks the signature. Both rewrite the file, and the hash was computed over the original bytes."
+      },
+      {
+        "h2": "Practical guidance"
+      },
+      {
+        "table": {
+          "headers": [
+            "Document",
+            "Reasonable approach"
+          ],
+          "rows": [
+            [
+              "Internal approval",
+              "Image, [flattened](/tools/flatten-pdf) into the file"
+            ],
+            [
+              "Supplier agreement",
+              "E-signature service with audit trail"
+            ],
+            [
+              "Employment contract",
+              "E-signature service"
+            ],
+            [
+              "Property transaction",
+              "As the jurisdiction requires — often witnessed"
+            ],
+            [
+              "Regulatory filing",
+              "Whatever the regulator specifies, usually digital"
+            ],
+            [
+              "Delivery receipt",
+              "Image is fine"
+            ]
+          ]
+        }
+      },
+      {
+        "note": "Whatever you use, keep your signature image file private. It is functionally a key: anyone with the file can apply it to any document. Flatten it into the specific document you are signing and never send the bare image."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2389,7 +3552,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Locked, unsearchable, and resistant to the analysis you want. Three fixes and one warning about redaction.",
     "date": "2026-12-15",
     "dateLabel": "December 15, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🏦",
     "keywords": [
@@ -2446,6 +3609,45 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Statements carry account numbers, addresses and sometimes card details. If you are sending one as proof of address or income, [redact](/tools/pdf-redact) what the recipient does not need — and verify by copying text out of the result. A black box over an account number is not a redaction."
       },
       {
+        "h2": "What statement passwords usually are"
+      },
+      {
+        "p": "Banks rarely tell you the format clearly, and it is almost always a predictable combination of details they already hold. Common patterns include date of birth in a specific format, the customer or account number, the first letters of your name combined with a birth year, or a PAN or equivalent identifier."
+      },
+      {
+        "p": "The format is normally stated in the covering email, often in small print below the attachment. Where it is not, the bank's website has it under statement help. Guessing wastes time; some systems lock after repeated failures."
+      },
+      {
+        "h2": "Why decrypting an archive is defensible"
+      },
+      {
+        "p": "The encryption exists to protect the statement in transit — in an email inbox, in transfer. Once the file is in storage you control, that threat has been addressed by whatever protects the storage."
+      },
+      {
+        "p": "Keeping it encrypted costs you real capability: desktop search cannot index it, so you can never find a transaction; bulk processing requires unlocking each file anyway; and long-term access depends on remembering a password for a document you may need in a decade."
+      },
+      {
+        "p": "[Unlock](/tools/unlock) the archive copy if your storage is genuinely secure — full-disk encryption, a locked account, a properly protected cloud service. Keep the encrypted original if it is not."
+      },
+      {
+        "h2": "Before sending a statement as proof"
+      },
+      {
+        "p": "Statements are routinely requested as proof of address or income, and they contain considerably more than the requester needs."
+      },
+      {
+        "ol": [
+          "Identify what is actually required — usually name, address, and either a balance or a set of income credits.",
+          "[Extract](/tools/extract-pages) only the relevant pages.",
+          "[Redact](/tools/pdf-redact) the account number, sort code, and transactions that are none of the recipient's business.",
+          "**Verify the redaction** by copying all the text out and searching it.",
+          "[Remove metadata](/tools/remove-metadata) before sending."
+        ]
+      },
+      {
+        "p": "A black box drawn over an account number leaves the number in the file, retrievable by anyone who selects and copies the page. This is the single most common way financial details leak from documents shared in good faith."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2478,7 +3680,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "A small operation with three traps, all of which show up only after you have applied it to 200 pages.",
     "date": "2026-12-16",
     "dateLabel": "December 16, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "🏷️",
     "keywords": [
@@ -2527,6 +3729,76 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Add headers and footers after all page operations are finished. If you add them and then [merge](/tools/merge), [reorder](/tools/organize) or [delete pages](/tools/delete-pages), anything referencing position will be wrong. This is the same rule as [page numbers](/tools/page-numbers), for the same reason — both are stamped ink rather than live fields."
       },
       {
+        "h2": "Header or watermark?"
+      },
+      {
+        "p": "These get conflated and serve different purposes, which affects both placement and opacity."
+      },
+      {
+        "table": {
+          "headers": [
+            "",
+            "Header/footer",
+            "Watermark"
+          ],
+          "rows": [
+            [
+              "Position",
+              "Margin",
+              "Across the page"
+            ],
+            [
+              "Opacity",
+              "Full",
+              "Partial"
+            ],
+            [
+              "Purpose",
+              "Identification, reference",
+              "Status, deterrence"
+            ],
+            [
+              "Typical content",
+              "Title, reference number, date",
+              "DRAFT, CONFIDENTIAL, a name"
+            ],
+            [
+              "Interferes with reading",
+              "No",
+              "Deliberately, a little"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "If the text is for finding and citing the document, it belongs in the margin. If it is for making sure nobody mistakes its status, it belongs across the page where it cannot be ignored or cropped away."
+      },
+      {
+        "h2": "Content worth including"
+      },
+      {
+        "ul": [
+          "**A document title or reference,** so a stray printed page is traceable to its source.",
+          "**A version or date,** so an old printout is recognisable as old. This is the one people most regret omitting.",
+          "**A confidentiality marking,** where policy requires it on every page.",
+          "**A matter or case number** for filing systems that index by it.",
+          "**Nothing else.** A cluttered margin is ignored, which defeats the purpose."
+        ]
+      },
+      {
+        "h2": "Checking before you apply it to 300 pages"
+      },
+      {
+        "ol": [
+          "Apply to a copy first, or to an extracted sample of a few representative pages.",
+          "Check a text-dense page for overlap with body content.",
+          "Check a page with a table or figure that may extend into the margin.",
+          "Check any landscape page — the header may land somewhere unexpected.",
+          "Confirm it sits inside the printable area, at least 5mm from the paper edge.",
+          "Only then apply to the whole document, and keep the unmarked original."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2559,7 +3831,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Two completely different things that people constantly confuse. Here is which one you actually need.",
     "date": "2026-12-17",
     "dateLabel": "December 17, 2026",
-    "readMinutes": 5,
+    "readMinutes": 8,
     "category": "Guides",
     "emoji": "📐",
     "keywords": [
@@ -2602,6 +3874,81 @@ export const problemsArticles: BlogArticle[] = [
       },
       {
         "note": "Check the result before distributing. Scaling a document with small print can push it below comfortable readability, and clipping is easy to miss on page one when it only affects page forty."
+      },
+      {
+        "h2": "Standard page sizes worth knowing"
+      },
+      {
+        "table": {
+          "headers": [
+            "Name",
+            "Millimetres",
+            "Points",
+            "Used in"
+          ],
+          "rows": [
+            [
+              "A4",
+              "210 × 297",
+              "595 × 842",
+              "Most of the world"
+            ],
+            [
+              "US Letter",
+              "216 × 279",
+              "612 × 792",
+              "North America"
+            ],
+            [
+              "A3",
+              "297 × 420",
+              "842 × 1191",
+              "Plans, posters"
+            ],
+            [
+              "A5",
+              "148 × 210",
+              "420 × 595",
+              "Booklets, paperbacks"
+            ],
+            [
+              "Legal",
+              "216 × 356",
+              "612 × 1008",
+              "US legal documents"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "A4 and Letter are the pair that causes trouble: Letter is 6mm wider and 18mm shorter, which is close enough that nobody notices until content is clipped from the bottom of an A4 document printed on Letter."
+      },
+      {
+        "h2": "Scaling or repositioning"
+      },
+      {
+        "p": "Resizing offers two behaviours and the distinction matters."
+      },
+      {
+        "p": "**Scale to fit** resizes the content proportionally into the new dimensions. Nothing is lost; text becomes marginally smaller or larger. For A4-to-Letter the change is about 6% and imperceptible."
+      },
+      {
+        "p": "**Reposition** keeps content at its original size and places it on a differently sized page. Enlarging is safe — you get more margin. Shrinking clips whatever falls outside, and the clipping may only affect some pages, which is easy to miss."
+      },
+      {
+        "p": "Unless you have a specific reason, scale. It is predictable and cannot lose content."
+      },
+      {
+        "h2": "Checking the result"
+      },
+      {
+        "ol": [
+          "Open the resized document and check the first page, the last page, and any page with a table or figure.",
+          "Look specifically at the bottom margin, where clipping shows first.",
+          "Check any page numbers or footers are still inside the printable area.",
+          "If the document mixes portrait and landscape, check one of each.",
+          "Print one page before committing a long job."
+        ]
       },
       {
         "h2": "Common questions"

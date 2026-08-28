@@ -11,7 +11,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "You deleted three pages and the file grew. That is not a bug — it is how PDF saving works.",
     "date": "2026-09-08",
     "dateLabel": "September 8, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "📈",
     "keywords": [
@@ -66,6 +66,51 @@ export const troubleshootingArticles: BlogArticle[] = [
         "p": "Make all your edits in one session rather than opening and saving repeatedly. Where your editor offers 'Save As' rather than 'Save', use it — a full rewrite rather than an append. And do the compression last, after editing is finished."
       },
       {
+        "h2": "Seeing the history that is still in your file"
+      },
+      {
+        "p": "The claim that deleted content remains in a PDF sounds abstract until you look. You can see it without special tools."
+      },
+      {
+        "p": "Open the PDF in a plain text editor. Most of it is binary noise, but search for the string `%%EOF`. A file saved once contains it exactly once, at the end. A file saved incrementally contains it **multiple times** — one per save — with each earlier version's content preceding it."
+      },
+      {
+        "p": "Each of those blocks is a complete previous state of the document. Text you deleted, pages you removed, annotations you cleared: all still present, each with its own cross-reference table pointing at it."
+      },
+      {
+        "p": "For an ordinary document this is harmless bloat. For anything sensitive it is a disclosure risk, and it is why [redaction](/tools/pdf-redact) must be followed by a full rewrite via [compress](/tools/compress) or [repair](/tools/repair)."
+      },
+      {
+        "h2": "Which editors do this"
+      },
+      {
+        "p": "Incremental saving is a feature rather than a bug, and different tools handle it differently:"
+      },
+      {
+        "ul": [
+          "**Acrobat** saves incrementally by default; 'Save As' performs a full rewrite.",
+          "**Browser-based form fillers** commonly append, since they are optimising for speed.",
+          "**Mobile annotation apps** vary widely and rarely say which they do.",
+          "**Command-line tools** typically rewrite fully.",
+          "**Signing tools must append** — a full rewrite would invalidate an existing signature, which is precisely what incremental saving exists to prevent."
+        ]
+      },
+      {
+        "p": "That last point is worth remembering: if a document carries a valid digital signature, forcing a rewrite to shrink it will break the signature."
+      },
+      {
+        "h2": "A cleanup sequence for a bloated file"
+      },
+      {
+        "ol": [
+          "**[Flatten](/tools/flatten-pdf)** — merges annotations and form fields into the page.",
+          "**[Remove metadata](/tools/remove-metadata)** — clears accumulated properties.",
+          "**[Compress](/tools/compress)** — forces a full rewrite, discarding orphaned objects.",
+          "**Compare sizes.** A large drop confirms the problem was accumulated history rather than image data.",
+          "**If it is still large,** the weight is genuine content — images, fonts or attachments — and needs a different approach."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -98,7 +143,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "The cursor drags a box instead of highlighting words. Three completely different problems produce that symptom.",
     "date": "2026-09-16",
     "dateLabel": "September 16, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🖱️",
     "keywords": [
@@ -182,6 +227,48 @@ export const troubleshootingArticles: BlogArticle[] = [
         "p": "[PDF to text](/tools/pdf-to-txt) extracts plain content without preserving layout. For structured editing, [PDF to Word](/tools/pdf-to-word) after OCR gives you something you can work with."
       },
       {
+        "h2": "A quick diagnostic that takes ten seconds"
+      },
+      {
+        "p": "Rather than working through causes, two actions identify which situation you are in almost immediately."
+      },
+      {
+        "p": "**Zoom to 400%.** Scanned text becomes soft and pixelated, because you are magnifying a photograph. Real text and outlined text stay perfectly crisp, because both are described mathematically and redrawn at whatever size you ask for."
+      },
+      {
+        "p": "**Then press Ctrl+F** and search for a word you can see. Found means there is a text layer, so any selection problem is a permissions restriction. Not found means no text layer — either a scan or outlined text, which the zoom test has already distinguished."
+      },
+      {
+        "p": "Two actions, three outcomes, no guesswork."
+      },
+      {
+        "h2": "Text converted to outlines, in more detail"
+      },
+      {
+        "p": "This is the least familiar of the three and worth understanding because the fix is counter-intuitive."
+      },
+      {
+        "p": "Designers convert text to outlines when sending files to print, so that typography renders identically regardless of what fonts the printer has installed. Each character becomes a vector shape — a set of curves — with no remaining record that it was ever the letter 'A'."
+      },
+      {
+        "p": "The counter-intuitive part: [OCR](/tools/ocr) handles this very well. It is designed to recognise shapes as characters, and outlined text is unusually clean input — perfectly formed, high contrast, no scanning artefacts. Accuracy is typically better than on a good scan."
+      },
+      {
+        "h2": "Extracting text when nothing else works"
+      },
+      {
+        "p": "Where you need the words and the usual routes are blocked, in increasing order of effort:"
+      },
+      {
+        "ol": [
+          "**[PDF to text](/tools/pdf-to-txt)** — extracts the text layer directly, ignoring permission flags in most implementations.",
+          "**[Unlock](/tools/unlock) then copy** — for documents you have rights to, where an owner password is blocking extraction.",
+          "**[OCR](/tools/ocr)** — works regardless of why the text is unavailable, since it reads the rendered page.",
+          "**[Convert to images](/tools/pdf-to-jpg) then OCR** — for stubborn files where the text layer confuses extraction tools.",
+          "**Retype it.** For a paragraph, genuinely faster than any of the above."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -214,7 +301,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "It looked perfect when you made it and wrong when they opened it. Font embedding is why.",
     "date": "2026-09-24",
     "dateLabel": "September 24, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🔤",
     "keywords": [
@@ -272,6 +359,46 @@ export const troubleshootingArticles: BlogArticle[] = [
         "note": "Check document properties before sending anything typographically important. Every font should be listed as embedded or embedded subset. Anything else is a risk."
       },
       {
+        "h2": "Checking a file's fonts before you send it"
+      },
+      {
+        "p": "Every reader exposes this and almost nobody looks, which is why the problem is discovered by recipients rather than senders."
+      },
+      {
+        "p": "Open document properties and find the Fonts tab or section. Each font is listed with its type and, crucially, whether it is **Embedded** or **Embedded Subset**. Either is fine. Anything listed without one of those markers is a font your recipient must already have, and probably does not."
+      },
+      {
+        "p": "Doing this once on a template tells you whether your export settings are right in general, which saves checking every document."
+      },
+      {
+        "h2": "Why the standard fourteen are a trap"
+      },
+      {
+        "p": "The PDF specification defines fourteen fonts every reader must provide: Helvetica, Times, Courier, Symbol and ZapfDingbats in their variants. Because they are guaranteed, producers commonly do not embed them."
+      },
+      {
+        "p": "The catch is that 'must provide' does not mean 'must provide identically'. A reader without genuine Helvetica substitutes something metrically similar — Arial, Nimbus Sans, Liberation Sans. Similar is not identical, and small differences in character width accumulate across a line until text wraps differently or overruns a table cell."
+      },
+      {
+        "p": "For anything where layout matters, embed even the standard fonts. The size cost is negligible with subsetting and it removes an entire class of problem."
+      },
+      {
+        "h2": "When you cannot embed"
+      },
+      {
+        "p": "Some commercial fonts prohibit embedding in their licence, and export tools honour that by omitting them. You have three options, in order of preference:"
+      },
+      {
+        "ol": [
+          "**Substitute a different typeface** before exporting. You choose the substitute rather than leaving it to the recipient's machine.",
+          "**Convert the text to outlines** in your design tool. Renders perfectly everywhere; the text becomes unsearchable, which may or may not matter.",
+          "**Convert pages to images** via [PDF to JPG](/tools/pdf-to-jpg) and rebuild. Guaranteed appearance, much larger file, no text layer at all."
+        ]
+      },
+      {
+        "p": "The first is almost always right. Choosing a freely embeddable typeface at design time avoids the whole question, which is why open licence fonts have become standard for documents intended to circulate."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -304,7 +431,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "Compression working exactly as designed — configured for the wrong job.",
     "date": "2026-10-02",
     "dateLabel": "October 2, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🌫️",
     "keywords": [
@@ -361,6 +488,47 @@ export const troubleshootingArticles: BlogArticle[] = [
         "p": "Sometimes legibility and the size limit are incompatible — a dense multi-page colour scan under 200KB, for instance. Rescanning at 200 DPI greyscale will beat any amount of compression on a 600 DPI colour original, because it starts clean rather than being degraded down."
       },
       {
+        "h2": "Telling downsampling apart from re-encoding"
+      },
+      {
+        "p": "The two mechanisms produce visually different damage, and identifying which you have tells you what to change."
+      },
+      {
+        "p": "**Downsampling damage** looks soft. Edges lose definition, small text becomes indistinct but not distorted, fine texture disappears. It looks like an out-of-focus photograph. The cause is too few pixels, and the fix is a higher target resolution."
+      },
+      {
+        "p": "**Re-encoding damage** looks blocky. You see 8×8 pixel squares, particularly in flat areas and around high-contrast edges, and a halo effect around dark text on light backgrounds. The cause is too low a JPEG quality, and the fix is a higher quality setting."
+      },
+      {
+        "p": "Zoom to 400% and the difference is unmistakable. Soft means resolution; blocky means quality."
+      },
+      {
+        "h2": "Text inside images is the hardest case"
+      },
+      {
+        "p": "A scanned page is an image of text, which puts it in the worst position for compression. Photographs tolerate detail loss because the eye does not track individual leaves on a tree. Text does not — a character either resolves or it does not, and the failure is binary rather than gradual."
+      },
+      {
+        "p": "Practical implications: scanned documents need a higher target resolution than photographs to survive the same compression. 150 DPI is comfortable for a photograph and marginal for small print. If your document contains footnotes, superscripts or a dense table, target 200 or higher and accept the larger file."
+      },
+      {
+        "h2": "Recovering from over-compression"
+      },
+      {
+        "p": "The honest answer is that you cannot. The discarded data is gone, and tools that claim to enhance or upscale a degraded scan are inventing plausible detail rather than restoring the original — which is actively dangerous for a document, because invented detail on a reference number is worse than a blurred one you know to distrust."
+      },
+      {
+        "p": "What to do instead, in order:"
+      },
+      {
+        "ol": [
+          "**Find the original.** Check your downloads folder, email, the scanner's output folder, cloud sync history.",
+          "**Rescan.** If you have the paper, two minutes at 300 DPI greyscale beats any recovery attempt.",
+          "**Request it again** from whoever sent it.",
+          "**Accept the degraded version** only if none of the above is possible, and flag its legibility to whoever receives it."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -393,7 +561,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "The file opens fine and prints wrong. Almost always page geometry or transparency, not a broken document.",
     "date": "2026-10-12",
     "dateLabel": "October 12, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🖨️",
     "keywords": [
@@ -447,6 +615,60 @@ export const troubleshootingArticles: BlogArticle[] = [
         "note": "Test with one page before committing a long job. Print the first page, check it, then print the rest. This is cheap and saves reams."
       },
       {
+        "h2": "Page size mismatch, the commonest cause"
+      },
+      {
+        "p": "A4 and US Letter are close enough that the mismatch is not obvious and different enough that it always causes a problem."
+      },
+      {
+        "table": {
+          "headers": [
+            "",
+            "Width",
+            "Height"
+          ],
+          "rows": [
+            [
+              "A4",
+              "210 mm",
+              "297 mm"
+            ],
+            [
+              "US Letter",
+              "216 mm",
+              "279 mm"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Letter is 6mm wider and 18mm shorter. Print an A4 document on Letter at actual size and you lose 18mm from the bottom — enough to clip a footer, a page number, or the last line of a paragraph. Print Letter on A4 and you get an unexpected margin, which looks untidy but loses nothing."
+      },
+      {
+        "p": "'Fit to page' scales rather than clips and is almost always the right choice when the sizes differ. Where you are printing many documents, [resizing pages](/tools/resize-pages) to a common size once is better than remembering the print setting every time."
+      },
+      {
+        "h2": "The unprintable margin"
+      },
+      {
+        "p": "Almost no printer can print to the paper edge — most reserve 3–5mm on each side for the mechanism to grip the sheet. Content inside that band is silently clipped regardless of your settings."
+      },
+      {
+        "p": "This catches out documents laid out with very narrow margins, and it is the usual explanation for a page number that appears on screen and not on paper. If content is close to the edge, either scale to fit or [crop and resize](/tools/crop) so it sits further in."
+      },
+      {
+        "h2": "Print as image, and when to reach for it"
+      },
+      {
+        "p": "Most print dialogs offer 'print as image' or 'print as bitmap', usually buried under Advanced. It rasterises each page on your machine and sends pixels rather than instructions."
+      },
+      {
+        "p": "It is slower, produces a much larger print job, and sometimes softens text slightly. In exchange it eliminates every class of interpretation problem: transparency, unusual fonts, complex vectors, form field rendering. If a document prints wrong and nothing else has worked, this almost always fixes it."
+      },
+      {
+        "p": "Treat it as a workaround rather than a solution. If you print the same document regularly, [flattening](/tools/flatten-pdf) it once addresses the underlying cause properly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -479,7 +701,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "Random characters and missing lines. The engine is fine — it was handed something it could not read.",
     "date": "2026-10-20",
     "dateLabel": "October 20, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🔠",
     "keywords": [
@@ -556,6 +778,77 @@ export const troubleshootingArticles: BlogArticle[] = [
         "p": "Handwriting, particularly cursive, is beyond conventional OCR. Heavily stylised fonts, text over busy images, and very poor photocopies may also be unrecoverable. For a small amount of critical text, typing it manually is faster than fighting the tooling."
       },
       {
+        "h2": "Recognising each failure from its output"
+      },
+      {
+        "p": "The shape of the garbage tells you which problem you have, which saves guessing."
+      },
+      {
+        "table": {
+          "headers": [
+            "What the output looks like",
+            "Cause"
+          ],
+          "rows": [
+            [
+              "Mostly right, scattered wrong characters",
+              "Normal accuracy limits — proofread"
+            ],
+            [
+              "Lines merged or split oddly",
+              "Skew"
+            ],
+            [
+              "Text from two columns interleaved",
+              "Layout analysis failure"
+            ],
+            [
+              "Dense nonsense, no recognisable words",
+              "Resolution too low, or compressed first"
+            ],
+            [
+              "Some regions clean, others garbage",
+              "Uneven lighting"
+            ],
+            [
+              "Numbers wrong, words right",
+              "Normal — digits get no language-model help"
+            ],
+            [
+              "Nothing recognised at all",
+              "Not an image of text, or extreme skew"
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "Why digits are recognised worse than words"
+      },
+      {
+        "p": "This is worth knowing because it affects what you check."
+      },
+      {
+        "p": "Recognition includes a language model that corrects implausible character sequences toward real words. `recognitlon` becomes `recognition` because the former is not a word and the latter is, in a context where it fits."
+      },
+      {
+        "p": "Digits get none of this. `7749` and `7748` are both perfectly plausible, so a misread digit stays misread. The same applies to names, reference numbers and codes — anything with no dictionary to correct toward."
+      },
+      {
+        "p": "The practical rule follows directly: skim the prose, but **verify every number** you intend to act on."
+      },
+      {
+        "h2": "Fixing skew when rescanning is impossible"
+      },
+      {
+        "p": "Skew is the highest-impact problem and the one most often unfixable at source, because the original is gone or inaccessible."
+      },
+      {
+        "p": "Deskewing after the fact means rotating by a fractional angle, which resamples every pixel and softens the image slightly. That is usually a good trade — a slightly softer straight page recognises far better than a sharp crooked one."
+      },
+      {
+        "p": "What it cannot fix is **curl**, where a page from a bound book curves away from the platen. The baseline is then genuinely curved rather than merely tilted, and no rotation corrects it. Rephotographing the page flattened, or scanning it after the binding is removed, is the only real answer."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -588,7 +881,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "The file may be perfectly fine. Several different problems all look like nothing at all.",
     "date": "2026-10-28",
     "dateLabel": "October 28, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "⬜",
     "keywords": [
@@ -636,6 +929,46 @@ export const troubleshootingArticles: BlogArticle[] = [
         "note": "Always work on a copy. If a repair attempt makes things worse, you want the original untouched."
       },
       {
+        "h2": "Ruling out the simple explanations first"
+      },
+      {
+        "p": "Before assuming corruption, eliminate the possibilities that require no fixing at all."
+      },
+      {
+        "ol": [
+          "**Are the pages genuinely blank?** Duplex scans routinely produce them. Check the thumbnail panel — if some pages have content and the empty ones alternate, that is a scanning artefact, not a fault.",
+          "**Is it still rendering?** A detailed map or a high-resolution scan can take many seconds. Watch for a progress indicator and wait before concluding.",
+          "**Is there a dialog behind the window?** Password prompts and security warnings sometimes open behind the main window, particularly on multi-monitor setups.",
+          "**Is content on a hidden layer?** Check for a layers panel and whether anything is switched off."
+        ]
+      },
+      {
+        "h2": "Thumbnails as a diagnostic"
+      },
+      {
+        "p": "The thumbnail panel is more informative than it looks. Thumbnails are generated from the same page data as the main view, so comparing them tells you where the problem sits."
+      },
+      {
+        "ul": [
+          "**Thumbnails render, main view blank** — a rendering problem in the main view, often transparency or a large image. Try another reader, or flatten.",
+          "**Thumbnails blank too** — the page data itself is not being read. More likely genuine damage.",
+          "**Some thumbnails render, others not** — localised damage. [Extract](/tools/extract-pages) the good pages to salvage them.",
+          "**No thumbnails at all** — the document structure is unreadable. Try [repair](/tools/repair)."
+        ]
+      },
+      {
+        "h2": "Reader differences that matter here"
+      },
+      {
+        "p": "If a file renders in one reader and not another, that is useful information rather than an annoyance — it tells you the content is intact and something about how it is constructed is unusual."
+      },
+      {
+        "p": "Browsers use their own renderers and are generally tolerant of malformed structure but weaker on transparency and unusual colour spaces. Acrobat is strictest about specification compliance and best at complex rendering. Mobile readers are usually the most forgiving of structural problems and the most likely to skip form fields and annotations."
+      },
+      {
+        "p": "If it opens anywhere, [flatten](/tools/flatten-pdf) it from the reader that works and you will get a file that opens everywhere."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -668,7 +1001,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "Before you conclude the file is corrupt, check whether it was ever a PDF at all.",
     "date": "2026-11-05",
     "dateLabel": "November 5, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🎭",
     "keywords": [
@@ -748,6 +1081,79 @@ export const troubleshootingArticles: BlogArticle[] = [
         "note": "If the header is %PDF- but the file still will not open, then it genuinely is a damaged PDF. Check the end of the file for %%EOF, and try [Repair PDF](/tools/repair)."
       },
       {
+        "h2": "Reading a file header without special tools"
+      },
+      {
+        "p": "Every file format begins with a recognisable signature — a 'magic number' — and reading it takes no more than a text editor."
+      },
+      {
+        "p": "Open the file in Notepad, TextEdit or any plain editor. Most of what you see will be unreadable binary, which is expected. You are only interested in the first few characters, and they will be legible because format signatures are usually ASCII."
+      },
+      {
+        "p": "On Linux or macOS the `file` command does this for you and reports the format in plain English. On Windows, PowerShell's `Get-Content -TotalCount 1` shows the first line. Both are faster than opening the file if you are checking several."
+      },
+      {
+        "h2": "The most useful signatures"
+      },
+      {
+        "table": {
+          "headers": [
+            "Starts with",
+            "Format",
+            "What to do"
+          ],
+          "rows": [
+            [
+              "`%PDF-`",
+              "PDF",
+              "Genuine — if it will not open, try [repair](/tools/repair)"
+            ],
+            [
+              "`PK`",
+              "ZIP-based Office file",
+              "Rename to .docx, .xlsx or .pptx"
+            ],
+            [
+              "`{\\rtf`",
+              "RTF document",
+              "Rename to .rtf; [convert](/tools/rtf-to-pdf) if needed"
+            ],
+            [
+              "`<!DOCTYPE` or `<html`",
+              "HTML",
+              "Likely a saved error page — download again"
+            ],
+            [
+              "`\\x89PNG`",
+              "PNG image",
+              "Rename to .png"
+            ],
+            [
+              "`\\xFF\\xD8\\xFF`",
+              "JPEG image",
+              "Rename to .jpg"
+            ],
+            [
+              "`%!PS`",
+              "PostScript",
+              "Rename to .ps; needs conversion"
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "The saved-error-page problem"
+      },
+      {
+        "p": "This deserves its own note because it is common and confusing. You click a download link, the server returns an error page instead of the file, and your browser saves that HTML under the filename it expected."
+      },
+      {
+        "p": "You end up with `annual-report.pdf` that is actually a web page saying 'Session expired' or 'Access denied'. It is roughly the right sort of size, it has the right name, and it will not open."
+      },
+      {
+        "p": "Open it in a text editor and you will read the error message in plain English, which usually tells you exactly what went wrong — an expired session, a login required, a link that has been moved. Far more useful than a generic 'cannot open' from your PDF reader."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -780,7 +1186,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "40MB in, 38MB out. The weight is not where you think it is.",
     "date": "2026-11-13",
     "dateLabel": "November 13, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "🪨",
     "keywords": [
@@ -857,6 +1263,69 @@ export const troubleshootingArticles: BlogArticle[] = [
         "note": "If nothing works and the file is genuinely dense vector artwork, converting pages to images is the last resort. You lose the text layer, so OCR afterwards if searchability matters."
       },
       {
+        "h2": "Estimating what should be there"
+      },
+      {
+        "p": "A rough expectation tells you immediately whether your file is abnormal."
+      },
+      {
+        "table": {
+          "headers": [
+            "Content",
+            "Expected per page"
+          ],
+          "rows": [
+            [
+              "Plain text, born-digital",
+              "5–20 KB"
+            ],
+            [
+              "Text with a few figures",
+              "30–100 KB"
+            ],
+            [
+              "Greyscale scan, 200 DPI",
+              "40–80 KB"
+            ],
+            [
+              "Colour scan, 300 DPI",
+              "300–800 KB"
+            ],
+            [
+              "Photographic, high quality",
+              "500 KB – 2 MB"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Divide your file size by its page count. Well above the relevant row means something unexpected is inside — and compression, which works on images, will not touch it."
+      },
+      {
+        "h2": "The full-rewrite test"
+      },
+      {
+        "p": "Before investigating further, try [repair](/tools/repair) even though nothing appears broken. It rebuilds the file from its reachable objects and discards everything orphaned."
+      },
+      {
+        "p": "If the file shrinks substantially, the weight was accumulated revision history from incremental saves — every previous version of the document still sitting inside it. That is entirely lossless to remove, and it is the single most common cause of a born-digital PDF being inexplicably large."
+      },
+      {
+        "p": "If it does not shrink, the weight is genuine content and you can move on to identifying which kind."
+      },
+      {
+        "h2": "Last resorts, and their costs"
+      },
+      {
+        "p": "Where nothing else works — usually dense vector artwork such as a detailed map or a CAD export — converting pages to images does reduce size predictably."
+      },
+      {
+        "p": "[PDF to JPG](/tools/pdf-to-jpg) at a chosen DPI, then [rebuild as a PDF](/tools/jpg-to-pdf). You gain full control over size and lose the text layer entirely: the document becomes unsearchable, uncopyable, and inaccessible to screen readers."
+      },
+      {
+        "p": "Run [OCR](/tools/ocr) afterwards to restore searchability if it matters. Treat this as a genuine last resort rather than a shortcut, because you are converting a precise vector document into a photograph of itself."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -889,7 +1358,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "Same file, two machines, two appearances. Usually fonts or form fields, and both are fixable.",
     "date": "2026-11-23",
     "dateLabel": "November 23, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Troubleshooting",
     "emoji": "👀",
     "keywords": [
@@ -937,6 +1406,42 @@ export const troubleshootingArticles: BlogArticle[] = [
         "p": "Open your final file in a second reader — if you made it in Acrobat, check it in a browser. Two renderers agreeing is reasonable evidence that a third will too."
       },
       {
+        "h2": "Testing across readers before you send"
+      },
+      {
+        "p": "You cannot install every reader, but two are enough to catch most problems, and they should be as different as possible."
+      },
+      {
+        "p": "Check your file in the tool that made it and in **a browser** — Chrome, Firefox or Edge. Browsers use their own rendering engines with different transparency handling and different font substitution behaviour, so agreement between the two is reasonable evidence that a third will agree too."
+      },
+      {
+        "p": "If you have a phone to hand, that is a useful third: mobile readers are the most likely to skip form fields and annotations entirely, which is exactly the failure mode this is testing for."
+      },
+      {
+        "h2": "What to look at specifically"
+      },
+      {
+        "ul": [
+          "**Form field values.** The most common source of 'it looks blank to me'.",
+          "**Annotations and highlights.** Visible in one reader, absent in another.",
+          "**Transparency effects** — drop shadows, soft edges, overlapping translucent shapes.",
+          "**Font rendering,** particularly line breaks. Substituted fonts have different widths, so text wraps differently.",
+          "**Page one specifically,** where any saved zoom or view preference takes effect."
+        ]
+      },
+      {
+        "h2": "Flatten, and why it fixes most of this"
+      },
+      {
+        "p": "Form fields and annotations are rendered live by the reader from stored values. Every reader makes its own decisions about how — or whether — to draw them."
+      },
+      {
+        "p": "[Flattening](/tools/flatten-pdf) converts them into ordinary page content, drawn once into the page description. After that there is nothing left for a reader to interpret differently, which eliminates the largest category of inconsistency in a single operation."
+      },
+      {
+        "p": "The cost is that the document becomes fixed: fields cannot be edited, annotations cannot be replied to, and any digital signature is invalidated. For a completed form being sent for review, that is usually exactly what you want."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -969,7 +1474,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "It often works, because the part that breaks is rarely the part that matters.",
     "date": "2026-11-30",
     "dateLabel": "November 30, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Troubleshooting",
     "emoji": "🔧",
     "keywords": [
@@ -1025,6 +1530,78 @@ export const troubleshootingArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "How rebuilding works"
+      },
+      {
+        "p": "The technique is straightforward and explains why it succeeds so often."
+      },
+      {
+        "p": "A PDF is a collection of numbered objects — pages, fonts, images, content streams — plus a cross-reference table recording the byte offset of each. Readers use that table to find anything."
+      },
+      {
+        "p": "When the table is wrong, a repair tool ignores it entirely and scans the file from start to finish looking for object markers, which have a recognisable form. Every object it finds is catalogued with its actual position, and a fresh cross-reference table is written from that catalogue."
+      },
+      {
+        "p": "Because the objects themselves are usually intact — the damage was to the index, not the content — the rebuilt file is generally complete."
+      },
+      {
+        "h2": "Using repair as a size reduction"
+      },
+      {
+        "p": "This is the underused application. A rewrite writes only objects that are actually reachable from the document catalogue, so everything orphaned is discarded."
+      },
+      {
+        "p": "On a file edited across many sessions, that can be most of it — every superseded page, every deleted annotation, every previous version retained by incremental saving. The result is lossless: nothing visible changes, and the file can halve."
+      },
+      {
+        "p": "It is worth trying on any PDF that seems larger than its content warrants, before reaching for [compression](/tools/compress) that would degrade the images."
+      },
+      {
+        "h2": "Deciding whether to bother"
+      },
+      {
+        "table": {
+          "headers": [
+            "Situation",
+            "Repair likely to help?"
+          ],
+          "rows": [
+            [
+              "Error message about damage",
+              "Yes"
+            ],
+            [
+              "Some pages render, others not",
+              "Yes"
+            ],
+            [
+              "Reader hangs on a page",
+              "Often"
+            ],
+            [
+              "File much larger than expected",
+              "Yes, losslessly"
+            ],
+            [
+              "File is 0 bytes",
+              "No — nothing to rebuild"
+            ],
+            [
+              "No %%EOF at the end",
+              "No — truncated, data missing"
+            ],
+            [
+              "Header is not %PDF-",
+              "No — not a PDF"
+            ],
+            [
+              "Encrypted and no password",
+              "No — decrypt first"
+            ]
+          ]
+        }
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1057,7 +1634,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "Microscopic text or endless dragging. The format is working as designed — here is how to work around it.",
     "date": "2026-12-04",
     "dateLabel": "December 4, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Troubleshooting",
     "emoji": "📲",
     "keywords": [
@@ -1100,6 +1677,42 @@ export const troubleshootingArticles: BlogArticle[] = [
       },
       {
         "p": "If you know your audience reads on phones, design for it: larger base font, narrower page size, single column. A PDF laid out for A4 print is a poor mobile document no matter what the reader does."
+      },
+      {
+        "h2": "How much cropping actually helps"
+      },
+      {
+        "p": "The improvement is larger than it sounds because of how readers scale."
+      },
+      {
+        "p": "A reader fits the page width to the screen. If a third of that width is margin, a third of your screen is displaying nothing, and the text is scaled down to accommodate emptiness. Removing the margins means the same screen width is filled by text, so the text is rendered proportionally larger."
+      },
+      {
+        "p": "On a typical academic paper with wide print margins, [cropping](/tools/crop) can increase effective text size by 30–40% with no other change. That is frequently the difference between squinting and reading comfortably."
+      },
+      {
+        "h2": "Reflow mode and its limits"
+      },
+      {
+        "p": "Some readers offer a reflow or liquid mode that attempts to reconstruct flowing text from a PDF's positioned glyphs and lay it out for the screen."
+      },
+      {
+        "p": "It works reasonably on simple single-column documents with clear structure. It fails on multi-column layouts, tables, anything with figures interleaved in the text, and completely on scans — there is no text to reflow, only an image."
+      },
+      {
+        "p": "Worth trying, worth not relying on. When it works it is the best available answer; when it does not, cropping is the fallback."
+      },
+      {
+        "h2": "If you produce documents for mobile readers"
+      },
+      {
+        "ol": [
+          "**Use a smaller page size.** A5 or a 6×9 inch page produces a line length that suits a phone; A4 does not.",
+          "**Single column.** Multi-column layouts require horizontal scrolling on any narrow screen.",
+          "**Larger base font.** 12pt on A4 is 12pt; on a phone it is whatever survives scaling.",
+          "**Narrow margins,** since your reader is not binding it.",
+          "**Consider HTML instead.** A web page reflows natively and is more accessible. Offer the PDF as the printable version."
+        ]
       },
       {
         "h2": "Common questions"

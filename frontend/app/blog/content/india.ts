@@ -12,7 +12,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "20KB is a brutally small budget for a photograph. Here is how to get there deliberately rather than by trial and error.",
     "date": "2026-08-05",
     "dateLabel": "August 5, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "India Guides",
     "emoji": "📸",
     "keywords": [
@@ -70,6 +70,80 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by exam body. Always confirm the exact figures against the current official notification before you upload — this guide explains how to hit whatever numbers it specifies."
       },
       {
+        "h2": "Why dimensions beat quality at this budget"
+      },
+      {
+        "p": "It is worth seeing the arithmetic, because it explains why the usual approach fails."
+      },
+      {
+        "p": "A JPEG's size depends on how many pixels it has and how much detail is kept in each region. At 20KB you have roughly 20,000 bytes for the entire image. A 3000×2000 photograph has six million pixels — that is about 0.003 bytes per pixel, far below what JPEG needs to represent anything. The encoder responds by discarding almost all detail, which is why you get blocking across the whole frame."
+      },
+      {
+        "p": "Crop and resize to 600×200 and you have 120,000 pixels. Now you have 0.17 bytes per pixel — fifty times more budget per pixel — and the encoder can preserve edges cleanly. Same file size, completely different result."
+      },
+      {
+        "h2": "A worked example"
+      },
+      {
+        "table": {
+          "headers": [
+            "Step",
+            "Dimensions",
+            "Size",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Phone photo of signature",
+              "3024 × 4032",
+              "4.2 MB",
+              "Includes desk, shadow, whole page"
+            ],
+            [
+              "After cropping to signature",
+              "1400 × 480",
+              "890 KB",
+              "Background removed"
+            ],
+            [
+              "After resize",
+              "600 × 206",
+              "96 KB",
+              "Still full quality"
+            ],
+            [
+              "After greyscale",
+              "600 × 206",
+              "41 KB",
+              "No visible change to black ink"
+            ],
+            [
+              "After compress-to-size",
+              "600 × 206",
+              "19 KB",
+              "Clean, legible"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Those figures vary with the source, but the shape holds: most of the reduction comes from removing pixels you did not need, and compression only does the last step."
+      },
+      {
+        "h2": "When 20KB genuinely will not work"
+      },
+      {
+        "p": "Occasionally the requirement and the content are incompatible. A colour photograph with a detailed background will not survive 20KB in any usable form. If that is what is asked for, the answer is not harder compression:"
+      },
+      {
+        "ul": [
+          "**Recapture with a plain background.** A signature on white paper compresses to a fraction of the same signature on a wood desk.",
+          "**Check whether greyscale is permitted.** For signatures and thumb impressions it almost always is, and it is a third of the size.",
+          "**Re-read the requirement.** Sometimes 20KB is a *minimum* and you have been reading it as a maximum.",
+          "**Check the units.** 20KB and 20KiB differ by 2%, which matters when you are at the boundary."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -102,7 +176,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "The most common limit you will meet on application portals. Comfortable enough for a decent photo — if you approach it in the right order.",
     "date": "2026-08-10",
     "dateLabel": "August 10, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "India Guides",
     "emoji": "🪪",
     "keywords": [
@@ -157,6 +231,80 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by exam body. Always confirm the exact figures against the current official notification before you upload — this guide explains how to hit whatever numbers it specifies."
       },
       {
+        "h2": "What resolution 50KB actually supports"
+      },
+      {
+        "p": "Working backwards from the budget is more useful than guessing at quality sliders."
+      },
+      {
+        "table": {
+          "headers": [
+            "Dimensions",
+            "Content",
+            "Fits 50KB?"
+          ],
+          "rows": [
+            [
+              "300 × 400",
+              "Head-and-shoulders, plain background",
+              "Comfortably, high quality"
+            ],
+            [
+              "400 × 530",
+              "Head-and-shoulders, plain background",
+              "Yes, good quality"
+            ],
+            [
+              "600 × 800",
+              "Head-and-shoulders, plain background",
+              "Tight; some softening"
+            ],
+            [
+              "600 × 800",
+              "Busy background",
+              "Visible artefacts"
+            ],
+            [
+              "1200 × 1600",
+              "Anything",
+              "No — heavy degradation"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "The pattern is that background complexity costs as much as resolution. A plain wall compresses to almost nothing because there is no detail to encode; a bookshelf behind you consumes the budget you needed for your face."
+      },
+      {
+        "h2": "Getting the crop right before you compress"
+      },
+      {
+        "p": "Most forms specifying 50KB also specify pixel dimensions and often an aspect ratio. Satisfy those first, because cropping after compressing throws away pixels you already paid for."
+      },
+      {
+        "ol": [
+          "Establish the required aspect ratio — commonly 3:4 portrait.",
+          "[Crop](/tools/image-crop) to that ratio, framing head and shoulders with a small margin above the hair.",
+          "[Resize](/tools/image-resize) to the specified pixel dimensions.",
+          "[Compress to size](/tools/image-to-size) at 45–48KB, leaving margin under the stated cap.",
+          "Check the result at 100% — the face should be sharp, not waxy."
+        ]
+      },
+      {
+        "h2": "The photograph itself"
+      },
+      {
+        "p": "A well-taken photo at 50KB looks better than a poorly taken one at 500KB, and it is also easier to compress. Four things do most of the work:"
+      },
+      {
+        "ul": [
+          "**Front light.** Face a window in daylight. Overhead lighting puts shadows under the eyes and nose, which are both unflattering and expensive to encode.",
+          "**Distance.** Have someone stand two metres back and zoom slightly rather than holding a phone at arm's length. Close-range wide-angle lenses enlarge the nose and narrow the ears, which reads as distortion to a verifier.",
+          "**Plain background.** A light wall. This helps compression more than any setting.",
+          "**Contrast with your clothing.** A white shirt against a white wall merges at the shoulders and some automated checks reject it."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -189,7 +337,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "100KB for a multi-page scan is demanding. Here is how to get there, and what to do when the document genuinely cannot fit.",
     "date": "2026-08-15",
     "dateLabel": "August 15, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "India Guides",
     "emoji": "📄",
     "keywords": [
@@ -247,6 +395,77 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by exam body. Always confirm the exact figures against the current official notification before you upload — this guide explains how to hit whatever numbers it specifies."
       },
       {
+        "h2": "Working out whether 100KB is achievable"
+      },
+      {
+        "p": "Before spending time compressing, estimate whether the target is reachable. The rough arithmetic: a legible greyscale scan of a text page needs somewhere around 30–60KB at 150–200 DPI after compression."
+      },
+      {
+        "table": {
+          "headers": [
+            "Document",
+            "Realistic at 100KB?"
+          ],
+          "rows": [
+            [
+              "1 page, typed, born-digital",
+              "Trivially — usually already under"
+            ],
+            [
+              "1 page, greyscale scan",
+              "Comfortably"
+            ],
+            [
+              "2 pages, greyscale scan",
+              "Achievable"
+            ],
+            [
+              "3–4 pages, greyscale scan",
+              "Tight; expect softening"
+            ],
+            [
+              "5+ pages, greyscale scan",
+              "Not legibly"
+            ],
+            [
+              "Any colour scan of 2+ pages",
+              "Not without greyscaling first"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "If your document is in the bottom rows, no compression setting will rescue it. The fix is upstream: fewer pages, or a better capture, or separate uploads."
+      },
+      {
+        "h2": "Reading the requirement carefully"
+      },
+      {
+        "p": "Two details in upload specifications cause avoidable failures at this size."
+      },
+      {
+        "p": "**A minimum as well as a maximum.** Portals sometimes reject files below a floor — often 10 or 20KB — to prevent blank placeholder uploads. Compressing to 8KB to be safe fails the check. Aim for the middle of any stated range, not its edge."
+      },
+      {
+        "p": "**KB versus KiB.** 100KB may mean 100,000 bytes or 102,400. The difference is 2.4%, which only matters when you have compressed to exactly the boundary. Targeting 90–95KB removes the question entirely."
+      },
+      {
+        "h2": "A checklist before you upload"
+      },
+      {
+        "ol": [
+          "Open the final PDF at 100% zoom.",
+          "Read the smallest text — a registration number, a date, an issuing authority.",
+          "Check the page count matches what the form asked for.",
+          "Check the file size in your file manager, not in the tool that produced it.",
+          "Confirm the format is genuinely PDF, not an image renamed.",
+          "Give it a plain filename with no spaces or special characters."
+        ]
+      },
+      {
+        "p": "That takes under a minute and catches the failures that otherwise surface as an unexplained rejection after you have submitted."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -279,7 +498,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "The upload is the last hurdle of a long form, and the one that most often sends people back to the start. Here is how to get it right first time.",
     "date": "2026-08-20",
     "dateLabel": "August 20, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "🎓",
     "keywords": [
@@ -345,6 +564,43 @@ export const indiaArticles: BlogArticle[] = [
         "p": "Prepare both files, verify their size and dimensions, and keep them on the device you will apply from. Portals time out, and hunting for a photo mid-session is how sessions get lost."
       },
       {
+        "h2": "Why this specific upload causes so much trouble"
+      },
+      {
+        "p": "The photo and signature step sits at the end of a long form, which means people reach it tired, under deadline pressure, and having already invested an hour. That is precisely the wrong state in which to discover that a file needs reworking."
+      },
+      {
+        "p": "It is also unusual in checking several independent properties at once. Most form fields validate one thing. This validates file size against both a maximum and sometimes a minimum, pixel dimensions, aspect ratio, file format, and occasionally the presence of a printed date on the photograph — and reports failure with a single generic message."
+      },
+      {
+        "h2": "Building your files the evening before"
+      },
+      {
+        "p": "The single most effective change is to prepare everything before you open the application at all. A routine that takes fifteen minutes when you are not under pressure:"
+      },
+      {
+        "ol": [
+          "Open the current notification and write the requirements down: photo max/min size, photo pixel dimensions, signature max/min size, signature dimensions, format, and whether a date is required on the photo.",
+          "Take or locate the photograph. Check it against the framing rules before doing anything technical.",
+          "Sign on plain white paper and capture it flat.",
+          "Process both: [crop](/tools/image-crop), [resize](/tools/image-resize), [greyscale](/tools/image-to-grayscale) the signature, then [compress to size](/tools/image-to-size).",
+          "Verify each file's properties — size in bytes, pixel dimensions, actual format.",
+          "Put both in a clearly named folder on the device you will apply from."
+        ]
+      },
+      {
+        "h2": "Keeping a reusable set"
+      },
+      {
+        "p": "Anyone applying to several examinations will use these files repeatedly, and it is worth keeping a small archive rather than rebuilding each time."
+      },
+      {
+        "p": "Keep the **high-resolution originals** — the uncropped photograph and the full-resolution signature scan — separately from the processed versions. Different examinations specify different dimensions, and you can always produce a new processed file from a good original. You cannot recover detail from a file already compressed to 20KB."
+      },
+      {
+        "p": "Two cautions. Where a cycle requires a **printed date** on the photograph, that photograph is only valid for applications within its validity window — reusing it later fails verification even though the file is technically correct. And some bodies specify a photograph taken within a set period, so an archive is a convenience, not a permanent solution."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -377,7 +633,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "You do not need a photo studio. You do need the right proportions, background and framing — here is how to get all three.",
     "date": "2026-08-25",
     "dateLabel": "August 25, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "India Guides",
     "emoji": "🛂",
     "keywords": [
@@ -428,6 +684,78 @@ export const indiaArticles: BlogArticle[] = [
         "p": "Once dimensions are right, [compress to the exact size](/tools/image-to-size) required. Do this last — compressing before cropping wastes quality on pixels you then discard."
       },
       {
+        "h2": "Common standards, and why they differ"
+      },
+      {
+        "p": "The variation between standards is not arbitrary — different systems capture different things. Some prioritise facial recognition compatibility, some prioritise printing on a specific document, some are historical."
+      },
+      {
+        "table": {
+          "headers": [
+            "Use",
+            "Typical size",
+            "Note"
+          ],
+          "rows": [
+            [
+              "India passport",
+              "35 × 45 mm",
+              "Also common for many Indian exam forms"
+            ],
+            [
+              "UK / EU passport",
+              "35 × 45 mm",
+              "Similar framing rules"
+            ],
+            [
+              "US passport",
+              "51 × 51 mm (2 × 2 in)",
+              "Square — a crop for elsewhere will not fit"
+            ],
+            [
+              "Indian PAN / voter ID",
+              "Varies",
+              "Check the specific form"
+            ],
+            [
+              "Schengen visa",
+              "35 × 45 mm",
+              "Strict on background and expression"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "The US square format is the one that catches people out. A 35×45 crop cannot be made square without either losing the top of the head or adding background, so if you may need both, shoot with enough margin to crop either way."
+      },
+      {
+        "h2": "Head positioning, which matters as much as dimensions"
+      },
+      {
+        "p": "Most standards specify not just the frame but where the head sits within it — typically the head occupying 70–80% of the frame height, with a defined margin above the hair and the eyes falling within a horizontal band."
+      },
+      {
+        "p": "This is why a snapshot cropped to the right proportions still gets rejected. The dimensions are correct; the head is too small and sits too low because the original photo was taken from too far away and cropped in. There is no fix for that except reshooting closer."
+      },
+      {
+        "h2": "Printing them yourself"
+      },
+      {
+        "p": "If you need physical prints rather than a file:"
+      },
+      {
+        "ol": [
+          "Prepare the image at the correct proportions with [resize to passport](/tools/resize-to-passport).",
+          "Build a grid at true physical size — at 300 DPI, a 35×45mm photo is 413 × 531 pixels.",
+          "Arrange several on a 4×6 inch canvas, which most print services handle.",
+          "Print on photo paper at 300 DPI with any scaling disabled — 'fit to page' will silently resize them.",
+          "**Measure the printed result with a ruler** before submitting. This is the step people skip and it is the only way to catch a scaling error."
+        ]
+      },
+      {
+        "note": "Print shops sometimes apply automatic enhancement that brightens skin tones or smooths features. For an identity document that can cause a rejection. Ask for it disabled, or print at home."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -460,7 +788,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "You do not need a scanner. You do need to stop photographing documents at an angle on a dark desk.",
     "date": "2026-09-02",
     "dateLabel": "September 2, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "📱",
     "keywords": [
@@ -508,6 +836,49 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Check legibility at 100% zoom before uploading. If you cannot comfortably read the smallest text — a registration number, a date — neither can the person verifying it."
       },
       {
+        "h2": "Why phone photos of documents look wrong"
+      },
+      {
+        "p": "The difference between a phone photo that passes for a scan and one that obviously is not comes down to three artefacts, all of which are avoidable."
+      },
+      {
+        "p": "**Perspective.** Holding the phone at an angle makes the far edge of the page shorter than the near edge, so a rectangular document becomes a trapezoid. This is the single strongest visual signal that something was photographed rather than scanned, and it is entirely a function of holding the camera parallel to the page."
+      },
+      {
+        "p": "**Uneven illumination.** Room lighting rarely falls evenly across an A4 sheet. One side is brighter, and any compression then has to encode that gradient, which costs file size and looks amateurish."
+      },
+      {
+        "p": "**Shadow.** Usually your own head, arms or the phone itself. Standing beside the light source rather than between it and the page eliminates this."
+      },
+      {
+        "h2": "A setup that works anywhere"
+      },
+      {
+        "ol": [
+          "Find a table near a window during daylight. Not direct sun, which is too harsh.",
+          "Place the document flat, with the window to one side rather than behind you.",
+          "Hold the phone directly above, screen parallel to the page. Most phones show a level indicator in the camera app — use it.",
+          "Fill the frame with the document plus a small even margin.",
+          "Tap to focus on the text, not the background.",
+          "Take two or three and pick the best rather than accepting the first."
+        ]
+      },
+      {
+        "p": "That is thirty seconds of setup and it produces results that beat a cheap flatbed, because you control the lighting in a way a scanner's fixed lamp does not allow."
+      },
+      {
+        "h2": "Batch capture for multi-page documents"
+      },
+      {
+        "p": "Consistency matters more than perfection when a document runs to several pages. A pack where page three is noticeably darker or differently angled reads as carelessly assembled, and in some contexts as suspicious."
+      },
+      {
+        "p": "Shoot every page in one sitting without moving the setup. Do not adjust exposure between pages. Then process them identically — same [crop](/tools/image-crop) proportions, same [greyscale](/tools/image-to-grayscale) conversion — before [combining into one PDF](/tools/jpg-to-pdf)."
+      },
+      {
+        "p": "If you have to reshoot one page later, reshoot it in the same conditions or redo the whole set. A single mismatched page is more noticeable than a uniformly mediocre document."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -540,7 +911,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "Comfortable for most documents, tight for a colour scan. Here is how to get under it reliably.",
     "date": "2026-09-10",
     "dateLabel": "September 10, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "📑",
     "keywords": [
@@ -595,6 +966,72 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
       },
       {
+        "h2": "Budgeting 500KB across pages"
+      },
+      {
+        "p": "Working out per-page budget before you start tells you immediately whether the target is realistic."
+      },
+      {
+        "table": {
+          "headers": [
+            "Pages",
+            "Per page",
+            "Realistic?"
+          ],
+          "rows": [
+            [
+              "1",
+              "500 KB",
+              "Very comfortable; high quality"
+            ],
+            [
+              "3",
+              "167 KB",
+              "Comfortable for greyscale scans"
+            ],
+            [
+              "5",
+              "100 KB",
+              "Achievable; greyscale essential"
+            ],
+            [
+              "10",
+              "50 KB",
+              "Tight; expect softening"
+            ],
+            [
+              "20",
+              "25 KB",
+              "Not legibly for scans"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "A legible greyscale scan of a text page needs roughly 30–60KB after compression. Where your per-page budget falls below that, the answer is fewer pages or a better capture rather than harder compression."
+      },
+      {
+        "h2": "The order that gets you there"
+      },
+      {
+        "ol": [
+          "**[Extract](/tools/extract-pages) only the required pages.** The largest single lever and the one most often skipped.",
+          "**[Convert to greyscale](/tools/grayscale-pdf).** 40–60% for no visible loss on ink-on-paper documents.",
+          "**[Crop](/tools/crop)** scanner borders and desk background.",
+          "**[Compress to size](/tools/compress-to-size)** at 450–480KB, leaving margin under the cap.",
+          "**Verify legibility** at 100% zoom before uploading."
+        ]
+      },
+      {
+        "h2": "If it still will not fit legibly"
+      },
+      {
+        "p": "Rescanning beats compressing every time. A 200 DPI greyscale capture starts an order of magnitude smaller than a 600 DPI colour one and starts *clean* rather than being degraded down to size. If you have the paper and two minutes, that is the answer."
+      },
+      {
+        "p": "Failing that, check whether the portal accepts separate uploads per document. Many forms that appear to want one file actually provide several fields, and splitting is far better than compressing a ten-page scan into illegibility."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -627,7 +1064,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "A generous limit that still defeats people who compress before cropping. Here is the order that works.",
     "date": "2026-09-18",
     "dateLabel": "September 18, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "🗜️",
     "keywords": [
@@ -701,6 +1138,45 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
       },
       {
+        "h2": "Diagnosing where the megabytes are"
+      },
+      {
+        "p": "Before compressing, work out what is actually large — the fix differs completely."
+      },
+      {
+        "ol": [
+          "**Ctrl+F for a word you can see.** Found means born-digital; not found means a scan.",
+          "**Divide size by page count.** Above roughly 100KB per page in a born-digital document, something other than text is responsible.",
+          "**Check for attachments** in document properties. A PDF can carry embedded files.",
+          "**Scroll at thumbnail zoom.** Photographic pages are immediately obvious and tell you where the weight sits."
+        ]
+      },
+      {
+        "p": "A born-digital document that is unexpectedly large usually responds to [flatten](/tools/flatten-pdf), [remove metadata](/tools/remove-metadata) and [compress](/tools/compress) — the last forcing a full rewrite that discards accumulated revisions. No image downsampling required."
+      },
+      {
+        "h2": "What 1MB looks like in practice"
+      },
+      {
+        "p": "For a greyscale scan at 150–200 DPI, expect roughly 40–80KB per page after compression. So 1MB comfortably holds a dozen or so pages at readable quality, and struggles past twenty."
+      },
+      {
+        "p": "For born-digital documents the figure is irrelevant — a 200-page text report is typically well under 1MB before you do anything."
+      },
+      {
+        "h2": "Verifying before you submit"
+      },
+      {
+        "ol": [
+          "Open the compressed file at 100% zoom.",
+          "Read the smallest text on the most detailed page — not the cover.",
+          "Check the page count is what the form expects.",
+          "Read the file size from your file manager, not the tool that produced it.",
+          "Confirm the format is genuinely PDF.",
+          "Give it a plain filename: letters, digits, underscores."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -733,7 +1209,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "'File not accepted' with no explanation. Six separate checks run on your upload — here is how to satisfy all of them.",
     "date": "2026-09-28",
     "dateLabel": "September 28, 2026",
-    "readMinutes": 7,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "⚠️",
     "keywords": [
@@ -798,6 +1274,43 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
       },
       {
+        "h2": "Checking a file's real properties"
+      },
+      {
+        "p": "Most rejections are diagnosable by looking at the file, and the properties you need are visible without any special software."
+      },
+      {
+        "p": "**On Windows:** right-click, Properties, then the Details tab shows dimensions and size. **On macOS:** select the file and press Cmd+I, or open in Preview and use Tools → Show Inspector."
+      },
+      {
+        "p": "What to check, in this order: file size in bytes (not the rounded KB figure), pixel dimensions, and the actual format — which Properties reports from the file's contents, not its extension. That last one catches the renamed-PNG problem immediately."
+      },
+      {
+        "h2": "Why size in bytes matters"
+      },
+      {
+        "p": "File managers round. A file shown as '50 KB' might be anywhere from 49,153 to 51,200 bytes, and a portal checking against 51,200 will reject the upper end of that range while your file manager insists it is 50 KB."
+      },
+      {
+        "p": "Both Windows and macOS show the exact byte count in the properties panel, usually in parentheses after the rounded figure. Use that number, and target comfortably below the limit so the ambiguity stops mattering."
+      },
+      {
+        "h2": "Diagnosing by elimination"
+      },
+      {
+        "p": "Where a portal gives no useful error, change one thing at a time:"
+      },
+      {
+        "ol": [
+          "**Re-save in the correct format** from an image editor, which also strips any unusual colour profile a strict validator might reject.",
+          "**Reduce the size by 20%** and retry, to rule out a boundary problem.",
+          "**Check pixel dimensions** against the requirement independently of file size.",
+          "**Rename to something plain** — no spaces, no brackets, no accented characters.",
+          "**Try a different browser,** and disable extensions.",
+          "**Try outside peak hours,** since deadline-day load produces failures that look like validation errors."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -830,7 +1343,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "One upload field, eight documents. Here is how to assemble them so a verifier can actually work through the result.",
     "date": "2026-10-06",
     "dateLabel": "October 6, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "📚",
     "keywords": [
@@ -887,6 +1400,39 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
       },
       {
+        "h2": "Working out the order when none is given"
+      },
+      {
+        "p": "Where instructions specify an order, follow it exactly. Where they do not, a verifier still has an expectation, and matching it speeds things up."
+      },
+      {
+        "p": "The conventional sequence: **identity first** (photo ID, proof of address), then **educational qualifications newest to oldest**, then **category or special-provision documents**, then **experience or supporting material**, then anything supplementary."
+      },
+      {
+        "p": "The logic is that a verifier establishes who you are, then checks eligibility, then reads supporting detail. A pack that follows that arc is quick to work through; one that opens with a supplementary letter is not."
+      },
+      {
+        "h2": "Making a long pack navigable"
+      },
+      {
+        "ul": [
+          "**A contents page as page one,** listing each document and its starting page. Two minutes to produce and it changes how the whole pack reads.",
+          "**[Continuous page numbers](/tools/page-numbers)** so a query can reference a page rather than describing a document.",
+          "**Consistent orientation.** [Rotate](/tools/rotate) everything upright — sideways pages in a verification queue invite a resubmission request.",
+          "**Consistent page size.** [Resize](/tools/resize-pages) to a common size so the pack prints and scrolls evenly.",
+          "**Both sides adjacent.** A two-sided document should be two consecutive pages, not separated across the pack."
+        ]
+      },
+      {
+        "h2": "Keeping a record of what you submitted"
+      },
+      {
+        "p": "Save the exact file you uploaded, not the working copies you made along the way. If a query arises months later — a document reported as illegible, a page apparently missing — you need to know precisely what was received."
+      },
+      {
+        "p": "Store the submitted PDF alongside the acknowledgement or receipt the portal issues, ideally [merged](/tools/merge) into a single record file. That pairing answers most subsequent questions without needing to reconstruct anything."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -919,7 +1465,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "20KB for a signature is not arbitrary. Understanding why makes the requirements easier to satisfy.",
     "date": "2026-10-14",
     "dateLabel": "October 14, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "🏛️",
     "keywords": [
@@ -1000,6 +1546,42 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading."
       },
       {
+        "h2": "Reading a notification for its constraints"
+      },
+      {
+        "p": "Notifications bury upload requirements in dense text, and missing one costs a resubmission. Extracting them systematically takes five minutes and saves considerably more."
+      },
+      {
+        "p": "Make a list before you touch a file. For each item to be uploaded, note: **maximum size, minimum size, pixel dimensions, aspect ratio, file format, colour requirement**, and any special condition such as a printed date on the photograph."
+      },
+      {
+        "p": "The two most-missed entries are the minimum size and the pixel dimensions. Both are checked independently of the maximum, and both produce the same unhelpful generic rejection."
+      },
+      {
+        "h2": "Building a reusable kit"
+      },
+      {
+        "p": "Anyone applying to several examinations uses the same underlying assets repeatedly. Keeping them properly saves rebuilding each time."
+      },
+      {
+        "ol": [
+          "Keep **high-resolution originals** separately: the uncropped photograph, the full-resolution signature scan, clean scans of every certificate.",
+          "Keep **processed versions** in a folder per application, named for that application.",
+          "Never overwrite an original with a compressed version — you cannot recover the detail.",
+          "Note against each photograph when it was taken, since some bodies require recency.",
+          "Re-derive processed files from originals for each new application rather than reusing a file prepared to different dimensions."
+        ]
+      },
+      {
+        "h2": "Timing and the practical realities"
+      },
+      {
+        "p": "Portals are slowest and least reliable on the final day, when everyone applies at once. Uploads that would succeed on a quiet afternoon fail under load, and the failure is often indistinguishable from a validation error."
+      },
+      {
+        "p": "Apply early if you can. If you cannot, prepare every file in advance so the only thing you are doing under load is uploading — not cropping, not compressing, not hunting for a photograph while a session times out."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1032,7 +1614,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "The upload people prepare worst, usually by over-compressing away the ridge detail that is the entire point.",
     "date": "2026-10-22",
     "dateLabel": "October 22, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "India Guides",
     "emoji": "👍",
     "keywords": [
@@ -1091,6 +1673,40 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading."
       },
       {
+        "h2": "Why ridge detail matters"
+      },
+      {
+        "p": "A thumb impression is not decorative. Where it is required, it is a biometric identifier, and verification may compare it against an impression taken later — at an examination centre, at document verification, at joining."
+      },
+      {
+        "p": "That comparison needs **ridge detail**: the pattern of lines, their bifurcations and endings. A solid black blob has none of it, and neither does an impression compressed so hard the ridges merge. Both clear a file-size check and fail a human one."
+      },
+      {
+        "p": "This is why the usual advice to compress as small as possible is wrong here. Target comfortably inside the permitted range rather than at its lower edge."
+      },
+      {
+        "h2": "Getting a clean impression"
+      },
+      {
+        "ol": [
+          "Use a **stamp pad**, not a pen or an ink bottle. The ink layer is thin and even, which is exactly what you want.",
+          "Press the thumb onto the pad lightly, then onto plain white unruled paper.",
+          "**Roll slightly** from one side to the other rather than pressing straight down — this captures the full pattern rather than only the centre.",
+          "Take two or three impressions and pick the best.",
+          "Let it dry fully. Smudging while handling the paper is the commonest ruin.",
+          "Photograph or scan straight down in even light."
+        ]
+      },
+      {
+        "h2": "Judging whether yours is good enough"
+      },
+      {
+        "p": "Open the finished file at 100% zoom and look for individual ridge lines. You should be able to trace lines across the impression and see where they split or end."
+      },
+      {
+        "p": "If the centre is solid black, there was too much ink — clean the thumb and use less pressure. If the pattern is patchy with gaps, there was too little, or the paper moved. If lines are visible but blurred, the compression went too far and you should retry with a higher target size."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1123,7 +1739,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "One of the commonest silent rejections, and a rule that takes ten seconds to apply.",
     "date": "2026-10-30",
     "dateLabel": "October 30, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "India Guides",
     "emoji": "🔀",
     "keywords": [
@@ -1178,6 +1794,39 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading."
       },
       {
+        "h2": "How validators tell the formats apart"
+      },
+      {
+        "p": "Understanding the check explains why renaming never works."
+      },
+      {
+        "p": "A validator reads the first few bytes of the uploaded file — its signature. A PDF begins `%PDF-`; a JPEG begins with the bytes `FF D8 FF`; a PNG begins `89 50 4E 47`. These are inside the file and have nothing to do with its name."
+      },
+      {
+        "p": "So `photo.jpg` that is really a PNG fails, and it fails on content rather than on anything you can see. The fix is genuine conversion — [PNG to JPG](/tools/png-to-jpg) — which rewrites the data in the required format."
+      },
+      {
+        "h2": "Multi-page documents and the one-file rule"
+      },
+      {
+        "p": "Where a document has two sides — a mark sheet, an identity card, a certificate with endorsements on the reverse — portals almost always expect **one PDF with two pages**, not two separate image files."
+      },
+      {
+        "p": "Uploading them separately either fails, because there is one field, or succeeds and looks careless. [Combining images into one PDF](/tools/jpg-to-pdf) takes seconds and is what the form is asking for."
+      },
+      {
+        "h2": "When a portal asks for something unusual"
+      },
+      {
+        "ul": [
+          "**'Scanned copy in PDF'** means a PDF whose pages are images of the document. A photograph converted to PDF satisfies this.",
+          "**'Self-attested'** means you have signed and dated a photocopy — a content requirement, not a format one.",
+          "**'Coloured scan'** means do not greyscale it, usually because a seal or stamp matters.",
+          "**'Clear and legible'** is a real requirement that is checked by a person after upload succeeds.",
+          "**'Original format'** occasionally means a born-digital PDF rather than a scan — for instance a downloaded certificate rather than a photograph of a printout."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1210,7 +1859,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "Almost all the advice is about the size limit. The thing that actually gets you rejected is legibility.",
     "date": "2026-11-09",
     "dateLabel": "November 9, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "India Guides",
     "emoji": "📜",
     "keywords": [
@@ -1255,6 +1904,50 @@ export const indiaArticles: BlogArticle[] = [
         "note": "A rejected certificate usually means resubmission within a deadline. The five minutes spent rescanning properly is cheaper than the alternative."
       },
       {
+        "h2": "What a verifier is actually looking at"
+      },
+      {
+        "p": "Knowing what gets checked tells you where quality matters and where it does not."
+      },
+      {
+        "ul": [
+          "**Your name,** matched against the application. Must be unambiguously readable.",
+          "**Registration or roll number,** usually the smallest text on the document and the most important.",
+          "**Dates** — of issue, of examination, of validity.",
+          "**Issuing authority** and any seal or stamp.",
+          "**Grades or marks,** where eligibility depends on them.",
+          "**Signatures,** where the document requires countersigning."
+        ]
+      },
+      {
+        "p": "Those are typically the smallest elements on the page. A scan that renders the certificate's decorative border beautifully and the registration number as a smudge has optimised for the wrong thing."
+      },
+      {
+        "h2": "Laminated and glossy documents"
+      },
+      {
+        "p": "Lamination causes glare that can obscure exactly the printed detail a verifier needs, and it defeats flatbed scanning particularly badly because the lamp is directly overhead."
+      },
+      {
+        "p": "Photograph rather than scan. Position the document so the light source is at an angle rather than directly in front, tilt slightly to move the reflection off the text, and check the result before moving on. Diffuse daylight from a window works considerably better than a room light or a flash."
+      },
+      {
+        "h2": "A final check before uploading"
+      },
+      {
+        "ol": [
+          "Open the file at 100% zoom — not fit-to-window, which hides the problem.",
+          "Read the registration number aloud. If you hesitate, it is not clear enough.",
+          "Read the dates.",
+          "Check the whole document is in frame with no corner cut off.",
+          "Check the orientation is upright.",
+          "Confirm size and format against the requirement."
+        ]
+      },
+      {
+        "p": "Thirty seconds, and it is the difference between a submission that clears verification and one that comes back inside a deadline."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1287,7 +1980,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "The strictest photo requirements you will meet, checked automatically, with no explanation when they fail.",
     "date": "2026-11-17",
     "dateLabel": "November 17, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "🛃",
     "keywords": [
@@ -1338,6 +2031,49 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Requirements differ substantially between countries and between visa categories within the same country. Take every figure from the official guidance for your specific application, not from a general guide."
       },
       {
+        "h2": "How biometric photo checks work"
+      },
+      {
+        "p": "Immigration photographs are increasingly assessed by software before a human sees them, against measurements defined in an international standard. That is why rejections cite things that look pedantic — the check genuinely is."
+      },
+      {
+        "ul": [
+          "**Head height** as a proportion of image height, within a defined band.",
+          "**Eye position** falling within a horizontal zone measured from the top.",
+          "**Face centred horizontally,** squared to the camera rather than turned.",
+          "**Background uniformity,** measured as variation across the area behind the head. Shadows fail this even on a plain wall.",
+          "**Sharpness and exposure,** with the face neither blown out nor underexposed.",
+          "**Eyes open, visible, and not obscured** by hair, frames or reflection."
+        ]
+      },
+      {
+        "p": "None of these can be fixed by resizing. They are properties of how the photograph was taken, which is why reshooting beats editing every time."
+      },
+      {
+        "h2": "Supporting documents"
+      },
+      {
+        "p": "Financial statements, employment letters and travel history are usually requested as PDF, often with tight size limits and always with a legibility expectation."
+      },
+      {
+        "ol": [
+          "Combine multi-page documents into a single PDF rather than uploading pages separately.",
+          "[OCR](/tools/ocr) scans so they are searchable, which caseworkers value.",
+          "Keep colour where a seal, stamp or coloured signature is part of authenticity.",
+          "[Compress to size](/tools/compress-to-size) only after checking legibility.",
+          "Name files descriptively — `Bank_Statement_Jan-Mar_2026.pdf` rather than `doc1.pdf`."
+        ]
+      },
+      {
+        "h2": "Country and category variation"
+      },
+      {
+        "p": "Requirements differ not only between countries but between visa categories within one country, and they change without much notice."
+      },
+      {
+        "p": "Take every figure from the official guidance for your specific application, checked on the day you prepare the files. A photograph prepared to last year's specification, or to another country's, is a rejection that costs a processing cycle — and processing cycles are measured in weeks."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1370,7 +2106,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "Rejections here are almost never about your marks. They are about file formats, legibility and swapped uploads.",
     "date": "2026-11-25",
     "dateLabel": "November 25, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "🎓",
     "keywords": [
@@ -1424,6 +2160,50 @@ export const indiaArticles: BlogArticle[] = [
       },
       {
         "note": "Requirements vary by institution and change between admission cycles. Take every figure from the current official instructions for the institution you are applying to."
+      },
+      {
+        "h2": "Building the document set"
+      },
+      {
+        "p": "Institutions vary, but the required set is broadly predictable and worth assembling before the portal opens."
+      },
+      {
+        "ul": [
+          "**Identity proof** — the document type the institution specifies.",
+          "**Educational certificates and mark sheets** for every qualifying examination, both sides where applicable.",
+          "**Transfer or migration certificate** where moving between boards or institutions.",
+          "**Category or reservation certificates,** which often have their own validity windows.",
+          "**Income certificate,** where fee concessions apply.",
+          "**Photograph and signature** to the specified dimensions.",
+          "**Any entrance examination scorecard.**"
+        ]
+      },
+      {
+        "p": "Prepare each as a separate correctly named file, sized against the stated limit, before opening the application."
+      },
+      {
+        "h2": "Certificates with validity periods"
+      },
+      {
+        "p": "Category, income and domicile certificates frequently expire, and an expired certificate is rejected regardless of how well it is scanned."
+      },
+      {
+        "p": "Check the validity of every certificate against the admission timeline, not against today's date. A certificate valid at application and expired at verification causes exactly the problem you were trying to avoid, and renewal often takes weeks."
+      },
+      {
+        "h2": "Keeping a submission record"
+      },
+      {
+        "ol": [
+          "Save the exact files you uploaded, in a folder named for the institution and year.",
+          "Save the acknowledgement or application PDF the portal generates.",
+          "Note the application number somewhere you will find it.",
+          "[Merge](/tools/merge) the acknowledgement with copies of the uploaded documents into one record file.",
+          "Keep it until admission is confirmed and the first term has begun."
+        ]
+      },
+      {
+        "p": "Queries arrive weeks later, usually about a specific document, and being able to see exactly what was submitted resolves them immediately."
       },
       {
         "h2": "Common questions"

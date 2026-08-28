@@ -12,7 +12,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "One is for photographs, the other for graphics — and using the wrong one either bloats your file or blurs your text.",
     "date": "2026-09-03",
     "dateLabel": "September 3, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "🖼️",
     "keywords": [
@@ -103,6 +103,75 @@ export const formatsArticles: BlogArticle[] = [
         "note": "Converting JPG to PNG does not improve quality. The detail JPG discarded is gone; PNG just preserves what remains, in a bigger file."
       },
       {
+        "h2": "Screenshots: the case people get wrong most often"
+      },
+      {
+        "p": "Screenshots are worth singling out because they contain both kinds of content and the right answer depends on which dominates."
+      },
+      {
+        "p": "A screenshot of **an interface** — menus, text, flat colour, sharp edges — is PNG territory. JPEG's smoothing produces visible fringing around every letter and along every border, and because interface graphics use few distinct colours, PNG compresses them extremely well. A screenshot of a settings dialog might be 40KB as PNG and look worse at 60KB as JPG."
+      },
+      {
+        "p": "A screenshot of **a photograph or video** is the opposite. Now the content is continuous-tone imagery, PNG has nothing to exploit, and the same capture might be 3MB as PNG and 250KB as an indistinguishable JPG."
+      },
+      {
+        "p": "A screenshot of a web page containing both is a judgement call. If the text must stay crisp, PNG. If it is mostly imagery with some text, JPG at high quality is usually the better trade."
+      },
+      {
+        "h2": "Transparency, and what happens when you discard it"
+      },
+      {
+        "p": "JPG has no alpha channel at all, so converting a transparent PNG requires deciding what fills the transparent area. Most tools default to white, which is invisible on a white page and abruptly visible on any other background."
+      },
+      {
+        "p": "The failure mode is a logo that looked fine in your document and arrives as a white rectangle on a coloured slide. If a graphic needs to sit on varying backgrounds, it must stay PNG — or better, stay [SVG](/tools/svg-to-png) if it is a logo or icon."
+      },
+      {
+        "p": "Where you genuinely need JPG and the source is transparent, flatten it deliberately onto the background colour you will actually use, rather than accepting whatever default the converter picks."
+      },
+      {
+        "h2": "Choosing a JPEG quality setting"
+      },
+      {
+        "table": {
+          "headers": [
+            "Quality",
+            "Use",
+            "Result"
+          ],
+          "rows": [
+            [
+              "95–100",
+              "Archival, print",
+              "Very large, no visible loss"
+            ],
+            [
+              "85–90",
+              "General purpose",
+              "Good default; loss imperceptible"
+            ],
+            [
+              "70–80",
+              "Web, email",
+              "Small; slight softening on close inspection"
+            ],
+            [
+              "50–65",
+              "Tight size limits",
+              "Visible artefacts in detail areas"
+            ],
+            [
+              "Below 50",
+              "Last resort",
+              "Obvious blocking"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "85 is the sensible default for almost everything. Below 70 you are trading visible quality for size, which is a legitimate choice when a portal demands it and a poor one when it does not."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -135,7 +204,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "The technology that makes a scan searchable — what it does well, and the four things that reliably break it.",
     "date": "2026-09-11",
     "dateLabel": "September 11, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "🔤",
     "keywords": [
@@ -188,6 +257,48 @@ export const formatsArticles: BlogArticle[] = [
         "p": "[OCR](/tools/ocr) adds a searchable text layer while leaving the page image visible, so the document looks identical but becomes searchable. If you only want raw words, [PDF to text](/tools/pdf-to-txt) is simpler. To edit properly, [PDF to Word](/tools/pdf-to-word) reconstructs structure."
       },
       {
+        "h2": "Why accuracy figures can mislead"
+      },
+      {
+        "p": "Vendors quote character accuracy, and 99% sounds close to perfect. Working out what it means in practice is more sobering."
+      },
+      {
+        "p": "A typical page holds around 3,000 characters. At 99% accuracy that is 30 wrong characters per page — roughly one error every two lines. Most will be harmless and self-evidently wrong in context. Some will not."
+      },
+      {
+        "p": "Worse, errors are not evenly distributed. Ordinary words benefit from a language model that corrects implausible strings, so they are recognised at well above the headline rate. Names, reference numbers, dates and amounts get no such help, because there is no dictionary entry to correct toward. The accuracy on exactly the content you most need is materially worse than the average."
+      },
+      {
+        "p": "The practical rule: trust OCR for searching and reading, verify it for anything you will act on."
+      },
+      {
+        "h2": "Preprocessing you can do yourself"
+      },
+      {
+        "p": "Recognition engines preprocess internally, but they can only work with what they are given. Improvements you make before that point compound:"
+      },
+      {
+        "ol": [
+          "**Straighten the page.** The single highest-value intervention. Even two degrees of skew measurably degrades line detection.",
+          "**[Convert to greyscale](/tools/grayscale-pdf).** Colour adds noise without adding information for text recognition.",
+          "**[Crop](/tools/crop) to the text area.** Scanner bed edges, staple shadows and page curl at the margins all confuse layout analysis.",
+          "**Split multi-column pages** into separate crops if automatic layout analysis is interleaving them.",
+          "**Do not compress.** Whatever you do, do it before compression, not after."
+        ]
+      },
+      {
+        "h2": "What OCR cannot do"
+      },
+      {
+        "ul": [
+          "**Cursive handwriting.** Conventional OCR is trained on typeset characters. Specialist handwriting recognition exists and is a different technology with different expectations.",
+          "**Understand structure it cannot see.** A borderless table becomes loose text, because there is nothing marking the cells.",
+          "**Recover detail that is not there.** A 100 DPI scan cannot be recognised well at any setting; the pixels do not exist.",
+          "**Distinguish visually identical characters reliably.** Zero and capital O, one and lowercase l, in fonts where they are drawn nearly identically.",
+          "**Fix a bad capture.** Every OCR problem is easier to solve at the scanner than in software afterwards."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -220,7 +331,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Understanding what is inside a PDF explains almost every frustrating thing they do — including why editing one is harder than it should be.",
     "date": "2026-09-21",
     "dateLabel": "September 21, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "📄",
     "keywords": [
@@ -307,6 +418,75 @@ export const formatsArticles: BlogArticle[] = [
         "p": "Since a PDF stores positions rather than structure, editors must reverse-engineer intent — grouping characters into words, words into lines, lines into paragraphs. Good tools manage small changes. For substantial edits, [convert to Word](/tools/pdf-to-word), edit there, and export back."
       },
       {
+        "h2": "Why PDFs are hard to search reliably"
+      },
+      {
+        "p": "Even a born-digital PDF with a proper text layer can defeat search, and understanding why explains several otherwise baffling behaviours."
+      },
+      {
+        "p": "A PDF stores characters positioned individually. Whether they form a word is inferred from spacing — there is no space character necessarily stored between them. Justified text, kerned headings and columns can all produce text that extracts as `H e a d i n g` or `Thisisaheading` depending on how the producing application laid it out."
+      },
+      {
+        "p": "Ligatures compound this. A font that renders 'fi' as a single glyph may store it as one character that does not match a search for 'fi' typed normally. Hyphenated words broken across lines extract with the hyphen intact and do not match the unbroken word."
+      },
+      {
+        "p": "None of this is visible on the page. It is why a document you can plainly read sometimes refuses to yield to Ctrl+F, and why extracted text occasionally needs cleaning before it is usable."
+      },
+      {
+        "h2": "The versions, briefly"
+      },
+      {
+        "p": "PDF has evolved since 1993 and version numbers occasionally matter:"
+      },
+      {
+        "ul": [
+          "**PDF 1.4** introduced transparency, which is why very old readers render some modern files oddly.",
+          "**PDF 1.5** added object streams and cross-reference streams, which make files smaller and are unreadable to pre-2003 software.",
+          "**PDF 1.7** became the ISO standard in 2008 and is the safe target for maximum compatibility.",
+          "**PDF 2.0**, from 2017, is still not universally supported."
+        ]
+      },
+      {
+        "p": "For anything going to an unknown recipient, 1.7 is the pragmatic choice. Compression tools sometimes let you set a compatibility level, and pushing it lower produces larger files that older software can open."
+      },
+      {
+        "h2": "Special-purpose variants"
+      },
+      {
+        "table": {
+          "headers": [
+            "Variant",
+            "Purpose",
+            "Key constraint"
+          ],
+          "rows": [
+            [
+              "[PDF/A](/tools/pdf-to-pdfa)",
+              "Archiving",
+              "Everything embedded; no encryption or scripts"
+            ],
+            [
+              "PDF/X",
+              "Print production",
+              "Colour profiles and fonts mandatory"
+            ],
+            [
+              "PDF/UA",
+              "Accessibility",
+              "Structural tagging required"
+            ],
+            [
+              "PDF/E",
+              "Engineering",
+              "Supports 3D and large-format drawings"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "These are subsets, not different formats — a PDF/A file is a valid PDF that additionally satisfies extra rules. Any reader opens them; only a validator cares about compliance."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -339,7 +519,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Technically better than JPG, practically a nuisance. Why your iPhone photos will not open on Windows.",
     "date": "2026-09-29",
     "dateLabel": "September 29, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "📱",
     "keywords": [
@@ -387,6 +567,78 @@ export const formatsArticles: BlogArticle[] = [
         "note": "iOS often converts automatically when you share by email or AirDrop to a non-Apple device — which is why the problem seems intermittent. Transfers that copy raw files, like plugging into a PC, do not convert."
       },
       {
+        "h2": "What happens when you share from an iPhone"
+      },
+      {
+        "p": "The reason HEIC problems feel random is that iOS converts on some paths and not others, without telling you which."
+      },
+      {
+        "table": {
+          "headers": [
+            "How you share",
+            "Result"
+          ],
+          "rows": [
+            [
+              "Mail app to a non-Apple recipient",
+              "Usually converted to JPG"
+            ],
+            [
+              "AirDrop to a Mac",
+              "Stays HEIC"
+            ],
+            [
+              "Messages to Android",
+              "Usually converted"
+            ],
+            [
+              "Upload to a website",
+              "Depends on the site; often sent as HEIC"
+            ],
+            [
+              "Plugging into a Windows PC",
+              "Stays HEIC"
+            ],
+            [
+              "Third-party cloud sync",
+              "Usually stays HEIC"
+            ],
+            [
+              "WhatsApp and similar",
+              "Converted, and heavily recompressed"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "So the photo you emailed opened fine and the one you copied off the phone by cable did not — same picture, different path, different format. Knowing this makes the behaviour predictable rather than mysterious."
+      },
+      {
+        "h2": "The 'Most Compatible' setting, and its cost"
+      },
+      {
+        "p": "On iPhone, Settings → Camera → Formats offers 'High Efficiency' (HEIC) and 'Most Compatible' (JPG). Switching to the latter ends the problem permanently."
+      },
+      {
+        "p": "The cost is storage: roughly double per photo. On a 128GB phone holding a few thousand photos that is meaningful; on a 512GB phone it rarely is. It also loses the 16-bit colour depth, which matters for heavy editing and not at all for ordinary photography."
+      },
+      {
+        "p": "The pragmatic answer for most people: if you regularly send photos to Windows users, upload to forms, or hand files to print shops, switch it. If your photos mostly stay in Apple's ecosystem, keep HEIC and convert the occasional file that needs to leave."
+      },
+      {
+        "h2": "Converting without losing more than necessary"
+      },
+      {
+        "p": "HEIC to JPG is a lossy-to-lossy conversion, so it costs one generation. Two things reduce that cost:"
+      },
+      {
+        "ul": [
+          "**Convert from the original,** not from a copy that has already been through a messaging app. WhatsApp and similar recompress aggressively, and converting their output stacks the damage.",
+          "**Choose a high quality setting.** [HEIC to JPG](/tools/heic-to-jpg) at high quality is visually indistinguishable from the source for ordinary photographs.",
+          "**Use [HEIC to PNG](/tools/heic-to-png) if the image will be edited further,** since PNG is lossless and will not degrade across further saves. The file is much larger, which is the trade."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -419,7 +671,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Google's format is genuinely smaller than JPG and PNG. Here is where it belongs and where it causes trouble.",
     "date": "2026-10-07",
     "dateLabel": "October 7, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "🌐",
     "keywords": [
@@ -512,6 +764,41 @@ export const formatsArticles: BlogArticle[] = [
         "note": "Converting WebP to PNG produces a lossless copy of what remains, but does not recover detail already discarded if the WebP was lossy."
       },
       {
+        "h2": "Saving an image that turns out to be WebP"
+      },
+      {
+        "p": "The commonest encounter with WebP is involuntary: you right-click an image on a website, save it, and end up with a file nothing on your computer will open."
+      },
+      {
+        "p": "This happens because many sites now serve WebP to browsers that support it, transparently. The image displayed perfectly in your browser — which supports WebP — and the file you saved is that same WebP."
+      },
+      {
+        "p": "Options, roughly in order of convenience: convert it with [WebP to JPG](/tools/webp-to-jpg) or [WebP to PNG](/tools/webp-to-png); or take a screenshot of the displayed image, which costs quality but sidesteps the format entirely; or check whether the site offers a download link, which often serves a conventional format."
+      },
+      {
+        "h2": "Choosing between the two conversion targets"
+      },
+      {
+        "p": "Which you convert to depends on what the WebP contains, and the rule mirrors the JPG-versus-PNG decision."
+      },
+      {
+        "ul": [
+          "**A photograph → JPG.** WebP was almost certainly lossy already, so JPG costs one further generation, which at high quality is imperceptible.",
+          "**A logo, icon or graphic → PNG.** These are usually lossless WebP, and PNG preserves them exactly. Converting to JPG would introduce fringing around the edges.",
+          "**Anything with transparency → PNG.** JPG cannot store it, and the transparent area will be filled, usually with white.",
+          "**An animated WebP → neither.** Both are single-frame formats. You would need GIF or a video format, and the result will be larger."
+        ]
+      },
+      {
+        "h2": "Should you use WebP on your own site?"
+      },
+      {
+        "p": "If you publish images on the web, the case is strong. Files are typically 25–35% smaller than equivalent JPG, browser support is effectively universal now, and page load time is a ranking factor as well as a user experience one."
+      },
+      {
+        "p": "Two caveats worth planning for. **Provide a fallback** for the small remainder of traffic on old software — the `<picture>` element handles this cleanly. And **keep your originals** in a conventional format: WebP is a delivery format, and you do not want your only copy of an image in a format that is awkward to hand to a print shop or a client."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -544,7 +831,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Enormous files nobody emails, yet still mandatory in archiving, printing and document management.",
     "date": "2026-10-15",
     "dateLabel": "October 15, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "🗂️",
     "keywords": [
@@ -596,6 +883,50 @@ export const formatsArticles: BlogArticle[] = [
         "p": "For scanned documents PDF has largely won: it compresses better, carries a searchable text layer, and opens everywhere. TIFF retains an edge only where absolute pixel fidelity is required by policy. [PDF to TIFF](/tools/pdf-to-tiff) exists for when someone insists otherwise."
       },
       {
+        "h2": "Why TIFF files vary so much in size"
+      },
+      {
+        "p": "Two TIFFs of the same page can differ by a factor of ten, which surprises people who assume the format is simply large. TIFF is a container that supports several compression schemes, and which one was used dominates the file size."
+      },
+      {
+        "ul": [
+          "**Uncompressed.** Every pixel stored raw. An A4 page at 300 DPI in colour is roughly 25MB. This is what people mean when they call TIFF enormous.",
+          "**LZW.** Lossless, general purpose, typically halves the size. Widely supported.",
+          "**Deflate (ZIP).** Lossless, usually slightly better than LZW on photographic content.",
+          "**CCITT Group 4.** Lossless, bitonal only. Extremely efficient for black-and-white text — a scanned page can be under 100KB. This is what fax and document management systems use.",
+          "**JPEG-in-TIFF.** Lossy, which somewhat defeats the point of choosing TIFF, but occasionally used for photographic archives where size matters."
+        ]
+      },
+      {
+        "p": "If you are producing TIFFs, choosing Group 4 for bitonal document scans and LZW or Deflate for everything else gets you the format's benefits without its reputation."
+      },
+      {
+        "h2": "Multi-page TIFF and its awkwardness"
+      },
+      {
+        "p": "TIFF's multi-page capability is genuinely useful and unevenly supported. Windows Photo Viewer handles it; many image editors open only the first page silently; some web browsers will not open TIFF at all."
+      },
+      {
+        "p": "That inconsistency is the practical argument for converting document TIFFs to PDF. [TIFF to JPG](/tools/tiff-to-jpg) gives you one image per page, which you can then [combine into a PDF](/tools/jpg-to-pdf) — or convert directly if your workflow supports it. The result opens everywhere, compresses better, and can carry a searchable text layer after [OCR](/tools/ocr)."
+      },
+      {
+        "h2": "When you genuinely should keep TIFF"
+      },
+      {
+        "p": "Despite everything above, there are cases where TIFF is correct and converting would be a mistake:"
+      },
+      {
+        "ul": [
+          "**Archival masters** where policy or professional standards require lossless pixel-exact preservation.",
+          "**Print production** using CMYK colour and spot channels, which PDF handles but many conversion paths do not preserve.",
+          "**Scientific and medical imaging** where every pixel value is data rather than a picture.",
+          "**Where a downstream system requires it,** which is the most common reason in practice — document management platforms and some government systems still specify TIFF."
+        ]
+      },
+      {
+        "p": "In all of those, keep the TIFF as the master and distribute a PDF derived from it. That gives you preservation and usability without choosing between them."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -628,7 +959,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "The difference between a format that adapts to your screen and one that insists on a fixed page.",
     "date": "2026-10-23",
     "dateLabel": "October 23, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "📖",
     "keywords": [
@@ -703,6 +1034,49 @@ export const formatsArticles: BlogArticle[] = [
         "note": "Converting the other way works poorly for anything with real layout. A PDF stores positioned glyphs, not structure, so reconstructing flowing chapters is guesswork. Novels convert acceptably; textbooks do not."
       },
       {
+        "h2": "What is actually inside an EPUB"
+      },
+      {
+        "p": "An EPUB is a ZIP archive with a defined structure, and you can inspect one by renaming it to .zip and opening it. Inside you will find:"
+      },
+      {
+        "ul": [
+          "**XHTML files**, usually one per chapter, holding the actual text.",
+          "**CSS**, defining typography and layout suggestions the reader may or may not honour.",
+          "**A package file** listing the contents, the reading order, and metadata like title and author.",
+          "**A navigation document** — the table of contents.",
+          "**Images and fonts**, if the book uses them."
+        ]
+      },
+      {
+        "p": "That is why EPUB reflows so naturally: it is fundamentally a small website, and web content has always adapted to the viewport. It is also why converting a PDF to EPUB works badly — a PDF has no chapters, no headings, no structure to map onto that skeleton."
+      },
+      {
+        "h2": "Choosing a page size when converting to PDF"
+      },
+      {
+        "p": "Converting an EPUB to PDF forces a decision the EPUB deliberately avoided: what size is a page? The choice affects the result more than people expect."
+      },
+      {
+        "ul": [
+          "**A4 or Letter** for printing. Expect long lines, which are harder to read than a book's typical measure. Consider generous margins to shorten them.",
+          "**A5** approximates a paperback and reads considerably better on screen and in print.",
+          "**A device-shaped page** — roughly 6×9 inches — suits reading on a tablet, which is often the actual destination."
+        ]
+      },
+      {
+        "p": "[EPUB to PDF](/tools/epub-to-pdf) will pick a sensible default, but if the output is destined for a specific use it is worth thinking about. A novel converted to A4 with full-width text is markedly less pleasant to read than the same novel at A5."
+      },
+      {
+        "h2": "DRM, and why some files will not convert"
+      },
+      {
+        "p": "Books purchased from major stores are frequently protected by DRM, which encrypts the content and ties it to an account or device. A DRM-protected EPUB is not readable by any tool other than the authorised reader, and no conversion tool will open it."
+      },
+      {
+        "p": "This is a licensing arrangement rather than a technical obstacle, and it is worth understanding rather than fighting. Books from sources that sell DRM-free files, public domain texts, and documents you produce yourself convert without difficulty. If a purchased book will not convert, DRM is almost always why."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -735,7 +1109,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Perfectly sharp at any scale, tiny for logos, and rejected by half the upload forms on the internet.",
     "date": "2026-11-02",
     "dateLabel": "November 2, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Explainers",
     "emoji": "📐",
     "keywords": [
@@ -786,6 +1160,44 @@ export const formatsArticles: BlogArticle[] = [
         "p": "SVG can contain scripts, because it is an XML document rather than a passive image. That is why many upload forms reject it outright, and why you should not open SVGs from untrusted sources in a browser. Converting to PNG removes this entirely."
       },
       {
+        "h2": "Choosing an export size"
+      },
+      {
+        "p": "Rasterising an SVG means committing to a resolution, and the decision is irreversible in practice."
+      },
+      {
+        "p": "Export at **at least twice the intended display size**. High-density screens — most phones and many laptops — render two or more physical pixels per logical pixel, so an image exported at exactly its display size looks soft on them."
+      },
+      {
+        "p": "For print, work from the physical size: 300 DPI means a graphic printed 50mm wide needs roughly 590 pixels. Under-exporting for print is the more expensive mistake, because it is discovered after the run."
+      },
+      {
+        "p": "[SVG to PNG](/tools/svg-to-png) takes a scale or explicit dimensions. Keep the SVG afterwards — it is the master, and you can always produce another raster from it."
+      },
+      {
+        "h2": "Why SVG uploads are so often blocked"
+      },
+      {
+        "p": "An SVG is an XML document, not a passive image, and the specification permits embedded scripts and external references. That makes it a genuine attack surface: an SVG served from a site can execute in the context of that site."
+      },
+      {
+        "p": "Consequently many upload forms reject SVG outright, and those that accept it usually sanitise it. This is not excessive caution — it is a well-understood class of vulnerability."
+      },
+      {
+        "p": "The practical implications: convert to PNG before uploading anywhere that will accept it; do not open SVGs from untrusted sources in a browser; and if you accept SVG uploads on a site you run, sanitise them properly."
+      },
+      {
+        "h2": "When SVG is genuinely the wrong choice"
+      },
+      {
+        "ul": [
+          "**Photographs.** Tracing produces an enormous file that looks like a poster reduction of your image.",
+          "**Highly detailed illustrations.** Past a few thousand paths, an SVG can exceed the equivalent raster in both size and render time.",
+          "**Anything going to a system that does not accept it.** Elegance is no help if it will not upload.",
+          "**Content with text you do not want extracted,** since text in an SVG is real, selectable text."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -818,7 +1230,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Both hold tables. Only one of them remembers that 007 is not the number seven.",
     "date": "2026-11-10",
     "dateLabel": "November 10, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "📊",
     "keywords": [
@@ -875,6 +1287,51 @@ export const formatsArticles: BlogArticle[] = [
         "p": "For distributing tabular data that must not be altered, [CSV to PDF](/tools/csv-to-pdf) or [Excel to PDF](/tools/excel-to-pdf) produces a fixed, readable document. Going the other way, [PDF to Excel](/tools/pdf-to-excel) extracts tables back into a workbook — well where borders exist, less well where they do not."
       },
       {
+        "h2": "Opening a CSV without letting the spreadsheet mangle it"
+      },
+      {
+        "p": "Double-clicking a CSV is where most damage happens, because the spreadsheet applies its own guesses about every column with no chance to intervene."
+      },
+      {
+        "p": "The fix is to import rather than open. In Excel that is Data → From Text/CSV; in Google Sheets it is File → Import with the conversion option turned off; LibreOffice shows an import dialog automatically."
+      },
+      {
+        "p": "In that dialog you can set individual columns to **Text**, which stops the spreadsheet interpreting them. Do this for anything that is an identifier rather than a quantity:"
+      },
+      {
+        "ul": [
+          "Account numbers, invoice numbers, product codes.",
+          "Anything with leading zeros — postcodes, some phone numbers, employee IDs.",
+          "Long numeric strings that would become scientific notation.",
+          "Values that look like dates but are not, such as `3-4` meaning a range.",
+          "Version numbers like `1.10`, which becomes `1.1` if treated as a number."
+        ]
+      },
+      {
+        "h2": "The date problem specifically"
+      },
+      {
+        "p": "Dates deserve their own warning because the failure is silent and the data looks plausible afterwards."
+      },
+      {
+        "p": "A CSV containing `03/04/2026` does not record whether that is 3 April or 4 March. The spreadsheet decides based on the machine's locale. Open the same file in London and New York and you get different dates, with no error and no indication that anything happened."
+      },
+      {
+        "p": "If you control the export, use ISO format — `2026-04-03` — which is unambiguous, sorts correctly as text, and is understood everywhere. If you do not control it, find out the source convention before you rely on any date column."
+      },
+      {
+        "h2": "Encoding, and how to recognise the failure"
+      },
+      {
+        "p": "If accented characters, currency symbols or non-Latin scripts appear as sequences like `Ã©` or `â€™`, the file was written in one encoding and read in another. UTF-8 written and interpreted as Latin-1 is the classic case."
+      },
+      {
+        "p": "The fix is to reopen the file specifying UTF-8 in the import dialog. The data is not damaged — it was only misinterpreted — so nothing is lost provided you have not saved over it in the wrong encoding."
+      },
+      {
+        "p": "When exporting, choose UTF-8 unless a specific system requires otherwise. Some older tools default to a regional encoding, which works locally and breaks the moment the file crosses a border."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -907,7 +1364,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Instant on your machine, thirty seconds on theirs. Usually structure, not network.",
     "date": "2026-11-18",
     "dateLabel": "November 18, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Explainers",
     "emoji": "⚡",
     "keywords": [
@@ -960,6 +1417,44 @@ export const formatsArticles: BlogArticle[] = [
         "p": "Most readers show 'Fast Web View: Yes' in document properties. If you publish PDFs regularly and have never checked this, it is worth looking — it is a free improvement that most people never make."
       },
       {
+        "h2": "What the reader does differently"
+      },
+      {
+        "p": "The mechanism is worth understanding because it explains why the benefit is invisible locally and dramatic remotely."
+      },
+      {
+        "p": "Opening a normal PDF, a reader must first locate the cross-reference table. That table sits at the **end** of the file, so over a network the reader either downloads the whole file or issues a range request for the tail, then further requests for whatever objects the first page needs — which may be scattered anywhere in the file. Several round trips before a single pixel appears."
+      },
+      {
+        "p": "A linearised PDF is reorganised so that everything page one needs sits contiguously at the front, preceded by a hint table describing where every other page's objects live. The reader fetches the opening block, renders page one immediately, and then requests exactly the bytes it needs for page seven when you jump there."
+      },
+      {
+        "p": "On a local disk, seeking to the end of a file costs nothing, which is why the difference is undetectable on the machine that produced the document — and why nobody notices the problem until a visitor complains."
+      },
+      {
+        "h2": "When the benefit is largest"
+      },
+      {
+        "ul": [
+          "**Long documents.** A 300-page report is where the difference between 'first page now' and 'everything first' is most stark.",
+          "**Documents embedded in a page** rather than downloaded, where the visitor is waiting on screen.",
+          "**Mobile audiences,** on connections where a 20MB download is slow and expensive.",
+          "**Documents people sample** rather than read — catalogues, manuals, reference material where the reader jumps to one section."
+        ]
+      },
+      {
+        "p": "Conversely it makes no difference at all to a file that will be downloaded and opened locally, which is most email attachments. Linearising your invoices achieves nothing."
+      },
+      {
+        "h2": "Keeping it once you have it"
+      },
+      {
+        "p": "Linearisation is fragile in one specific way: it describes a byte layout, and any tool that rewrites the file destroys it. Adding a page, filling a form field, re-saving in a reader — all of these can silently produce a non-linearised file that looks identical."
+      },
+      {
+        "p": "So make it the final operation. Compress first, then [linearise](/tools/linearize-pdf), then upload. If you edit the document later, linearise again before republishing, and check document properties to confirm 'Fast Web View' still reads Yes."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -992,7 +1487,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Plain text that stays readable as plain text. Here is what happens when you turn it into a document.",
     "date": "2026-11-26",
     "dateLabel": "November 26, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Explainers",
     "emoji": "📄",
     "keywords": [
@@ -1044,6 +1539,91 @@ export const formatsArticles: BlogArticle[] = [
         "note": "Keep the Markdown as your source of truth and treat the PDF as an export. Editing the PDF and losing the Markdown throws away everything that made the format worth using."
       },
       {
+        "h2": "The syntax that covers most writing"
+      },
+      {
+        "p": "Markdown's whole appeal is that the useful subset is small enough to hold in your head. Almost everything people write uses these:"
+      },
+      {
+        "table": {
+          "headers": [
+            "You type",
+            "You get"
+          ],
+          "rows": [
+            [
+              "`# Heading`",
+              "A top-level heading; `##` for the next level down"
+            ],
+            [
+              "`**bold**`",
+              "Bold text"
+            ],
+            [
+              "`*italic*`",
+              "Italic text"
+            ],
+            [
+              "`- item`",
+              "A bullet list"
+            ],
+            [
+              "`1. item`",
+              "A numbered list"
+            ],
+            [
+              "`[text](url)`",
+              "A link"
+            ],
+            [
+              "`` `code` ``",
+              "Inline code"
+            ],
+            [
+              "`> quote`",
+              "A block quote"
+            ],
+            [
+              "`---`",
+              "A horizontal rule"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "That is genuinely most of it. Tables, footnotes and images exist too, but a document written with only the above converts predictably in every renderer, which matters when the output is going to PDF."
+      },
+      {
+        "h2": "Where renderers disagree"
+      },
+      {
+        "p": "Markdown has no single specification, which is why the same file can produce different output in different tools. The core above is universal. Beyond it, expect variation in:"
+      },
+      {
+        "ul": [
+          "**Tables** — supported nearly everywhere now, but column alignment syntax varies.",
+          "**Footnotes** — common but not universal.",
+          "**Task lists** with checkboxes — a GitHub extension many renderers ignore.",
+          "**Embedded HTML** — some renderers pass it through, some escape it, some strip it.",
+          "**Diagrams** — Mermaid and similar are renderer-specific and will almost certainly not survive conversion."
+        ]
+      },
+      {
+        "p": "If your document must convert cleanly, stay inside the core syntax. If you are using extensions, test the conversion before you depend on it rather than discovering the problem at submission."
+      },
+      {
+        "h2": "Preparing a Markdown file for conversion"
+      },
+      {
+        "ol": [
+          "**Resolve image paths.** Relative paths to local files frequently fail at conversion. Use absolute URLs, or check that your converter resolves paths relative to the source file.",
+          "**Shorten table columns.** Markdown tables have no width control, so a column of long URLs will overflow the page.",
+          "**Break long code lines** manually. Most renderers clip rather than wrap them.",
+          "**Add a title heading** if you want one — Markdown has no metadata concept, so the filename will not become a heading.",
+          "**Convert with [md-to-pdf](/tools/md-to-pdf)** and read the output before distributing it."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1076,7 +1656,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "Two formats that arrive unannounced and cause the same puzzled reaction. Here is what each is for.",
     "date": "2026-12-02",
     "dateLabel": "December 2, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Explainers",
     "emoji": "📃",
     "keywords": [
@@ -1124,6 +1704,49 @@ export const formatsArticles: BlogArticle[] = [
         "p": "Neither, usually. Send PDF if it does not need editing, and .docx if it does. RTF and ODT are appropriate when a recipient or a policy specifically requires them."
       },
       {
+        "h2": "Where you actually encounter each"
+      },
+      {
+        "p": "Both formats appear in specific contexts rather than at random, and knowing which tells you what to expect."
+      },
+      {
+        "p": "**RTF** turns up in older government and legal systems, in software that generates documents programmatically, and as the default of some simple editors — WordPad historically, and various form-letter systems. It is also what you get when a system needs formatted text and cannot assume any particular word processor."
+      },
+      {
+        "p": "**ODT** turns up from LibreOffice and OpenOffice users, and from public sector organisations in jurisdictions that mandate open document standards. Several European governments require it for procurement and internal documents."
+      },
+      {
+        "h2": "What survives conversion between them and Word"
+      },
+      {
+        "ul": [
+          "**Basic formatting** — bold, italic, headings, lists — survives in all directions reliably.",
+          "**Tables** survive, though complex nested tables can shift.",
+          "**Images** survive, though positioning of floating images is the least reliable element.",
+          "**Styles** map imperfectly. A custom style may become direct formatting.",
+          "**Track changes** may be lost or converted to plain text, depending on direction.",
+          "**Fields and cross-references** frequently become static text."
+        ]
+      },
+      {
+        "p": "For a letter, a report or a CV, conversion is uneventful. For a heavily formatted document with custom styles and complex layout, expect to check and adjust."
+      },
+      {
+        "h2": "What to convert to"
+      },
+      {
+        "p": "The decision is about what happens next, not about the source format."
+      },
+      {
+        "ol": [
+          "**Nothing further needed?** Convert to PDF — [RTF](/tools/rtf-to-pdf) or [ODT](/tools/odt-to-pdf). Fixed appearance, opens everywhere.",
+          "**Needs editing?** Convert to .docx, or edit in LibreOffice which handles both natively.",
+          "**Needs to go back to the sender?** Keep the original format so they can open it.",
+          "**Long-term archive?** [PDF/A](/tools/pdf-to-pdfa), which guarantees rendering decades from now.",
+          "**Feeding into software?** Plain text, if formatting carries no meaning."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1156,7 +1779,7 @@ export const formatsArticles: BlogArticle[] = [
     "excerpt": "No fonts, no images, no pages. That absence is exactly why it outlives everything else.",
     "date": "2026-12-08",
     "dateLabel": "December 8, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Explainers",
     "emoji": "📋",
     "keywords": [
@@ -1205,6 +1828,40 @@ export const formatsArticles: BlogArticle[] = [
       },
       {
         "note": "Encoding is the one thing that goes wrong with plain text. Save as UTF-8 unless you have a specific reason not to; anything else risks accented characters and non-Latin scripts turning into nonsense on another machine."
+      },
+      {
+        "h2": "Encoding, in practical terms"
+      },
+      {
+        "p": "Plain text is characters, and a character has to be stored as a number. An **encoding** is the mapping between the two, and disagreement about which mapping applies is the only real way plain text goes wrong."
+      },
+      {
+        "p": "**UTF-8** is the answer for essentially all new work. It covers every script, it is backward-compatible with ASCII for English text, and it is the default on the web and on modern operating systems."
+      },
+      {
+        "p": "The failure looks like this: text written as UTF-8 and read as Latin-1 turns `café` into `cafÃ©` and a curly apostrophe into `â€™`. The data is intact — it is being misread, not damaged — so reopening it with the correct encoding restores it, provided you have not saved over it in the meantime."
+      },
+      {
+        "h2": "Line endings, the other portability trap"
+      },
+      {
+        "p": "Windows ends lines with two characters (carriage return and line feed); Unix, Linux and macOS use one. Most modern software handles both, but older tools and some programmatic parsers do not."
+      },
+      {
+        "p": "The symptoms are a file that appears as one enormous line, or one showing a stray character at the end of every line. Most text editors let you choose the convention, and for anything crossing platforms, Unix endings are the safer default."
+      },
+      {
+        "h2": "Where plain text beats a document format"
+      },
+      {
+        "ul": [
+          "**Version control.** A diff of plain text is readable; a diff of a binary document is not.",
+          "**Long-term readability.** No format to become obsolete and no software required.",
+          "**Programmatic processing.** No document parser needed.",
+          "**Speed.** Opens instantly at any size.",
+          "**Focus.** Nothing to fiddle with while you should be writing.",
+          "**Universality.** Every device made in the last fifty years can display it."
+        ]
       },
       {
         "h2": "Common questions"

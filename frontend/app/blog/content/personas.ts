@@ -11,7 +11,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Submission portals, lecture scans and reading packs. Five operations cover almost everything you will need across a degree.",
     "date": "2026-09-07",
     "dateLabel": "September 7, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Use Cases",
     "emoji": "🎓",
     "keywords": [
@@ -72,6 +72,51 @@ export const personasArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Reading and annotating course material"
+      },
+      {
+        "p": "Most student PDF time is spent reading rather than producing, and a few adjustments make that materially less painful."
+      },
+      {
+        "p": "**Crop journal articles before reading on a tablet.** Academic PDFs are laid out for A4 print with margins that consume a third of the page. On a tablet the reader scales the whole page, margins included, so your text ends up tiny. [Cropping](/tools/crop) the margins is thirty seconds and transforms readability."
+      },
+      {
+        "p": "**OCR anything scanned before you start highlighting.** Annotating a scan works, but you cannot search your own highlights afterwards, which defeats the point when revision comes around."
+      },
+      {
+        "h2": "Building a revision pack"
+      },
+      {
+        "p": "Toward examinations, a single well-assembled document beats a folder of forty files:"
+      },
+      {
+        "ol": [
+          "[Extract](/tools/extract-pages) the sections you actually need from each source rather than including whole books.",
+          "[Merge](/tools/merge) them in the order you plan to revise.",
+          "[Add page numbers](/tools/page-numbers) so your own notes can reference pages.",
+          "[OCR](/tools/ocr) anything scanned so the whole pack is searchable.",
+          "[Compress](/tools/compress) so it syncs to your phone without difficulty."
+        ]
+      },
+      {
+        "p": "The searchability is the real payoff. A 300-page revision pack you can search is a genuinely different resource from the same content spread across files you have to open one at a time."
+      },
+      {
+        "h2": "Group work and version confusion"
+      },
+      {
+        "p": "Group submissions fail in a specific and predictable way: someone submits the wrong version. Two habits prevent it."
+      },
+      {
+        "p": "**Put the date in the filename** and never reuse a name. `Report_2026-04-12.pdf` is unambiguous; `Report_final_v2_FINAL.pdf` is how the wrong file gets submitted."
+      },
+      {
+        "p": "**[Watermark](/tools/watermark) drafts as DRAFT** at low opacity. If a draft does get circulated or submitted by mistake, it is visibly a draft, which is a far better position than discovering afterwards that the marker read an incomplete version."
+      },
+      {
+        "note": "Check your institution's file naming rules before submitting. Some systems reject filenames containing spaces or special characters, and some require a specific format including a student number. A perfect document with the wrong filename still gets bounced."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -104,7 +149,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Your CV looked perfect and arrived scrambled. Here is what happened, and how to submit documents that survive the journey.",
     "date": "2026-09-15",
     "dateLabel": "September 15, 2026",
-    "readMinutes": 6,
+    "readMinutes": 9,
     "category": "Use Cases",
     "emoji": "💼",
     "keywords": [
@@ -171,6 +216,56 @@ export const personasArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Testing what a parser sees"
+      },
+      {
+        "p": "The copy-paste test is worth doing properly, because it is the closest you can get to reading your CV the way software does."
+      },
+      {
+        "ol": [
+          "Open your finished PDF.",
+          "Select all, copy.",
+          "Paste into a plain text editor — not Word, which will preserve some formatting and mask problems.",
+          "Read what appears."
+        ]
+      },
+      {
+        "p": "What you are looking for: is every section present? Is the reading order sensible, or has a two-column layout interleaved your skills into the middle of your job history? Are dates attached to the right roles? Did anything come out as gibberish?"
+      },
+      {
+        "p": "If the paste is empty, your CV has no text layer and is invisible to every automated system it meets. That is the single most damaging problem on this list and the easiest to miss, because the document looks perfect."
+      },
+      {
+        "h2": "Layout choices that survive parsing"
+      },
+      {
+        "ul": [
+          "**Single column for the main content.** Two-column designs are read out of order by many parsers, so your skills end up interleaved with your employment history.",
+          "**Standard section headings.** 'Work Experience', 'Education', 'Skills'. Parsers pattern-match on these; creative alternatives are not recognised.",
+          "**Text, not graphics.** A skills chart, a timeline graphic, or a header image containing your contact details are invisible to parsing. Put anything essential in text as well.",
+          "**Simple tables or none.** Borderless tables often extract as run-together text.",
+          "**Dates in a consistent format,** so a parser can associate them with roles."
+        ]
+      },
+      {
+        "p": "None of this requires an ugly CV. It requires the information to exist in text form, whatever else you do visually."
+      },
+      {
+        "h2": "The supporting documents"
+      },
+      {
+        "p": "Where an application asks for certificates, references or a portfolio alongside the CV, assembly matters:"
+      },
+      {
+        "ol": [
+          "Put the CV first. It is what gets read.",
+          "Cover letter second, if requested.",
+          "Certificates and references after, [OCR](/tools/ocr)'d if they are scans.",
+          "[Merge](/tools/merge) into one file only if the form asks for one; otherwise upload separately so each is findable.",
+          "[Compress to size](/tools/compress-to-size) against any stated limit, and check the CV is still crisp."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -203,7 +298,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "One mistake in this area has caused genuine published breaches. Here is how to avoid it.",
     "date": "2026-09-23",
     "dateLabel": "September 23, 2026",
-    "readMinutes": 7,
+    "readMinutes": 10,
     "category": "Use Cases",
     "emoji": "⚖️",
     "keywords": [
@@ -257,6 +352,51 @@ export const personasArticles: BlogArticle[] = [
         "p": "We delete uploads within an hour and do not inspect contents. That is still a transfer to a third party. For privileged material, your professional obligations may well require offline tools — that is a judgement for you and your firm, not a technical question."
       },
       {
+        "h2": "Bates numbering and disclosure sets"
+      },
+      {
+        "p": "Litigation disclosure conventionally uses a continuous reference across the entire set — often a party prefix and a zero-padded number, such as `CLM000001`. Every page in every document carries a unique identifier, so any page can be cited unambiguously across parties and years."
+      },
+      {
+        "p": "Two practical constraints follow. The sequence must be applied **after** the set is final, because inserting a document later means either renumbering everything or accepting a gap. And it must be applied to the whole set as one operation, not per document, or the sequence restarts."
+      },
+      {
+        "p": "[Adding page numbers](/tools/page-numbers) covers straightforward continuous numbering. Dedicated Bates tools handle prefixes and padding, which matters at scale."
+      },
+      {
+        "h2": "Privilege review and what survives a careless export"
+      },
+      {
+        "p": "Beyond the page body, several things carry information that should not leave the firm:"
+      },
+      {
+        "ul": [
+          "**Document metadata** — author, company, file path. The path in particular can disclose a client name or matter reference.",
+          "**Track changes and comments** in a Word document exported without accepting them.",
+          "**Earlier revisions** retained by incremental saves in the PDF itself.",
+          "**Embedded attachments**, which a page-level review will not surface.",
+          "**Filenames**, which frequently encode the matter and sometimes the issue."
+        ]
+      },
+      {
+        "p": "[Remove metadata](/tools/remove-metadata) and [flatten](/tools/flatten-pdf) address most of this, and [compress](/tools/compress) forces the full rewrite that discards retained revisions."
+      },
+      {
+        "h2": "Making a bundle usable in a hearing"
+      },
+      {
+        "p": "A bundle that works under pressure has properties beyond being complete:"
+      },
+      {
+        "ol": [
+          "**Searchable throughout.** [OCR](/tools/ocr) every scanned exhibit. Finding a document by keyword in a hearing is worth the preparation time many times over.",
+          "**Continuously numbered,** so a reference lands in one place.",
+          "**Bookmarked by document,** so navigation does not require scrolling.",
+          "**Consistently oriented.** [Rotate](/tools/rotate) every sideways exhibit — a page turned in a hearing is a visible fumble.",
+          "**Under the filing size limit,** verified before the deadline rather than at it."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -289,7 +429,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Encrypted statements, tables that need to be spreadsheets, and a shoebox of receipts. A workflow for each.",
     "date": "2026-10-01",
     "dateLabel": "October 1, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Use Cases",
     "emoji": "🧾",
     "keywords": [
@@ -340,6 +480,49 @@ export const personasArticles: BlogArticle[] = [
         "p": "[Merge](/tools/merge) statements, invoices and supporting documents in a logical order, [add page numbers](/tools/page-numbers), and [compress](/tools/compress) if you are emailing the result. Keep the uncompressed original — the compressed copy is for distribution, not for your records."
       },
       {
+        "h2": "Building a reconciliation-ready extract"
+      },
+      {
+        "p": "Extracted transaction data usually needs cleaning before it is usable, and the same problems recur across every bank."
+      },
+      {
+        "ul": [
+          "**Split the balance column.** Running balances shift by one row if any description wrapped, so verify the first and last balance against the statement before trusting the middle.",
+          "**Normalise the date column** to ISO format immediately. Statements use regional formats and a mixed set is a silent disaster.",
+          "**Handle parenthesised negatives.** `(1,234.00)` means −1234 and extracts as text. Convert the whole column at once with a formula.",
+          "**Remove repeated headers.** Multi-page statements repeat column headings, which extract as data rows. Filter and delete.",
+          "**Check the transaction count** against the statement's own total if it states one."
+        ]
+      },
+      {
+        "h2": "Receipts that fade"
+      },
+      {
+        "p": "Thermal paper receipts — the majority of retail and fuel receipts — fade with heat and light, sometimes to complete illegibility within months. A shoebox opened at year end frequently contains blank slips."
+      },
+      {
+        "p": "This is the strongest argument for capturing them as they arrive rather than in a batch. A photograph taken the same week is legible; the same receipt photographed in January may not be."
+      },
+      {
+        "p": "When capturing, [greyscale](/tools/image-to-grayscale) helps twice over: smaller files, and increased contrast that makes faint thermal print more readable rather than less."
+      },
+      {
+        "h2": "Preparing a pack for an accountant or auditor"
+      },
+      {
+        "ol": [
+          "[Merge](/tools/merge) by period — one file per month or quarter, not one per document.",
+          "[OCR](/tools/ocr) everything so amounts and vendors are searchable.",
+          "[Add page numbers](/tools/page-numbers) so queries can reference a specific page.",
+          "Include a contents page listing what is in the pack and in what order.",
+          "[Compress](/tools/compress) the copy you send; keep the full-quality original.",
+          "[Remove metadata](/tools/remove-metadata) if the pack leaves your organisation."
+        ]
+      },
+      {
+        "p": "An organised pack reduces the time an accountant spends sorting, which for most engagements translates directly into a smaller bill."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -372,7 +555,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Readings, worksheets, handouts and marking — four workflows that cover most of a teaching term.",
     "date": "2026-10-09",
     "dateLabel": "October 9, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Use Cases",
     "emoji": "🍎",
     "keywords": [
@@ -423,6 +606,45 @@ export const personasArticles: BlogArticle[] = [
         "note": "Before distributing anything, [remove metadata](/tools/remove-metadata). Document properties can carry your file paths, and occasionally the name of the student whose work you adapted an example from."
       },
       {
+        "h2": "Copyright, briefly but seriously"
+      },
+      {
+        "p": "Assembling course packs from published material sits inside a licensing framework that varies by country and institution, and it is worth knowing rather than assuming."
+      },
+      {
+        "p": "Most institutions hold a blanket licence covering limited copying for teaching — often a chapter or a fixed percentage of a work, with reporting requirements. Scanning a whole book is outside every such licence."
+      },
+      {
+        "p": "The practical guidance: check your institution's policy before assembling, prefer linking to licensed library holdings over redistributing files, and where you do copy, record what and how much. [Extracting](/tools/extract-pages) only the pages you need is both good practice and usually a licensing requirement."
+      },
+      {
+        "h2": "Accessibility is a legal requirement, not a courtesy"
+      },
+      {
+        "p": "In most jurisdictions educational institutions have statutory obligations toward students with disabilities, and inaccessible course material is a compliance failure as well as an exclusion."
+      },
+      {
+        "p": "Two things account for most of it. **Scanned readings without [OCR](/tools/ocr)** are blank documents to a screen reader. **Print-to-PDF instead of export** discards the heading structure that assistive technology uses to navigate."
+      },
+      {
+        "p": "Both take seconds to fix and neither is visible to a sighted reader, which is exactly why they persist."
+      },
+      {
+        "h2": "Marking efficiently on a tablet"
+      },
+      {
+        "ol": [
+          "Ask for submissions in PDF, or [convert](/tools/word-to-pdf) on receipt so annotations render consistently.",
+          "[Crop](/tools/crop) wide margins before marking — more legible text at the same zoom.",
+          "[Merge](/tools/merge) a cohort into one file if you mark in batches; navigating one document beats opening thirty.",
+          "[Add page numbers](/tools/page-numbers) across the merged file so feedback can reference a location.",
+          "Export annotations, or [flatten](/tools/flatten-pdf) before returning so students see your marks regardless of their reader."
+        ]
+      },
+      {
+        "p": "That last point matters more than it seems. Annotations that render in your app and not in the student's mean feedback that was never received."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -455,7 +677,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Looking professional and getting paid, both of which depend on sending the right kind of file.",
     "date": "2026-10-19",
     "dateLabel": "October 19, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Use Cases",
     "emoji": "💻",
     "keywords": [
@@ -505,6 +727,48 @@ export const personasArticles: BlogArticle[] = [
         "note": "For contracts, keep an unwatermarked, unflattened master. Send the marked version; keep the clean one for your records and for producing the final."
       },
       {
+        "h2": "An invoice that gets paid faster"
+      },
+      {
+        "p": "Accounts departments process invoices in bulk, and small frictions delay payment. A few habits remove them."
+      },
+      {
+        "ul": [
+          "**A findable filename.** `Invoice_0042_ClientName_2026-03-14.pdf`. Their system may rename it, but yours is what they see first.",
+          "**A visible invoice number** near the top, which is what they will quote back to you.",
+          "**Purchase order number** where the client uses them. Missing PO numbers are the single commonest cause of an invoice sitting unpaid.",
+          "**Payment terms and due date** stated explicitly rather than implied.",
+          "**One PDF,** not a PDF plus separate timesheets. [Merge](/tools/merge) supporting detail behind the invoice."
+        ]
+      },
+      {
+        "h2": "Protecting your work in proposals"
+      },
+      {
+        "p": "A detailed proposal contains your thinking, and it goes to prospects who may not become clients."
+      },
+      {
+        "p": "[Watermarking](/tools/watermark) with the client's name serves two purposes: it makes clear the document was prepared for them specifically, and it makes casual forwarding traceable. [Protecting](/tools/protect) against copying adds friction against wholesale reuse, though it is a speed bump rather than a barrier."
+      },
+      {
+        "p": "Neither prevents a determined party from using your ideas. What they do is make it obvious that the document was not intended to circulate, which changes most people's behaviour."
+      },
+      {
+        "h2": "Keeping records that survive a dispute"
+      },
+      {
+        "ol": [
+          "Keep the **exact PDF you sent**, not the working file it came from.",
+          "Keep signed documents [flattened](/tools/flatten-pdf) so they cannot be altered.",
+          "[Merge](/tools/merge) the proposal, the signed acceptance and any variation into one record per engagement.",
+          "[Remove metadata](/tools/remove-metadata) from outgoing copies but keep it on your own records, where creation dates may be useful.",
+          "Store by client and date, not by document type."
+        ]
+      },
+      {
+        "p": "The thing you will want in a dispute is what was agreed and when. A single merged record per engagement answers that immediately."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -537,7 +801,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "More paperwork per transaction than almost any consumer process, and most of it arrives as scans of scans.",
     "date": "2026-10-27",
     "dateLabel": "October 27, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Use Cases",
     "emoji": "🏠",
     "keywords": [
@@ -582,6 +846,51 @@ export const personasArticles: BlogArticle[] = [
         "note": "Drawing a box over a signature does not remove it. Verify by copying the text out of your redacted file before sending it to anyone."
       },
       {
+        "h2": "Why property packs get unwieldy"
+      },
+      {
+        "p": "A residential transaction pack routinely runs to sixty or eighty pages drawn from a dozen sources: title documents from the registry, local authority searches, a survey, energy certificates, warranties, and correspondence. Each arrives in a different format, at a different page size, scanned at a different quality."
+      },
+      {
+        "p": "Assembled naively the result is a document that prints inconsistently, cannot be searched, and is too large to email. Assembled deliberately it is a single searchable file a buyer's solicitor can work through in one sitting — which is a genuine commercial advantage when a chain is moving."
+      },
+      {
+        "h2": "Normalising page sizes before assembly"
+      },
+      {
+        "p": "This is the step most people skip. Registry documents, searches and surveys frequently use different page dimensions, and floor plans are often A3 or a custom size. [Resize pages](/tools/resize-pages) to a common size before merging, or the printed pack alternates between sizes and the A3 plan either scales down illegibly or is clipped."
+      },
+      {
+        "p": "Where a floor plan genuinely needs to stay large, keep it as a separate file rather than forcing it into the pack. A plan nobody can read is worse than a plan supplied separately."
+      },
+      {
+        "h2": "Handling listing photography"
+      },
+      {
+        "p": "Photographs are where brochure files balloon. A camera produces 5–8MB per image; twenty of those is a document that bounces from every mailbox it meets."
+      },
+      {
+        "p": "Resize before assembly, not after. [Resize images](/tools/image-resize) to around 1600 pixels on the long edge and [compress](/tools/image-compress) them, then build the PDF. You will get a visibly better brochure at 4MB than you would by assembling full-resolution images and compressing the finished 90MB PDF down to the same figure — because compressing a PDF works on the images anyway, but with less information about what matters."
+      },
+      {
+        "h2": "What must not travel with the pack"
+      },
+      {
+        "p": "A pack sent to multiple prospective buyers carries whatever the source documents carried. Before distribution, check for and remove:"
+      },
+      {
+        "ul": [
+          "Vendor contact details and forwarding addresses not needed by the recipient.",
+          "Bank account details on completion statements or invoices.",
+          "Signatures on returned forms, which can be lifted and reused.",
+          "Internal file references or agent notes in document metadata.",
+          "Previous transaction history where an old document was reused as a template."
+        ]
+      },
+      {
+        "p": "[Redact](/tools/pdf-redact) these properly and verify by copying the text out afterwards. A black rectangle drawn over an account number leaves the number in the file, retrievable by anyone who selects and copies the page."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -614,7 +923,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "A fifth of your library may be invisible to search without you knowing. Here is how to fix that and four other research workflows.",
     "date": "2026-11-04",
     "dateLabel": "November 4, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Use Cases",
     "emoji": "🔬",
     "keywords": [
@@ -663,6 +972,46 @@ export const personasArticles: BlogArticle[] = [
         "p": "Journals specify formats precisely. [Merge](/tools/merge) manuscript, figures and supplementary material in the required order, [add page numbers](/tools/page-numbers) if line or page numbering is requested, and [remove metadata](/tools/remove-metadata) before submitting to double-blind review — author metadata defeats anonymity entirely."
       },
       {
+        "h2": "Keeping a library that stays searchable"
+      },
+      {
+        "p": "A research library degrades in a specific way: it works fine at fifty papers and becomes unusable at five hundred, because the proportion you cannot find grows faster than the proportion you remember."
+      },
+      {
+        "p": "The single intervention that prevents this is running [OCR](/tools/ocr) at intake on anything without a text layer. Older papers, book chapters and archival material are the ones that need it, and they are also the ones you are least likely to remember having."
+      },
+      {
+        "p": "Second is consistent naming. Author-year-keyword — `Kahneman_1979_prospect-theory.pdf` — sorts usefully and is recognisable in a file list without opening anything. Whatever scheme you choose, apply it at intake rather than intending to tidy up later."
+      },
+      {
+        "h2": "Anonymising for double-blind review"
+      },
+      {
+        "p": "Journals increasingly check submissions for identifying information, and rejections at that stage cost a review cycle. The obvious things are handled; these are the ones that survive:"
+      },
+      {
+        "ul": [
+          "**Document metadata** — the author field is usually your name, straight from your word processor.",
+          "**The filename**, which frequently contains your surname.",
+          "**Acknowledgements**, which name your institution, funder and colleagues.",
+          "**Self-citations** phrased as 'in our previous work' rather than in the third person.",
+          "**Institutional templates** whose headers or footers carry a university name.",
+          "**Comments and tracked changes** left in the source before export."
+        ]
+      },
+      {
+        "p": "[Remove metadata](/tools/remove-metadata), rename the file, and read the acknowledgements and citations specifically for this purpose before submitting."
+      },
+      {
+        "h2": "Extracting data responsibly"
+      },
+      {
+        "p": "Numbers taken from a published table and used in your own analysis carry an obligation to be right, and automated extraction is good rather than infallible."
+      },
+      {
+        "p": "Reconcile every extracted table against the source: check the row count, check any stated totals, and spot-check values at the boundaries where errors cluster. Where a figure is central to your argument, verify it by eye against the original page — the two minutes are cheap against the cost of a correction."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -695,7 +1044,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Low tolerance for error, high sensitivity to disclosure. Governance comes before tooling here.",
     "date": "2026-11-12",
     "dateLabel": "November 12, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Use Cases",
     "emoji": "🩺",
     "keywords": [
@@ -746,6 +1095,41 @@ export const personasArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Anonymising a case for teaching or publication"
+      },
+      {
+        "p": "Case reports and teaching material require identifiers removed, and the standard is higher than intuition suggests — jigsaw identification means a combination of non-identifying details can identify someone even when no single item does."
+      },
+      {
+        "ul": [
+          "**Direct identifiers:** name, address, hospital number, NHS or equivalent number, date of birth, contact details.",
+          "**Indirect identifiers:** exact dates of admission or procedure, rare diagnoses, occupation, unusual demographic combinations.",
+          "**In images:** identifiable features, jewellery, tattoos, and burned-in DICOM headers on radiology images.",
+          "**In metadata:** author, institution, file paths, and EXIF data in photographs."
+        ]
+      },
+      {
+        "p": "Replace exact dates with relative ones — 'day 3 of admission' — and generalise ages into bands where the specific figure is not clinically relevant."
+      },
+      {
+        "h2": "Why OCR verification matters more here"
+      },
+      {
+        "p": "Recognition errors in clinical records are not typographical inconveniences. A misread digit in a dose, a date, or a laboratory value is a patient safety issue if the extracted text is ever relied upon."
+      },
+      {
+        "p": "Use [OCR](/tools/ocr) to make records **searchable**, which is genuinely valuable, and never as a source of clinical values without verification against the original. The distinction is between finding a document and reading a number off it."
+      },
+      {
+        "h2": "The governance question, stated plainly"
+      },
+      {
+        "p": "Whether you may use any third-party tool for patient-identifiable data is determined by your organisation's information governance policy, applicable data protection law, and any contractual terms — not by the tool's privacy policy."
+      },
+      {
+        "p": "Many healthcare organisations prohibit third-party uploads for identifiable data outright. Where that applies, it applies regardless of retention periods or encryption, and it is not a decision an individual clinician makes. Check first; work offline where it applies."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -778,7 +1162,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "The same document types as a large company, without the systems. Here is what actually matters.",
     "date": "2026-11-20",
     "dateLabel": "November 20, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Use Cases",
     "emoji": "🏢",
     "keywords": [
@@ -828,6 +1212,75 @@ export const personasArticles: BlogArticle[] = [
         "note": "Keep originals of everything. Compressed and flattened copies are for distribution. The moment you need to produce a clean version of a contract, you will want the master."
       },
       {
+        "h2": "A filing convention that survives contact with reality"
+      },
+      {
+        "p": "Most small-business document trouble is retrieval, not creation. You made the invoice; you cannot find it eighteen months later when a client queries it. A convention fixes this cheaply, and the only requirement is that it survives being applied in a hurry."
+      },
+      {
+        "p": "Three components, in this order: **date, type, party.** `2026-03-14_Invoice_Acme.pdf` sorts chronologically in any file manager, groups by type when you search, and identifies the counterparty without opening it. Leading with the client name feels natural and sorts badly; leading with the date does not."
+      },
+      {
+        "h2": "What to keep and for how long"
+      },
+      {
+        "p": "Retention periods vary by jurisdiction and by document type, and getting the specifics from your accountant is worth the five minutes. The general shape is consistent though:"
+      },
+      {
+        "table": {
+          "headers": [
+            "Document",
+            "Typical retention",
+            "Why"
+          ],
+          "rows": [
+            [
+              "Invoices issued and received",
+              "6–7 years",
+              "Tax authority audit window"
+            ],
+            [
+              "Signed contracts",
+              "Life of agreement + limitation period",
+              "Enforceability"
+            ],
+            [
+              "Bank statements",
+              "6–7 years",
+              "Reconciliation and audit"
+            ],
+            [
+              "Expense receipts",
+              "6–7 years",
+              "Substantiating deductions"
+            ],
+            [
+              "Quotes not accepted",
+              "Short",
+              "No ongoing obligation"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "The practical consequence is that a lot of what you handle needs to remain readable for years. That is an argument for keeping [OCR](/tools/ocr)'d, searchable copies rather than a folder of photographs, and for [PDF/A](/tools/pdf-to-pdfa) on anything genuinely long-lived."
+      },
+      {
+        "h2": "The monthly routine that prevents year-end panic"
+      },
+      {
+        "ol": [
+          "Photograph receipts as they arrive rather than in a batch at year end — the ink on thermal paper fades, sometimes to illegibility within months.",
+          "Once a month: [crop](/tools/image-crop), [greyscale](/tools/image-to-grayscale), [combine into one PDF](/tools/jpg-to-pdf) for the month.",
+          "[OCR](/tools/ocr) the result so amounts and vendors are searchable.",
+          "File under the convention above.",
+          "[Compress](/tools/compress) only the copy you send your accountant; keep the full-quality original."
+        ]
+      },
+      {
+        "p": "Ten minutes a month replaces a day in January, and it produces something your accountant can work from without billing you to sort it."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -860,7 +1313,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Three destinations, three sets of rules, and one file that cannot satisfy all of them.",
     "date": "2026-11-27",
     "dateLabel": "November 27, 2026",
-    "readMinutes": 6,
+    "readMinutes": 10,
     "category": "Use Cases",
     "emoji": "🎨",
     "keywords": [
@@ -913,6 +1366,76 @@ export const personasArticles: BlogArticle[] = [
         "note": "Maintain three versions of anything that matters: the working master, a print-ready export, and a compressed review copy. They have irreconcilable requirements and trying to serve all three with one file always disappoints someone."
       },
       {
+        "h2": "Preflight, and what it catches"
+      },
+      {
+        "p": "Print shops run a preflight check on incoming files, and knowing what it looks for lets you catch problems before the file leaves your desk."
+      },
+      {
+        "ul": [
+          "**Fonts not embedded** — the commonest rejection, and the most expensive to discover after a run has started.",
+          "**Images below the required resolution** — usually 300 DPI at final printed size, so an image placed at 200% needs to be 600 DPI originally.",
+          "**RGB colour where CMYK is required** — conversion will happen either way, and you want to control it rather than let the printer's default decide.",
+          "**Missing bleed** — content that should extend past the trim edge, typically by 3mm.",
+          "**Spot colours** referenced but not defined, or defined and unintended.",
+          "**Overprint settings** that will produce unexpected results."
+        ]
+      },
+      {
+        "p": "Most design software has a preflight function. Running it is faster than a conversation with a printer about why the job is on hold."
+      },
+      {
+        "h2": "Three files, three purposes"
+      },
+      {
+        "table": {
+          "headers": [
+            "Version",
+            "Resolution",
+            "Colour",
+            "Size"
+          ],
+          "rows": [
+            [
+              "Print-ready",
+              "300 DPI+",
+              "CMYK with profile",
+              "Large; do not compress"
+            ],
+            [
+              "Client review",
+              "150 DPI",
+              "RGB",
+              "Emailable; watermark drafts"
+            ],
+            [
+              "Portfolio / web",
+              "72–150 DPI",
+              "RGB",
+              "Small; [linearised](/tools/linearize-pdf)"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Trying to serve all three with one file always disappoints someone. Produce them deliberately from the same master and name them so you cannot confuse them under deadline pressure."
+      },
+      {
+        "h2": "Sending work for client approval"
+      },
+      {
+        "p": "A few habits reduce the number of rounds:"
+      },
+      {
+        "ol": [
+          "[Watermark](/tools/watermark) as DRAFT at around 0.3 opacity — visible, readable through, and it stops a concept being circulated as final.",
+          "[Merge](/tools/merge) multiple concepts into one document rather than attaching four files.",
+          "[Add page numbers](/tools/page-numbers) so feedback references pages rather than descriptions.",
+          "[Compress](/tools/compress) at ebook quality so it opens quickly on a phone, which is where it will first be viewed.",
+          "Keep the print master untouched and separate."
+        ]
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -945,7 +1468,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Every format imaginable arrives, and anonymised shortlisting fails the moment someone copies text out of your black boxes.",
     "date": "2026-12-03",
     "dateLabel": "December 3, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Use Cases",
     "emoji": "👔",
     "keywords": [
@@ -993,6 +1516,57 @@ export const personasArticles: BlogArticle[] = [
         "note": "Candidate data carries retention obligations in most jurisdictions. Whatever tools you use, have a deletion schedule and follow it — the obligation does not disappear because the file is in a folder nobody opens."
       },
       {
+        "h2": "Making a CV pile searchable"
+      },
+      {
+        "p": "A role attracting two hundred applications produces two hundred documents in a folder. The difference between that being a usable resource and an unusable one is whether every file has a text layer."
+      },
+      {
+        "p": "Most arrive as born-digital PDFs and are searchable already. The exceptions are the ones that matter: CVs sent as photographs of printouts, scanned reference letters, and older certificates. Those are invisible to desktop search, to your ATS, and to any keyword filter you apply — which means a qualified candidate can be silently excluded because their file format failed, not their experience."
+      },
+      {
+        "p": "Run anything image-based through [OCR](/tools/ocr) at intake. It takes seconds per file and it is the difference between a searchable pool and a pile."
+      },
+      {
+        "h2": "A consistent intake routine"
+      },
+      {
+        "ol": [
+          "Convert non-PDF submissions with [Word to PDF](/tools/word-to-pdf) so every reviewer sees the same rendering.",
+          "OCR anything that arrived as an image.",
+          "Rename to a consistent scheme — `Surname_Firstname_Role.pdf` — so the folder sorts usefully.",
+          "[Remove metadata](/tools/remove-metadata) before circulating anything externally.",
+          "Store under whatever retention period your policy specifies, and diarise the deletion."
+        ]
+      },
+      {
+        "h2": "Panel packs"
+      },
+      {
+        "p": "Interview panels work better from one document than from eight attachments. [Merge](/tools/merge) the CV, cover letter and any assessment output per candidate, [add page numbers](/tools/page-numbers), and send a single file. During the interview someone can say 'page four' and everyone is looking at the same thing."
+      },
+      {
+        "p": "If you run structured scoring, put the scoring sheet last rather than first — panels read the first page they see, and you want that to be the candidate, not the form."
+      },
+      {
+        "h2": "Where anonymisation quietly fails"
+      },
+      {
+        "p": "Anonymised shortlisting is only as good as its weakest link, and the page body is rarely the weakest link. The identifiers that survive a careless redaction:"
+      },
+      {
+        "ul": [
+          "**The filename**, which is usually the candidate's name and is visible in the file manager before anyone opens anything.",
+          "**Document metadata**, where the author field is frequently the candidate's full name from their own word processor.",
+          "**Email addresses in headers or footers**, which repeat on every page and are easy to miss when redacting page one carefully.",
+          "**Reference letters**, which name the candidate throughout and are often attached unredacted.",
+          "**Photographs**, where required or volunteered."
+        ]
+      },
+      {
+        "p": "Redact with [pdf-redact](/tools/pdf-redact), strip metadata, rename the file, then verify by copying all the text out of the result and searching it. If the name appears anywhere, the anonymisation has failed and the panel will find it."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1025,7 +1599,7 @@ export const personasArticles: BlogArticle[] = [
     "excerpt": "Applications rejected unread for format non-compliance, and reports nobody can open. Both avoidable.",
     "date": "2026-12-09",
     "dateLabel": "December 9, 2026",
-    "readMinutes": 6,
+    "readMinutes": 8,
     "category": "Use Cases",
     "emoji": "🤝",
     "keywords": [
@@ -1070,6 +1644,45 @@ export const personasArticles: BlogArticle[] = [
       },
       {
         "note": "An unsearchable scanned PDF is inaccessible. For an organisation whose purpose involves inclusion, that is worth more than a few minutes of processing."
+      },
+      {
+        "h2": "Reading a funder's format requirements properly"
+      },
+      {
+        "p": "Grant assessors work through large numbers of applications against a checklist, and format non-compliance is the cheapest possible reason to remove one from the pile. It is worth reading the requirements as adversarially as they will be applied."
+      },
+      {
+        "p": "Extract every constraint into a list before you start writing: page limit, whether appendices count toward it, font size minimum, margin minimum, file format, file size cap, filename convention, and whether supporting documents are separate uploads or must be combined."
+      },
+      {
+        "p": "Two of those catch people repeatedly. **Page limits that include appendices** turn a compliant ten-page application into a rejected eighteen-page one the moment you [merge](/tools/merge) your budget and letters of support. And **font and margin minimums** exist specifically to stop applicants cramming, so shrinking type to fit is a visible and counterproductive move."
+      },
+      {
+        "h2": "Assembling without breaking the page limit"
+      },
+      {
+        "ol": [
+          "Write and finalise the narrative first, within its own page allowance.",
+          "Check what the funder counts. If appendices are excluded, submit them as separate files where permitted.",
+          "[Merge](/tools/merge) only what must be one document.",
+          "Count pages in the merged file, not in the drafts.",
+          "[Compress to size](/tools/compress-to-size) if there is a cap, then re-check page count and legibility."
+        ]
+      },
+      {
+        "h2": "Accessibility is not optional here"
+      },
+      {
+        "p": "For an organisation whose mission involves inclusion, publishing documents that some of your audience cannot read is a substantive problem rather than a technical one. Two things account for most of it."
+      },
+      {
+        "p": "**Scanned PDFs are invisible to screen readers.** A scanned annual report is, to a blind supporter, a blank document. [OCR](/tools/ocr) fixes this in seconds and should be automatic for anything you publish."
+      },
+      {
+        "p": "**Print-to-PDF discards structure.** Exporting from your source document preserves heading tags that let assistive technology navigate; printing to PDF flattens everything into undifferentiated text. Always export."
+      },
+      {
+        "p": "Where you can, publish a web page as the primary version and the PDF as the printable alternative. HTML is more accessible than any PDF, reflows on phones, and is easier for you to correct after publication."
       },
       {
         "h2": "Common questions"
