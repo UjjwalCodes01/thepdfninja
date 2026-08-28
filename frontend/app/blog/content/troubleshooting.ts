@@ -143,7 +143,7 @@ export const troubleshootingArticles: BlogArticle[] = [
     "excerpt": "The cursor drags a box instead of highlighting words. Three completely different problems produce that symptom.",
     "date": "2026-09-16",
     "dateLabel": "September 16, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Troubleshooting",
     "emoji": "🖱️",
     "keywords": [
@@ -151,7 +151,12 @@ export const troubleshootingArticles: BlogArticle[] = [
       "pdf text not selectable",
       "copy text from pdf",
       "pdf won't let me copy",
-      "select text scanned pdf"
+      "select text scanned pdf",
+      "copy text from pdf free",
+      "can't select text in pdf fix",
+      "extract text from scanned pdf free",
+      "copy protected pdf text",
+      "pdf to text converter free"
     ],
     "blocks": [
       {
@@ -269,6 +274,18 @@ export const troubleshootingArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Processing happens on our servers, so a mobile browser works exactly as a desktop does."
+      },
+      {
+        "p": "The zoom test is easier on a phone than a desktop — pinch to 400% and scanned text visibly pixelates while real text stays crisp. That single gesture tells you which of the three problems you have."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files before uploading rather than working from a mail preview. **On Android,** Chrome handles it directly from Downloads."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -288,6 +305,22 @@ export const troubleshootingArticles: BlogArticle[] = [
           {
             "q": "Why is text sharp but unsearchable?",
             "a": "It was converted to outlines, most likely in design software. OCR reads it well."
+          },
+          {
+            "q": "How do I copy text from a PDF that will not let me?",
+            "a": "If search finds the text, it is a permissions restriction — [unlock](/tools/unlock) removes it for documents you own. If search finds nothing, the page is an image and needs [OCR](/tools/ocr)."
+          },
+          {
+            "q": "How do I copy text from a scanned PDF for free?",
+            "a": "Run [OCR](/tools/ocr) to add a text layer, then select and copy normally. Or use [PDF to text](/tools/pdf-to-txt) to extract the words directly."
+          },
+          {
+            "q": "Why can I search a PDF but not copy from it?",
+            "a": "An owner password has flagged content extraction as not permitted. The text is there; the reader is honouring a restriction flag."
+          },
+          {
+            "q": "Why is my PDF text sharp but unsearchable?",
+            "a": "It was converted to outlines, usually in design software. OCR reads it very well because the shapes are perfectly clean."
           }
         ]
       }
@@ -1642,7 +1675,13 @@ export const troubleshootingArticles: BlogArticle[] = [
       "pdf mobile reading",
       "pdf reflow text",
       "read pdf on phone",
-      "pdf small text mobile"
+      "pdf small text mobile",
+      "read pdf on phone easily",
+      "pdf text too small mobile",
+      "make pdf readable on phone",
+      "pdf reflow mobile",
+      "crop pdf for phone reading",
+      "best way to read pdf on mobile"
     ],
     "blocks": [
       {
@@ -1715,6 +1754,24 @@ export const troubleshootingArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Reader settings worth trying first"
+      },
+      {
+        "p": "Before reprocessing the file, most mobile readers have options that help and are not obvious."
+      },
+      {
+        "ul": [
+          "**Reflow or liquid mode,** where available. Reconstructs flowing text for the screen. Works on simple single-column documents, fails on scans and multi-column layouts.",
+          "**Night or sepia mode.** Not just cosmetic — reducing contrast glare genuinely helps sustained reading.",
+          "**Continuous scroll versus page-by-page.** Continuous is usually better on a phone, since page snapping fights you at high zoom.",
+          "**Locking rotation and reading in landscape,** which is often enough on its own for a two-column paper.",
+          "**Crop-to-content,** offered by some readers, which does temporarily what [cropping](/tools/crop) does permanently."
+        ]
+      },
+      {
+        "p": "If none of those work, cropping the file is the durable fix — it travels with the document and helps on every device."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1734,6 +1791,22 @@ export const troubleshootingArticles: BlogArticle[] = [
           {
             "q": "Should I send PDF to someone reading on a phone?",
             "a": "For a form or anything designed, yes. For long prose, a web page or EPUB is kinder."
+          },
+          {
+            "q": "How do I make a PDF readable on my phone?",
+            "a": "Crop the margins. Your reader scales the whole page including empty space, so removing margins renders the text proportionally larger — often 30-40% bigger."
+          },
+          {
+            "q": "Why is PDF text so small on mobile?",
+            "a": "PDFs store fixed pages that cannot reflow. The reader fits the page width to your screen, margins included."
+          },
+          {
+            "q": "Can I make a PDF reflow like a web page?",
+            "a": "Some readers attempt it for simple single-column documents. It fails on scans, which have no text to reflow."
+          },
+          {
+            "q": "What is the best way to read long PDFs on a phone?",
+            "a": "Crop the margins, read in landscape, and use continuous scroll. For long prose, a reflowable format is genuinely better than a PDF."
           }
         ]
       }

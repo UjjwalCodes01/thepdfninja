@@ -551,7 +551,13 @@ export const comparisonsArticles: BlogArticle[] = [
       "convert pdf to word accurately",
       "pdf to docx quality",
       "pdf conversion problems",
-      "edit pdf in word"
+      "edit pdf in word",
+      "pdf to word converter free online",
+      "convert pdf to word without losing formatting",
+      "pdf to docx free no signup",
+      "pdf to word on phone",
+      "edit pdf in word free",
+      "pdf to word converter no watermark"
     ],
     "blocks": [
       {
@@ -669,6 +675,18 @@ export const comparisonsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The work happens on our servers, so a mobile browser handles this exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Converting on mobile works the same, but editing the result does not — reflowing a converted document with broken table layout is genuinely painful on a phone. If the document needs real repair work, convert on mobile and edit on a desktop."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app; uploading from an attachment preview fails in some iOS versions. **On Android,** the file is usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -688,6 +706,22 @@ export const comparisonsArticles: BlogArticle[] = [
           {
             "q": "Is paid software better at this?",
             "a": "Somewhat, on complex layouts. On ordinary single-column documents the difference is small."
+          },
+          {
+            "q": "How do I convert a PDF to Word for free?",
+            "a": "[PDF to Word](/tools/pdf-to-word) reconstructs an editable document. Free, no signup. Expect roughly 75–85% layout fidelity on an ordinary document."
+          },
+          {
+            "q": "How do I convert a PDF to Word without losing formatting?",
+            "a": "No converter is perfect, because a PDF stores glyph positions rather than structure. Single-column text converts very well; borderless tables convert poorly."
+          },
+          {
+            "q": "Why is my converted Word document empty?",
+            "a": "The PDF is a scan with no text layer. Run [OCR](/tools/ocr) first."
+          },
+          {
+            "q": "Can I convert a PDF to Word on my phone?",
+            "a": "Yes, in a mobile browser. Editing the result is much easier on a desktop though."
           }
         ]
       }

@@ -12,7 +12,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "20KB is a brutally small budget for a photograph. Here is how to get there deliberately rather than by trial and error.",
     "date": "2026-08-05",
     "dateLabel": "August 5, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "📸",
     "keywords": [
@@ -20,7 +20,13 @@ export const indiaArticles: BlogArticle[] = [
       "20kb photo converter",
       "reduce image size to 20kb",
       "signature 20kb",
-      "photo resize 20kb online"
+      "photo resize 20kb online",
+      "compress signature to 20kb online",
+      "20kb photo converter free",
+      "signature resize 20kb jpg",
+      "photo compress 20kb without losing quality",
+      "resize signature for exam form",
+      "compress image to 20kb on mobile"
     ],
     "blocks": [
       {
@@ -144,6 +150,21 @@ export const indiaArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Most people preparing an exam application are doing it on a phone, and every step here works in a mobile browser."
+      },
+      {
+        "p": "**On Android:** photograph the signature, then open Chrome and use [Image crop](/tools/image-crop), [resize](/tools/image-resize) and [compress to size](/tools/image-to-size) in sequence. Each step downloads a file to your Downloads folder that you feed into the next."
+      },
+      {
+        "p": "**On iPhone:** the same flow works in Safari. One extra step — iPhone photos are usually HEIC, which most portals reject. Convert with [HEIC to JPG](/tools/heic-to-jpg) first, before cropping."
+      },
+      {
+        "p": "**A caution about gallery apps:** the built-in crop tools in Photos and Google Photos re-save the image at full resolution, so they crop without reducing size much. Use them to frame if you like, but do the resizing and compression properly afterwards."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -163,6 +184,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "Can I just take a lower-resolution photo?",
             "a": "You can, but you lose the ability to crop well. Shoot at normal quality and reduce afterwards."
+          },
+          {
+            "q": "How do I compress a photo to 20KB on my phone?",
+            "a": "Crop tight to the signature, resize to around 600 pixels wide, convert to greyscale, then compress to size. All four steps work in a mobile browser. On iPhone, convert from HEIC to JPG first."
+          },
+          {
+            "q": "How do I make a signature 20KB without losing clarity?",
+            "a": "Reduce dimensions rather than quality. A signature at 600×200 pixels stays crisp at 20KB; the same signature at full camera resolution does not."
+          },
+          {
+            "q": "Which is better for a 20KB signature, JPG or PNG?",
+            "a": "JPG. PNG is lossless and cannot be tuned down to an arbitrary size, and most portals specify JPG anyway."
+          },
+          {
+            "q": "Why does my signature look grey instead of black?",
+            "a": "Usually under-exposure or a pencil rather than pen. Sign in black or dark blue ink, photograph in good light, and convert to greyscale which increases contrast rather than reducing it."
           }
         ]
       }
@@ -176,7 +213,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "The most common limit you will meet on application portals. Comfortable enough for a decent photo — if you approach it in the right order.",
     "date": "2026-08-10",
     "dateLabel": "August 10, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "🪪",
     "keywords": [
@@ -184,7 +221,13 @@ export const indiaArticles: BlogArticle[] = [
       "50kb photo",
       "reduce photo size to 50kb",
       "passport photo 50kb",
-      "image compress 50kb online"
+      "image compress 50kb online",
+      "compress photo to 50kb online free",
+      "resize photo 50kb for form",
+      "passport photo 50kb jpg",
+      "reduce image size to 50kb on mobile",
+      "photo compress 50kb without losing quality",
+      "50kb photo size converter"
     ],
     "blocks": [
       {
@@ -305,6 +348,21 @@ export const indiaArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Application forms are usually filled on a phone, and the whole preparation flow works in a mobile browser without installing anything."
+      },
+      {
+        "p": "**On iPhone:** convert with [HEIC to JPG](/tools/heic-to-jpg) first — iPhone photos default to HEIC and most portals reject it outright. Then [crop](/tools/image-crop) to the required ratio, [resize](/tools/image-resize), and [compress to size](/tools/image-to-size)."
+      },
+      {
+        "p": "**On Android:** photos are already JPG, so skip the conversion. Crop, resize, compress in Chrome, and each output lands in Downloads ready for the next step."
+      },
+      {
+        "p": "**Check the result before uploading.** Open the finished file at full zoom on the phone. If the face looks waxy or blotchy, you compressed too far — go back and resize to smaller dimensions instead, which preserves more quality at the same file size."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -324,6 +382,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "Why does my photo get rejected after upload succeeds?",
             "a": "Upload checks size and format only. Human or automated verification checks background, lighting and framing later."
+          },
+          {
+            "q": "How do I resize a photo to 50KB on my phone?",
+            "a": "Crop to the required ratio, resize to roughly 400×530 pixels, then compress to size. All three work in a mobile browser. On iPhone convert from HEIC to JPG first."
+          },
+          {
+            "q": "How do I make a passport photo 50KB without it looking bad?",
+            "a": "Reduce dimensions before reducing quality. At 400×530 pixels a photo stays sharp at 50KB; at full camera resolution it will not."
+          },
+          {
+            "q": "Why is my photo rejected even though it is under 50KB?",
+            "a": "Size is only one of several checks. Pixel dimensions, aspect ratio, format and sometimes a minimum size are checked separately. Verify each against the notification."
+          },
+          {
+            "q": "Can I use a selfie for an application photo?",
+            "a": "Usually not. Arm's-length distance distorts facial proportions and the angle is rarely square to the face. Have someone else take it from about two metres and zoom in slightly."
           }
         ]
       }
@@ -337,7 +411,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "100KB for a multi-page scan is demanding. Here is how to get there, and what to do when the document genuinely cannot fit.",
     "date": "2026-08-15",
     "dateLabel": "August 15, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "📄",
     "keywords": [
@@ -345,7 +419,13 @@ export const indiaArticles: BlogArticle[] = [
       "pdf 100kb",
       "reduce pdf size to 100kb",
       "100kb pdf converter",
-      "document upload 100kb"
+      "document upload 100kb",
+      "compress pdf to 100kb online free",
+      "reduce pdf size to 100kb on mobile",
+      "100kb pdf converter without watermark",
+      "compress pdf 100kb without losing quality",
+      "pdf size reducer 100kb free",
+      "document compress 100kb online"
     ],
     "blocks": [
       {
@@ -466,6 +546,21 @@ export const indiaArticles: BlogArticle[] = [
         "p": "That takes under a minute and catches the failures that otherwise surface as an unexplained rejection after you have submitted."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Government forms are often completed on a phone, and every step works in a mobile browser with nothing to install."
+      },
+      {
+        "p": "**On Android:** the document is usually in Downloads. Open Chrome, run [greyscale](/tools/grayscale-pdf), then [compress to size](/tools/compress-to-size) at 100KB. Each step produces a file in Downloads for the next."
+      },
+      {
+        "p": "**On iPhone:** save the PDF to Files first if it arrived by email or WhatsApp. Uploading directly from an attachment preview fails in some iOS versions. Then the same sequence in Safari."
+      },
+      {
+        "p": "**If you are photographing the document rather than scanning it,** convert with [JPG to PDF](/tools/jpg-to-pdf) first, then compress. Photograph straight down in even light — a skewed, shadowed capture needs far more compression to reach 100KB and ends up illegible."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -485,6 +580,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "Can I merge several certificates into one 100KB PDF?",
             "a": "Rarely with any legibility. If the form allows separate uploads, use them."
+          },
+          {
+            "q": "How do I compress a PDF to 100KB on my phone?",
+            "a": "Convert to greyscale, then compress to size at 100KB — both work in a mobile browser. On iPhone, save the file to Files first rather than uploading from a mail preview."
+          },
+          {
+            "q": "How do I compress a PDF to 100KB without losing quality?",
+            "a": "For a scan, greyscale and crop before compressing. Those are the steps that reduce data without touching legibility, so the compressor has less to destroy."
+          },
+          {
+            "q": "Is there a free tool to compress a PDF to exactly 100KB?",
+            "a": "Yes — [compress to size](/tools/compress-to-size) searches for the highest quality that fits your stated target. No signup and no watermark."
+          },
+          {
+            "q": "My document will not reach 100KB and stay readable. What now?",
+            "a": "Rescan at 200 DPI greyscale rather than compressing a 600 DPI colour original, or check whether the portal accepts separate uploads per page."
           }
         ]
       }
@@ -498,7 +609,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "The upload is the last hurdle of a long form, and the one that most often sends people back to the start. Here is how to get it right first time.",
     "date": "2026-08-20",
     "dateLabel": "August 20, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "🎓",
     "keywords": [
@@ -506,7 +617,13 @@ export const indiaArticles: BlogArticle[] = [
       "upsc signature upload",
       "upsc application photo requirements",
       "upsc photo signature size",
-      "civil services photo upload"
+      "civil services photo upload",
+      "upsc photo signature size online",
+      "upsc application photo upload free",
+      "upsc photo resize on mobile",
+      "civil services photo signature format",
+      "upsc document upload guide",
+      "exam photo signature converter free"
     ],
     "blocks": [
       {
@@ -601,6 +718,21 @@ export const indiaArticles: BlogArticle[] = [
         "p": "Two cautions. Where a cycle requires a **printed date** on the photograph, that photograph is only valid for applications within its validity window — reusing it later fails verification even though the file is technically correct. And some bodies specify a photograph taken within a set period, so an archive is a convenience, not a permanent solution."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Most candidates prepare these files on a phone. Everything works in a mobile browser, with one iPhone-specific step."
+      },
+      {
+        "p": "**On iPhone:** camera output is HEIC, which the portal will not accept. Either switch to JPG in Settings → Camera → Formats → Most Compatible before photographing, or convert afterwards with [HEIC to JPG](/tools/heic-to-jpg)."
+      },
+      {
+        "p": "**Both platforms:** [crop](/tools/image-crop) → [resize](/tools/image-resize) → [greyscale](/tools/image-to-grayscale) for the signature → [compress to size](/tools/image-to-size). Each step downloads a file you feed into the next."
+      },
+      {
+        "p": "**Verify on a larger screen if you can.** A phone screen makes it hard to judge whether a compressed signature has lost ridge definition or whether a face photo has gone waxy. If you only have a phone, zoom to full size and check carefully."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -620,6 +752,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "What if I have no scanner?",
             "a": "A phone photo taken straight down in even light, cropped tight and greyscaled, works well."
+          },
+          {
+            "q": "What size photo and signature does the UPSC application need?",
+            "a": "Take the exact figures from the current cycle's official notification — they are specified there and change between cycles. This guide covers how to hit whatever numbers it states."
+          },
+          {
+            "q": "Can I prepare UPSC documents on my phone?",
+            "a": "Yes, entirely in a mobile browser. On iPhone convert from HEIC to JPG first, since the portal will not accept HEIC."
+          },
+          {
+            "q": "Why was my UPSC photo upload rejected?",
+            "a": "Usually one of: file size outside the permitted range including any minimum, wrong pixel dimensions, wrong format, or a missing printed date where the cycle requires one."
+          },
+          {
+            "q": "Can I reuse a photo from a previous exam application?",
+            "a": "Often, if dimensions and size match. Not where the cycle requires a printed date or a photograph taken within a recent window."
           }
         ]
       }
@@ -633,7 +781,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "You do not need a photo studio. You do need the right proportions, background and framing — here is how to get all three.",
     "date": "2026-08-25",
     "dateLabel": "August 25, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "🛂",
     "keywords": [
@@ -641,7 +789,13 @@ export const indiaArticles: BlogArticle[] = [
       "passport size photo online",
       "passport photo dimensions",
       "passport size photo maker",
-      "photo resize passport"
+      "photo resize passport",
+      "passport size photo online free",
+      "passport photo maker free no watermark",
+      "passport size photo on mobile",
+      "passport photo in pixels",
+      "make passport photo at home",
+      "resize photo passport size iphone"
     ],
     "blocks": [
       {
@@ -756,6 +910,21 @@ export const indiaArticles: BlogArticle[] = [
         "note": "Print shops sometimes apply automatic enhancement that brightens skin tones or smooths features. For an identity document that can cause a rejection. Ask for it disabled, or print at home."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Passport photos are almost always taken and prepared on a phone now, and the whole flow works in a mobile browser."
+      },
+      {
+        "p": "**On iPhone:** photos are HEIC by default, which most passport and visa portals reject. Convert with [HEIC to JPG](/tools/heic-to-jpg) first, then [crop](/tools/image-crop) to the required ratio, [resize to passport dimensions](/tools/resize-to-passport), and [compress to size](/tools/image-to-size) if a file size is specified."
+      },
+      {
+        "p": "**On Android:** photos are JPG already, so start at the crop step in Chrome."
+      },
+      {
+        "p": "**Do not rely on the gallery crop.** Photos and Google Photos crop but re-save at full resolution, so the file barely shrinks. Use them to frame if you find it easier, then do the dimensional work properly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -775,6 +944,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "Can I remove the background digitally?",
             "a": "Risky. Automated removal often clips hair and creates halos that verifiers notice. A plain wall is safer."
+          },
+          {
+            "q": "How do I make a passport size photo on my phone for free?",
+            "a": "Have someone photograph you against a plain wall in daylight, then crop, resize to the required dimensions, and compress — all in a mobile browser. On iPhone convert from HEIC to JPG first."
+          },
+          {
+            "q": "What is passport size photo in pixels?",
+            "a": "It depends on the standard. For a 35×45mm photo at 300 DPI that is roughly 413×531 pixels. Take the exact figure from the official instructions for your application."
+          },
+          {
+            "q": "Can I take a passport photo at home?",
+            "a": "Yes, for most applications. The requirements are about background, lighting, framing and expression rather than about where it was taken."
+          },
+          {
+            "q": "Why was my passport photo rejected?",
+            "a": "Most commonly background shadow, head size outside the permitted band, glasses, or an expression that fails an automated check. None of those can be fixed by resizing — reshoot."
           }
         ]
       }
@@ -788,7 +973,7 @@ export const indiaArticles: BlogArticle[] = [
     "excerpt": "You do not need a scanner. You do need to stop photographing documents at an angle on a dark desk.",
     "date": "2026-09-02",
     "dateLabel": "September 2, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "India Guides",
     "emoji": "📱",
     "keywords": [
@@ -796,7 +981,12 @@ export const indiaArticles: BlogArticle[] = [
       "phone scanner for forms",
       "scan certificate for upload",
       "mobile document scan",
-      "photo to pdf document"
+      "photo to pdf document",
+      "scan document with phone free",
+      "scan to pdf on iphone free",
+      "android document scanner pdf",
+      "scan certificate with mobile",
+      "photo to pdf scan quality"
     ],
     "blocks": [
       {
@@ -879,6 +1069,21 @@ export const indiaArticles: BlogArticle[] = [
         "p": "If you have to reshoot one page later, reshoot it in the same conditions or redo the whole set. A single mismatched page is more noticeable than a uniformly mediocre document."
       },
       {
+        "h2": "Built-in scanning versus doing it properly"
+      },
+      {
+        "p": "Both platforms have document scanning built in, and both produce results that are fine for personal reference and often inadequate for an official upload."
+      },
+      {
+        "p": "**iOS** — Notes and Files both scan via the camera, applying perspective correction and contrast adjustment automatically. The output is good. What it does not do is let you control file size, and iOS scans are frequently several megabytes per page, which fails most portal limits."
+      },
+      {
+        "p": "**Android** — Google Drive has a scan function that does much the same. Same strength, same limitation."
+      },
+      {
+        "p": "The pragmatic approach is to use the built-in scanner for capture, since the perspective correction is genuinely good, then run the result through [compress to size](/tools/compress-to-size) to meet the limit. You get good capture and a compliant file."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -898,6 +1103,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "My photo looks trapezoidal. Can I fix it?",
             "a": "Cropping helps a little; the real fix is reshooting parallel to the page. Perspective is hard to correct after the fact."
+          },
+          {
+            "q": "How do I scan a document with my phone for free?",
+            "a": "iOS Notes and Google Drive both scan via the camera with automatic perspective correction. Then compress the result to meet any size limit."
+          },
+          {
+            "q": "Is a phone scan acceptable for official forms?",
+            "a": "Almost always, provided it is flat, evenly lit, cropped and legible. Portals check size and format; humans check readability."
+          },
+          {
+            "q": "How do I make a phone photo look like a scan?",
+            "a": "Shoot straight down in even light, crop away the background, and convert to greyscale. That covers most of what a scanner does."
+          },
+          {
+            "q": "Why is my phone scan too large to upload?",
+            "a": "Built-in scanners optimise for quality, not size — often several megabytes per page. Run the output through compress-to-size."
           }
         ]
       }
@@ -919,7 +1140,12 @@ export const indiaArticles: BlogArticle[] = [
       "500kb pdf",
       "reduce pdf to 500kb",
       "pdf size 500kb",
-      "document 500kb upload"
+      "document 500kb upload",
+      "compress pdf to 500kb online free",
+      "reduce pdf to 500kb without losing quality",
+      "500kb pdf converter free",
+      "compress pdf 500kb on mobile",
+      "pdf size reducer free no watermark"
     ],
     "blocks": [
       {
@@ -1032,6 +1258,18 @@ export const indiaArticles: BlogArticle[] = [
         "p": "Failing that, check whether the portal accepts separate uploads per document. Many forms that appear to want one file actually provide several fields, and splitting is far better than compressing a ten-page scan into illegibility."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Processing happens on our servers, so a mobile browser works exactly as a desktop does."
+      },
+      {
+        "p": "The order matters more on a phone, because you are more likely to be working from a photograph than a scan. Crop the desk out first, convert to greyscale, and only then compress — a photographed page compressed straight to 500KB comes out far worse than one cropped and greyscaled first."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files before uploading rather than working from a mail preview. **On Android,** Chrome handles it directly from Downloads."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1051,6 +1289,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "Can I compress twice to get smaller?",
             "a": "It stacks artefacts for little gain. Start from the original and compress once with a lower target."
+          },
+          {
+            "q": "How do I compress a PDF to 500KB free?",
+            "a": "[Compress to size](/tools/compress-to-size) targets an exact figure and finds the best quality that fits. Free, no signup, no watermark."
+          },
+          {
+            "q": "How do I compress a PDF to 500KB on my phone?",
+            "a": "Greyscale first, then compress to size — both work in a mobile browser."
+          },
+          {
+            "q": "Will 500KB still be readable?",
+            "a": "For a greyscale scan of up to about five pages, comfortably. Past ten pages expect visible softening."
+          },
+          {
+            "q": "Why did my PDF barely shrink?",
+            "a": "It is probably text-based with no images to downsample. Try flatten and remove-metadata instead."
           }
         ]
       }
@@ -1072,7 +1326,12 @@ export const indiaArticles: BlogArticle[] = [
       "1mb pdf",
       "reduce pdf to 1mb",
       "pdf under 1mb",
-      "compress document to 1mb"
+      "compress document to 1mb",
+      "compress pdf to 1mb free online",
+      "reduce pdf size to 1mb",
+      "pdf under 1mb converter",
+      "compress pdf 1mb without losing quality",
+      "1mb pdf compressor free"
     ],
     "blocks": [
       {
@@ -1177,6 +1436,18 @@ export const indiaArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Processing happens on our servers, so a mobile browser works exactly as a desktop does."
+      },
+      {
+        "p": "On a phone the biggest lever is usually removing pages you do not need before compressing at all. Extracting the three pages a form actually asks for, rather than compressing a twenty-page scan, is both faster and produces a far more legible result."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files before uploading rather than working from a mail preview. **On Android,** Chrome handles it directly from Downloads."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1196,6 +1467,22 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "Why does my file grow after editing?",
             "a": "Incremental saves append rather than rewrite. Compress afterwards to force a full rewrite."
+          },
+          {
+            "q": "How do I compress a PDF to 1MB for free?",
+            "a": "[Compress to size](/tools/compress-to-size) at a 1MB target. Free, no signup, and no watermark added."
+          },
+          {
+            "q": "How do I reduce PDF size to 1MB without losing quality?",
+            "a": "Remove pages you do not need, crop, and greyscale before compressing. Each step means the compressor degrades less to reach the target."
+          },
+          {
+            "q": "Can I compress a PDF to 1MB on my phone?",
+            "a": "Yes, entirely in a mobile browser."
+          },
+          {
+            "q": "What if my scan will not fit under 1MB legibly?",
+            "a": "Rescan at 200 DPI greyscale rather than compressing a 600 DPI colour original — it starts smaller and starts clean."
           }
         ]
       }

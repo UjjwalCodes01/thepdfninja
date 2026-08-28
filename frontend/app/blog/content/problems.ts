@@ -12,7 +12,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Gmail stops at 25MB, Outlook at 20MB, and corporate servers are often stricter. Here is why your file is heavy and six fixes ranked by quality retained.",
     "date": "2026-01-09",
     "dateLabel": "January 9, 2026",
-    "readMinutes": 9,
+    "readMinutes": 11,
     "category": "Guides",
     "emoji": "📧",
     "keywords": [
@@ -20,7 +20,15 @@ export const problemsArticles: BlogArticle[] = [
       "email attachment size limit",
       "reduce pdf size for email",
       "gmail 25mb limit",
-      "compress pdf for email"
+      "compress pdf for email",
+      "compress pdf on iphone",
+      "reduce pdf size on android",
+      "compress pdf without losing quality",
+      "how to compress pdf free",
+      "pdf compressor online free",
+      "reduce pdf size for email free",
+      "compress pdf without watermark",
+      "email large pdf file"
     ],
     "blocks": [
       {
@@ -162,6 +170,36 @@ export const problemsArticles: BlogArticle[] = [
         "p": "The one thing to check is whether your recipient can reach the link. Corporate networks block some file-sharing services outright, and a link that fails is worse than an attachment that bounces, because the bounce at least tells you."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Most people meet this problem on a phone, where the usual desktop advice does not apply. The good news is that everything here works in a mobile browser — no app to install."
+      },
+      {
+        "p": "**On iPhone:** open the PDF in Files, tap Share, and you will see the size. Safari handles the upload and download steps the same as any desktop browser, so [compress](/tools/compress) works directly. If the file came through Mail, save it to Files first — working from the Mail preview causes upload problems in some iOS versions."
+      },
+      {
+        "p": "**On Android:** the file is usually in Downloads. Chrome handles upload and download normally. If the PDF arrived via WhatsApp, note that WhatsApp already compressed it once — compressing again stacks artefacts, so work from the original if you can get it."
+      },
+      {
+        "p": "**Sharing straight from your phone:** iOS and Android both let you share a link from Files or Drive rather than attaching. For anything over about 20MB that is genuinely the better route, and it avoids the whole problem."
+      },
+      {
+        "h2": "Reducing size without losing quality"
+      },
+      {
+        "p": "The phrase covers two different things and it is worth separating them, because one is genuinely free and the other is a trade."
+      },
+      {
+        "p": "**Genuinely lossless reductions** — nothing visible changes: [flattening](/tools/flatten-pdf) form fields and annotations, [removing metadata](/tools/remove-metadata), and forcing a full rewrite to discard accumulated revisions via [repair](/tools/repair). On a heavily edited document these alone can halve the file."
+      },
+      {
+        "p": "**Effectively lossless** — a trade you will not notice: [greyscale conversion](/tools/grayscale-pdf) on black-ink documents, and downsampling images to 150 DPI for on-screen reading. Both change the data and neither is visible at normal viewing size."
+      },
+      {
+        "p": "**Genuinely lossy** — you will see it: compressing below ebook quality, or targeting a size the content cannot support. If your output looks soft, you have crossed from the second category into the third."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -181,6 +219,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Will zipping the PDF help?",
             "a": "Almost never. PDFs are already internally compressed, so a ZIP typically saves 1–5%. It also adds a step for the recipient."
+          },
+          {
+            "q": "How do I compress a PDF on my iPhone without an app?",
+            "a": "Open the file in Safari, use [Compress PDF](/tools/compress) in the browser, and save the result back to Files. No installation is needed — the processing happens on our servers, not your phone."
+          },
+          {
+            "q": "How do I reduce PDF size without losing quality?",
+            "a": "Start with the genuinely lossless steps: flatten, remove metadata, and force a full rewrite. Then greyscale if the document is black ink on white. Only compress images after those, and use ebook quality rather than screen."
+          },
+          {
+            "q": "Why does WhatsApp make my PDF smaller?",
+            "a": "WhatsApp compresses attachments on send. That means the copy you received is already degraded — compressing it again stacks artefacts, so always work from the original where possible."
+          },
+          {
+            "q": "Can I email a PDF larger than 25MB?",
+            "a": "Not as an attachment to Gmail. Upload it to cloud storage and send a link, which also gives the recipient a resumable download and lets you revoke access later."
           }
         ]
       }
@@ -194,7 +248,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "'The file is damaged and could not be repaired.' Before you give up on the document, work out which of four very different problems you actually have.",
     "date": "2026-01-16",
     "dateLabel": "January 16, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Troubleshooting",
     "emoji": "🚫",
     "keywords": [
@@ -202,7 +256,13 @@ export const problemsArticles: BlogArticle[] = [
       "pdf file damaged",
       "repair corrupted pdf",
       "pdf error opening",
-      "fix broken pdf"
+      "fix broken pdf",
+      "fix corrupted pdf free online",
+      "repair pdf file free",
+      "pdf won't open on phone",
+      "damaged pdf recovery online",
+      "pdf error opening file",
+      "restore corrupted pdf free"
     ],
     "blocks": [
       {
@@ -306,6 +366,21 @@ export const problemsArticles: BlogArticle[] = [
         "p": "A document that is 90% recovered is usually far more useful than no document, and the missing pages are at least identified rather than unknown."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "A PDF that will not open on a phone is worth a specific check before you assume damage, because mobile has its own failure modes."
+      },
+      {
+        "p": "**Try a different app first.** iOS Files, Safari, Chrome and Drive all use different renderers. If it opens in any of them, the file is fine and one app is the problem."
+      },
+      {
+        "p": "**Check it downloaded fully.** Mobile downloads are interrupted by network switches — moving from wifi to mobile data mid-download leaves a truncated file that looks complete. Re-download over a stable connection."
+      },
+      {
+        "p": "**Attachments from messaging apps** are sometimes re-encoded in transit. If a PDF from WhatsApp will not open, ask the sender to email it instead."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -325,6 +400,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Is a password-protected PDF the same as a damaged one?",
             "a": "No, though some readers conflate them. Encryption is intentional; damage is not. Try another reader before assuming the worst."
+          },
+          {
+            "q": "How do I fix a corrupted PDF for free?",
+            "a": "[Repair PDF](/tools/repair) rebuilds the file's index by scanning for recoverable objects. It often succeeds, because page content usually survives even when the structure does not."
+          },
+          {
+            "q": "Why won't my PDF open on my phone but works on my laptop?",
+            "a": "Mobile readers vary in tolerance for malformed structure. If it opens anywhere, repair it and it will open everywhere."
+          },
+          {
+            "q": "Can a truncated PDF be recovered?",
+            "a": "No. If the download stopped early, the missing bytes were never received and no tool can reconstruct them. Download it again."
+          },
+          {
+            "q": "How do I know if my PDF is damaged or just encrypted?",
+            "a": "Try a different reader. Some report an encrypted file as damaged rather than prompting for a password."
           }
         ]
       }
@@ -338,7 +429,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Ctrl+F finds nothing and you cannot select a word. Your scan is a photograph of a page — here is how OCR turns it back into real text.",
     "date": "2026-01-23",
     "dateLabel": "January 23, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "🔍",
     "keywords": [
@@ -346,7 +437,13 @@ export const problemsArticles: BlogArticle[] = [
       "ocr pdf",
       "make pdf searchable",
       "can't select text in pdf",
-      "convert scan to text"
+      "convert scan to text",
+      "make scanned pdf searchable free",
+      "ocr pdf online free",
+      "convert scanned pdf to text free",
+      "searchable pdf without losing quality",
+      "ocr pdf on iphone",
+      "scanned pdf to word free"
     ],
     "blocks": [
       {
@@ -444,6 +541,33 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone or tablet"
+      },
+      {
+        "p": "OCR is server-side processing, so a phone handles it as well as a desktop — you are only uploading and downloading."
+      },
+      {
+        "p": "**On iPhone and iPad:** save the PDF to Files first if it arrived by email, then upload from Safari to [OCR](/tools/ocr). Working directly from a Mail attachment preview causes upload failures in some iOS versions."
+      },
+      {
+        "p": "**On Android:** Chrome handles it directly from Downloads or Drive."
+      },
+      {
+        "p": "**A note on iOS built-in scanning:** the Notes and Files apps can scan documents with the camera, and iOS applies its own text recognition for on-device search. That recognition is not written into the PDF, so the file is still unsearchable to everyone else. Run it through OCR if the document is going anywhere."
+      },
+      {
+        "h2": "Making a PDF searchable without losing the original look"
+      },
+      {
+        "p": "A common worry is that OCR will alter the document's appearance. It does not, and understanding why is reassuring."
+      },
+      {
+        "p": "OCR adds an **invisible text layer** positioned behind the page image. The picture you scanned remains exactly as it was — same resolution, same colours, same marks. What changes is that there is now selectable, searchable text sitting underneath it, aligned to where the words appear."
+      },
+      {
+        "p": "This is why a properly OCRed scan looks identical to the original but responds to Ctrl+F. If a tool visibly changes your document's appearance, it has re-rendered the page rather than adding a text layer — which is a different and usually worse operation."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -463,6 +587,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Why did my OCR output come out as gibberish?",
             "a": "Usually a crooked page, resolution below 200 DPI, or a scan that was compressed before OCR ran. Rescan straight at 300 DPI."
+          },
+          {
+            "q": "How do I make a scanned PDF searchable for free?",
+            "a": "Run it through [OCR](/tools/ocr). It adds an invisible text layer over the page image, so the document looks identical but becomes searchable and copyable."
+          },
+          {
+            "q": "Can I OCR a PDF on my phone?",
+            "a": "Yes. Processing happens on our servers, so any phone browser works. Save the file locally first rather than uploading from an email preview."
+          },
+          {
+            "q": "Does OCR change how my scanned document looks?",
+            "a": "No. The recognised text is added as an invisible layer behind the image. The visible page is untouched."
+          },
+          {
+            "q": "Why can I search my scan on my iPhone but nobody else can?",
+            "a": "iOS performs on-device recognition for its own search index. That result is not written into the PDF file, so it does not travel with the document."
           }
         ]
       }
@@ -476,7 +616,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Receipts, ID documents, homework photos — portals almost always want one PDF, not twelve images. Here is how to build one properly.",
     "date": "2026-01-30",
     "dateLabel": "January 30, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "🖼️",
     "keywords": [
@@ -484,7 +624,13 @@ export const problemsArticles: BlogArticle[] = [
       "jpg to pdf",
       "multiple images to one pdf",
       "convert photos to pdf",
-      "merge images pdf"
+      "merge images pdf",
+      "combine photos into pdf iphone",
+      "multiple images to pdf free online",
+      "jpg to pdf without watermark",
+      "convert photos to pdf on android",
+      "merge images into one pdf free",
+      "photos to pdf no signup"
     ],
     "blocks": [
       {
@@ -595,6 +741,21 @@ export const problemsArticles: BlogArticle[] = [
         "p": "The first wins on quality because you control exactly which pixels are discarded. The second wins on convenience because [compress to size](/tools/compress-to-size) hits a stated limit precisely without arithmetic. For a portal with a hard cap, the second is usually the pragmatic choice."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Photographing documents and combining them is overwhelmingly a phone task, and it works entirely in a mobile browser."
+      },
+      {
+        "p": "**On iPhone:** photos are HEIC by default and many tools reject them. Either switch the camera to JPG in Settings → Camera → Formats → Most Compatible, or convert with [HEIC to JPG](/tools/heic-to-jpg) before combining. Then use [JPG to PDF](/tools/jpg-to-pdf) in Safari, selecting the images in the order you want them."
+      },
+      {
+        "p": "**On Android:** photos are already JPG, so go straight to [JPG to PDF](/tools/jpg-to-pdf) in Chrome."
+      },
+      {
+        "p": "**Selection order matters more on mobile,** because phone galleries sort by capture time rather than filename. If you photographed pages out of order, either rename them or fix the sequence afterwards with [Organize PDF](/tools/organize)."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -614,6 +775,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Can I mix JPG and PNG in one PDF?",
             "a": "Yes. Convert any odd formats to a common one first if a tool complains, but mixed input is normally fine."
+          },
+          {
+            "q": "How do I combine photos into one PDF on my iPhone?",
+            "a": "Convert from HEIC to JPG first, then use [JPG to PDF](/tools/jpg-to-pdf) in Safari, selecting the images in the order you want them to appear."
+          },
+          {
+            "q": "How do I convert multiple images to one PDF for free?",
+            "a": "[JPG to PDF](/tools/jpg-to-pdf) accepts multiple images and produces a single document, one image per page, with no signup or watermark."
+          },
+          {
+            "q": "How do I combine photos into a PDF without losing quality?",
+            "a": "The conversion embeds your images as they are. Quality only drops if you compress, and then it is your choice how much. Resize before converting rather than compressing after for the best result."
+          },
+          {
+            "q": "Why are my pages in the wrong order?",
+            "a": "Files are used in the order you add them, and phone galleries sort by capture time. Use [Organize PDF](/tools/organize) to reorder without redoing the conversion."
           }
         ]
       }
@@ -627,7 +804,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "You need pages 12 to 18 of a 200-page report. Three different tools do subtly different jobs — here is which one you actually want.",
     "date": "2026-02-06",
     "dateLabel": "February 6, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "✂️",
     "keywords": [
@@ -635,7 +812,13 @@ export const problemsArticles: BlogArticle[] = [
       "split pdf pages",
       "save one page of pdf",
       "separate pdf pages",
-      "take pages out of pdf"
+      "take pages out of pdf",
+      "extract pages from pdf free online",
+      "save one page of pdf iphone",
+      "split pdf pages without watermark",
+      "extract pdf pages no signup",
+      "separate pdf pages free",
+      "take pages out of pdf online"
     ],
     "blocks": [
       {
@@ -764,6 +947,30 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Good extraction tools subset what they copy; simpler ones bring everything. If your extract is unexpectedly large, run [compress](/tools/compress) over it, which will discard resources the extracted pages do not actually use."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Extraction is server-side, so a phone browser handles it identically to a desktop — you are only choosing page numbers."
+      },
+      {
+        "p": "**Finding the page numbers on mobile is the awkward part.** Phone PDF readers show a page counter, but it is often hidden until you tap the screen. Tap once to reveal the controls, note the number, and use that rather than any number printed on the page."
+      },
+      {
+        "p": "**On iPhone:** open the PDF in Files, note the pages, then use [Extract pages](/tools/extract-pages) in Safari. **On Android:** the same in Chrome from Downloads or Drive."
+      },
+      {
+        "h2": "Extracting without losing quality"
+      },
+      {
+        "p": "This comes up often enough to state plainly: extraction is **lossless**. Pages are copied object by object into a new document — text stays selectable at full fidelity, images keep their original resolution, and nothing is re-rendered or re-encoded."
+      },
+      {
+        "p": "The only thing that changes is context. Links pointing to pages outside your range break, because their target no longer exists, and bookmarks referencing removed pages are dropped. The pages themselves are byte-for-byte what they were."
+      },
+      {
+        "p": "If the extracted file is unexpectedly large, that is resource sharing rather than quality loss — the pages carry fonts and images used across the whole document. [Compress](/tools/compress) discards what the extracted pages do not use."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -783,6 +990,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Can I extract non-consecutive pages into one file?",
             "a": "Yes — name each page or range, and they are combined into a single document in the order given."
+          },
+          {
+            "q": "How do I extract pages from a PDF on my phone?",
+            "a": "Note the page numbers from your reader's page counter, then use [Extract pages](/tools/extract-pages) in a mobile browser. No app needed."
+          },
+          {
+            "q": "Does extracting pages reduce quality?",
+            "a": "No. Pages are copied intact — text stays selectable and images keep their resolution. Nothing is re-rendered."
+          },
+          {
+            "q": "How do I save one page of a PDF for free?",
+            "a": "[Extract pages](/tools/extract-pages) with a single page number produces a one-page PDF. Free, no signup, no watermark."
+          },
+          {
+            "q": "Why is my extracted page almost as big as the whole document?",
+            "a": "PDFs share fonts and images across pages, so an extract carries whatever its pages reference. Run [compress](/tools/compress) to discard the unused resources."
           }
         ]
       }
@@ -796,7 +1019,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Bank statements and payslips arrive encrypted. If you know the password but are tired of typing it, here is how to remove it permanently.",
     "date": "2026-02-13",
     "dateLabel": "February 13, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "Security",
     "emoji": "🔓",
     "keywords": [
@@ -804,7 +1027,13 @@ export const problemsArticles: BlogArticle[] = [
       "unlock pdf",
       "decrypt pdf",
       "remove pdf protection",
-      "pdf password remover"
+      "pdf password remover",
+      "remove pdf password online free",
+      "unlock pdf without password",
+      "pdf password remover free",
+      "decrypt pdf on iphone",
+      "open password protected pdf",
+      "remove pdf restrictions free"
     ],
     "blocks": [
       {
@@ -903,6 +1132,33 @@ export const problemsArticles: BlogArticle[] = [
         "p": "For anything you are protecting deliberately, use a long random passphrase from a password manager, and send it by a genuinely separate channel. Emailing the password alongside the encrypted file, which happens constantly, achieves nothing at all."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Bank statements arrive on phones as often as laptops, and unlocking works the same in a mobile browser."
+      },
+      {
+        "p": "**On iPhone:** save the encrypted PDF from Mail into Files, then upload it to [Unlock PDF](/tools/unlock) in Safari with the password. The decrypted copy downloads back to Files."
+      },
+      {
+        "p": "**On Android:** the attachment is usually already in Downloads. Chrome handles the upload and download normally."
+      },
+      {
+        "p": "**A practical note:** once decrypted, the file becomes visible to your phone's search and to any backup that indexes documents. That is usually the point — but if the phone itself is shared or unprotected, keeping the encryption may be the better call."
+      },
+      {
+        "h2": "What you cannot do, and why"
+      },
+      {
+        "p": "It is worth being direct about the limits, because a lot of software advertises otherwise."
+      },
+      {
+        "p": "**A forgotten user password cannot be recovered.** The document content is encrypted with a key derived from that password. Without it there is no document to read — only ciphertext. Tools claiming to recover one are either brute-forcing weak passwords, which fails on anything strong, or not doing what they claim."
+      },
+      {
+        "p": "**The route back is the issuer.** Banks, insurers and payroll providers reissue statements routinely, and they know the password format because they set it. That is a five-minute phone call rather than an unsolvable technical problem."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -922,6 +1178,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Does unlocking change the content?",
             "a": "No. It removes the encryption layer; pages, text and images are untouched."
+          },
+          {
+            "q": "How do I remove a password from a PDF on my phone?",
+            "a": "Save the file locally, then use [Unlock PDF](/tools/unlock) in your mobile browser with the password. The decrypted copy downloads back to your device."
+          },
+          {
+            "q": "Can I unlock a PDF without the password?",
+            "a": "An owner password restricting printing or copying, yes — it is a flag rather than encryption. A user password that blocks opening, no. The content is genuinely encrypted."
+          },
+          {
+            "q": "Is there a free way to remove a PDF password?",
+            "a": "[Unlock PDF](/tools/unlock) is free with no signup, for documents you own or are authorised to access."
+          },
+          {
+            "q": "What is my bank statement password?",
+            "a": "Usually date of birth in a specified format, your customer or account number, or a combination. The covering email normally states it, often in small print below the attachment."
           }
         ]
       }
@@ -935,7 +1207,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "You rotate the page, close the file, reopen it — and it is sideways again. Your reader changed the view, not the document.",
     "date": "2026-02-20",
     "dateLabel": "February 20, 2026",
-    "readMinutes": 8,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "🔄",
     "keywords": [
@@ -943,7 +1215,13 @@ export const problemsArticles: BlogArticle[] = [
       "rotate pdf pages permanently",
       "pdf sideways",
       "fix upside down pdf",
-      "save rotated pdf"
+      "save rotated pdf",
+      "rotate pdf permanently free",
+      "rotate pdf on iphone",
+      "save rotated pdf online",
+      "fix sideways pdf free",
+      "rotate pdf without losing quality",
+      "rotate pdf no watermark"
     ],
     "blocks": [
       {
@@ -1031,6 +1309,30 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Rotating after adding page numbers puts the numbers on the side of the page, which is the sort of error that is only visible once the document is printed."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Phone PDF readers all offer a rotate button, and on every one of them it is a **view** control — it changes what you see and not the file. That is why the page is sideways again next time you open it, and why the person you send it to still sees it wrong."
+      },
+      {
+        "p": "**On iPhone:** the Files app rotation is view-only. Markup can rotate and save, but it re-renders the page and can degrade quality. Use [Rotate PDF](/tools/rotate) in Safari instead, which writes the rotation into the file losslessly."
+      },
+      {
+        "p": "**On Android:** Drive and most readers are the same — view-only rotation. [Rotate PDF](/tools/rotate) in Chrome writes it properly."
+      },
+      {
+        "h2": "Rotating without losing quality"
+      },
+      {
+        "p": "Proper rotation is completely lossless, and it is worth understanding why so you can tell it apart from tools that are not."
+      },
+      {
+        "p": "A PDF page carries a `/Rotate` attribute — a number telling every reader which way up to draw it. Changing that number changes nothing else. The text, images and vectors are untouched, so you can rotate a page a hundred times with no degradation whatsoever."
+      },
+      {
+        "p": "What is **not** lossless is re-rendering: converting the page to an image, rotating the pixels, and putting it back. That destroys the text layer and softens everything. If a tool's rotated output is larger than the original or has lost its selectable text, it re-rendered rather than rotating."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1050,6 +1352,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "My page is slightly tilted, not rotated. What now?",
             "a": "That is skew from scanning. Rotation works in 90° steps and cannot fix it. Rescan if you can, especially before running OCR."
+          },
+          {
+            "q": "How do I rotate a PDF permanently on my phone?",
+            "a": "Phone readers only rotate the view. Use [Rotate PDF](/tools/rotate) in a mobile browser, which writes the rotation into the file so it stays fixed for everyone."
+          },
+          {
+            "q": "Why does my PDF go back to sideways when I reopen it?",
+            "a": "Your reader changed the view, not the document. Nothing was saved into the file."
+          },
+          {
+            "q": "Does rotating a PDF reduce quality?",
+            "a": "Not when done properly — it sets a page attribute and touches nothing else. Tools that re-render the page to rotate it do lose quality."
+          },
+          {
+            "q": "How do I rotate a PDF for free without watermarks?",
+            "a": "[Rotate PDF](/tools/rotate) is free with no signup and adds no watermark."
           }
         ]
       }
@@ -1063,7 +1381,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Merged three documents and the numbering restarts three times? Here is how to number a PDF properly, and what examiners and courts expect.",
     "date": "2026-02-27",
     "dateLabel": "February 27, 2026",
-    "readMinutes": 8,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🔢",
     "keywords": [
@@ -1071,7 +1389,13 @@ export const problemsArticles: BlogArticle[] = [
       "number pdf pages",
       "pdf pagination",
       "page numbers on scanned pdf",
-      "insert page numbers pdf"
+      "insert page numbers pdf",
+      "add page numbers to pdf free",
+      "number pdf pages online free",
+      "page numbers pdf no watermark",
+      "insert page numbers pdf mobile",
+      "add page numbers scanned pdf",
+      "pdf pagination free tool"
     ],
     "blocks": [
       {
@@ -1158,6 +1482,18 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Numbering is server-side, so a mobile browser works exactly as a desktop does. The one thing worth doing on a larger screen if you can is the final check — verifying number placement across a long document is genuinely harder on a phone."
+      },
+      {
+        "p": "**On iPhone:** save the merged PDF to Files, then use [Add page numbers](/tools/page-numbers) in Safari. **On Android:** the same in Chrome."
+      },
+      {
+        "p": "If you are assembling a submission on a phone under deadline, do the numbering last and then scroll the whole document once at thumbnail zoom. Misplaced numbers are visible at that size and invisible at reading zoom."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1177,6 +1513,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Can I start at a number other than 1?",
             "a": "Yes. Useful when the file is one section of a larger bound document."
+          },
+          {
+            "q": "How do I add page numbers to a PDF for free?",
+            "a": "[Add page numbers](/tools/page-numbers) stamps a continuous sequence across the document. Free, no signup, no watermark."
+          },
+          {
+            "q": "Can I add page numbers to a PDF on my phone?",
+            "a": "Yes — the processing is server-side, so any mobile browser works. Check the result at thumbnail zoom afterwards."
+          },
+          {
+            "q": "Can I add page numbers to a scanned PDF?",
+            "a": "Yes. Numbers are drawn onto the page and do not need a text layer, so scans work the same as born-digital documents."
+          },
+          {
+            "q": "How do I number a PDF starting from a page other than the first?",
+            "a": "Set a starting number so front matter stays outside the sequence, or number from the page where the body begins. Both are standard conventions."
           }
         ]
       }
@@ -1190,7 +1542,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "A watermark deters casual misuse and marks status at a glance. It is not security — here is the difference, and how to apply one well.",
     "date": "2026-03-06",
     "dateLabel": "March 6, 2026",
-    "readMinutes": 8,
+    "readMinutes": 9,
     "category": "Security",
     "emoji": "💧",
     "keywords": [
@@ -1198,7 +1550,13 @@ export const problemsArticles: BlogArticle[] = [
       "add watermark to pdf",
       "draft watermark",
       "confidential stamp pdf",
-      "pdf watermark free"
+      "pdf watermark free",
+      "add watermark to pdf free",
+      "watermark pdf online no signup",
+      "draft watermark pdf",
+      "confidential stamp pdf free",
+      "pdf watermark without software",
+      "remove watermark from pdf"
     ],
     "blocks": [
       {
@@ -1280,6 +1638,15 @@ export const problemsArticles: BlogArticle[] = [
         "note": "Watermark a copy, always. Keep the unmarked original somewhere you will find it. This is the single piece of advice that prevents the entire problem."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Watermarking is server-side, so a mobile browser handles it as well as a desktop. Save the file locally first on iPhone rather than uploading from a mail preview."
+      },
+      {
+        "p": "**The one thing harder on mobile** is judging opacity. A watermark that looks right on a phone screen can be too faint on a printed page or too heavy on a monitor. If the document will be printed or reviewed on a desktop, check the result on a larger screen before distributing."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1299,6 +1666,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Can I watermark only some pages?",
             "a": "Typically it is applied to all pages, which is usually what you want for a status marker."
+          },
+          {
+            "q": "How do I add a watermark to a PDF for free?",
+            "a": "[Watermark PDF](/tools/watermark) adds text across every page at an opacity you choose. Free, no signup, and it adds no branding of its own."
+          },
+          {
+            "q": "How do I add a DRAFT watermark to a PDF?",
+            "a": "Use DRAFT as the text at around 0.5 opacity — deliberately intrusive, since the point is that nobody mistakes it for final."
+          },
+          {
+            "q": "Can I remove a watermark from a PDF?",
+            "a": "Not cleanly. It is drawn into the page content, indistinguishable from any other graphic. Keep the unmarked original."
+          },
+          {
+            "q": "Does a watermark stop people copying my text?",
+            "a": "No. The text underneath stays fully selectable. Use [redact](/tools/pdf-redact) to remove content or [protect](/tools/protect) to restrict copying."
           }
         ]
       }
@@ -1320,7 +1703,13 @@ export const problemsArticles: BlogArticle[] = [
       "delete blank pages",
       "scanned pdf blank pages",
       "clean up scan",
-      "duplex scan blank"
+      "duplex scan blank",
+      "delete pages from pdf free",
+      "remove blank pages pdf online",
+      "delete pdf pages no watermark",
+      "remove pages from pdf on phone",
+      "clean up scanned pdf free",
+      "delete page from pdf without acrobat"
     ],
     "blocks": [
       {
@@ -1406,6 +1795,18 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The work happens on our servers, so a mobile browser handles this exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Identifying blank pages is much easier in thumbnail view, which phone readers do offer but usually behind a menu. On a long scan it is worth doing this step on a larger screen if you have one — a mis-typed page number removes a page you needed."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app; uploading from an attachment preview fails in some iOS versions. **On Android,** the file is usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1425,6 +1826,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Will deleting pages affect the others?",
             "a": "No. Remaining pages are untouched, though printed page numbers will no longer match positions."
+          },
+          {
+            "q": "How do I delete pages from a PDF for free?",
+            "a": "[Delete pages](/tools/delete-pages) removes the pages you name and keeps everything else. Free, no signup, no watermark."
+          },
+          {
+            "q": "How do I remove blank pages from a scanned PDF?",
+            "a": "Identify them in thumbnail view — with duplex scans they are usually every second page — then delete them by number."
+          },
+          {
+            "q": "Why is my blank page 200KB?",
+            "a": "It is a photograph of white paper complete with scanner noise. Greyscale scanning reduces this substantially."
+          },
+          {
+            "q": "My file did not get smaller after deleting pages. Why?",
+            "a": "PDF editors often append changes rather than rewriting. Run [compress](/tools/compress) afterwards to force a full rewrite."
           }
         ]
       }
@@ -1446,7 +1863,12 @@ export const problemsArticles: BlogArticle[] = [
       "remove pdf margins",
       "crop pdf pages",
       "trim pdf white space",
-      "crop scanned pdf"
+      "crop scanned pdf",
+      "crop pdf free online",
+      "crop pdf margins for mobile",
+      "crop pdf without losing quality",
+      "crop scanned pdf free",
+      "remove pdf borders online"
     ],
     "blocks": [
       {
@@ -1524,6 +1946,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Work out the device's aspect ratio, then choose crop margins that bring the text block to approximately that shape. It is slightly more arithmetic and noticeably better to read."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The processing happens on our servers, so a mobile browser works exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Cropping is the single most effective change for reading PDFs on a phone. Journal articles and reports laid out for A4 print waste a third of your screen on margin, and your reader scales the text down to accommodate it — removing the margins can increase effective text size by 30-40%."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app. Uploading directly from an attachment preview fails in some iOS versions. **On Android,** files are usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1543,6 +1977,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Can I crop different pages differently?",
             "a": "Most simple tools apply one crop to all pages. For mixed layouts, split, crop separately, then merge."
+          },
+          {
+            "q": "How do I crop a PDF for free?",
+            "a": "[Crop PDF](/tools/crop) sets a crop box in points — 72 to an inch. Free, no signup, and it is lossless."
+          },
+          {
+            "q": "How do I make a PDF easier to read on my phone?",
+            "a": "Crop the margins. Your reader scales the whole page including empty space, so removing margins makes the text render proportionally larger."
+          },
+          {
+            "q": "Does cropping a PDF delete content?",
+            "a": "No. It sets a display region; content outside remains in the file. This is also why cropping is not a way to hide information — use [redact](/tools/pdf-redact) for that."
+          },
+          {
+            "q": "Can I undo a crop?",
+            "a": "Usually, if the tool preserved the original media box. Keep a copy regardless."
           }
         ]
       }
@@ -1564,7 +2014,12 @@ export const problemsArticles: BlogArticle[] = [
       "n-up pdf",
       "2 pages per sheet",
       "print 4 slides per page",
-      "save paper printing pdf"
+      "save paper printing pdf",
+      "print 4 pages per sheet pdf",
+      "n-up pdf free online",
+      "print multiple slides per page",
+      "pdf handout maker free",
+      "combine pdf pages onto one sheet"
     ],
     "blocks": [
       {
@@ -1700,6 +2155,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "**Duplex binding edge.** Tiled sheets printed double-sided need the correct flip setting — long edge or short edge — or alternate sheets come out upside down. Print two sheets and check before continuing."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The work happens on our servers, so a mobile browser handles this exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Producing a real n-up file rather than using the print dialog matters more on mobile, because phone print dialogs frequently do not offer a pages-per-sheet option at all. Building the tiled PDF first means you can print it from anywhere."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app; uploading from an attachment preview fails in some iOS versions. **On Android,** the file is usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1719,6 +2186,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Is n-up the same as booklet printing?",
             "a": "No. Booklet printing reorders pages for folding. N-up tiles them in sequence."
+          },
+          {
+            "q": "How do I print 4 PDF pages on one sheet?",
+            "a": "[N-up PDF](/tools/n-up-pdf) creates a new document with the tiling baked in, so it prints that way from any device — including phones, whose print dialogs often lack the option."
+          },
+          {
+            "q": "How do I make slide handouts from a PDF?",
+            "a": "Four slides per sheet in landscape is the standard handout layout. Crop wide borders first if the template has them."
+          },
+          {
+            "q": "Does n-up reduce quality?",
+            "a": "No. Pages are scaled, not re-rendered. Text stays vector-sharp, only smaller."
+          },
+          {
+            "q": "How many pages per sheet is still readable?",
+            "a": "Two-up for documents, four-up for slide decks. Six-up works only for large slide text; nine-up is a contact sheet, not something to read."
           }
         ]
       }
@@ -1732,7 +2215,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "One of the most effective size reductions available for scanned documents — and one of the least known.",
     "date": "2026-09-25",
     "dateLabel": "September 25, 2026",
-    "readMinutes": 8,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "⚫",
     "keywords": [
@@ -1740,7 +2223,13 @@ export const problemsArticles: BlogArticle[] = [
       "pdf black and white",
       "greyscale pdf",
       "reduce pdf color",
-      "black and white pdf converter"
+      "black and white pdf converter",
+      "convert pdf to black and white free",
+      "pdf to grayscale online free",
+      "remove colour from pdf",
+      "greyscale pdf on mobile",
+      "black and white pdf converter no watermark",
+      "reduce pdf size greyscale"
     ],
     "blocks": [
       {
@@ -1828,6 +2317,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "In practice this is the difference between a legible 100KB scan and an unreadable one. [Greyscale](/tools/grayscale-pdf), then [crop](/tools/crop), then [compress to size](/tools/compress-to-size)."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The processing happens on our servers, so a mobile browser works exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Greyscale conversion is the highest-value step before hitting a size limit on a phone, because it removes two thirds of the data before any compression happens — which means the compressor degrades far less to reach the same target."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app. Uploading directly from an attachment preview fails in some iOS versions. **On Android,** files are usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1847,6 +2348,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Does this help with printing?",
             "a": "Yes, twice: smaller file, and you see exactly what a mono printer will produce."
+          },
+          {
+            "q": "How do I convert a PDF to black and white for free?",
+            "a": "[Convert to greyscale](/tools/grayscale-pdf) removes colour channels while keeping 256 shades, so photographs and shading survive. Free, no signup."
+          },
+          {
+            "q": "Does greyscale reduce PDF file size?",
+            "a": "Substantially — typically 40–60% for a colour scan of black text, with no visible change."
+          },
+          {
+            "q": "Can I convert a PDF to greyscale on my phone?",
+            "a": "Yes, in any mobile browser. It is often the single most effective step toward a size limit."
+          },
+          {
+            "q": "Can I convert greyscale back to colour?",
+            "a": "No. The colour information is discarded permanently. Keep the original."
           }
         ]
       }
@@ -1860,7 +2377,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "The mistake that has exposed names in court filings and salaries in public reports. Here is how to avoid making it.",
     "date": "2026-10-05",
     "dateLabel": "October 5, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "🔒",
     "keywords": [
@@ -1868,7 +2385,13 @@ export const problemsArticles: BlogArticle[] = [
       "how to redact pdf",
       "black out text pdf",
       "remove sensitive information pdf",
-      "pdf redaction"
+      "pdf redaction",
+      "redact pdf free online",
+      "black out text in pdf permanently",
+      "remove text from pdf free",
+      "pdf redaction tool free",
+      "hide sensitive information pdf",
+      "redact pdf without acrobat"
     ],
     "blocks": [
       {
@@ -1963,6 +2486,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Six steps, under a minute, and it is the only thing that distinguishes a redaction that works from one that looks like it works."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "Redaction is one operation genuinely worth doing on a larger screen if you can, and it is worth saying why."
+      },
+      {
+        "p": "The technical step works fine in a mobile browser — [redact](/tools/pdf-redact) is server-side. What is hard on a phone is the **verification**, which is the part that matters. Copying all the text out of a PDF and searching it for what you removed is fiddly on mobile and easy to do carelessly."
+      },
+      {
+        "p": "If you must work on a phone, do the redaction there and verify by opening the result and using the reader's search function for each redacted term. It is less thorough than a copy-paste check but far better than not verifying at all."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -1982,6 +2517,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Can redacted content be recovered?",
             "a": "Not if properly removed. That is the difference between redaction and covering."
+          },
+          {
+            "q": "How do I redact a PDF for free?",
+            "a": "[Redact PDF](/tools/pdf-redact) removes the underlying content rather than covering it. Free, no signup. Verify afterwards by copying the text out and searching it."
+          },
+          {
+            "q": "Is drawing a black box over text the same as redacting?",
+            "a": "No, and this is the single most consequential PDF mistake there is. The text stays in the file and comes out when anyone selects and copies the page."
+          },
+          {
+            "q": "How do I check my redaction actually worked?",
+            "a": "Open the result, select all, copy, paste into a plain text editor, and search for what you removed. If it appears, it was not removed."
+          },
+          {
+            "q": "Can redacted text be recovered?",
+            "a": "Not if it was properly removed. That is exactly the difference between redaction and drawing a shape over it."
           }
         ]
       }
@@ -1995,7 +2546,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Document properties routinely name the client whose template you reused. Two clicks to check, seconds to fix.",
     "date": "2026-10-13",
     "dateLabel": "October 13, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "🕵️",
     "keywords": [
@@ -2003,7 +2554,13 @@ export const problemsArticles: BlogArticle[] = [
       "pdf document properties",
       "anonymous pdf",
       "strip metadata pdf",
-      "pdf author information"
+      "pdf author information",
+      "remove pdf metadata free",
+      "make pdf anonymous online",
+      "strip pdf author information",
+      "remove document properties pdf",
+      "clear pdf metadata no signup",
+      "pdf privacy remove data"
     ],
     "blocks": [
       {
@@ -2090,6 +2647,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "The rule of thumb: strip before anything leaves your organisation to an external party who does not need it. Keep it for archives, publications and internal records."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The work happens on our servers, so a mobile browser handles this exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Checking metadata is awkward on mobile — most phone readers do not expose document properties at all. If you are sending something where author details matter, verify on a desktop, or simply strip it as a matter of routine before anything leaves your device."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app; uploading from an attachment preview fails in some iOS versions. **On Android,** the file is usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2109,6 +2678,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Is metadata removed when I print to PDF?",
             "a": "New metadata is created by the print driver. It is different, not absent."
+          },
+          {
+            "q": "How do I remove metadata from a PDF for free?",
+            "a": "[Remove metadata](/tools/remove-metadata) strips the document information dictionary — author, title, producer, timestamps. Free, no signup."
+          },
+          {
+            "q": "How do I make a PDF anonymous?",
+            "a": "Strip metadata, rename the file, and check the content itself for identifying details. Metadata removal alone is not anonymity."
+          },
+          {
+            "q": "Does a PDF contain my name?",
+            "a": "Frequently, in the author field taken from your word processor. It can also carry your file path, which may disclose more than the name does."
+          },
+          {
+            "q": "Do images inside a PDF carry metadata?",
+            "a": "Yes — photographs can retain EXIF data including GPS coordinates. Document-level stripping does not remove it."
           }
         ]
       }
@@ -2130,7 +2715,13 @@ export const problemsArticles: BlogArticle[] = [
       "what does flatten pdf mean",
       "flatten form fields",
       "pdf flatten annotations",
-      "lock pdf form"
+      "lock pdf form",
+      "flatten pdf free online",
+      "flatten pdf form fields",
+      "lock pdf form after filling",
+      "flatten pdf without acrobat",
+      "pdf form shows blank to recipient",
+      "flatten annotations pdf"
     ],
     "blocks": [
       {
@@ -2248,6 +2839,18 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The processing happens on our servers, so a mobile browser works exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Flattening is particularly worth doing before sending a filled form from a phone, because mobile readers vary widely in whether they render form field values — a form that looks complete to you can arrive blank."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app. Uploading directly from an attachment preview fails in some iOS versions. **On Android,** files are usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2267,6 +2870,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Will my form answers still be visible?",
             "a": "Yes — they become permanent page content. That is exactly what makes them uneditable."
+          },
+          {
+            "q": "How do I flatten a PDF for free?",
+            "a": "[Flatten PDF](/tools/flatten-pdf) merges form fields, annotations and layers into the page. Free, no signup."
+          },
+          {
+            "q": "Why does my filled PDF form look empty to the recipient?",
+            "a": "Their reader is not rendering the form field values. Flatten before sending and the values become ordinary page content that every reader draws identically."
+          },
+          {
+            "q": "Does flattening reduce PDF file size?",
+            "a": "Usually yes, since interactive objects carry overhead. Combined with compression the saving can be substantial."
+          },
+          {
+            "q": "Can I unflatten a PDF?",
+            "a": "No. Keep the original — recovering fields means rebuilding them by hand."
           }
         ]
       }
@@ -2280,7 +2899,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Two mechanisms with the same name and completely different strength. Picking wrong gives you the illusion of security.",
     "date": "2026-10-29",
     "dateLabel": "October 29, 2026",
-    "readMinutes": 9,
+    "readMinutes": 10,
     "category": "Guides",
     "emoji": "🔐",
     "keywords": [
@@ -2288,7 +2907,12 @@ export const problemsArticles: BlogArticle[] = [
       "pdf encryption",
       "secure pdf",
       "pdf user password",
-      "protect pdf from copying"
+      "protect pdf from copying",
+      "password protect pdf free online",
+      "encrypt pdf without acrobat",
+      "lock pdf with password free",
+      "secure pdf online no signup",
+      "add password to pdf on phone"
     ],
     "blocks": [
       {
@@ -2410,6 +3034,18 @@ export const problemsArticles: BlogArticle[] = [
         ]
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The work happens on our servers, so a mobile browser handles this exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Choosing a strong passphrase is harder on a phone keyboard, which is exactly why people fall back on a date of birth. Use your password manager to generate and store it rather than typing something memorable — the encryption is only as good as the password."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app; uploading from an attachment preview fails in some iOS versions. **On Android,** the file is usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2429,6 +3065,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Should I email the password with the file?",
             "a": "No. That defeats the purpose entirely. Use a separate channel."
+          },
+          {
+            "q": "How do I password protect a PDF for free?",
+            "a": "[Protect PDF](/tools/protect) applies a user password that genuinely encrypts the file. Free, no signup."
+          },
+          {
+            "q": "How do I password protect a PDF on my phone?",
+            "a": "In any mobile browser. Use a password manager to generate the passphrase rather than typing something guessable."
+          },
+          {
+            "q": "Is PDF password protection secure?",
+            "a": "A user password uses sound AES encryption. The weak point is almost always the password itself, not the algorithm."
+          },
+          {
+            "q": "How do I stop someone printing or copying my PDF?",
+            "a": "That is an owner password, which sets restriction flags. Compliant readers honour them; nothing enforces them. For real protection, encrypt with a user password."
           }
         ]
       }
@@ -2442,7 +3094,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "The most-used document operation, and the handful of ways it reliably goes wrong.",
     "date": "2026-11-06",
     "dateLabel": "November 6, 2026",
-    "readMinutes": 8,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🔗",
     "keywords": [
@@ -2450,7 +3102,13 @@ export const problemsArticles: BlogArticle[] = [
       "combine pdf order",
       "merge pdf page size",
       "pdf merge large file",
-      "merge encrypted pdf"
+      "merge encrypted pdf",
+      "merge pdf free online no watermark",
+      "combine pdf files on phone",
+      "merge pdf without signup",
+      "join pdf files free",
+      "merge pdf without losing quality",
+      "combine multiple pdfs online"
     ],
     "blocks": [
       {
@@ -2533,6 +3191,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "The question to ask is who reads the result and what they do with it. Merge for a reader working through the whole thing in order; keep separate for a reader who needs to locate one item."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The processing happens on our servers, so a mobile browser works exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Selection order is the thing to watch on mobile: phone file pickers often sort by date modified rather than by name, so the order you get may not be the order you expect. Check the result and fix it with [Organize PDF](/tools/organize) rather than redoing the merge."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app. Uploading directly from an attachment preview fails in some iOS versions. **On Android,** files are usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2552,6 +3222,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Why is my merged file so big?",
             "a": "Duplicated fonts and images across sources. Compress afterwards."
+          },
+          {
+            "q": "How do I merge PDFs for free without a watermark?",
+            "a": "[Merge PDF](/tools/merge) combines up to 20 files with no signup and no watermark added."
+          },
+          {
+            "q": "How do I combine PDFs on my phone?",
+            "a": "Use [Merge PDF](/tools/merge) in a mobile browser. Watch the selection order — phone pickers often sort by date rather than name."
+          },
+          {
+            "q": "Does merging PDFs reduce quality?",
+            "a": "No. Pages are copied intact, not re-rendered. Only compression affects quality."
+          },
+          {
+            "q": "How many PDFs can I merge at once?",
+            "a": "Up to 20 here. For more, merge in batches and then merge the results together."
           }
         ]
       }
@@ -2565,7 +3251,7 @@ export const problemsArticles: BlogArticle[] = [
     "excerpt": "Most people reach for 'split' when they want 'extract', then wonder why they have 200 files.",
     "date": "2026-11-16",
     "dateLabel": "November 16, 2026",
-    "readMinutes": 8,
+    "readMinutes": 9,
     "category": "Guides",
     "emoji": "🪓",
     "keywords": [
@@ -2573,7 +3259,13 @@ export const problemsArticles: BlogArticle[] = [
       "how to split pdf pages",
       "extract vs split pdf",
       "separate pdf pages",
-      "divide pdf file"
+      "divide pdf file",
+      "split pdf free online",
+      "split pdf without adobe",
+      "divide pdf into pages free",
+      "split pdf on mobile",
+      "separate pdf pages no watermark",
+      "split large pdf online free"
     ],
     "blocks": [
       {
@@ -2672,6 +3364,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "For a document with heavy internal cross-referencing — a technical manual, a legal bundle — extraction produces a file with dead links. That is usually acceptable for reading, and not acceptable for distribution. If it matters, note in a covering message that the extract is a subset."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The processing happens on our servers, so a mobile browser works exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "The awkward part on mobile is reading page numbers. Most phone PDF readers hide the page counter until you tap the screen — tap once to reveal it, and use that number rather than anything printed on the page."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app. Uploading directly from an attachment preview fails in some iOS versions. **On Android,** files are usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2691,6 +3395,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Does splitting lose quality?",
             "a": "No. Pages are copied intact."
+          },
+          {
+            "q": "How do I split a PDF for free?",
+            "a": "[Split PDF](/tools/split) produces every page as a separate file. If you want a section rather than every page, [Extract pages](/tools/extract-pages) is what you want."
+          },
+          {
+            "q": "How do I split a PDF on my phone?",
+            "a": "Both tools work in a mobile browser. Read the page numbers from your reader's page counter first."
+          },
+          {
+            "q": "How do I split a PDF without Adobe?",
+            "a": "No software is needed — splitting is a commodity operation that runs entirely in the browser-to-server flow, free and without signup."
+          },
+          {
+            "q": "Does splitting a PDF lose quality?",
+            "a": "No. Pages are copied byte for byte into the new files."
           }
         ]
       }
@@ -2712,7 +3432,13 @@ export const problemsArticles: BlogArticle[] = [
       "convert docx to pdf",
       "export vs print to pdf",
       "word pdf hyperlinks",
-      "doc to pdf free"
+      "doc to pdf free",
+      "word to pdf converter free",
+      "convert docx to pdf online free",
+      "word to pdf no watermark",
+      "doc to pdf on phone",
+      "convert word to pdf without software",
+      "word to pdf keep hyperlinks"
     ],
     "blocks": [
       {
@@ -2805,6 +3531,18 @@ export const problemsArticles: BlogArticle[] = [
         "p": "Where to expect divergence: heavily designed documents using Word-specific features — SmartArt, complex text-box layouts, some chart types — may render differently, because these are Microsoft features LibreOffice approximates rather than reproduces. For a report, a letter or a CV, the output is indistinguishable."
       },
       {
+        "h2": "Doing this on a phone"
+      },
+      {
+        "p": "The work happens on our servers, so a mobile browser handles this exactly as a desktop does — you are only uploading and downloading."
+      },
+      {
+        "p": "Mobile Word and Google Docs both export to PDF directly, and both do it properly — they export rather than print, so links and structure survive. Use the app's own share-as-PDF where you have it; use [Word to PDF](/tools/word-to-pdf) when you have received a .docx you cannot open."
+      },
+      {
+        "p": "**On iPhone,** save the file into Files first if it arrived by email or a messaging app; uploading from an attachment preview fails in some iOS versions. **On Android,** the file is usually already in Downloads and Chrome handles it directly."
+      },
+      {
         "h2": "Common questions"
       },
       {
@@ -2824,6 +3562,22 @@ export const problemsArticles: BlogArticle[] = [
           {
             "q": "Is converted quality lower?",
             "a": "No — text stays vector text. Only print-to-PDF risks rasterising."
+          },
+          {
+            "q": "How do I convert Word to PDF for free?",
+            "a": "[Word to PDF](/tools/word-to-pdf) converts .doc and .docx server-side. Free, no signup, no watermark."
+          },
+          {
+            "q": "How do I convert Word to PDF on my phone?",
+            "a": "Mobile Word and Google Docs both export to PDF directly. For a file you cannot open, use the browser tool."
+          },
+          {
+            "q": "Why did my hyperlinks stop working in the PDF?",
+            "a": "You printed to PDF instead of exporting. Print drivers do not preserve link annotations — always export."
+          },
+          {
+            "q": "Does converting Word to PDF reduce quality?",
+            "a": "No. Text stays vector text. Only print-to-PDF risks rasterising the page."
           }
         ]
       }
