@@ -3,13 +3,21 @@ import { TOOLS } from './lib/toolConfig';
 import { isToolIndexed } from './lib/seoIndex';
 import { BLOG_POSTS } from './blog/posts';
 
+// Google ignores <lastmod> entirely once it learns a site reports it
+// inaccurately. Using `new Date()` meant every deploy told Google that all 82
+// non-blog URLs had just changed, which is both untrue and self-defeating.
+//
+// Blog posts carry their real publication date. Everything else uses the
+// constant below — bump it only when you materially change that content.
+const CONTENT_UPDATED = new Date('2026-08-28');
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.thepdfninja.com';
 
   // Core static pages
   const staticPages = ['', '/about', '/contact', '/blog', '/reviews', '/privacy', '/terms', '/tools'].map(route => ({
     url: `${baseUrl}${route}`,
-    lastModified: new Date(),
+    lastModified: CONTENT_UPDATED,
     changeFrequency: 'weekly' as const,
     priority: route === '' ? 1 : 0.8,
   }));
@@ -20,7 +28,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(isToolIndexed)
     .map(toolSlug => ({
       url: `${baseUrl}/tools/${toolSlug}`,
-      lastModified: new Date(),
+      lastModified: CONTENT_UPDATED,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     }));
@@ -29,7 +37,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const sizes = ['100kb', '200kb', '500kb', '1mb', '2mb'];
   const calcPages = sizes.map(size => ({
     url: `${baseUrl}/tools/compress-pdf-to-${size}`,
-    lastModified: new Date(),
+    lastModified: CONTENT_UPDATED,
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
@@ -44,10 +52,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Navigational alternatives & compare pages
   const altPages = [
-    { url: `${baseUrl}/compare/ilovepdf-alternative`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${baseUrl}/compare/smallpdf-alternative`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${baseUrl}/compare/pdf24-alternative`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.8 },
-    { url: `${baseUrl}/press`, lastModified: new Date(), changeFrequency: 'monthly' as const, priority: 0.7 },
+    { url: `${baseUrl}/compare/ilovepdf-alternative`, lastModified: CONTENT_UPDATED, changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/compare/smallpdf-alternative`, lastModified: CONTENT_UPDATED, changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/compare/pdf24-alternative`, lastModified: CONTENT_UPDATED, changeFrequency: 'monthly' as const, priority: 0.8 },
+    { url: `${baseUrl}/press`, lastModified: CONTENT_UPDATED, changeFrequency: 'monthly' as const, priority: 0.7 },
   ];
 
   return [...staticPages, ...toolPages, ...calcPages, ...blogPages, ...altPages];

@@ -13,6 +13,22 @@ export function generateStaticParams() {
   return Object.keys(TOOLS).map(tool => ({ tool }));
 }
 
+// Google truncates meta descriptions at roughly 158 characters. The previous
+// template produced 207-289 chars on every one of the 65 tool pages, so the
+// tool-specific sentence — the only part that differentiates the page — was
+// cut off while the identical boilerplate tail ate the budget.
+//
+// This leads with the tool and its distinguishing claim, then appends the
+// trust line only if it still fits.
+function toolDescription(t: { label: string; description: string }): string {
+  const first = t.description.split('. ')[0].replace(/[.\s]+$/, '');
+  let d = `${t.label} free online \u2014 no signup, no watermark. ${first}.`;
+  const tail = ' Files deleted within 1 hour.';
+  if (d.length + tail.length <= 158) d += tail;
+  if (d.length > 158) d = d.slice(0, 157).replace(/\s+\S*$/, '') + '\u2026';
+  return d;
+}
+
 export async function generateMetadata({ params }: { params: Promise<{ tool: string }> }) {
   const resolvedParams = await params;
   const t = TOOLS[resolvedParams.tool];
@@ -22,7 +38,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
 
   return {
     title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
-    description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark, no email required. Files deleted automatically after 1 hour. Works on Windows, Mac, iPhone, Android.`,
+    description: toolDescription(t),
     robots: { index: indexed, follow: true, googleBot: { index: indexed, follow: true } },
     alternates: {
       canonical: `https://www.thepdfninja.com/tools/${resolvedParams.tool}`
@@ -30,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ tool: str
     openGraph: {
       url: `https://www.thepdfninja.com/tools/${resolvedParams.tool}`,
       title: `${t.label} Free Online \u2013 No Signup | ThePDFNinja`,
-      description: `Free online ${t.label.toLowerCase()}. ${t.description} No signup, no watermark.`,
+      description: toolDescription(t),
       images: [
         {
           url: `https://www.thepdfninja.com${t.ninjaImage}`,

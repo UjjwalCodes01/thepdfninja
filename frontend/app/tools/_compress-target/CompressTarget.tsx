@@ -1,53 +1,19 @@
-import { notFound } from 'next/navigation';
 import { TOOLS } from '../../lib/toolConfig';
 import ToolPageClient from '../[tool]/ToolPageClient';
 import ToolIcon from '../../components/ToolIcon';
 
-export const dynamicParams = false;
+// Shared body for the /tools/compress-pdf-to-<size> pages.
+//
+// These used to live at app/tools/compress-pdf-to-[size]/, which looked like a
+// dynamic route but is not one: the App Router only treats a path segment as
+// dynamic when the WHOLE segment is bracketed. `compress-pdf-to-[size]` was
+// therefore a literal folder name, so every one of those URLs returned 404
+// while still being listed in the sitemap. Each size now has a real static
+// route that renders this component.
 
-const VALID_SIZES = ['100kb', '200kb', '500kb', '1mb', '2mb'];
-
-export function generateStaticParams() {
-  return VALID_SIZES.map(size => ({ size }));
-}
-
-export async function generateMetadata({ params }: { params: Promise<{ size: string }> }) {
-  const resolvedParams = await params;
-  if (!VALID_SIZES.includes(resolvedParams.size)) return { title: 'Not Found' };
-  
-  const sizeUpper = resolvedParams.size.toUpperCase();
-  return {
-    title: `Compress PDF to ${sizeUpper} Free Online | No Signup | ThePDFNinja`,
-    description: `Free online tool to compress PDF to exactly ${sizeUpper}. Best for Indian government forms, UPSC, NEET, and bank applications. No signup, no watermark.`,
-    alternates: {
-      canonical: `https://www.thepdfninja.com/tools/compress-pdf-to-${resolvedParams.size}`
-    },
-    openGraph: {
-      url: `https://www.thepdfninja.com/tools/compress-pdf-to-${resolvedParams.size}`,
-      title: `Compress PDF to ${sizeUpper} Free Online | No Signup | ThePDFNinja`,
-      description: `Free online tool to compress PDF to exactly ${sizeUpper}. Best for Indian government forms, UPSC, NEET, and bank applications. No signup, no watermark.`,
-      images: [
-        {
-          url: `https://www.thepdfninja.com${TOOLS['compress'].ninjaImage}`,
-          width: 1200,
-          height: 630,
-          alt: `Free Compress PDF to ${sizeUpper} Online \u2013 ThePDFNinja`,
-        },
-      ],
-    },
-    twitter: {
-      card: 'summary_large_image',
-      images: [`https://www.thepdfninja.com${TOOLS['compress'].ninjaImage}`],
-    },
-  };
-}
-
-export default async function CompressTargetPage({ params }: { params: Promise<{ size: string }> }) {
-  const resolvedParams = await params;
-  if (!VALID_SIZES.includes(resolvedParams.size)) notFound();
-
+export default function CompressTarget({ size }: { size: string }) {
   const t = TOOLS['compress'];
-  const sizeUpper = resolvedParams.size.toUpperCase();
+  const sizeUpper = size.toUpperCase();
 
   return (
     <>
