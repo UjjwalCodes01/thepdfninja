@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import AdSense from './components/AdSense';
 import Link from 'next/link';
 import ToolIcon from './components/ToolIcon';
 import ReviewsStrip from './components/ReviewsStrip';
@@ -40,6 +41,7 @@ export default function HomePage() {
 
   return (
     <>
+      <AdSense />
       {/* SEO schema — FAQPage only (Organization & SoftwareApp moved to layout.tsx) */}
       <script
         type="application/ld+json"

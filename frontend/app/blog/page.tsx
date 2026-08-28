@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import AdSense from '../components/AdSense';
 import Link from 'next/link';
 import PostThumb from '../components/PostThumb';
 import { BLOG_POSTS } from './posts';
@@ -21,6 +22,7 @@ export default function BlogIndexPage() {
 
   return (
     <>
+      <AdSense />
       {/* ── HERO ── */}
       <section style={{ background: 'var(--orange-light)', padding: '60px 0 40px', textAlign: 'center', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: '760px' }}>

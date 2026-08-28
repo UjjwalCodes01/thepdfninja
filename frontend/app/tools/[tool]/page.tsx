@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import AdSense from '../../components/AdSense';
 import Link from 'next/link';
 import { TOOLS } from '../../lib/toolConfig';
 import ToolPageClient from './ToolPageClient';
@@ -72,6 +73,7 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
 
   return (
     <>
+      <AdSense />
       {/* ── WORKSPACE (Top) ── */}
       <section style={{ background: '#f3f0ec', padding: '80px 0 100px', borderBottom: '1px solid var(--border)', minHeight: '60vh', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
         <div className="container" style={{ maxWidth: '960px', textAlign: 'center' }}>

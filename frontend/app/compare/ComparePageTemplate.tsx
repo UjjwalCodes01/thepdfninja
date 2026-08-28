@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import AdSense from '../components/AdSense';
 import Link from 'next/link';
 
 // ─── Shared Compare Page Component ───────────────────────────────────────────
@@ -34,6 +35,7 @@ export default function ComparePage({
 }: ComparePageProps) {
   return (
     <>
+      <AdSense />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
         {
           '@context': 'https://schema.org', '@type': 'WebPage',

@@ -1,16 +1,19 @@
 import Link from 'next/link';
 import PostThumb from '../components/PostThumb';
 import { BLOG_POSTS, ALL_BLOG_POSTS } from './posts';
+import AdSense from '../components/AdSense';
 
 interface ArticleShellProps {
   slug: string;
   children: React.ReactNode;
+  /** Scheduled articles carry noindex, so they must not load ads. */
+  showAds?: boolean;
 }
 
 // Shared chrome for blog articles: breadcrumb hero, prose container, author line,
 // a soft CTA, "related reads", and Article + Breadcrumb JSON-LD. Keeps every post
 // consistent and lets each page file be almost pure written content.
-export default function ArticleShell({ slug, children }: ArticleShellProps) {
+export default function ArticleShell({ slug, children, showAds = true }: ArticleShellProps) {
   // ALL_BLOG_POSTS so scheduled articles still render with full chrome.
   const post = ALL_BLOG_POSTS.find(p => p.slug === slug);
   if (!post) return <>{children}</>;
@@ -21,6 +24,8 @@ export default function ArticleShell({ slug, children }: ArticleShellProps) {
 
   return (
     <>
+      {showAds && <AdSense />}
+
       {/* ── HERO ── */}
       <section style={{ background: 'var(--orange-light)', padding: '52px 0 36px', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: '760px' }}>

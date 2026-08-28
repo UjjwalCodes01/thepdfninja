@@ -178,13 +178,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
         />
       </head>
       <body>
-        {/* Google AdSense (Auto Ads) */}
-        <Script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9515530509004476"
-          crossOrigin="anonymous"
-          strategy="afterInteractive"
-        />
+        {/* AdSense is NOT loaded here. It is rendered per-page by
+            app/components/AdSense.tsx so it never appears on the 404 page or
+            on scheduled articles that carry noindex. */}
 
         {/* Google Analytics */}
         <Script

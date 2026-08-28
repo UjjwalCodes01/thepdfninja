@@ -1,4 +1,5 @@
 import { TOOLS } from '../../lib/toolConfig';
+import AdSense from '../../components/AdSense';
 import ToolPageClient from '../[tool]/ToolPageClient';
 import ToolIcon from '../../components/ToolIcon';
 
@@ -17,6 +18,7 @@ export default function CompressTarget({ size }: { size: string }) {
 
   return (
     <>
+      <AdSense />
       {/* ── TOOL HEADER ── */}
       <section style={{ background: 'var(--orange-light)', padding: '64px 0 48px', textAlign: 'center', borderBottom: '1px solid var(--border)' }}>
         <div className="container" style={{ maxWidth: '800px' }}>

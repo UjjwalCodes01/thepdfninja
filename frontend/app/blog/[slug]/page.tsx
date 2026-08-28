@@ -70,7 +70,7 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
           }}
         />
       )}
-      <ArticleShell slug={article.slug}>
+      <ArticleShell slug={article.slug} showAds={isPublished(article)}>
         {article.blocks.map(renderBlock)}
       </ArticleShell>
     </>

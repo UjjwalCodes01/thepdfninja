@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import AdSense from '../components/AdSense';
 import Link from 'next/link';
 import StarRating from '../components/StarRating';
 import ReviewForm from '../components/ReviewForm';
@@ -31,6 +32,7 @@ export default async function ReviewsPage() {
 
   return (
     <>
+      <AdSense />
       {/* Individual reviews, attached to the SoftwareApplication declared in
           layout.tsx via @id so the entity is not duplicated. Emitted only once
           there are enough genuine reviews to be meaningful. */}

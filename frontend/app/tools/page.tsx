@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import AdSense from '../components/AdSense';
 import { TOOLS } from '../lib/toolConfig';
 import AllToolsPageClient from './ToolsClient';
 
@@ -19,6 +20,7 @@ const allTools = Object.values(TOOLS);
 export default function ToolsPage() {
   return (
     <>
+      <AdSense />
       {/* ItemList schema — tells AI systems exactly what tools exist */}
       <script
         type="application/ld+json"
