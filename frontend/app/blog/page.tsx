@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import PostThumb from '../components/PostThumb';
 import { BLOG_POSTS } from './posts';
 
 export const metadata: Metadata = {
@@ -39,9 +40,7 @@ export default function BlogIndexPage() {
           {/* Featured */}
           <Link href={`/blog/${featured.slug}`} className="anim-fade-up" style={{ display: 'block', textDecoration: 'none', color: 'inherit', marginBottom: '40px' }}>
             <article style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-lg)', overflow: 'hidden', boxShadow: 'var(--shadow-md)', display: 'grid', gridTemplateColumns: '160px 1fr' }} className="blog-featured">
-              <div style={{ background: 'var(--orange-light)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '3.5rem' }}>
-                {featured.emoji}
-              </div>
+              <PostThumb size={76} />
               <div style={{ padding: '28px 32px' }}>
                 <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginBottom: '12px' }}>
                   <span style={{ fontSize: '0.72rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orange)', background: 'var(--orange-light)', padding: '3px 10px', borderRadius: '100px' }}>{featured.category}</span>
@@ -58,9 +57,7 @@ export default function BlogIndexPage() {
             {rest.map(post => (
               <Link key={post.slug} href={`/blog/${post.slug}`} className="anim-fade-up" style={{ textDecoration: 'none', color: 'inherit' }}>
                 <article style={{ background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius)', overflow: 'hidden', height: '100%', display: 'flex', flexDirection: 'column', transition: 'transform 0.15s, box-shadow 0.15s' }} className="blog-card">
-                  <div style={{ background: 'var(--orange-light)', height: '110px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '2.6rem' }}>
-                    {post.emoji}
-                  </div>
+                  <PostThumb size={54} height={110} />
                   <div style={{ padding: '20px 22px', display: 'flex', flexDirection: 'column', flex: 1 }}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '10px' }}>
                       <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orange)' }}>{post.category}</span>

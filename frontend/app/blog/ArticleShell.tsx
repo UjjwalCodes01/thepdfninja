@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import PostThumb from '../components/PostThumb';
 import { BLOG_POSTS, ALL_BLOG_POSTS } from './posts';
 
 interface ArticleShellProps {
@@ -65,7 +66,7 @@ export default function ArticleShell({ slug, children }: ArticleShellProps) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px' }}>
             {related.map(p => (
               <Link key={p.slug} href={`/blog/${p.slug}`} style={{ textDecoration: 'none', color: 'inherit', background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius)', padding: '22px' }}>
-                <div style={{ fontSize: '1.8rem', marginBottom: '10px' }}>{p.emoji}</div>
+                <PostThumb size={34} height={56} width={56} radius={10} style={{ marginBottom: '12px' }} />
                 <span style={{ fontSize: '0.68rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--orange)' }}>{p.category}</span>
                 <h3 style={{ fontSize: '1rem', fontWeight: 700, color: 'var(--text)', margin: '6px 0 0', lineHeight: 1.3 }}>{p.title}</h3>
               </Link>
