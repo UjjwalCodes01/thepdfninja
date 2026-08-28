@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import AdSense from '../../components/AdSense';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
 export default function IsItSafePage() {
   return (
     <>
+      <AdSense />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

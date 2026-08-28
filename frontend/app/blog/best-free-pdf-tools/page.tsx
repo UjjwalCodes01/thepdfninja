@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import AdSense from '../../components/AdSense';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -104,6 +105,7 @@ const TOOLS_REVIEWED = [
 export default function BestFreePdfToolsPage() {
   return (
     <>
+      <AdSense />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([
         {
           '@context': 'https://schema.org',
