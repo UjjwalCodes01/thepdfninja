@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BLOG_POSTS } from './posts';
+import { BLOG_POSTS, ALL_BLOG_POSTS } from './posts';
 
 interface ArticleShellProps {
   slug: string;
@@ -10,9 +10,11 @@ interface ArticleShellProps {
 // a soft CTA, "related reads", and Article + Breadcrumb JSON-LD. Keeps every post
 // consistent and lets each page file be almost pure written content.
 export default function ArticleShell({ slug, children }: ArticleShellProps) {
-  const post = BLOG_POSTS.find(p => p.slug === slug);
+  // ALL_BLOG_POSTS so scheduled articles still render with full chrome.
+  const post = ALL_BLOG_POSTS.find(p => p.slug === slug);
   if (!post) return <>{children}</>;
 
+  // Related reads must only ever link to live posts.
   const related = BLOG_POSTS.filter(p => p.slug !== slug).slice(0, 3);
   const url = `https://www.thepdfninja.com/blog/${slug}`;
 

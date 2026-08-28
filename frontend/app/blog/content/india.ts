@@ -458,8 +458,8 @@ export const indiaArticles: BlogArticle[] = [
     "metaTitle": "Scan Documents with a Phone for Online Forms | ThePDFNinja",
     "metaDescription": "Phone photos beat cheap scanners for form uploads if you shoot them properly. Lighting, framing and the processing that makes them look scanned.",
     "excerpt": "You do not need a scanner. You do need to stop photographing documents at an angle on a dark desk.",
-    "date": "2026-09-03",
-    "dateLabel": "September 3, 2026",
+    "date": "2026-09-02",
+    "dateLabel": "September 2, 2026",
     "readMinutes": 6,
     "category": "India Guides",
     "emoji": "📱",
@@ -527,6 +527,924 @@ export const indiaArticles: BlogArticle[] = [
           {
             "q": "My photo looks trapezoidal. Can I fix it?",
             "a": "Cropping helps a little; the real fix is reshooting parallel to the page. Perspective is hard to correct after the fact."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "compress-pdf-to-500kb",
+    "title": "How to Compress a PDF to 500KB",
+    "metaTitle": "Compress PDF to 500KB Online — Free | ThePDFNinja",
+    "metaDescription": "500KB is a generous ceiling that still catches out multi-page scans. How to hit it without sacrificing legibility.",
+    "excerpt": "Comfortable for most documents, tight for a colour scan. Here is how to get under it reliably.",
+    "date": "2026-09-10",
+    "dateLabel": "September 10, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "📑",
+    "keywords": [
+      "compress pdf to 500kb",
+      "500kb pdf",
+      "reduce pdf to 500kb",
+      "pdf size 500kb",
+      "document 500kb upload"
+    ],
+    "blocks": [
+      {
+        "p": "500KB is one of the more reasonable limits you will meet. A typed document is nowhere near it. A multi-page colour scan will blow straight past it, and that is where the work lies."
+      },
+      {
+        "h2": "Start by identifying what you have"
+      },
+      {
+        "p": "Press Ctrl+F and search for a word you can see. If it finds it, your PDF contains real text and is probably already small. If it finds nothing, you have a scan, and every page is a photograph."
+      },
+      {
+        "h2": "For text documents that are somehow large"
+      },
+      {
+        "ul": [
+          "[Flatten](/tools/flatten-pdf) to merge form fields and annotations into the page.",
+          "[Remove metadata](/tools/remove-metadata) to clear accumulated revision history.",
+          "[Compress](/tools/compress) at ebook quality — this forces a full rewrite and drops orphaned objects from incremental saves.",
+          "Check for embedded attachments. A PDF can carry other files inside it."
+        ]
+      },
+      {
+        "h2": "For scans"
+      },
+      {
+        "ol": [
+          "[Convert to greyscale](/tools/grayscale-pdf) if the original is black ink. Typically 40–60% saved for nothing.",
+          "[Crop](/tools/crop) the scanner borders — real data, not just cosmetics.",
+          "[Compress to size](/tools/compress-to-size) with 500KB as the target, so the tool finds the best quality that fits.",
+          "Open the result at 100% and read the smallest text before uploading."
+        ]
+      },
+      {
+        "note": "At 500KB you rarely need to compromise legibility. If your output looks poor, you probably compressed a 600 DPI colour scan directly instead of greyscaling and cropping first."
+      },
+      {
+        "h2": "Multi-page documents"
+      },
+      {
+        "p": "500KB across 10 scanned pages is 50KB per page, which is tight. If the portal accepts separate uploads, [split](/tools/split) and send pages individually. If it must be one file, greyscale is not optional."
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "My typed PDF is 3MB. Why?",
+            "a": "Embedded images, fonts, or accumulated revision data. Flatten, remove metadata, then compress."
+          },
+          {
+            "q": "Should I reduce page count to fit?",
+            "a": "Only if the extra pages are genuinely not required. Check what the form asks for before cutting."
+          },
+          {
+            "q": "Is 500KB 500,000 or 512,000 bytes?",
+            "a": "It varies by portal. Target 450–480KB and it stops mattering."
+          },
+          {
+            "q": "Can I compress twice to get smaller?",
+            "a": "It stacks artefacts for little gain. Start from the original and compress once with a lower target."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "compress-pdf-to-1mb",
+    "title": "How to Compress a PDF to 1MB",
+    "metaTitle": "Compress PDF to 1MB Online — Free & Exact | ThePDFNinja",
+    "metaDescription": "1MB is roomy enough for a decent multi-page scan if you approach it correctly. The order of operations that matters.",
+    "excerpt": "A generous limit that still defeats people who compress before cropping. Here is the order that works.",
+    "date": "2026-09-18",
+    "dateLabel": "September 18, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "🗜️",
+    "keywords": [
+      "compress pdf to 1mb",
+      "1mb pdf",
+      "reduce pdf to 1mb",
+      "pdf under 1mb",
+      "compress document to 1mb"
+    ],
+    "blocks": [
+      {
+        "p": "1MB is enough for a well-prepared multi-page scan or a substantial illustrated document. People still fail to hit it, almost always by compressing first and cropping afterwards — which is backwards."
+      },
+      {
+        "h2": "The order that matters"
+      },
+      {
+        "p": "Every step that removes data before compression means the compressor has less to destroy. Do them in this sequence:"
+      },
+      {
+        "ol": [
+          "**Remove pages you do not need.** [Extract](/tools/extract-pages) only what the form asks for. The largest saving available and the one people skip.",
+          "**Crop.** [Crop](/tools/crop) scanner borders and excessive margins.",
+          "**Greyscale.** [Convert](/tools/grayscale-pdf) if colour carries no information.",
+          "**Then compress.** [Compress to size](/tools/compress-to-size) at 1MB."
+        ]
+      },
+      {
+        "p": "Reverse that order and you compress data you were about to throw away, then throw it away — leaving a file that is both small and unnecessarily degraded."
+      },
+      {
+        "h2": "What 1MB supports"
+      },
+      {
+        "table": {
+          "headers": [
+            "Document",
+            "Fits in 1MB?"
+          ],
+          "rows": [
+            [
+              "Typed report, 50 pages",
+              "Easily"
+            ],
+            [
+              "Greyscale scan, 10 pages at 200 DPI",
+              "Comfortably"
+            ],
+            [
+              "Colour scan, 10 pages at 300 DPI",
+              "Only after greyscaling"
+            ],
+            [
+              "Photo-heavy brochure, 20 pages",
+              "Tight; expect visible softening"
+            ],
+            [
+              "Colour scan, 50 pages",
+              "Not legibly"
+            ]
+          ]
+        }
+      },
+      {
+        "h2": "If it still will not fit"
+      },
+      {
+        "p": "Rescanning beats compressing. A 200 DPI greyscale scan starts smaller than a 600 DPI colour one by an order of magnitude, and it starts *clean* rather than being degraded down. If you have the original and two minutes, rescan."
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Will 1MB look acceptable?",
+            "a": "For a greyscale scan of text, comfortably. For a photo-heavy document, expect visible softening."
+          },
+          {
+            "q": "Does page count or resolution matter more?",
+            "a": "Resolution, usually. Halving DPI cuts data roughly fourfold."
+          },
+          {
+            "q": "Can I convert to images and back to shrink it?",
+            "a": "That is what compression already does internally, and done manually you lose the text layer. Do not."
+          },
+          {
+            "q": "Why does my file grow after editing?",
+            "a": "Incremental saves append rather than rewrite. Compress afterwards to force a full rewrite."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "exam-portal-upload-rejected",
+    "title": "Why Exam Portals Reject Your Upload (and How to Pass First Time)",
+    "metaTitle": "Exam Portal Upload Rejected? Common Causes Fixed | ThePDFNinja",
+    "metaDescription": "Size, dimensions, format and naming are checked separately. Why meeting one requirement is not enough.",
+    "excerpt": "'File not accepted' with no explanation. Six separate checks run on your upload — here is how to satisfy all of them.",
+    "date": "2026-09-28",
+    "dateLabel": "September 28, 2026",
+    "readMinutes": 7,
+    "category": "India Guides",
+    "emoji": "⚠️",
+    "keywords": [
+      "exam portal upload rejected",
+      "file not accepted upload",
+      "document upload error exam",
+      "photo upload rejected",
+      "application form upload problem"
+    ],
+    "blocks": [
+      {
+        "p": "An upload rejection with no explanation is one of the more infuriating experiences in an application process. The portal knows exactly what is wrong; it just will not say. Almost always it is one of six things, and they are checked independently."
+      },
+      {
+        "h2": "The six checks"
+      },
+      {
+        "ol": [
+          "**File size — maximum.** The obvious one. [Compress to size](/tools/compress-to-size) hits an exact ceiling.",
+          "**File size — minimum.** Frequently overlooked. Some portals reject files below a floor, to stop people uploading a blank placeholder. Over-compressing causes this.",
+          "**Pixel dimensions.** Separate from file size. A 30KB image can still be the wrong number of pixels wide.",
+          "**Format.** JPG usually means JPG. Renaming a PNG does not convert it — [convert it properly](/tools/png-to-jpg).",
+          "**Aspect ratio.** Some portals check proportions. A square crop where 3:4 is expected fails even at correct dimensions.",
+          "**Filename.** Spaces, special characters and non-Latin scripts break some older systems. Use letters, digits and underscores."
+        ]
+      },
+      {
+        "h2": "Why meeting one is not enough"
+      },
+      {
+        "p": "These are independent tests. A photo can be exactly 45KB (pass), 200×200 pixels (fail), JPG (pass) and named `photo (1).jpg` (fail). The portal reports one generic error and you are left guessing which of four problems to fix."
+      },
+      {
+        "note": "Prepare and verify everything **before** you start the form. Portal sessions time out, and hunting for a photo mid-application is how a completed form gets lost."
+      },
+      {
+        "h2": "A checklist that clears all six"
+      },
+      {
+        "ol": [
+          "Read the notification and write down: max size, min size, pixel dimensions, format, aspect ratio.",
+          "[Crop](/tools/image-crop) to the required proportion.",
+          "[Resize](/tools/image-resize) to the required pixels.",
+          "[Convert](/tools/png-to-jpg) to the required format if needed.",
+          "[Compress to size](/tools/image-to-size) — targeting comfortably inside the range, not at its edge.",
+          "Rename to something plain: `Name_Photo.jpg`.",
+          "Check the final file's properties to confirm size, dimensions and true format."
+        ]
+      },
+      {
+        "h2": "If it still fails"
+      },
+      {
+        "ul": [
+          "Try a different browser. Some portals are built for one and misbehave elsewhere.",
+          "Disable extensions, particularly ad blockers, which occasionally break upload widgets.",
+          "Try outside peak hours. Deadline-day load causes failures that look like validation errors.",
+          "Re-save the image from a different tool — some files carry unusual colour profiles that strict validators reject."
+        ]
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Why is my file rejected for being too small?",
+            "a": "Some portals set a minimum to prevent blank placeholders. Compress less aggressively."
+          },
+          {
+            "q": "I renamed my PNG to .jpg and it failed. Why?",
+            "a": "The extension is a label. The file is still a PNG internally and validators read the actual data."
+          },
+          {
+            "q": "Does the filename really matter?",
+            "a": "On older systems, yes. Spaces and special characters can break upload handling."
+          },
+          {
+            "q": "The portal accepted it but verification rejected it later.",
+            "a": "Upload checks size and format only. Humans check background, lighting and framing afterwards."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "merge-documents-for-application",
+    "title": "How to Combine Certificates and Documents into One Upload",
+    "metaTitle": "Merge Documents into One PDF for Applications | ThePDFNinja",
+    "metaDescription": "Applications often allow a single file. How to combine certificates, mark sheets and ID into one ordered, legible, size-compliant PDF.",
+    "excerpt": "One upload field, eight documents. Here is how to assemble them so a verifier can actually work through the result.",
+    "date": "2026-10-06",
+    "dateLabel": "October 6, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "📚",
+    "keywords": [
+      "merge documents into one pdf",
+      "combine certificates pdf",
+      "single file upload application",
+      "merge marksheets pdf",
+      "attach multiple documents"
+    ],
+    "blocks": [
+      {
+        "p": "Application forms frequently allow one file where you have eight documents — mark sheets, certificates, ID, category proof. Combining them is straightforward; combining them *well*, so a verifier can navigate the result and it still clears the size limit, takes a little more thought."
+      },
+      {
+        "h2": "Order matters more than you would expect"
+      },
+      {
+        "p": "A verifier works down a checklist. If your document follows that checklist, verification is quick. If it is arbitrary, they hunt — and hunting invites a request for resubmission."
+      },
+      {
+        "p": "Use the order given in the instructions. Where none is given, a sensible default is: ID proof, then educational certificates newest to oldest, then category or special-provision documents, then anything supplementary."
+      },
+      {
+        "h2": "Assembling it"
+      },
+      {
+        "ol": [
+          "Convert everything to PDF first. Photos of certificates go through [JPG to PDF](/tools/jpg-to-pdf).",
+          "[Merge](/tools/merge) in the required order.",
+          "[Reorder](/tools/organize) if anything landed out of place.",
+          "[Rotate](/tools/rotate) any sideways pages — very common with phone photos.",
+          "[Add page numbers](/tools/page-numbers) so a verifier can reference a specific document.",
+          "[Compress to size](/tools/compress-to-size) as the last step."
+        ]
+      },
+      {
+        "h2": "Keeping it legible under a size limit"
+      },
+      {
+        "p": "Eight scanned certificates under 2MB is demanding. In order of effectiveness:"
+      },
+      {
+        "ul": [
+          "[Greyscale](/tools/grayscale-pdf) everything where colour carries no meaning. Usually the biggest win.",
+          "[Crop](/tools/crop) borders and desk backgrounds.",
+          "Rescan or rephotograph anything captured badly — a clean 200 DPI capture beats a compressed 600 DPI one.",
+          "Only then compress to the target."
+        ]
+      },
+      {
+        "note": "Verify the final document by opening it and reading every page at 100% zoom. A registration number you cannot read means resubmission, and resubmissions have deadlines."
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading — this guide covers the method for hitting whatever numbers it specifies."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Should I include documents that were not asked for?",
+            "a": "No. Extra material makes verification slower and the file larger. Send exactly what is listed."
+          },
+          {
+            "q": "Do certificates need to be in colour?",
+            "a": "Usually not, unless a coloured seal is part of authenticity. Check the instructions."
+          },
+          {
+            "q": "What if the merged file exceeds the limit?",
+            "a": "Greyscale and crop before compressing. If it still fails, check whether separate uploads are permitted."
+          },
+          {
+            "q": "Should I add page numbers?",
+            "a": "If the file has more than a few pages, yes. It makes any query about your submission far easier to resolve."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "government-portal-upload-requirements",
+    "title": "Why Indian Government Portals Demand Such Small Files",
+    "metaTitle": "Government Portal Upload Requirements Explained | ThePDFNinja",
+    "metaDescription": "The reasoning behind strict size limits, the ranges you will meet, and a preparation routine that clears them first time.",
+    "excerpt": "20KB for a signature is not arbitrary. Understanding why makes the requirements easier to satisfy.",
+    "date": "2026-10-14",
+    "dateLabel": "October 14, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "🏛️",
+    "keywords": [
+      "government portal upload size",
+      "document upload requirements india",
+      "sarkari form upload",
+      "photo signature size government",
+      "online form upload limit"
+    ],
+    "blocks": [
+      {
+        "p": "Government portals in India are unusually strict about uploads, and the reasons are practical rather than arbitrary. Understanding them makes the requirements easier to satisfy and easier to predict."
+      },
+      {
+        "h2": "Why the limits are so tight"
+      },
+      {
+        "ul": [
+          "**Scale.** A recruitment cycle can draw millions of applications. At 2MB each that is terabytes; at 50KB it is manageable.",
+          "**Connectivity.** Applicants upload from every kind of connection. Small files fail less often.",
+          "**Long-term storage.** Records are retained for years, sometimes decades.",
+          "**Legacy systems.** Many portals were built long ago and their limits have never been revised."
+        ]
+      },
+      {
+        "h2": "The requirements you will meet"
+      },
+      {
+        "table": {
+          "headers": [
+            "Item",
+            "Typical range",
+            "Notes"
+          ],
+          "rows": [
+            [
+              "Photograph",
+              "20–100KB",
+              "Often with pixel dimensions specified too"
+            ],
+            [
+              "Signature",
+              "10–50KB",
+              "Greyscale usually acceptable"
+            ],
+            [
+              "Documents",
+              "100KB–2MB",
+              "PDF normally required"
+            ],
+            [
+              "Thumb impression",
+              "10–50KB",
+              "Where required"
+            ]
+          ]
+        }
+      },
+      {
+        "p": "Treat those as indicative only — they vary widely, and a minimum size is sometimes specified alongside the maximum."
+      },
+      {
+        "h2": "A preparation routine"
+      },
+      {
+        "ol": [
+          "Read the notification and note every constraint: max size, min size, pixel dimensions, format, aspect ratio.",
+          "Prepare each file: [crop](/tools/image-crop), [resize](/tools/image-resize), [greyscale](/tools/image-to-grayscale) where allowed, then [compress to size](/tools/image-to-size).",
+          "For documents: [merge](/tools/merge) in the required order, then [compress to size](/tools/compress-to-size).",
+          "Name files plainly — letters, digits and underscores only.",
+          "Verify each file's properties before you open the form."
+        ]
+      },
+      {
+        "note": "Prepare everything before starting the application. Sessions time out, and a form lost at the upload stage means starting again."
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Why do portals want such small files?",
+            "a": "Scale and connectivity. Millions of applicants on variable connections make small files a practical necessity."
+          },
+          {
+            "q": "Can I use the same photo across applications?",
+            "a": "Often, if dimensions and size match. Some bodies require a recent photo with a printed date."
+          },
+          {
+            "q": "What if I cannot meet the size without it becoming illegible?",
+            "a": "Crop and greyscale before compressing. If it still fails, rescan at lower DPI rather than compressing harder."
+          },
+          {
+            "q": "Are the limits in KB or KiB?",
+            "a": "It varies. Target comfortably under and it stops mattering."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "thumb-impression-upload-guide",
+    "title": "Preparing a Thumb Impression for an Online Application",
+    "metaTitle": "Thumb Impression Upload — Size and Format Guide | ThePDFNinja",
+    "metaDescription": "How to capture and prepare a thumb impression that clears the size limit while remaining clear enough to verify.",
+    "excerpt": "The upload people prepare worst, usually by over-compressing away the ridge detail that is the entire point.",
+    "date": "2026-10-22",
+    "dateLabel": "October 22, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "👍",
+    "keywords": [
+      "thumb impression upload",
+      "thumbprint size online form",
+      "thumb impression photo size",
+      "fingerprint upload application",
+      "thumb impression jpg"
+    ],
+    "blocks": [
+      {
+        "p": "Thumb impressions are required alongside photograph and signature on a growing number of application forms, and they are the one people prepare worst — usually because they treat them like a photograph rather than like a signature."
+      },
+      {
+        "h2": "Capturing it"
+      },
+      {
+        "ol": [
+          "Use a clean ink pad. Stamp pad ink works better than a pen.",
+          "Press on **plain white unruled paper**. Ruled lines add detail the compressor must encode and a verifier must look past.",
+          "Roll the thumb slightly rather than pressing straight down — this captures the full ridge pattern.",
+          "Let it dry before photographing. Smudging is the commonest ruin.",
+          "Photograph or scan straight down in even light, with no shadow."
+        ]
+      },
+      {
+        "h2": "Preparing the file"
+      },
+      {
+        "p": "The same order that works for signatures works here, and for the same reason — dimensions matter more than quality when the budget is tiny:"
+      },
+      {
+        "ol": [
+          "[Crop](/tools/image-crop) tight to the impression with a small white margin.",
+          "[Resize](/tools/image-resize) to the specified pixel dimensions.",
+          "[Convert to greyscale](/tools/image-to-grayscale) unless colour is specifically required.",
+          "[Compress to size](/tools/image-to-size) at the stated target."
+        ]
+      },
+      {
+        "note": "Do not over-compress. Ridge detail is the whole point of a thumb impression — a heavily compressed one can be rejected at verification for being indistinct even though it cleared the size check."
+      },
+      {
+        "h2": "Common mistakes"
+      },
+      {
+        "ul": [
+          "Too much ink, producing a solid black blob with no visible ridges.",
+          "Too little, producing a faint partial impression.",
+          "Photographing at an angle, distorting the pattern.",
+          "Cropping so tight that the edges of the impression are cut off.",
+          "Compressing below the point where ridges remain distinguishable."
+        ]
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Left or right thumb?",
+            "a": "Notifications usually specify — often left for men and right for women, but this varies. Check."
+          },
+          {
+            "q": "Can I use a digital scanner?",
+            "a": "A flatbed scan at 300 DPI works well. Fingerprint scanners are not required unless specified."
+          },
+          {
+            "q": "Colour or greyscale?",
+            "a": "Greyscale is usually acceptable and much smaller. Confirm against the notification."
+          },
+          {
+            "q": "Mine looks like a black blob. What now?",
+            "a": "Too much ink. Clean the thumb, use less, and press more lightly."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "pdf-or-jpg-for-applications",
+    "title": "PDF or JPG? Choosing the Right Format for Form Uploads",
+    "metaTitle": "PDF vs JPG for Application Uploads | ThePDFNinja",
+    "metaDescription": "Why portals want documents as PDF and photos as JPG, and why renaming a file extension never works.",
+    "excerpt": "One of the commonest silent rejections, and a rule that takes ten seconds to apply.",
+    "date": "2026-10-30",
+    "dateLabel": "October 30, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "🔀",
+    "keywords": [
+      "pdf or jpg upload",
+      "document format for application",
+      "convert photo to pdf upload",
+      "which format government form",
+      "jpg to pdf application"
+    ],
+    "blocks": [
+      {
+        "p": "Most application portals want documents as PDF and photographs as JPG, and the difference matters more than it looks. Uploading the wrong one is a common, silent rejection."
+      },
+      {
+        "h2": "Why documents want PDF"
+      },
+      {
+        "ul": [
+          "**Multiple pages in one file.** A mark sheet with a reverse side is one PDF and two JPGs.",
+          "**Consistent rendering.** A PDF displays identically to every verifier.",
+          "**Text layer.** A born-digital PDF is searchable; an image is not.",
+          "**Better compression** for pages of text than JPG achieves."
+        ]
+      },
+      {
+        "h2": "Why photographs want JPG"
+      },
+      {
+        "p": "Photographs are single images with no page structure, and JPG compresses them efficiently with fine control over the size. Wrapping a photo in a PDF adds overhead and makes automated dimension checking harder, which is why portals reject it."
+      },
+      {
+        "h2": "Converting correctly"
+      },
+      {
+        "ul": [
+          "**Photos of documents → PDF:** [JPG to PDF](/tools/jpg-to-pdf), multiple images into one file in order.",
+          "**PDF you need as an image:** [PDF to JPG](/tools/pdf-to-jpg).",
+          "**PNG where JPG is required:** [PNG to JPG](/tools/png-to-jpg). Renaming the file does not convert it.",
+          "**HEIC from an iPhone:** [HEIC to JPG](/tools/heic-to-jpg). Most portals cannot read HEIC at all."
+        ]
+      },
+      {
+        "note": "Renaming `photo.png` to `photo.jpg` does not change the file. Validators read the actual data, and this is one of the most common causes of an unexplained rejection."
+      },
+      {
+        "h2": "A quick decision rule"
+      },
+      {
+        "p": "If it has pages, it is a PDF. If it is a picture of a person, it is a JPG. If the notification says otherwise, the notification wins."
+      },
+      {
+        "note": "Requirements change between cycles and vary by body. Confirm exact figures against the current official notification before uploading."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Can I upload a PDF where a JPG is asked for?",
+            "a": "Usually rejected. The portal checks the actual format."
+          },
+          {
+            "q": "How do I combine two sides of a mark sheet?",
+            "a": "Photograph both, then [JPG to PDF](/tools/jpg-to-pdf) to produce a two-page document."
+          },
+          {
+            "q": "My iPhone photo will not upload.",
+            "a": "It is probably HEIC. Convert to JPG first."
+          },
+          {
+            "q": "Does renaming the extension work?",
+            "a": "No. The file's internal format is unchanged and validators check it."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "scan-certificates-for-upload",
+    "title": "How to Scan Certificates So They Pass Verification",
+    "metaTitle": "Scan Certificates for Online Upload — Quality Guide | ThePDFNinja",
+    "metaDescription": "Capture quality determines whether a compressed certificate stays legible. The order of operations that keeps it readable.",
+    "excerpt": "Almost all the advice is about the size limit. The thing that actually gets you rejected is legibility.",
+    "date": "2026-11-09",
+    "dateLabel": "November 9, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "📜",
+    "keywords": [
+      "scan certificate for upload",
+      "certificate scan quality",
+      "marksheet scan upload",
+      "document scan clear",
+      "certificate pdf upload"
+    ],
+    "blocks": [
+      {
+        "p": "A scanned certificate that is unreadable at verification is worse than one that is slightly too large — the first costs you the application, the second costs you five minutes. Yet almost all the advice online is about hitting the size limit."
+      },
+      {
+        "h2": "Capture matters more than compression"
+      },
+      {
+        "p": "Every improvement at capture reduces how hard the compressor has to work later. In descending order of impact:"
+      },
+      {
+        "ol": [
+          "**Scan or photograph at 300 DPI equivalent.** Enough detail for small print to survive compression.",
+          "**Greyscale, not colour,** unless a coloured seal matters. Removes two thirds of the data for nothing.",
+          "**Straight and flat.** Skew and curl make text harder to read and harder to compress.",
+          "**Even lighting, no shadow.** Uneven exposure forces the compressor to encode gradients that carry no information.",
+          "**Crop to the document.** Desk, scanner bed and background are pure waste."
+        ]
+      },
+      {
+        "h2": "Then compress, in the right order"
+      },
+      {
+        "p": "[Crop](/tools/image-crop), [greyscale](/tools/image-to-grayscale), then [compress to size](/tools/compress-to-size). Doing it the other way round — compressing a full-colour, uncropped 600 DPI scan straight to 100KB — is why certificates come out unreadable."
+      },
+      {
+        "h2": "The verification test"
+      },
+      {
+        "p": "Open your final file at 100% zoom and read the smallest text on it: the registration number, the date, the issuing authority. If you have to squint, so will the verifier, and they have a queue."
+      },
+      {
+        "note": "A rejected certificate usually means resubmission within a deadline. The five minutes spent rescanning properly is cheaper than the alternative."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Phone or scanner?",
+            "a": "Either works. A well-lit phone photo shot straight down often beats a carelessly used flatbed."
+          },
+          {
+            "q": "Should certificates be in colour?",
+            "a": "Usually not required. Keep colour only where a seal or stamp's colour is part of authenticity."
+          },
+          {
+            "q": "How do I know if it is legible enough?",
+            "a": "Read the smallest text at 100% zoom. If you cannot, neither can a verifier."
+          },
+          {
+            "q": "What if the certificate is laminated?",
+            "a": "Lamination causes glare. Photograph at a slight angle to the light source, not straight into it, and avoid flash."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "visa-passport-document-guide",
+    "title": "Preparing Photos and Documents for Passport and Visa Applications",
+    "metaTitle": "Passport & Visa Photo Requirements — Preparation Guide | ThePDFNinja",
+    "metaDescription": "Biometric photo standards, the rejection reasons that catch people out, and how to prepare supporting documents.",
+    "excerpt": "The strictest photo requirements you will meet, checked automatically, with no explanation when they fail.",
+    "date": "2026-11-17",
+    "dateLabel": "November 17, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "🛃",
+    "keywords": [
+      "passport photo requirements",
+      "visa photo size",
+      "immigration document upload",
+      "biometric photo standard",
+      "passport application documents"
+    ],
+    "blocks": [
+      {
+        "p": "Passport, visa and immigration applications combine the strictest photo requirements you will meet with document uploads that are frequently rejected for reasons the portal does not explain."
+      },
+      {
+        "h2": "Photograph requirements are unusually strict"
+      },
+      {
+        "p": "Immigration photos are checked against biometric standards, often automatically. Common rejection reasons:"
+      },
+      {
+        "ul": [
+          "**Background not plain enough** — shadows on the wall count.",
+          "**Head size outside the permitted range** — most standards specify the head must occupy a defined proportion of the frame.",
+          "**Expression** — neutral, mouth closed, both eyes open and visible.",
+          "**Glasses** — increasingly prohibited outright rather than merely discouraged.",
+          "**Head covering** — usually permitted for religious reasons provided the full face is visible.",
+          "**Age of photograph** — typically must be recent, often within six months."
+        ]
+      },
+      {
+        "h2": "Preparing the file"
+      },
+      {
+        "ol": [
+          "[Crop](/tools/image-crop) to the required aspect ratio, with the head positioned as the standard specifies.",
+          "[Resize](/tools/image-resize) to the required pixel dimensions — or use [resize to passport](/tools/resize-to-passport) for standard proportions.",
+          "[Compress to size](/tools/image-to-size) if a file size is specified.",
+          "Check dimensions, size and format separately before uploading."
+        ]
+      },
+      {
+        "h2": "Supporting documents"
+      },
+      {
+        "p": "Scans of certificates, bank statements and letters are usually required as PDF. [Merge](/tools/merge) multi-page documents into single files rather than uploading pages separately, [OCR](/tools/ocr) them so they are searchable, and [compress to size](/tools/compress-to-size) if limits apply — while checking legibility afterwards."
+      },
+      {
+        "note": "Requirements differ substantially between countries and between visa categories within the same country. Take every figure from the official guidance for your specific application, not from a general guide."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "Can I use a phone photo?",
+            "a": "Often yes, if the background, lighting and framing meet the standard. Have someone else take it from about two metres."
+          },
+          {
+            "q": "Are glasses allowed?",
+            "a": "Increasingly not. Check the specific guidance for your application."
+          },
+          {
+            "q": "Why was my photo rejected after upload succeeded?",
+            "a": "Upload checks size and format. Biometric compliance is checked separately, often automatically."
+          },
+          {
+            "q": "Should documents be colour or greyscale?",
+            "a": "Colour is usually safer for official documents where seals and stamps matter. Check the guidance."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "slug": "college-admission-document-upload",
+    "title": "Preparing Documents for College Admission Portals",
+    "metaTitle": "College Admission Document Upload Guide | ThePDFNinja",
+    "metaDescription": "Assembling and preparing the document set before you open the portal, and the mechanical mistakes that cause rejection.",
+    "excerpt": "Rejections here are almost never about your marks. They are about file formats, legibility and swapped uploads.",
+    "date": "2026-11-25",
+    "dateLabel": "November 25, 2026",
+    "readMinutes": 6,
+    "category": "India Guides",
+    "emoji": "🎓",
+    "keywords": [
+      "college admission document upload",
+      "admission portal documents",
+      "marksheet upload size",
+      "university application documents",
+      "admission form upload"
+    ],
+    "blocks": [
+      {
+        "p": "University and college admissions in India involve uploading a document set that varies by institution, and rejections at this stage are usually mechanical rather than substantive."
+      },
+      {
+        "h2": "Prepare before you open the portal"
+      },
+      {
+        "p": "Admission portals time out, and losing a part-completed form at the upload stage is the commonest source of frustration. Assemble everything first."
+      },
+      {
+        "ol": [
+          "List every document the institution requires.",
+          "Scan or photograph each at 300 DPI equivalent, straight and evenly lit.",
+          "[Crop](/tools/image-crop) each to the document.",
+          "[Greyscale](/tools/image-to-grayscale) anything that is plain ink on paper.",
+          "[Convert to PDF](/tools/jpg-to-pdf), one file per document, multi-page where the document has multiple sides.",
+          "[Compress to size](/tools/compress-to-size) against the stated limit.",
+          "Name each file plainly: `Name_Marksheet_Class12.pdf`."
+        ]
+      },
+      {
+        "h2": "The mistakes that cause rejection"
+      },
+      {
+        "ul": [
+          "**Uploading a photo where a PDF is required,** or the reverse.",
+          "**Illegible scans** — compressed too far, or captured badly to begin with.",
+          "**Both sides of a document uploaded as separate files** where one two-page PDF was expected.",
+          "**Wrong document entirely,** which happens easily when eight files have similar names.",
+          "**Photo and signature swapped,** a classic at the end of a long form."
+        ]
+      },
+      {
+        "note": "Open every file one final time before uploading it and confirm it is the document you think it is, and that you can read the smallest text on it. Two minutes here saves a resubmission cycle."
+      },
+      {
+        "h2": "After submission"
+      },
+      {
+        "p": "Download and keep the submission receipt or acknowledgement PDF. [Merge](/tools/merge) it with copies of what you uploaded into a single record. If a query arises weeks later, you will want to know exactly what was submitted."
+      },
+      {
+        "note": "Requirements vary by institution and change between admission cycles. Take every figure from the current official instructions for the institution you are applying to."
+      },
+      {
+        "h2": "Common questions"
+      },
+      {
+        "faq": [
+          {
+            "q": "One file per document or one combined file?",
+            "a": "Follow the portal. Most want one file per field; some want a single combined document."
+          },
+          {
+            "q": "Colour or greyscale for mark sheets?",
+            "a": "Greyscale is usually acceptable and much smaller. Check the instructions."
+          },
+          {
+            "q": "What if a document has two sides?",
+            "a": "Make it one two-page PDF, not two separate files."
+          },
+          {
+            "q": "My upload succeeded but was rejected later.",
+            "a": "Upload checks size and format. Legibility and correctness are checked by a person afterwards."
           }
         ]
       }

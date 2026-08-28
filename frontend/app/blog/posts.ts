@@ -9,7 +9,7 @@
 // Anything added to content/ shows up on the index and in the sitemap with no
 // further wiring.
 
-import { ARTICLES } from './content';
+import { ARTICLES, ALL_ARTICLES } from './content';
 
 export interface BlogPostMeta {
   slug: string;
@@ -115,10 +115,27 @@ const LEGACY_POSTS: BlogPostMeta[] = [
   },
 ];
 
-/** Every post, newest first. */
+const ARTICLE_META: BlogPostMeta[] = ALL_ARTICLES.map(
+  ({ slug, title, excerpt, date, dateLabel, readMinutes, category, emoji }) => ({
+    slug, title, excerpt, date, dateLabel, readMinutes, category, emoji,
+  })
+);
+
+/**
+ * Every post that is live, newest first. Drives the index and the sitemap.
+ * Scheduled articles are deliberately absent.
+ */
 export const BLOG_POSTS: BlogPostMeta[] = [
   ...LEGACY_POSTS,
-  ...ARTICLES.map(({ slug, title, excerpt, date, dateLabel, readMinutes, category, emoji }) => ({
-    slug, title, excerpt, date, dateLabel, readMinutes, category, emoji,
-  })),
+  ...ARTICLE_META.filter(m => ARTICLES.some(a => a.slug === m.slug)),
+].sort((a, b) => b.date.localeCompare(a.date));
+
+/**
+ * Every post including scheduled ones. ArticleShell reads from this so a
+ * scheduled article still renders with its title, breadcrumb and schema —
+ * otherwise the page would be bare unstyled content until its publish date.
+ */
+export const ALL_BLOG_POSTS: BlogPostMeta[] = [
+  ...LEGACY_POSTS,
+  ...ARTICLE_META,
 ].sort((a, b) => b.date.localeCompare(a.date));
