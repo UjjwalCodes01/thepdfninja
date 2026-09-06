@@ -12,9 +12,9 @@ const tools = [
   { slug: 'word-to-pdf', label: 'Word to PDF', icon: '⇐' },
   { slug: 'pdf-to-jpg', label: 'PDF to JPG', icon: '⊡' },
   { slug: 'jpg-to-pdf', label: 'JPG to PDF', icon: '⊟' },
-  { slug: 'protect', label: 'Protect PDF', icon: '🔒' },
-  { slug: 'unlock', label: 'Unlock PDF', icon: '🔓' },
-  { slug: 'ocr', label: 'OCR PDF', icon: '👁' },
+  { slug: 'protect', label: 'Protect PDF', icon: '⊠' },
+  { slug: 'unlock', label: 'Unlock PDF', icon: '⊡' },
+  { slug: 'ocr', label: 'OCR PDF', icon: '⊙' },
   { slug: 'rotate', label: 'Rotate PDF', icon: '↻' },
   { slug: 'watermark', label: 'Watermark PDF', icon: '◎' },
 ];

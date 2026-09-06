@@ -113,9 +113,9 @@ export default function Footer() {
             </p>
             <div style={{ display: 'flex', gap: '8px' }}>
               {[
-                { label: ' SSL', bg: '#EEF3FF', color: '#1B4DBF' },
-                { label: ' Fast', bg: '#FFF0EB', color: '#F5622D' },
-                { label: ' 1h', bg: '#F0FDF4', color: '#16A34A' },
+                { label: 'SSL', bg: '#EEF3FF', color: '#1B4DBF' },
+                { label: 'Fast', bg: '#FFF0EB', color: '#F5622D' },
+                { label: '1h', bg: '#F0FDF4', color: '#16A34A' },
               ].map(b => (
                 <span key={b.label} style={{ fontSize: '0.68rem', fontWeight: 700, padding: '3px 8px', borderRadius: '100px', background: b.bg, color: b.color }}>
                   {b.label}
@@ -134,15 +134,16 @@ export default function Footer() {
         <div style={{ padding: '20px 0', borderTop: '1px solid #E5E7EB', marginBottom: '24px' }}>
           <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'center' }}>
             {[
-              { icon: '🔒', text: '256-bit SSL Encrypted' },
-              { icon: '🛠️', text: '65 Free PDF Tools' },
-              { icon: '🚫', text: 'No Account Required' },
-              { icon: '⏱️', text: 'Files Auto-Deleted in 1h' },
-              { icon: '💧', text: 'Zero Watermarks' },
-              { icon: '☁️', text: 'Powered by AWS' },
-            ].map(s => (
-              <span key={s.text} style={{ fontSize: '0.78rem', color: '#6B7280', display: 'flex', alignItems: 'center', gap: '5px' }}>
-                <span>{s.icon}</span> {s.text}
+              'TLS encrypted transfer',
+              '65 free PDF tools',
+              'No account required',
+              'Files auto-deleted in 1h',
+              'Zero watermarks',
+              'Runs on AWS',
+            ].map(text => (
+              <span key={text} style={{ fontSize: '0.78rem', color: '#6B7280', display: 'flex', alignItems: 'center', gap: '7px' }}>
+                <span aria-hidden="true" style={{ width: '5px', height: '5px', borderRadius: '50%', background: 'var(--orange)', flexShrink: 0 }} />
+                {text}
               </span>
             ))}
           </div>
@@ -151,7 +152,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div style={{ borderTop: '1px solid #E5E7EB', paddingTop: '24px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '12px' }}>
           <p style={{ fontSize: '0.82rem', color: '#9CA3AF' }}>
-            © 2026, thepdfninja . All rights reserved. Built with ❤️ by <a href="https://digitalanaya.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', transition: 'color 0.15s' }} onMouseEnter={e => e.currentTarget.style.color = '#F5622D'} onMouseLeave={e => e.currentTarget.style.color = 'inherit'}>Anaya Digital Marketing Agency</a> .
+            © 2026, thepdfninja . All rights reserved. Built by <a href="https://digitalanaya.com" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline', transition: 'color 0.15s' }} onMouseEnter={e => e.currentTarget.style.color = '#F5622D'} onMouseLeave={e => e.currentTarget.style.color = 'inherit'}>Anaya Digital Marketing Agency</a> .
           </p>
           <div style={{ display: 'flex', gap: '20px' }}>
             {companyLinks.map(l => (

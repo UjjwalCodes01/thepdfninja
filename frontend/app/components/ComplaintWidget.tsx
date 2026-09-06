@@ -122,18 +122,18 @@ export default function ComplaintWidget() {
         {/* Header */}
         <div className="cw-header">
           <div style={{ display: 'flex', alignItems: 'center', gap: '9px', marginBottom: '3px' }}>
-            <span style={{ fontSize: '1.15rem' }}>🚨</span>
+            <span style={{ fontSize: '1.15rem' }}></span>
             <h2 id="complaint-modal-title" className="cw-header-title">Report an Issue</h2>
           </div>
           <p className="cw-header-sub">We&apos;ll look into it and get back to you.</p>
-          <button onClick={handleClose} aria-label="Close" className="cw-close">✕</button>
+          <button onClick={handleClose} aria-label="Close" className="cw-close"></button>
         </div>
 
         {/* Body */}
         <div className="cw-body">
           {formState === 'success' ? (
             <div style={{ textAlign: 'center', padding: '20px 0' }}>
-              <div style={{ fontSize: '3rem', marginBottom: '14px' }}>✅</div>
+              <div style={{ fontSize: '3rem', marginBottom: '14px' }}></div>
               <h3 style={{ fontWeight: 800, fontSize: '1.05rem', color: '#111827', marginBottom: '8px', letterSpacing: '-0.02em' }}>
                 Complaint Received!
               </h3>
@@ -193,7 +193,7 @@ export default function ComplaintWidget() {
 
               {formState === 'error' && errorMsg && (
                 <div className="cw-error">
-                  <span>⚠️</span> {errorMsg}
+                  <span></span> {errorMsg}
                 </div>
               )}
 
@@ -206,7 +206,7 @@ export default function ComplaintWidget() {
                 {formState === 'submitting' ? (
                   <><span className="cw-spinner" /> Sending…</>
                 ) : (
-                  <><span>📨</span> Submit Complaint</>
+                  <><span></span> Submit Complaint</>
                 )}
               </button>
             </form>

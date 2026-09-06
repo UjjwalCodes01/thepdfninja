@@ -49,7 +49,7 @@ export default function ContactForm() {
   if (formState === 'success') {
     return (
       <div style={{ textAlign: 'center', padding: '48px 24px', background: 'white', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-md)' }}>
-        <div style={{ fontSize: '3rem', marginBottom: '16px' }}>✅</div>
+        <div style={{ fontSize: '3rem', marginBottom: '16px' }}>✓</div>
         <h2 style={{ fontWeight: 800, fontSize: '1.35rem', color: 'var(--text)', marginBottom: '10px', letterSpacing: '-0.02em' }}>
           Message sent!
         </h2>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import AdSense from '../components/AdSense';
+import PostThumb from '../components/PostThumb';
 import Link from 'next/link';
 import StarRating from '../components/StarRating';
 import ReviewForm from '../components/ReviewForm';
@@ -32,7 +33,10 @@ export default async function ReviewsPage() {
 
   return (
     <>
-      <AdSense />
+      {/* No ads until there is something to read. An empty state plus a form is
+          exactly the "screen without publisher-content" the Inventory value
+          policy prohibits, and it is the same reason 404s carry no ads. */}
+      {reviews.length > 0 && <AdSense />}
       {/* Individual reviews, attached to the SoftwareApplication declared in
           layout.tsx via @id so the entity is not duplicated. Emitted only once
           there are enough genuine reviews to be meaningful. */}
@@ -104,7 +108,7 @@ export default async function ReviewsPage() {
 
               {reviews.length === 0 ? (
                 <div style={{ background: 'var(--bg)', border: '1px dashed var(--border)', borderRadius: 'var(--radius-lg)', padding: '48px 28px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '12px' }} aria-hidden="true">✍️</div>
+                  <PostThumb size={28} width={52} height={52} radius={12} style={{ margin: '0 auto 12px' }} />
                   <h2 style={{ fontWeight: 800, fontSize: '1.15rem', marginBottom: '8px' }}>No reviews published yet</h2>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.93rem', lineHeight: 1.65, margin: 0 }}>
                     Be the first. If you have used any of our tools, your review will help

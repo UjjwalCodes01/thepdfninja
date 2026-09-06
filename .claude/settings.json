@@ -72,7 +72,20 @@
       "Bash(cp lambda/ocr/*.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg/)",
       "Bash(cp lambda/easy_tools/_http.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg/)",
       "Bash(python3 -m venv /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/venv)",
-      "Bash(aws ec2 *)"
+      "Bash(aws ec2 *)",
+      "Bash(curl -s https://www.thepdfninja.com/about)",
+      "Bash(curl -s https://www.thepdfninja.com/tools/compress)",
+      "Bash(curl -s https://www.thepdfninja.com/sitemap.xml)",
+      "Bash(curl -s https://www.thepdfninja.com/robots.txt)",
+      "Bash(curl -s https://www.thepdfninja.com/reviews)",
+      "Bash(grep -vE '^\\\\s*$')",
+      "Bash(curl -s https://www.thepdfninja.com/)",
+      "Bash(grep -iA3 -B1 \"review\\\\|says\\\\|rated\")",
+      "Bash(echo \"--- exit $? \\(1 = none, good\\) ---\")",
+      "Bash(awk -F: '{print $1}')",
+      "Bash(echo \"--- exit $? \\(1 = never rendered\\) ---\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" https://www.thepdfninja.com/icon.png)",
+      "Bash(node -e \"console.log\\('checking route output'\\)\")"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"

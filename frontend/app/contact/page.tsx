@@ -14,10 +14,10 @@ export const metadata: Metadata = {
 };
 
 const REASONS = [
-  { icon: '🛠️', title: 'Support & bug reports', desc: 'A tool acting up or a conversion not coming out right? Tell us what happened and we\'ll fix it.' },
-  { icon: '🔒', title: 'Privacy requests', desc: 'Questions about how we handle your files, or a data request under our Privacy Policy.' },
-  { icon: '💡', title: 'Feedback & feature ideas', desc: 'Want a new tool or an improvement? We build a lot of what our users ask for.' },
-  { icon: '📰', title: 'Press & business', desc: 'Media, partnership, or business enquiries are welcome — we\'ll route you to the right person.' },
+  { title: 'Support & bug reports', desc: 'A tool acting up or a conversion not coming out right? Tell us what happened and we\'ll fix it.' },
+  { title: 'Privacy requests', desc: 'Questions about how we handle your files, or a data request under our Privacy Policy.' },
+  { title: 'Feedback & feature ideas', desc: 'Want a new tool or an improvement? We build a lot of what our users ask for.' },
+  { title: 'Press & business', desc: 'Media, partnership, or business enquiries are welcome — we\'ll route you to the right person.' },
 ];
 
 export default function ContactPage() {
@@ -53,7 +53,6 @@ export default function ContactPage() {
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                   {REASONS.map(r => (
                     <div key={r.title} style={{ display: 'flex', gap: '12px' }}>
-                      <span style={{ fontSize: '1.2rem', lineHeight: 1.3 }}>{r.icon}</span>
                       <div>
                         <p style={{ fontWeight: 700, fontSize: '0.92rem', color: 'var(--text)', margin: '0 0 3px' }}>{r.title}</p>
                         <p style={{ fontSize: '0.86rem', color: 'var(--text-secondary)', lineHeight: 1.55, margin: 0 }}>{r.desc}</p>

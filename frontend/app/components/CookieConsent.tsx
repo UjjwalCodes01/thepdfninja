@@ -47,25 +47,13 @@ export default function CookieConsent() {
   if (!visible) return null;
 
   return (
-    <div role="dialog" aria-label="Cookie consent" aria-live="polite" className="cc-banner">
-      <div className="cc-inner">
-        <div className="cc-text">
-          <strong style={{ color: '#111827', display: 'block', marginBottom: '4px', fontSize: '0.92rem' }}>
-            🍪 We value your privacy
-          </strong>
-          <p style={{ margin: 0, fontSize: '0.84rem', color: '#4B5563', lineHeight: 1.55 }}>
+    <div role="dialog" aria-label="Cookie consent" aria-live="polite" className="cc-banner"><div className="cc-inner"><div className="cc-text"><strong style={{ color: '#111827', display: 'block', marginBottom: '4px', fontSize: '0.92rem' }}>
+             We value your privacy
+          </strong><p style={{ margin: 0, fontSize: '0.84rem', color: '#4B5563', lineHeight: 1.55 }}>
             We use cookies to run the site, measure traffic, and &mdash; if you allow it &mdash; show personalised ads.
             You can accept or decline non-essential cookies. Read our{' '}
             <Link href="/privacy" style={{ color: '#F5622D', textDecoration: 'underline' }}>Privacy Policy</Link>.
-          </p>
-        </div>
-        <div className="cc-actions">
-          <button onClick={() => decide(false)} className="cc-btn cc-decline" type="button">Decline</button>
-          <button onClick={() => decide(true)} className="cc-btn cc-accept" type="button">Accept all</button>
-        </div>
-      </div>
-
-      <style>{`
+          </p></div><div className="cc-actions"><button onClick={() => decide(false)} className="cc-btn cc-decline" type="button">Decline</button><button onClick={() => decide(true)} className="cc-btn cc-accept" type="button">Accept all</button></div></div><style>{`
         .cc-banner {
           position: fixed;
           left: 16px; right: 16px; bottom: 16px;
@@ -100,7 +88,6 @@ export default function CookieConsent() {
           .cc-actions { width: 100%; }
           .cc-btn { flex: 1; }
         }
-      `}</style>
-    </div>
+      `}</style></div>
   );
 }

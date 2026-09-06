@@ -88,8 +88,13 @@ export default function FileDropzone({ acceptedTypes, acceptedLabel, multiFile, 
         <div style={{ marginTop: '12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
           {files.map((file, i) => (
             <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 16px', background: 'white', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', borderLeft: '3px solid var(--orange)' }}>
-              <span style={{ fontSize: '20px' }}>
-                {file.type === 'application/pdf' ? '📄' : file.type.startsWith('image/') ? '🖼' : file.name.endsWith('.docx') || file.name.endsWith('.doc') ? '📝' : '📁'}
+              <span style={{
+                fontSize: '0.62rem', fontWeight: 800, letterSpacing: '0.04em',
+                color: 'var(--orange)', background: 'var(--orange-light)',
+                padding: '5px 7px', borderRadius: '4px', minWidth: '38px',
+                textAlign: 'center', flexShrink: 0, textTransform: 'uppercase',
+              }}>
+                {(file.name.split('.').pop() || 'file').slice(0, 4)}
               </span>
               <div style={{ flex: 1, minWidth: 0 }}>
                 <p style={{ fontWeight: 600, fontSize: '0.875rem', color: 'var(--text)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{file.name}</p>

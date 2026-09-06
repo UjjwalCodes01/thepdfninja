@@ -251,7 +251,7 @@ export default function ToolProcessor({ tool, files, options, onSuccess, onError
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                   <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.05em', fontWeight: 600 }}>Encrypted</span>
-                  <span style={{ fontWeight: 600, fontSize: '1.2rem', color: pdfInfoData.encrypted ? 'var(--orange)' : 'var(--text)' }}>{pdfInfoData.encrypted ? 'Yes 🔒' : 'No 🔓'}</span>
+                  <span style={{ fontWeight: 600, fontSize: '1.2rem', color: pdfInfoData.encrypted ? 'var(--orange)' : 'var(--text)' }}>{pdfInfoData.encrypted ? 'Yes' : 'No'}</span>
                 </div>
               </div>
 

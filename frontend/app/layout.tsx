@@ -56,7 +56,9 @@ export default async function RootLayout({ children }: { children: React.ReactNo
   return (
     <html lang="en" className={inter.variable}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        {/* app/icon.png is what Next actually serves; /favicon.ico does not
+            exist and was 404ing on every page load. */}
+        <link rel="icon" href="/icon.png" type="image/png" sizes="any" />
         {/* Google Consent Mode v2 — MUST run before Analytics/AdSense load.
             Defaults to denied; granted only if the visitor previously accepted. */}
         <script
