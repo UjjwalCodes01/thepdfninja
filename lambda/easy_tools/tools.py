@@ -348,7 +348,10 @@ def protect_pdf(input_paths, output_path, options):
     writer = PdfWriter()
     for page in reader.pages:
         writer.add_page(page)
-    writer.encrypt(user_password=password, owner_password=password, use_128bit=True)
+    # algorithm= must be passed explicitly: pypdf defaults to RC4-128 when only
+    # use_128bit is set, and RC4 is broken. AES-256 is what the tool claims and
+    # what users encrypting tax returns and medical records are relying on.
+    writer.encrypt(user_password=password, owner_password=password, algorithm="AES-256")
     with open(output, "wb") as f:
         writer.write(f)
     return output

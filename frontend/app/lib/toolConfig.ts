@@ -421,7 +421,7 @@ export const TOOLS: Record<string, ToolConfig> = {
       { key: 'password', label: 'Password', type: 'text', placeholder: 'Enter a strong password' },
     ],
     outputExt: 'pdf',
-    tips: ['Use a strong password with mixed characters', 'Store your password safely — we cannot recover it', 'AES-128 encryption is applied by default'],
+    tips: ['Use a strong password with mixed characters', 'Store your password safely — we cannot recover it', 'AES-256 encryption is applied to every file'],
     relatedSlugs: ['unlock', 'watermark', 'pdf-to-pdfa'],
   },
   unlock: {

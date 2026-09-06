@@ -38,7 +38,23 @@
       "Bash(echo \"--- tsc exit $? ---\")",
       "Bash(grep -v '\\\\$0\\\\|\\\\$1')",
       "Bash(echo \"tsc=$?\")",
-      "Bash(npx next *)"
+      "Bash(npx next *)",
+      "WebFetch(domain:support.google.com)",
+      "WebSearch",
+      "WebFetch(domain:developers.google.com)",
+      "Bash(echo \"--- AI/automation disclosure present? exit $? \\(1 = none found\\) ---\")",
+      "WebFetch(domain:pypdf.readthedocs.io)",
+      "Bash(echo \"--- cryptography present? exit $? ---\")",
+      "Bash(python3 -c ' *)",
+      "Bash(aws sts *)",
+      "Bash(aws lambda *)",
+      "Bash(mkdir -p /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/easypkg)",
+      "Bash(cp lambda/easy_tools/*.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/easypkg/)",
+      "Bash(rm -rf __pycache__)",
+      "Bash(zip -qr ../easy_tools.zip .)",
+      "Read(//home/ujwal/Desktop/**)",
+      "Bash(aws apigateway *)",
+      "Bash(aws configure *)"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"
