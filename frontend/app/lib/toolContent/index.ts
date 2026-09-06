@@ -22,6 +22,24 @@ export interface ToolSEOContent {
       us: string;
     }[];
   };
+  /**
+   * What the tool actually does, described from the implementation rather than
+   * from marketing copy: the real processing pipeline, the real settings, and
+   * the cases where it does a poor job. `measured` carries numbers produced by
+   * running the live API against test documents — not estimates.
+   */
+  howItWorks?: {
+    title?: string;
+    body: string[];
+    specs?: { label: string; value: string }[];
+    limits?: string[];
+    measured?: {
+      caption: string;
+      headers: string[];
+      rows: string[][];
+      note?: string;
+    };
+  };
 }
 
 export async function getToolContent(slug: string): Promise<ToolSEOContent | null> {

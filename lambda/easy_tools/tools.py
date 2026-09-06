@@ -309,34 +309,50 @@ def rotate_pdf(input_paths, output_path, options):
 # =============================================================
 def watermark_pdf(input_paths, output_path, options):
     from reportlab.pdfgen import canvas
-    from reportlab.lib.pagesizes import letter
     from io import BytesIO
 
     output = output_path + ".pdf"
     text = options.get("text", "WATERMARK")
     opacity = float(options.get("opacity", 0.3))
 
-    # Build watermark PDF
-    wm_buffer = BytesIO()
-    c = canvas.Canvas(wm_buffer, pagesize=letter)
-    c.setFillAlpha(opacity)
-    c.setFont("Helvetica-Bold", 60)
-    c.setFillColorRGB(0.5, 0.5, 0.5)
-    c.saveState()
-    c.translate(300, 400)
-    c.rotate(45)
-    c.drawCentredString(0, 0, text)
-    c.restoreState()
-    c.save()
-    wm_buffer.seek(0)
-
-    wm_reader = PdfReader(wm_buffer)
-    wm_page = wm_reader.pages[0]
-
     reader = PdfReader(input_paths[0])
     writer = PdfWriter()
+
+    # The overlay has to be built per page size, not once on a Letter canvas.
+    # Drawing at a fixed (300, 400) put the mark off-centre on anything that
+    # was not US Letter — noticeably so on A3 and other large formats — and
+    # a fixed 60pt font overflowed narrow pages. Cache by page size so a
+    # uniform document still only builds one overlay.
+    overlays = {}
+
+    def _overlay(width, height):
+        key = (round(width, 2), round(height, 2))
+        if key in overlays:
+            return overlays[key]
+
+        # Scale the type to the page and to the length of the text, so a long
+        # watermark on a narrow page still fits inside the diagonal.
+        diagonal = (width ** 2 + height ** 2) ** 0.5
+        font_size = max(12, min(72, int(diagonal / max(len(text), 6) * 1.1)))
+
+        buf = BytesIO()
+        c = canvas.Canvas(buf, pagesize=(width, height))
+        c.setFillAlpha(opacity)
+        c.setFont("Helvetica-Bold", font_size)
+        c.setFillColorRGB(0.5, 0.5, 0.5)
+        c.saveState()
+        c.translate(width / 2, height / 2)
+        c.rotate(45)
+        c.drawCentredString(0, 0, text)
+        c.restoreState()
+        c.save()
+        buf.seek(0)
+        overlays[key] = PdfReader(buf).pages[0]
+        return overlays[key]
+
     for page in reader.pages:
-        page.merge_page(wm_page)
+        media = page.mediabox
+        page.merge_page(_overlay(float(media.width), float(media.height)))
         writer.add_page(page)
 
     with open(output, "wb") as f:

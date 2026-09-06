@@ -210,6 +210,74 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                   </div>
                 )}
 
+                {seoContent.howItWorks && (
+                  <div style={{ marginBottom: '48px' }}>
+                    <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '8px' }}>
+                      {seoContent.howItWorks.title || 'How this tool actually works'}
+                    </h2>
+                    <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: 0, marginBottom: '20px' }}>
+                      Written from the implementation, not the marketing copy.
+                    </p>
+
+                    {seoContent.howItWorks.body.map((para, i) => (
+                      <p key={i} style={{ fontSize: '1.05rem', lineHeight: 1.75, color: 'var(--text-secondary)', marginTop: 0, marginBottom: '16px' }}>{para}</p>
+                    ))}
+
+                    {seoContent.howItWorks.specs && (
+                      <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'white', margin: '24px 0' }}>
+                        <table style={{ width: '100%', minWidth: '420px', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.92rem' }}>
+                          <tbody>
+                            {seoContent.howItWorks.specs.map((s, i, arr) => (
+                              <tr key={s.label} style={{ borderBottom: i === arr.length - 1 ? 'none' : '1px solid var(--border)' }}>
+                                <td style={{ padding: '12px 16px', fontWeight: 600, color: 'var(--text)', width: '42%', verticalAlign: 'top' }}>{s.label}</td>
+                                <td style={{ padding: '12px 16px', color: 'var(--text-secondary)' }}>{s.value}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    )}
+
+                    {seoContent.howItWorks.measured && (
+                      <div style={{ margin: '28px 0' }}>
+                        <h3 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '10px' }}>{seoContent.howItWorks.measured.caption}</h3>
+                        <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'white' }}>
+                          <table style={{ width: '100%', minWidth: '460px', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
+                            <thead>
+                              <tr style={{ background: 'var(--bg)', borderBottom: '2px solid var(--border)' }}>
+                                {seoContent.howItWorks.measured.headers.map(h => (
+                                  <th key={h} style={{ padding: '12px 16px', fontWeight: 700 }}>{h}</th>
+                                ))}
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {seoContent.howItWorks.measured.rows.map((row, i, arr) => (
+                                <tr key={i} style={{ borderBottom: i === arr.length - 1 ? 'none' : '1px solid var(--border)' }}>
+                                  {row.map((cell, j) => (
+                                    <td key={j} style={{ padding: '11px 16px', color: j === 0 ? 'var(--text)' : 'var(--text-secondary)', fontWeight: j === 0 ? 600 : 400 }}>{cell}</td>
+                                  ))}
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                        {seoContent.howItWorks.measured.note && (
+                          <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginTop: '10px', lineHeight: 1.6 }}>{seoContent.howItWorks.measured.note}</p>
+                        )}
+                      </div>
+                    )}
+
+                    {seoContent.howItWorks.limits && (
+                      <div style={{ marginTop: '24px', padding: '20px 24px', background: 'var(--bg)', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
+                        <h3 style={{ fontSize: '1.05rem', fontWeight: 700, margin: '0 0 12px' }}>Where this tool does a poor job</h3>
+                        <ul style={{ margin: 0, paddingLeft: '20px', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
+                          {seoContent.howItWorks.limits.map((l, i) => <li key={i} style={{ marginBottom: '8px' }}>{l}</li>)}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
+
                 <div>
                   <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '16px' }}>Enterprise-Grade Security</h2>
                   <p style={{ fontSize: '1.05rem', lineHeight: 1.7, color: 'var(--text-secondary)', margin: 0 }}>{seoContent.security}</p>
