@@ -2,7 +2,7 @@ export const pdfInfoContent = {
   introParagraphs: [
     "Understanding the technical details of a PDF file is crucial before printing, sharing, or archiving. ThePDFNinja's Free Online PDF Info tool allows you to inspect any PDF document and extract detailed metadata, including page count, exact dimensions, security permissions, and creator details.",
     "Our tool performs a deep scan of the PDF's internal file structure, extracting hidden tags, title fields, author details, creation software, PDF version, and encryption status. It delivers this information in a clean, readable JSON format that is perfect for developers and power users.",
-    "No need to install complex metadata viewers or command-line utilities. ThePDFNinja is free, requires no installation, and works on all platforms. Simply drag and drop your PDF to inspect its details instantly. Free for files up to 100MB."
+    "No need to install complex metadata viewers or command-line utilities.Reading a document's structure needs no processing power to speak of, so this returns almost immediately. Simply drag and drop your PDF to inspect its details instantly. Free for files up to 100MB."
 ],
   useCases: [
     {

@@ -2,7 +2,7 @@ export const csvToPdfContent = {
   introParagraphs: [
     "CSV (Comma Separated Values) files are great for exporting databases and tabular data, but they look messy and are hard to read as raw text. ThePDFNinja's Free Online CSV to PDF converter formats raw data columns into structured, readable tables, saving them as professional PDF documents.",
     "Our converter automatically adjusts column widths, margins, and borders, applying a clean layout grid that makes data easy to analyze. It is the perfect tool for sharing spreadsheet exports, customer lists, or transaction logs.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your CSV files and download your PDFs instantly."
+    "CSV is a text format with no notion of layout: no column widths, no fonts, no page breaks. Converting it to PDF means making those decisions for it. We lay the rows out as a table, size the columns to their content, and paginate. That is what makes the result printable and shareable — and it is also why a very wide spreadsheet is the hardest case, since there is only so much paper."
 ],
   useCases: [
     {
@@ -26,10 +26,10 @@ export const csvToPdfContent = {
     title: "Why CSV to PDF with ThePDFNinja?",
     description: "We offer a professional-grade document conversion utility completely free. Here is why we are the top choice:",
     points: [
-      "Smart Layout Alignment: Automatically formats columns, margins, and headers to fit standard paper dimensions without clipping.",
-      "100% Free and Unlimited: Convert as many CSV files as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Watermarks: We keep your files clean. No branding or logos are added to your output documents.",
-      "No Signup Required: Start converting CSV to PDF instantly in your browser without creating an account."
+      "Columns are sized to their contents rather than divided evenly, so a column of dates does not get the same width as one holding addresses.",
+      "Rows that run past the bottom of a page continue onto the next, and the output paginates rather than clipping.",
+      "Very wide spreadsheets are the hard case — past roughly a dozen columns there is simply not enough paper, and the result becomes cramped. Split the columns or use landscape.",
+      "Read as UTF-8, so names and currency symbols outside plain ASCII survive the conversion.",
 ]
   },
   security: "Your CSV may hold spreadsheets of personal or financial records, so it is encrypted on upload and converted to PDF in a sandboxed, single-use environment. The original data file and the finished PDF are both wiped within the hour. We never parse your rows for content, retain a copy, or expose the data to any third-party service.",

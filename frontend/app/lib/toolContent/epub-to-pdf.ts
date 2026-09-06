@@ -2,7 +2,7 @@ export const epubToPdfContent = {
   introParagraphs: [
     "EPUB is the standard format for ebooks, but it requires dedicated e-reader applications to open and read. If you want to read an ebook on any device, print sections of it, or share pages with others, PDF is the ideal format. ThePDFNinja's Free Online EPUB to PDF converter allows you to transform ebooks into standard PDF documents in seconds.",
     "Our converter preserves book typography, layout alignment, embedded images, and structures, formatting pages for reading. It is ideal for readers, students, and educators who need to make ebooks compatible with all systems.",
-    "Forget about complex command-line utilities or paid software. ThePDFNinja provides a streamlined, web-based drag-and-drop converter that runs on all major platforms (Windows, Mac, iOS, Android). You can convert documents up to 100MB completely free, with no limitations or watermarks."
+    "No Calibre install, no command line, and no conversion profile to configure. Drop the .epub in and you get a paginated PDF back. Books up to 100MB convert free, with nothing added to the output."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const epubToPdfContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja EPUB to PDF Converter?",
-    description: "Not all document converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "EPUB and PDF disagree about something fundamental: EPUB reflows to fit whatever screen you are reading on, PDF fixes the layout to a page. Converting one to the other means choosing a page size and committing to it. Here is how we handle that.",
     points: [
-      "High-Fidelity Book Layouts: We preserve chapters, paragraph structures, and embedded images using advanced ebook rendering engines.",
-      "Zero Watermarks: No footer is appended to your chapters and no cover page is inserted ahead of them. The PDF contains your book and nothing else.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your EPUBs to PDF instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "A reflowable book becomes fixed pages. EPUB adapts to whatever screen it is on; PDF cannot. We commit to a page size and lay the text out on it, which is the whole point of the conversion and also its main cost.",
+      "Chapter structure and reading order are preserved, so the book still reads front to back correctly.",
+      "DRM-protected books cannot be converted by us or by anyone else without the key. If your file came from a store with copy protection, it will not open.",
+      "Convert when you need to print or annotate on paper. For reading on a phone or e-reader, the original EPUB is genuinely the better format.",
 ]
   },
   security: "Your EPUB — often a manuscript or purchased book — is transferred under 256-bit encryption and converted to PDF on a sandboxed server that no other request can access. Both the original EPUB and the finished PDF are erased within sixty minutes. We never read the contents, keep a copy, or share the file, respecting both your privacy and the work's copyright.",

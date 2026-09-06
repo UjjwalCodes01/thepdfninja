@@ -22,6 +22,25 @@ export const unlockContent = {
       description: "You cannot merge, split, or compress a PDF that is heavily encrypted. If you need to combine an encrypted financial statement with an unencrypted cover letter, you must first strip the security from the statement. Our unlock tool is the perfect first step in any complex document management workflow."
     }
   ],
+  howItWorks: {
+    title: "What this tool can and cannot open",
+    body: [
+      "This removes a password you already know from a PDF that has one. It is a decrypt-and-rewrite: we open the document with the password you supply, then write out a fresh copy with no encryption dictionary at all. The result is an ordinary PDF that any reader opens without prompting.",
+      "It is worth being blunt about what this is not. It is not a password cracker, and it will not recover a password you have lost. If the password you enter is wrong, the tool fails immediately — it does not guess, retry, or attempt to break the encryption, and we would not offer a tool that did.",
+      "Where it is genuinely useful is the permissions case: documents that open fine but refuse to let you print, copy text, or run them through another tool. Those restrictions are owner-password flags, and rewriting the file clears them.",
+    ],
+    specs: [
+      { label: "What it does", value: "Decrypts with your password, rewrites without encryption" },
+      { label: "Password required", value: "Yes, if the document needs one to open" },
+      { label: "Owner-password restrictions", value: "Cleared by the rewrite (print, copy and extract flags)" },
+      { label: "Wrong password", value: "Fails immediately with an error — no guessing, no brute force" },
+    ],
+    limits: [
+      "If you do not know the password, this tool cannot help you and neither can any legitimate one. A correctly encrypted PDF is not recoverable without its key.",
+      "Only unlock documents you have the right to unlock. Removing protection from someone else's confidential file is not what this is for.",
+      "Certificate-based encryption, as used by some enterprise document systems, is not supported — only standard password encryption.",
+    ],
+  },
   comparison: {
     title: "Why ThePDFNinja is the Safest PDF Unlocker",
     description: "Removing security from a document requires placing immense trust in the tool you use. Here is why ThePDFNinja is the industry standard for safe decryption.",
@@ -29,7 +48,7 @@ export const unlockContent = {
       "Zero Password Logging: We process the decryption in memory and never log, save, or store the password you provide. Once the document is unlocked, the key is forgotten instantly.",
       "Strict Auto-Deletion: Other free tools might keep your unlocked, newly vulnerable document on their servers for days. We guarantee the permanent deletion of both your original and unlocked files within one hour.",
       "No File Size Arbitrage: A one-page statement and a 400-page financial record are treated identically. Anything up to 100MB is handled at no cost.",
-      "100% Cloud-Based: Desktop unlockers often come bundled with malware or intrusive toolbars. Our tool runs entirely in the cloud—you never install anything, ensuring your computer remains perfectly safe."
+      "100% Cloud-Based: Desktop unlockers often come bundled with malware or intrusive toolbars.Decryption happens on our servers, so you do not need any PDF software installed to do it."
     ]
   },
   security: "When you are removing encryption from a highly sensitive document (like a bank statement or an NDA), the platform you use must be flawless in its security practices. ThePDFNinja utilizes 256-bit AES encryption to secure the connection between your browser and our servers. The decryption process happens within an isolated, sandboxed environment without any human monitoring. Because the resulting file is now completely unsecured, our automated privacy protocol immediately and irretrievably deletes both the original upload and the unlocked file from our servers within one hour. Your private data remains yours alone.",

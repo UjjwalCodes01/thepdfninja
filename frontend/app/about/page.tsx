@@ -181,6 +181,30 @@ export default function AboutPage() {
               Found something inaccurate? Tell us and we will fix it — <Link href="/contact">get in touch</Link>, or leave a note on our <Link href="/reviews">reviews page</Link>. We read everything that comes in.
             </p>
 
+            <h2 id="ai-disclosure">How We Use AI to Write This Site</h2>
+            <p>
+              We use AI writing tools to draft and expand a lot of the written material here — the explanatory sections on tool pages, and much of the blog. We would rather say that plainly than let you work it out.
+            </p>
+            <p>
+              <strong>Why we use it.</strong> This site has 65 tools. Each one deserves a page that explains what it does, when to use it, and when to use something else instead. Drafting that volume of explanatory writing by hand would have meant most tools getting a single thin paragraph for years. Using AI to produce first drafts meant every tool could start from something substantial.
+            </p>
+            <p>
+              <strong>What that does not excuse.</strong> A first draft written by a language model will confidently describe things that are not true, and ours did. When we audited our own tool pages against our source code in September 2026, we found the Protect PDF page claiming AES encryption while the code was actually applying RC4, a cipher considered broken for years. We found a Repair PDF page describing a &ldquo;deep-scan repair process&rdquo; for a tool that was returning an error on every single request and had never worked. We found page limits quoted that existed nowhere in the code, and a comparison table quoting competitors&rsquo; prices that nobody had ever verified.
+            </p>
+            <p>
+              We fixed the code and rewrote the pages. But the lesson we took is the one that now governs how we work: <strong>drafting can be automated, verifying cannot.</strong>
+            </p>
+            <p><strong>What we now do before a page goes up:</strong></p>
+            <ul>
+              <li><strong>Every factual claim is checked against the source code that implements it.</strong> The &ldquo;How this tool actually works&rdquo; section on each tool page is written from the implementation — the real settings, the real processing order, the real limits.</li>
+              <li><strong>Numbers are measured, not estimated.</strong> The compression figures on our <Link href="/tools/compress">Compress PDF</Link> page come from running test documents through this site&rsquo;s live API and recording what came back. Measuring them is how we discovered the compressor was barely working on documents that mixed text and images — a bug we then fixed.</li>
+              <li><strong>We publish where our tools are bad.</strong> Every tool page has a section on where that tool does a poor job and what to use instead. An AI first draft will not volunteer that; it has to be added deliberately.</li>
+              <li><strong>We make no claims about other companies that we have not verified.</strong> If we cannot substantiate it, it does not go on the page.</li>
+            </ul>
+            <p>
+              None of this makes us infallible. If you find something on this site that is wrong, please <Link href="/contact">tell us</Link> — corrections from readers are how the remaining errors get found.
+            </p>
+
           </div>
 
           {/* Popular Tools Internal Linking */}

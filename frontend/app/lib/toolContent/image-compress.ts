@@ -2,7 +2,7 @@ export const imageCompressContent = {
   introParagraphs: [
     "Heavy images slow down websites, increase page load times, and clog up email attachments and cloud storage. ThePDFNinja's Free Online Compress Image tool optimizes and compresses JPG, PNG, and WebP images, reducing file sizes by up to 75% or more without noticeable quality loss.",
     "Our compressor uses smart optimization algorithms that analyze image details, discard redundant metadata, and adjust pixel density. You can customize the compression quality level and specify a maximum width to reduce file size further, keeping images sharp and highly professional.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your images, choose your quality, and download your optimized files instantly."
+    "Compression works by discarding information your eye is least likely to miss. JPEG throws away fine colour detail before it touches brightness detail, because human vision is far more sensitive to the second than the first. That is why a photograph survives heavy compression looking almost unchanged, while a screenshot of text — where every edge matters — starts showing halos much sooner."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const imageCompressContent = {
 ],
   comparison: {
     title: "A Better Image Optimizer",
-    description: "Paid graphics tools can be expensive and complex. ThePDFNinja offers a streamlined, professional image compression utility:",
+    description: "There is no export dialogue to work through and no preset to guess at. ThePDFNinja offers a streamlined, professional image compression utility:",
     points: [
-      "Smart Compression Algorithms: Shrinks image file sizes without causing visible degradation, artifacts, or blurry text.",
-      "Supports Multiple Formats: Optimize JPG, PNG, and WebP images in a single tool, ensuring consistent optimization.",
-      "100% Free and Unlimited: Compress as many images as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Installation: The entire process takes place in your web browser. All files are deleted automatically within 1 hour."
+      "Quality is a real dial, not a preset: choose anywhere from 1 to 100 and see the size change. Around 80 is where most photographs stop showing visible difference.",
+      "Photographs compress far better than graphics. Screenshots, logos and line art hit visible artefacts much sooner, because JPEG's method is tuned for gradual tonal change rather than hard edges.",
+      "The compression is lossy and permanent. Keep your originals — you cannot recover the detail by re-saving at a higher quality afterwards.",
+      "Process images up to 100MB with no account and no watermark on the output.",
 ]
   },
   security: "When you shrink an image here, the compression runs entirely on our servers over a 256-bit encrypted link, in a worker isolated from every other request. Your original photo and the compressed version are both removed within an hour of processing. We never study the picture's contents, keep a backup, or expose it to advertising or analytics partners.",

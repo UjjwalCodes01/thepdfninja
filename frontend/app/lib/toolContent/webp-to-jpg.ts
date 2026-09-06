@@ -2,7 +2,7 @@ export const webpToJpgContent = {
   introParagraphs: [
     "WebP is a modern image format created by Google that offers excellent compression and quality on the web, but many older image editors, operating systems, and online upload forms do not support it yet. ThePDFNinja's Free Online WebP to JPG converter lets you convert WebP images into universally compatible JPG files in a single click.",
     "Our converter processes images at lightning speed while maintaining high quality. You can customize the compression quality level to fit your needs, ensuring your images remain clear and readable. It is the perfect tool for making modern web graphics compatible with older applications.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your WebP files, choose your quality, and download your JPGs instantly."
+    "WebP is a Google format that compresses better than JPEG at the same visual quality, which is why so much of the modern web serves it. Its weakness is outside the browser: image editors, older phones, print shops and plenty of upload forms still do not accept it, so converting back to JPEG is regularly the only way to actually use the file."
 ],
   useCases: [
     {
@@ -24,10 +24,10 @@ export const webpToJpgContent = {
 ],
   comparison: {
     title: "Why WebP to JPG with ThePDFNinja?",
-    description: "We offer a professional-grade image conversion utility completely free. Here is why we are the top choice:",
+    description: "The conversion is free, with the quality setting exposed rather than fixed. Here is why we are the top choice:",
     points: [
       "High Quality Preservation: We ensure that color profiles, gradients, and text details are converted accurately without adding noise.",
-      "Adjustable Quality Control: Customize the compression level from 1 to 100 to strike the ideal balance between quality and file size.",
+      "Quality is adjustable from 1 to 100. Since your WebP may already have been lossy, a high setting avoids compounding the loss.",
       "100% Free and Unlimited: Convert as many WebP images as you need without encountering daily caps, waiting rooms, or paywalls.",
       "No Signup Required: Start converting WebP to JPG instantly in your browser without creating an account."
 ]

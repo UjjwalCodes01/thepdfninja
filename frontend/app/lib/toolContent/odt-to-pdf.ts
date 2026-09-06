@@ -2,7 +2,7 @@ export const odtToPdfContent = {
   introParagraphs: [
     "ODT (OpenDocument Text) is the default open-source word processing format used by LibreOffice and OpenOffice, but it is not natively supported by MS Word, web browsers, or many document management systems. ThePDFNinja's Free Online ODT to PDF converter bridges this gap, transforming ODT files into universally compatible PDF documents.",
     "Our converter leverages native LibreOffice rendering engines on our servers, ensuring layout fidelity. Text alignments, tables, page margins, and fonts are preserved, delivering a PDF that matches your original document.",
-    "Forget about complex command-line utilities or paid office software. ThePDFNinja provides a streamlined, web-based drag-and-drop converter that runs on all major platforms (Windows, Mac, iOS, Android). You can convert documents up to 100MB completely free, with no limitations or watermarks."
+    "You do not need LibreOffice installed locally — we run it on our side. Drop the .odt in and the PDF comes back with fonts embedded. Documents up to 100MB convert free, unwatermarked."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const odtToPdfContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja ODT to PDF Converter?",
-    description: "Not all document converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "ODT is the OpenDocument format used by LibreOffice and OpenOffice. Converting it to PDF fixes its appearance so it looks the same everywhere. Here is how we do that.",
     points: [
-      "LibreOffice Rendering Engine: We render ODT files using the official LibreOffice engine, preserving layouts and tables.",
-      "Zero Watermarks: Your OpenDocument file converts straight through. No banner is added to the first page and no footer to the last.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your ODTs to PDF instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "Converted with LibreOffice itself, which is the application that defines the OpenDocument format — so the layout you see in Writer is the layout you get.",
+      "Fonts are embedded into the PDF, which is the point: your recipient sees the document as you laid it out, even without your fonts installed.",
+      "Fixes the appearance permanently. An ODT renders slightly differently in every word processor; a PDF does not.",
+      "It also becomes read-only in practice. If your recipient needs to edit it, send the ODT instead.",
 ]
   },
   security: "OpenDocument files are processed in a private, single-use container reached only through encrypted TLS. The uploaded ODT and the generated PDF are wiped automatically within sixty minutes, leaving no residue on our systems. Your content is never inspected, retained for any purpose, or shared with third parties — it simply becomes a PDF and disappears.",

@@ -22,6 +22,27 @@ export const pdfToJpgContent = {
       description: "Sometimes, you need to submit documents to portals that only accept image uploads (like certain identity verification systems or real estate listing platforms). Converting your scanned PDF IDs, floor plans, or certificates into JPGs ensures you meet these strict upload requirements without hassle."
     }
   ],
+  howItWorks: {
+    title: "How pages become images",
+    body: [
+      "Each page is rasterised — drawn at a chosen resolution and captured as a bitmap — then encoded as JPEG. The resolution setting is what determines both quality and file size, and it is the only setting that really matters here.",
+      "The default is 150 DPI, which is a deliberate middle ground: sharp on screen at normal zoom, and small enough to email. 72 DPI is fine for a thumbnail or a web preview and will look soft if enlarged. 300 DPI is what you want if the image is going to be printed or if someone needs to read fine print by zooming in, at the cost of a much larger file.",
+      "Multi-page documents come back as a ZIP with one JPEG per page, numbered in order.",
+    ],
+    specs: [
+      { label: "Method", value: "Page rasterised at the requested DPI, encoded as JPEG" },
+      { label: "Default resolution", value: "150 DPI" },
+      { label: "JPEG quality", value: "90 — high enough that compression artefacts are not visible on text" },
+      { label: "Multi-page output", value: "ZIP archive, one image per page, in order" },
+      { label: "Transparency", value: "Flattened to white; JPEG has no alpha channel" },
+    ],
+    limits: [
+      "The text layer does not survive. A JPEG is pixels — the result is not searchable, not selectable, and not editable. If you need the text, use PDF to Text or run the images back through OCR.",
+      "JPEG is lossy and works best on photographs. Documents that are mostly sharp black text on white can show faint halos around letters; PDF to PNG is the better choice for those.",
+      "High DPI on a long document produces a large ZIP quickly. 300 DPI across fifty pages is a substantial download.",
+      "Transparency becomes white, which is visible if your pages were designed to sit on a coloured background.",
+    ],
+  },
   comparison: {
     title: "Why Our PDF to JPG Converter is the Best",
     description: "Extracting high-quality images from a PDF requires precise rasterization. Here is why ThePDFNinja delivers a superior visual result.",

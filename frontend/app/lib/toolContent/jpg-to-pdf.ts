@@ -22,6 +22,26 @@ export const jpgToPdfContent = {
       description: "If you have scanned hundreds of old family photos, keeping them as loose JPGs risks them becoming disorganized or lost in massive hard drive folders. Compiling related photos—like all the pictures from a specific vacation or wedding—into a single PDF digital album makes them much easier to archive, share with relatives, and view sequentially."
     }
   ],
+  howItWorks: {
+    title: "How images become a document",
+    body: [
+      "Each image is placed onto its own page and the pages are written out as a single PDF. The image data is embedded rather than re-encoded where possible, so a JPEG going in is not put through a second round of lossy compression on the way out.",
+      "Images are placed in the order shown in the interface, which you can rearrange before converting.",
+    ],
+    specs: [
+      { label: "Method", value: "One image per page, embedded into a new document" },
+      { label: "Input formats", value: "JPG, PNG, TIFF and BMP" },
+      { label: "Page size", value: "Derived from the image, at 100 DPI" },
+      { label: "Order", value: "As arranged before conversion" },
+      { label: "Transparency", value: "Flattened onto white" },
+    ],
+    limits: [
+      "The result is a picture of a document, not a document. There is no text layer, so it is not searchable — run it through OCR afterwards if you need one.",
+      "Images of different dimensions produce pages of different sizes. Use Resize Pages afterwards for a uniform document.",
+      "Very large images make very large PDFs. Compress the images first, or compress the finished PDF.",
+      "Transparent areas become white, which is visible if the image was designed to sit on a coloured background.",
+    ],
+  },
   comparison: {
     title: "Why Our JPG to PDF Converter is the Smart Choice",
     description: "Combining images into a document seems simple, but many tools get the formatting wrong. Here is why ThePDFNinja delivers a superior experience.",
@@ -29,7 +49,7 @@ export const jpgToPdfContent = {
       "Auto-Sizing and Alignment: Basic converters just drop your image onto an A4 page, leaving massive white borders if the image is small. Our tool intelligently adjusts the PDF page size to perfectly match the dimensions of your image, eliminating ugly borders.",
       "100% Free, No Image Limits: Many 'free' tools will only allow you to combine 5 or 10 images before hitting a paywall. We support massive batch conversions, allowing you to compile dozens of high-resolution images completely free.",
       "Zero Watermarks: You cannot send a professional portfolio or an expense report if there is a massive advertising watermark stamped across your photos. We guarantee clean, watermark-free PDFs.",
-      "Instant Cloud Processing: Uploading and compiling dozens of high-res photos can crash a mobile browser. We offload this intensive process to our high-performance AWS cloud servers, delivering results instantly."
+      "Instant Cloud Processing: Uploading and compiling dozens of high-res photos can crash a mobile browser.Assembly runs on our servers, so a folder of large photos does not have to be processed by your phone."
     ]
   },
   security: "Whether you are compiling personal family photos, scanned identity documents, or proprietary design work, your privacy is our top priority. ThePDFNinja secures your image uploads using 256-bit AES encryption, preventing interception. The PDF generation process happens entirely within an isolated, automated cloud server—no human will ever see your images. To guarantee your absolute security, our automated privacy protocol deletes both your original JPG files and the generated PDF from our servers within one hour of processing. Your memories and documents remain entirely yours.",

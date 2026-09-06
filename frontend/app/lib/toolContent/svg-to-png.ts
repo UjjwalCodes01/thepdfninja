@@ -2,7 +2,7 @@ export const svgToPngContent = {
   introParagraphs: [
     "SVG (Scalable Vector Graphics) is a vector format used for logos and illustrations on websites because it scales infinitely without pixelation. However, SVGs cannot be opened in standard image viewers, shared on social media, or imported into presentation software. ThePDFNinja's Free Online SVG to PNG converter rasterizes your vector graphics, converting them into standard, high-resolution PNG images.",
     "Our converter allows you to customize the target width and scale factor, giving you control over image clarity. Transparent background pixels are preserved perfectly, ensuring your logos and icons maintain their original transparent background, ready for use.",
-    "Forget about complex command-line utilities or paid graphics software. ThePDFNinja provides a streamlined, web-based drag-and-drop converter that runs on all major platforms (Windows, Mac, iOS, Android). You can convert images up to 100MB completely free, with no limitations or watermarks."
+    "No Inkscape install and no export dialogue to work through.Drop the SVG in, pick the size you want it rendered at, and a PNG comes back. You can convert images up to 100MB completely free, with no limitations or watermarks."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const svgToPngContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja SVG to PNG Converter?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "SVG is a set of drawing instructions rather than a grid of pixels, which is why it stays sharp at any size. Converting to PNG means picking a size and rendering at it — a decision that cannot be undone afterwards. Here is what that means in practice.",
     points: [
-      "Adjustable Width and Scale: Customize the output dimensions and scale factor to render vector assets at any size with perfect clarity.",
-      "Transparency Preservation: Automatically maintains transparent alpha channels, preventing background glitches.",
-      "100% Free and Unlimited: Convert as many vector designs as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Installation: The entire conversion takes place in your web browser. All files are deleted automatically within 1 hour."
+      "You are choosing a resolution permanently. SVG is drawing instructions and stays sharp at any size; a PNG is a fixed grid of pixels. Render larger than you think you need — you cannot get the sharpness back later.",
+      "Transparent backgrounds are preserved, so a logo exported this way drops onto any colour without a white box behind it.",
+      "Fonts are the usual failure. If your SVG references a typeface by name rather than embedding the outlines, the renderer substitutes something else and your text shifts. Convert text to paths before exporting.",
+      "Convert to PNG when something will not accept SVG — an upload form, an older email client, a document editor. For the web, the SVG itself is almost always the better file.",
 ]
   },
   security: "SVG files are code-based and can reference external resources; our rasteriser renders your SVG to a flat PNG inside a hardened sandbox with no outbound access, over an encrypted connection. Nothing about the vector — its markup, fonts, or embedded data — is stored beyond the automatic one-hour deletion, inspected, or shared with anyone.",

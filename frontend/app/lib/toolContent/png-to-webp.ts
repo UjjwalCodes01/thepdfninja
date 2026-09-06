@@ -24,12 +24,12 @@ export const pngToWebpContent = {
 ],
   comparison: {
     title: "Why PNG to WebP with ThePDFNinja?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "WebP was designed to replace both PNG and JPEG on the web, and it does compress better than either. Whether that is the right trade for your file depends on where it is going. Here is how we handle the conversion.",
     points: [
-      "Transparency Preservation: Automatically maintains transparent alpha channels, preventing background glitches.",
-      "True WebP Optimization: Our engine generates WebP images that follow the official Google specification for web compression.",
-      "100% Free and Unlimited: Convert as many PNG images as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Installation: The entire conversion takes place in your web browser. All files are deleted automatically within 1 hour."
+      "Typically 25-35% smaller than the equivalent PNG at visually identical quality, using WebP's lossless mode — which is the mode that matters for graphics and screenshots.",
+      "Transparency survives. WebP supports an alpha channel, so logos and cut-outs keep their transparent backgrounds rather than gaining a white box.",
+      "Good for the web, awkward elsewhere: every current browser handles WebP, but plenty of desktop software, older phones and print workflows still do not.",
+      "Keep your PNG originals. WebP is an excellent delivery format and a poor archival one.",
 ]
   },
   security: "Every PNG you send for WebP conversion is transferred over an encrypted connection and handled in an isolated sandbox that is discarded after your job finishes. We do not open the artwork, retain it past the strict one-hour deletion, or pass it to any third party. Transparency and colour data are converted faithfully and nothing about the image is kept.",

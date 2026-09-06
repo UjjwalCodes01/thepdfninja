@@ -2,7 +2,7 @@ export const rtfToPdfContent = {
   introParagraphs: [
     "RTF (Rich Text Format) is a versatile format that supports basic styling (bold, italics, fonts), but it is not universally compatible and layouts can shift when opened in different text editors. ThePDFNinja's Free Online RTF to PDF converter transforms your rich text files into pixel-perfect PDF documents, ensuring your styling looks identical on all devices.",
     "Our converter preserves formatting, text sizing, lists, tables, and colors, using LibreOffice rendering engines to output professional PDFs. It is the perfect tool for converting rich text drafts into shareable, finalized files.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your RTF files and download your PDFs instantly."
+    "RTF was Microsoft's answer to the problem of moving formatted text between incompatible word processors, and it worked — it is still one of the most widely readable document formats there is. What it does not do is fix its appearance. An RTF opens slightly differently in every application, which is exactly the problem PDF was invented to solve."
 ],
   useCases: [
     {
@@ -28,7 +28,7 @@ export const rtfToPdfContent = {
     points: [
       "High-Fidelity Layout Rendering: We preserve bold, italics, underlining, lists, tables, and spacing using advanced layout engines.",
       "100% Free and Unlimited: Convert as many RTF documents as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Watermarks: We keep your files clean. No branding or logos are added to your output documents.",
+      "No watermark: the PDF contains your document and nothing else. The document arrives as you wrote it, with nothing appended.",
       "No Signup Required: Start converting RTF to PDF instantly in your browser without creating an account."
 ]
   },

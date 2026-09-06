@@ -2,7 +2,7 @@ export const heicToPngContent = {
   introParagraphs: [
     "Apple's HEIC photos are highly optimized for file size, but if you want to edit them in professional design software or preserve maximum detail without lossy compression artifacts, PNG is the ideal format. ThePDFNinja's Free Online HEIC to PNG converter allows you to convert your iPhone photos into lossless, high-quality PNG format in a single click.",
     "Our converter ensures that color profiles, text details, and visual elements are converted with perfect accuracy. It is ideal for photographers, designers, and editors who need to convert iPhone photos into a format that supports lossless editing and is compatible with all design software.",
-    "ThePDFNinja runs entirely in the cloud, removing the need for local desktop software. It operates on Mac, Windows, Linux, and mobile devices. Process images up to 100MB at no cost, without registration, limits, or watermarks."
+    "Decoding happens on our side, which matters because HEIC support is exactly what most non-Apple machines lack. That matters most on Windows, where HEIC support is the thing most often missing. Process images up to 100MB at no cost, without registration, limits, or watermarks."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const heicToPngContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja HEIC to PNG Converter?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "Going from HEIC to PNG trades file size for compatibility and exactness. You will get a much larger file than the HEIC, and a losslessly accurate one. Here is what that involves.",
     points: [
-      "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your photos look sharp and professional.",
-      "Zero Watermarks: Your iPhone photo comes back as a plain PNG. We add no badge, no border, and no branding to the frame.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your HEICs to PNG instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "Nothing is degraded twice: we decode the HEIC once and write PNG losslessly, so the only compression your image has ever been through is the one your iPhone applied when it took the photo.",
+      "Expect a much bigger file: PNG is lossless and HEIC is aggressively compressed, so a 2MB HEIC commonly becomes a 10MB PNG or larger. That is the format working correctly, not a fault.",
+      "Choose PNG over JPEG here only if you need exactness — an image you will edit further, or one with sharp graphics. For a photograph you are just sharing, HEIC to JPG gives a far smaller file.",
+      "Live Photos convert as the still frame only; the motion component is not part of the image data.",
 ]
   },
   security: "Converting Apple's HEIC format to universal PNG is done over a secure TLS link inside an isolated environment that no other user can reach. We never read the embedded metadata, never store the image beyond the automatic sixty-minute wipe, and never share it. What you upload is converted and then permanently removed, original and output together.",

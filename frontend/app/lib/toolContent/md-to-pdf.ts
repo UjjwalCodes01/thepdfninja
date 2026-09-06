@@ -2,7 +2,7 @@ export const mdToPdfContent = {
   introParagraphs: [
     "Markdown (.md) is a lightweight markup language used by developers, researchers, and writers to write documentation, logs, and notes in plain text. However, raw Markdown files look unformatted to non-technical readers. ThePDFNinja's Free Online Markdown to PDF converter renders your Markdown files into beautifully formatted PDF documents, ready for sharing.",
     "Our converter parses headings, lists, tables, links, bold/italic text, and code blocks, applying a clean, professional stylesheet to generate readable PDFs. It is the perfect tool for developers and writers who want to compile documentation drafts into clean reports.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your Markdown files and download your PDFs instantly."
+    "Markdown was designed to be readable as plain text first and rendered second, which is why it has survived while heavier formats have not. Converting it to PDF means interpreting the structure the syntax implies — headings, lists, code blocks, emphasis — and giving each one typography that holds up on a page rather than a screen."
 ],
   useCases: [
     {
@@ -28,7 +28,7 @@ export const mdToPdfContent = {
     points: [
       "Clean Styling and Layout: Automatically formats headings, code blocks, lists, and tables using a clean, modern stylesheet.",
       "100% Free and Unlimited: Convert as many MD files as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Watermarks: We keep your files clean. No branding or logos are added to your output documents.",
+      "No watermark: the rendered document carries no footer or badge of ours. No footer, no badge and no attribution line is added to the rendered pages.",
       "No Signup Required: Start converting Markdown to PDF instantly in your browser without creating an account."
 ]
   },

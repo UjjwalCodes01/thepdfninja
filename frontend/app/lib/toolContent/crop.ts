@@ -22,6 +22,26 @@ export const cropContent = {
       description: "Sometimes you receive documents that contain irrelevant or distracting information in the margins, such as fax transmission headers, timestamps, or draft watermarks located at the very bottom of the page. Cropping allows you to quickly slice off these unwanted elements, leaving you with a clean, professional-looking document."
     }
   ],
+  howItWorks: {
+    title: "What cropping changes, and what it does not remove",
+    body: [
+      "Cropping sets the visible boundary of each page by adjusting its crop box and media box, measured in points — 72 points to the inch. Readers then display and print only what falls inside that boundary.",
+      "There is an important consequence: the content outside the boundary is still present in the file. It is not displayed, but it has not been deleted, and it can be recovered by anyone who resets the crop box. Cropping is a presentation change, not a removal.",
+      "If your intention is to make something unreadable rather than merely unseen, cropping is the wrong tool and you want Redact PDF, which removes content from the page stream.",
+    ],
+    specs: [
+      { label: "Method", value: "Adjusts the crop box and media box on each page" },
+      { label: "Units", value: "Points — 72 to the inch, so a half-inch margin is 36" },
+      { label: "Content outside the crop", value: "Retained in the file, hidden from view" },
+      { label: "Quality loss", value: "None — nothing is re-rendered" },
+    ],
+    limits: [
+      "Cropped-away content is recoverable. Never use cropping to hide confidential information — use Redact PDF for that.",
+      "The same margins are applied to every page, so a document mixing portrait and landscape pages will not crop uniformly.",
+      "Cropping does not reduce file size in any meaningful way, since the hidden content is still stored.",
+      "Crop too far and you will clip content you wanted. There is no undo once you have downloaded the file, so keep your original.",
+    ],
+  },
   comparison: {
     title: "Why ThePDFNinja's Cropper is Superior",
     description: "Cropping a PDF might seem simple, but the details matter. Here is how our tool handles them.",

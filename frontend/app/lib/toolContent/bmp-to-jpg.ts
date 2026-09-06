@@ -2,7 +2,7 @@ export const bmpToJpgContent = {
   introParagraphs: [
     "BMP (Bitmap) files are uncompressed images that offer high quality but have massive file sizes, making them difficult to share, email, or use on websites. ThePDFNinja's Free Online BMP to JPG converter solves this by instantly converting your BMP files into lightweight, compressed JPG images, reducing file sizes by up to 90% or more.",
     "Our converter allows you to customize the compression quality level to find the ideal balance between file size and image clarity. It is ideal for web developers, bloggers, and users who want to make uncompressed bitmap images easy to share and compatible with all modern systems.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your BMP files, choose your quality, and download your JPGs instantly."
+    "BMP is a format from an era when disk space mattered less than decode speed — it stores pixels raw, with no compression at all, which is why a modest screenshot can run to several megabytes. That design is why almost nothing on the modern web accepts it. JPEG applies lossy compression tuned for how human vision actually works, discarding detail your eye is poor at noticing, which is where the dramatic size reduction comes from."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const bmpToJpgContent = {
 ],
   comparison: {
     title: "Why BMP to JPG with ThePDFNinja?",
-    description: "We offer a professional-grade image conversion utility completely free. Here is why we are the top choice:",
+    description: "The conversion is free, and the quality dial is the same one a paid tool would give you. Here is why we are the top choice:",
     points: [
-      "High Quality Preservation: We ensure that color profiles, contrast levels, and details are converted accurately without adding noise.",
-      "Adjustable Quality Control: Customize the compression level from 1 to 100 to strike the ideal balance between quality and file size.",
-      "100% Free and Unlimited: Convert as many BMP images as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "No Signup Required: Start converting BMP to JPG instantly in your browser without creating an account."
+      "Reductions of 90% and more are normal here, because you are going from entirely uncompressed pixel data to one of the most efficient lossy formats there is.",
+      "Quality is adjustable from 1 to 100. Around 85 is a sensible default for photographic content; go higher if the bitmap contains text or sharp graphics.",
+      "The conversion is one-way. BMP is lossless and JPEG is not, so detail discarded in the conversion cannot be recovered.",
+      "If the bitmap is a screenshot or a diagram rather than a photograph, BMP to PNG will look better at a similar size.",
 ]
   },
   security: "Older BMP files are uncompressed and can be large, so we process them on a dedicated, sandboxed worker reached only through an encrypted channel. The bitmap is re-encoded to JPG, returned to you, and then both files are erased within the hour. No copies are retained, no content is analysed, and your image is never exposed to any outside service.",

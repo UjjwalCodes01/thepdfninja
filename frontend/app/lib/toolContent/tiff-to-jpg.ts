@@ -2,7 +2,7 @@ export const tiffToJpgContent = {
   introParagraphs: [
     "TIFF files are high-quality, uncompressed images commonly used in scanning and printing, but they have massive file sizes and are not supported by web browsers or email clients. ThePDFNinja's Free Online TIFF to JPG converter allows you to convert large TIFF images into manageable, lightweight JPG files instantly, making them easy to view, share, and email.",
     "Our converter supports both single-page and multi-page TIFF files. If your TIFF contains multiple pages, our tool will automatically extract each page as an individual JPG and deliver them in a neat, organized ZIP archive, keeping your downloads clean.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your TIFF files, choose your quality, and download your JPGs instantly."
+    "TIFF is the format scanners and print workflows default to, because it can store image data losslessly along with layers, multiple pages and colour profiles for professional printing. All of that comes at a cost in size, and almost none of it is useful once the file is going into an email or a web form."
 ],
   useCases: [
     {
@@ -24,10 +24,10 @@ export const tiffToJpgContent = {
 ],
   comparison: {
     title: "Why TIFF to JPG with ThePDFNinja?",
-    description: "We offer a professional-grade image conversion utility completely free. Here is why we are the top choice:",
+    description: "The conversion is free, including for the multi-page TIFFs that scanners produce. Here is why we are the top choice:",
     points: [
       "Multi-Page TIFF Support: Automatically extracts all pages from a multi-page TIFF file and packages them in a single ZIP archive.",
-      "Adjustable Quality Control: Customize the compression level from 1 to 100 to strike the ideal balance between quality and file size.",
+      "Quality is adjustable from 1 to 100. Scanned text benefits from a higher setting than photographic content does.",
       "100% Free and Unlimited: Convert as many TIFF images as you need without encountering daily caps, waiting rooms, or paywalls.",
       "No Signup Required: Start converting TIFF to JPG instantly in your browser without creating an account."
 ]

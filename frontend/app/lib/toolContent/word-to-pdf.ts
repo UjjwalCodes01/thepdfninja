@@ -24,7 +24,7 @@ export const wordToPdfContent = {
   ],
   comparison: {
     title: "Why Our Word to PDF Converter is the Best",
-    description: "While you can technically 'Save as PDF' from within Word, using an online converter is often faster and necessary when working from a device without Office installed. Here is why ThePDFNinja excels.",
+    description: "While you can technically 'Save as PDF' from within Word, using an online converter is often faster and necessary when working from a device without Office installed.Here is what that means for Word documents specifically.",
     points: [
       "Flawless Formatting Retention: Our conversion engine uses enterprise-grade LibreOffice technology to perfectly interpret .doc and .docx files, ensuring that complex layouts, tables, and custom fonts are rendered into the PDF flawlessly.",
       "No Microsoft Office Required: You don't need a paid Word subscription to use our tool. If someone sends you a Word document and you only have a Chromebook or a phone, you can convert it to PDF instantly to read or share it.",

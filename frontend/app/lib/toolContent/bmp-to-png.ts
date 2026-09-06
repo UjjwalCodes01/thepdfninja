@@ -2,7 +2,7 @@ export const bmpToPngContent = {
   introParagraphs: [
     "BMP files are older, uncompressed graphics formats that take up excessive storage space. If you want to compress them without losing any pixel detail, PNG is the perfect modern format. ThePDFNinja's Free Online BMP to PNG converter allows you to convert older BMP files into modern, lossless PNG format in a single click.",
     "Our converter ensures that all colors and pixel details are preserved with 100% accuracy. Because PNG supports transparency and modern web standards, converting your BMPs makes them compatible with all modern design tools and web browsers.",
-    "ThePDFNinja runs entirely in the cloud, removing the need for local desktop software. It operates on Mac, Windows, Linux, and mobile devices. Process images up to 100MB at no cost, without registration, limits, or watermarks."
+    "Everything happens on our servers, so a 40MB bitmap does not have to be decoded by your phone. A large bitmap is decoded on our side rather than by your browser. Process images up to 100MB at no cost, without registration, limits, or watermarks."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const bmpToPngContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja BMP to PNG Converter?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "Both BMP and PNG are lossless, so nothing is thrown away in this conversion — PNG simply stores the same pixels far more efficiently. Here is what to expect.",
     points: [
-      "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your images look sharp and professional.",
-      "Zero Watermarks: The PNG you download carries only the pixels from your bitmap. Nothing is stamped into a corner, and nothing is added to the alpha channel.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your BMPs to PNG instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "Genuinely lossless both ways: BMP and PNG both store exact pixel values, so the PNG you get back is pixel-identical to the bitmap you uploaded — just far smaller, because PNG actually compresses.",
+      "Typical reduction of 60-90%: uncompressed bitmap data compresses extremely well, especially the flat colour regions common in screenshots and diagrams.",
+      "Transparency is created, not recovered: BMP has no alpha channel, so a converted PNG is fully opaque. If you need a transparent background you will have to remove it afterwards in an editor.",
+      "No watermark on the output, and nothing written into the alpha channel.",
 ]
   },
   security: "Your BMP upload is protected by 256-bit encryption from the instant it leaves your device until it is deleted. Conversion to PNG runs in an isolated container that is destroyed after the task, leaving nothing behind. We do not view the image, keep it past the one-hour limit, or share it — the entire exchange stays strictly between your browser and our processor.",

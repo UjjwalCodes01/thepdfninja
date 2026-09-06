@@ -27,6 +27,29 @@ export const ocrContent = {
       description: "For businesses that process forms, applications, or standardized documents, OCR is the first step in automation. By converting static images to text, scripts and data parsing tools can automatically read the contents of the document, categorize it, and route it to the appropriate department without manual human intervention. This enables small businesses to build automated processing pipelines without paying for expensive enterprise APIs."
     }
   ],
+  howItWorks: {
+    title: "What the OCR engine is and where it struggles",
+    body: [
+      "Text recognition runs on AWS Textract rather than a self-hosted engine. Single images go through the synchronous endpoint and return immediately; multi-page PDFs start an asynchronous job that we poll until it completes. The practical consequence is that your limit is time, not page count — the job has ninety seconds to come back, and a dense scan reaches that ceiling sooner than a sparse one.",
+      "What you get back is a text layer: the recognised characters, in reading order, extracted from the page image. Textract handles multi-column layouts and tabular data considerably better than the older open-source engines, which tend to read straight across a page and interleave two columns into nonsense.",
+      "Accuracy is genuinely good on clean, straight, reasonably lit scans of printed text. It degrades — sometimes sharply — on the inputs described below, and it is better to know that in advance than to discover it in a document you have already relied on.",
+    ],
+    specs: [
+      { label: "Engine", value: "AWS Textract (detect_document_text)" },
+      { label: "Images", value: "Synchronous — returns immediately" },
+      { label: "Multi-page PDFs", value: "Asynchronous job, polled for up to 90 seconds" },
+      { label: "Practical limit", value: "The 90-second window and the 100MB file size, not a page count" },
+      { label: "Output", value: "Plain text, in reading order, with a downloadable full-text file" },
+      { label: "Training", value: "We opt out of having uploads used to train models" },
+    ],
+    limits: [
+      "Handwriting is unreliable. Printed text is what this is built for; cursive in particular should not be trusted without checking every character.",
+      "Errors are not spread evenly, and this matters more than the headline accuracy figure. Ordinary words get corrected toward real words by the language model, so they read well. Names, reference numbers, account digits and dates have no dictionary to correct toward — accuracy on exactly the content you most need to be right is worse than the average suggests. Always check those by eye.",
+      "Skewed, shadowed, low-contrast or low-resolution scans lose accuracy quickly. Rescanning at 300 DPI beats any amount of post-processing.",
+      "Very long or text-dense documents can exceed the 90-second window. Split them and run the parts separately.",
+      "The output is a text layer, not a formatted document. Complex page layouts will not survive as layout.",
+    ],
+  },
   comparisonTable: {
     headers: ["Feature", "ThePDFNinja OCR"],
     rows: [

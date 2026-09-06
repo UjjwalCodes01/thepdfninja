@@ -24,12 +24,12 @@ export const excelToPdfContent = {
   ],
   comparison: {
     title: "Why Our Excel to PDF Converter is the Best",
-    description: "While Excel has a built-in 'Save as PDF' feature, using an online converter is often faster and necessary when working on a device without Office installed. Here is why ThePDFNinja excels.",
+    description: "While Excel has a built-in 'Save as PDF' feature, using an online converter is often faster and necessary when working on a device without Office installed.Here is what that means for spreadsheets specifically.",
     points: [
       "Flawless Formatting Retention: Spreadsheets are notoriously difficult to convert because of gridlines, wide columns, and custom cell formatting. Our enterprise-grade conversion engine ensures your PDF perfectly matches the visual layout of your original Excel file.",
       "No Microsoft Office Required: You don't need a paid Excel subscription to generate a PDF. If someone emails you an .xlsx file and you are on a smartphone or a Chromebook, you can use our tool to instantly convert and read the data.",
       "100% Free, Zero Watermarks: Many free converters hold your final document hostage by stamping a massive advertising watermark across your data. ThePDFNinja provides perfectly clean, professional PDFs every single time.",
-      "Instant Cloud Processing: Trying to render a massive spreadsheet with thousands of rows into a PDF can freeze a standard laptop. We offload this intensive process to our high-performance AWS cloud servers, delivering results instantly."
+      "Instant Cloud Processing: Trying to render a massive spreadsheet with thousands of rows into a PDF can freeze a standard laptop.The conversion runs on our servers under LibreOffice, so you do not need Excel installed to produce the PDF."
     ]
   },
   security: "Financial models, employee rosters, and business budgets contain highly confidential information. ThePDFNinja guarantees absolute privacy when converting your spreadsheets. Your Excel files are uploaded over a secure 256-bit AES encrypted connection. The conversion to PDF occurs within an isolated, automated cloud server—no human will ever see your financial data. To ensure total security, both the original Excel file you uploaded and the resulting PDF are permanently and irretrievably deleted from our servers within one hour of conversion. Your proprietary data remains entirely yours.",

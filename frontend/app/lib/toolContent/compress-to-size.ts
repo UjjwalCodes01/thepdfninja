@@ -2,7 +2,7 @@ export const compressToSizeContent = {
   introParagraphs: [
     "Government application forms, university boards, and corporate filing portals often enforce strict file size limits on PDF submissions, requiring files to be exactly under 100KB, 200KB, or 500KB. ThePDFNinja's Free Online Compress PDF to Size tool solves this, adjusting compression settings to make your file fit under your target size.",
     "Our tool analyzes the document, downscaling images and compressing font profiles recursively until the target size is hit. It is the ultimate helper for handling strict upload portals.",
-    "No need to guess compression percentages in desktop software. ThePDFNinja is free, requires no installation, and works on all platforms. Simply upload your PDF, enter your target size, and download the optimized version instantly."
+    "No need to guess compression percentages in desktop software.Targeting an exact size takes several encoding passes, which is why this runs on our servers rather than in your browser. Simply upload your PDF, enter your target size, and download the optimized version instantly."
 ],
   useCases: [
     {

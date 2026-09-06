@@ -28,7 +28,7 @@ export const grayscalePdfContent = {
     points: [
       "Smart Contrast Management: We don't just wash out colors. Our algorithm adjusts brightness levels to keep text and graphics clear and legible.",
       "No File Size Caps: Convert massive ebooks or long scanned archives up to 100MB at zero cost.",
-      "Zero Watermarks: We keep your files clean. No branding or logos are added to your output documents.",
+      "No watermark: the converted document carries your content and nothing of ours. The page content is unchanged apart from the colour conversion itself.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },

@@ -2,7 +2,7 @@ export const pdfToPngContent = {
   introParagraphs: [
     "Converting PDF pages into images is highly useful for web design, presentations, and social media, and PNG is the gold standard for high-quality graphics. ThePDFNinja's Free Online PDF to PNG converter allows you to transform each page of your PDF into a pixel-perfect PNG image. PNG files support lossless compression and transparent backgrounds, making them ideal for retaining high visual fidelity.",
     "Our converter handles text, complex vector lines, and high-resolution images with extreme accuracy. You can select custom resolution (DPI) settings to match your needs\u2014whether you need lightweight images for web use or ultra-sharp, high-resolution graphics for print. Each converted page is output as an individual PNG, and files containing multiple pages are delivered in a neat, organized ZIP archive.",
-    "Forget about complex command-line utilities or paid graphics software. ThePDFNinja provides a streamlined, web-based drag-and-drop converter that runs on all major platforms (Windows, Mac, iOS, Android). You can convert documents up to 100MB completely free, with no limitations or watermarks."
+    "No Ghostscript incantation and no ImageMagick flags to remember.Drop the PDF in, choose a resolution, and each page comes back as a PNG. Pages up to 100MB render free, with no watermark on the images."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const pdfToPngContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja PDF to PNG Converter?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "PNG is the right choice over JPEG when your pages are mostly text, tables or line art, because it keeps edges sharp instead of softening them. Here is how the rendering works.",
     points: [
-      "Custom DPI Settings: Choose between 72 DPI (web), 150 DPI (standard), or 300 DPI (high-resolution print) to control image size and quality.",
-      "Zero Watermarks: Each rendered page is exactly what the PDF describes. We do not draw a logo across the raster before handing it back.",
-      "Zip Archive Output: For multi-page PDFs, we bundle all PNGs into a single ZIP file, keeping your downloads clean and organized.",
-      "No Registration Needed: We value your time. There is no need to enter email addresses or create accounts to access high-speed conversion."
+      "Sharper on text than JPEG: PNG is lossless, so letter edges stay crisp instead of picking up the faint halos JPEG produces around high-contrast detail.",
+      "Resolution is the setting that matters: 150 DPI is a good screen default, 300 DPI is what you want for print or for reading fine print at zoom, and the file size rises steeply with it.",
+      "Multi-page documents come back as a ZIP with one PNG per page, numbered in order.",
+      "The text layer does not survive rasterisation. The output is pixels — use PDF to Text if you need the words.",
 ]
   },
   security: "We employ enterprise-grade security protocols. All PDF uploads and converted PNG archives are processed over SSL/TLS and deleted automatically within 1 hour. We do not inspect or store your documents, guaranteeing your privacy is protected.",

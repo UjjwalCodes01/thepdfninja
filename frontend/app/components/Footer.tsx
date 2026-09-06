@@ -37,6 +37,8 @@ const companyLinks = [
   { href: '/blog', label: 'Blog' },
   { href: '/reviews', label: 'Reviews' },
   { href: '/press', label: 'Press & Media' },
+  { href: '/about#editorial-standards', label: 'Editorial Standards' },
+  { href: '/about#ai-disclosure', label: 'How We Use AI' },
   { href: '/blog/best-free-pdf-tools', label: 'Best PDF Tools 2025' },
   { href: '/compare/ilovepdf-alternative', label: 'iLovePDF Alternative' },
   { href: '/compare/smallpdf-alternative', label: 'Smallpdf Alternative' },

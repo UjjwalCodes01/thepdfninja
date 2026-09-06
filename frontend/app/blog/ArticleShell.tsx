@@ -47,10 +47,13 @@ export default function ArticleShell({ slug, children, showAds = true }: Article
             <PostThumb size={22} width={34} height={34} radius="50%" />
             <span>
               Written and reviewed by the{' '}
-              <Link href="/about" style={{ color: 'var(--text)', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid var(--border)' }}>
+              <Link href="/about#editorial-standards" style={{ color: 'var(--text)', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid var(--border)' }}>
                 ThePDFNinja editorial team
               </Link>{' '}
-              at Anaya Digital
+              at Anaya Digital ·{' '}
+              <Link href="/about#ai-disclosure" style={{ color: 'var(--text-muted)', textDecoration: 'none', borderBottom: '1px solid var(--border)' }}>
+                how we use AI
+              </Link>
             </span>
           </div>
         </div>

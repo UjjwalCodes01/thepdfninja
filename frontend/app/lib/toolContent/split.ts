@@ -22,6 +22,25 @@ export const splitContent = {
       description: "When preparing contracts or agreements for electronic signature via platforms like DocuSign or Adobe Sign, you may only need the client to sign a specific addendum or signature page, not the entire 50-page master agreement. Splitting the PDF allows you to extract just the relevant signature pages, streamlining the signing process for your clients and reducing confusion."
     }
   ],
+  howItWorks: {
+    title: "How splitting works and what you get back",
+    body: [
+      "There are two modes. Splitting into individual pages produces one PDF per page. Splitting by range produces one PDF per range you specify, so pages 1 to 3 and 8 to 12 come back as two documents. Either way the output arrives as a single ZIP, because a browser cannot hand you forty separate downloads from one action.",
+      "As with merging, pages are copied at the object level rather than re-rendered. Each output file carries the original page content exactly, so text stays selectable and nothing is degraded by the split.",
+    ],
+    specs: [
+      { label: "Modes", value: "Every page separately, or custom page ranges" },
+      { label: "Output", value: "A ZIP archive — page_1.pdf, page_2.pdf, … or part_1.pdf, part_2.pdf, …" },
+      { label: "Method", value: "Page objects copied, not re-rendered" },
+      { label: "Quality loss", value: "None" },
+    ],
+    limits: [
+      "Every output file inherits the full font and resource set of the source document, so ten split pages can total more than the original. Compress them afterwards if size matters.",
+      "Bookmarks pointing at pages that ended up in a different output file cannot resolve, so they are dropped.",
+      "Password-protected documents must be unlocked first.",
+      "Ranges are inclusive and one-based: 1-3 gives you pages one, two and three.",
+    ],
+  },
   comparisonTable: {
     headers: ["Feature", "ThePDFNinja"],
     rows: [

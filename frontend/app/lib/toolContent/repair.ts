@@ -22,6 +22,26 @@ export const repairContent = {
       description: "Sometimes, poorly coded PDF generators or obscure mobile scanning apps produce PDFs with malformed metadata that strict readers (like Adobe Acrobat) refuse to open. Our tool is highly forgiving; it ignores strict compliance checks, extracts the core content, and rewrites the file according to proper PDF specifications, making it universally readable again."
     }
   ],
+  howItWorks: {
+    title: "How recovery is attempted",
+    body: [
+      "A PDF keeps an index — the cross-reference table — that says where every object in the file lives, and it sits at the end of the file with an %%EOF marker after it. That layout is why an interrupted download is so destructive: you lose the index and the marker, and readers that start by seeking to the end simply refuse the file, even though almost all of your content is present earlier in the bytes.",
+      "We try up to three engines in order, because they fail differently. The first two are able to rebuild the index from scratch by scanning the file for object markers, which is what recovers a document whose trailer was truncated away. The third handles a different problem: files that are structurally complete but violate the specification somewhere, which strict readers reject and a tolerant parse can rewrite cleanly.",
+      "If every engine fails we tell you so, plainly, rather than returning a file that appears to work and then breaks later.",
+    ],
+    specs: [
+      { label: "Recovery order", value: "qpdf, then PyMuPDF xref reconstruction, then tolerant pypdf re-parse" },
+      { label: "Truncated trailer or missing %%EOF", value: "Usually recoverable — this is the common interrupted-download case" },
+      { label: "Malformed but complete files", value: "Usually recoverable by rewriting to spec" },
+      { label: "Output", value: "A rewritten PDF containing every page that could be read" },
+    ],
+    limits: [
+      "Recovery cannot invent data that is not in the file. If a download stopped at 30%, the last 70% of the pages were never received and no tool will bring them back — expect to recover the earlier pages only.",
+      "A file damaged near its first object may be unrecoverable entirely. You will get a clear message saying so rather than a broken download.",
+      "An encrypted PDF must be unlocked before repair; we cannot parse what we cannot decrypt.",
+      "This will not fix content that was already wrong. It repairs file structure, not typos, missing fonts or bad exports.",
+    ],
+  },
   comparison: {
     title: "Why Our PDF Repair Engine is Unmatched",
     description: "When dealing with data loss, you need a tool that relies on advanced heuristics, not just basic error checking. Here is why ThePDFNinja is the ultimate recovery solution.",

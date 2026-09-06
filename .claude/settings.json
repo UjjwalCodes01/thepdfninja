@@ -71,7 +71,8 @@
       "Bash(mkdir -p /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg)",
       "Bash(cp lambda/ocr/*.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg/)",
       "Bash(cp lambda/easy_tools/_http.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg/)",
-      "Bash(python3 -m venv /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/venv)"
+      "Bash(python3 -m venv /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/venv)",
+      "Bash(aws ec2 *)"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"

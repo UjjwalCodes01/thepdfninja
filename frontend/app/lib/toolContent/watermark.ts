@@ -22,6 +22,26 @@ export const watermarkContent = {
       description: "When sharing sensitive legal discovery documents or proprietary financial projections, adding a 'DO NOT DISTRIBUTE' watermark serves as a constant, visual reminder of the document's confidentiality. It adds an extra layer of psychological security, reminding recipients of their non-disclosure obligations."
     }
   ],
+  howItWorks: {
+    title: "How the watermark is drawn",
+    body: [
+      "We generate a transparent overlay for each distinct page size in your document, draw your text across it at 45 degrees in grey, and merge that overlay onto every page. The overlay is built from each page's real dimensions and the font is scaled to the page diagonal and the length of your text, so the mark stays centred and fits whether the document is A4, Letter, A3 or something unusual.",
+      "The watermark is drawn as real text rather than an image, so it stays crisp at any zoom and adds almost nothing to the file size.",
+    ],
+    specs: [
+      { label: "Method", value: "Per-page-size transparent overlay merged onto each page" },
+      { label: "Angle", value: "45 degrees, centred on the page" },
+      { label: "Opacity", value: "Configurable, 0.3 by default" },
+      { label: "Font", value: "Helvetica Bold, scaled to the page and text length" },
+      { label: "Colour", value: "Neutral grey" },
+    ],
+    limits: [
+      "The watermark is a visual mark, not a security control. Anyone can remove it with the same class of tool that applied it — it deters casual reuse and nothing more.",
+      "One mark is drawn per page, centred. Tiled or repeating watermarks are not supported.",
+      "It sits on top of your content, so at low opacity over a dark image it may be hard to see, and at high opacity over text it will interfere with reading.",
+      "Text only. Image and logo watermarks are not supported here.",
+    ],
+  },
   comparison: {
     title: "Why Our Watermark Tool Outperforms the Rest",
     description: "Adding a watermark should be a quick, customizable process. Here is how ThePDFNinja stands apart from other free tools on the market.",

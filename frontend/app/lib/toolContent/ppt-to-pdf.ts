@@ -24,12 +24,12 @@ export const pptToPdfContent = {
   ],
   comparison: {
     title: "Why Our PPT to PDF Converter is Superior",
-    description: "While PowerPoint has a built-in 'Save as PDF' feature, using an online converter is necessary when you are working on a mobile device or a computer without Office installed. Here is why ThePDFNinja excels.",
+    description: "While PowerPoint has a built-in 'Save as PDF' feature, using an online converter is necessary when you are working on a mobile device or a computer without Office installed.Here is what that means for slide decks specifically.",
     points: [
       "Flawless Visual Retention: Our enterprise-grade conversion engine ensures that your custom fonts, complex charts, and overlapping graphics are rendered into the PDF exactly as they appeared on your original slides.",
       "No Microsoft Office Required: If a colleague emails you a .pptx file and you are on a smartphone or a tablet without PowerPoint installed, you can use our tool to instantly convert it to PDF so you can read it immediately.",
       "100% Free, Zero Watermarks: Many free converters ruin your professional presentation by stamping a massive advertising watermark across every slide. ThePDFNinja provides perfectly clean, professional PDFs every time.",
-      "Instant Cloud Processing: Trying to render a massive 100-slide presentation into a PDF can freeze a standard laptop. We offload this intensive process to our high-performance AWS cloud servers, delivering results instantly."
+      "Instant Cloud Processing: Trying to render a massive 100-slide presentation into a PDF can freeze a standard laptop.The conversion runs on our servers under LibreOffice, so you do not need PowerPoint installed to produce the PDF."
     ]
   },
   security: "Business pitch decks, financial reviews, and internal training presentations contain highly confidential information. ThePDFNinja guarantees absolute privacy when converting your slides. Your PowerPoint files are uploaded over a secure 256-bit AES encrypted connection. The conversion to PDF occurs within an isolated, automated cloud server—no human will ever see your presentation. To ensure total security, both the original .pptx file you uploaded and the resulting PDF are permanently and irretrievably deleted from our servers within one hour of conversion. Your proprietary data remains entirely yours.",

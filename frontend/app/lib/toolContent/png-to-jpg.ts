@@ -2,7 +2,7 @@ export const pngToJpgContent = {
   introParagraphs: [
     "PNG files are excellent for graphics due to their support for transparent backgrounds and lossless quality, but they often have massive file sizes. If you need to upload photos, screenshots, or graphics to web portals, PNGs can be too heavy. ThePDFNinja's Free Online PNG to JPG converter solves this by instantly converting your PNG images into web-friendly, lightweight JPG files.",
     "Our converter allows you to adjust the compression quality (1-100) to find the perfect balance between file size and image clarity. During conversion, transparent background pixels are automatically replaced with a clean white background, keeping your graphics legible and looking professional.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your PNG files, choose your quality, and download your optimized JPGs instantly."
+    "The choice between PNG and JPEG comes down to what is in the image. PNG stores every pixel exactly and supports transparency, which makes it right for screenshots, logos and line art where a soft edge is a defect. JPEG discards detail selectively, which makes it right for photographs and wrong for sharp-edged graphics, where the discarding shows up as visible halos."
 ],
   useCases: [
     {
@@ -22,11 +22,31 @@ export const pngToJpgContent = {
         "description": "Graphic designers and artists can convert large portfolio images from PNG to JPG, keeping files lightweight and easy to email directly to clients."
     }
 ],
+  howItWorks: {
+    title: "What changes in the conversion",
+    body: [
+      "PNG stores pixels losslessly and supports an alpha channel; JPEG does neither. Two things therefore happen in this conversion, and both are worth understanding before you rely on the result.",
+      "Transparency is composited onto a white background, because JPEG has no way to represent it. If your PNG had a transparent background, it comes back with a white one. Second, the pixel data is re-encoded with lossy compression at the quality you choose — which is what produces the large size reduction, and which is not reversible.",
+      "Quality 90 is a sensible default: the difference is very hard to see, and files typically land far smaller than the PNG.",
+    ],
+    specs: [
+      { label: "Method", value: "Alpha composited onto white, re-encoded as JPEG" },
+      { label: "Quality", value: "Configurable, 90 by default" },
+      { label: "Optimisation", value: "Huffman tables optimised on save for a smaller file at the same quality" },
+      { label: "Colour", value: "Converted to RGB; palette and greyscale inputs handled" },
+    ],
+    limits: [
+      "Transparency is lost permanently. If you need it, keep the PNG or convert to WebP instead.",
+      "The conversion is lossy and one-way. Converting back to PNG will not restore the original detail — it just wraps the already-degraded pixels losslessly.",
+      "PNG is better for screenshots, logos, line art and anything with sharp edges or flat colour. Converting those to JPEG can produce visible halos around edges.",
+      "A PNG that is already small may come out larger as a JPEG. JPEG's advantage is on photographic content.",
+    ],
+  },
   comparison: {
     title: "A Better PNG to JPG Converter",
-    description: "Paid graphics tools can be expensive and complex. ThePDFNinja offers a streamlined, professional conversion utility:",
+    description: "You do not need an editor open to do a format change. ThePDFNinja offers a streamlined, professional conversion utility:",
     points: [
-      "Adjustable Quality Control: Customize the compression level from 1 to 100 to strike the ideal balance between quality and file size.",
+      "Quality is adjustable from 1 to 100. Screenshots and line art need a higher setting than photographs — sharp edges are exactly what JPEG handles worst.",
       "Smart Transparency Handling: Automatically replaces transparent areas with white pixels, preventing black background glitches.",
       "100% Free and Unlimited: Convert as many images as you need without encountering daily caps, waiting rooms, or payment prompts.",
       "Zero Installation: The entire conversion takes place in your web browser. All files are deleted automatically within 1 hour."

@@ -22,6 +22,27 @@ export const protectContent = {
       description: "Many people store digital copies of their passports, birth certificates, and passwords on local hard drives or cloud storage services like Google Drive or Dropbox. If these accounts are hacked, your life is exposed. Encrypting these sensitive personal archives before storing them in the cloud guarantees your privacy, even in the event of a massive data breach."
     }
   ],
+  howItWorks: {
+    title: "What the encryption here actually is",
+    body: [
+      "PDF supports two different passwords and they are not equivalent. An owner password sets permission flags — do not print, do not copy — but leaves the file itself unencrypted. Any reader is free to ignore those flags, and a great many do; stripping them is trivial. A user password is the real thing: the page content streams are encrypted, and without the password there is nothing for a reader to render.",
+      "This tool sets a user password using AES-256, written as PDF encryption revision 6. You can verify that yourself rather than taking our word for it: open the output in any PDF inspector and look at the encryption dictionary, where you should see /V 5 /R 6 and an AESV3 filter.",
+      "Your password is used in memory to derive the encryption key and is never written to disk or to our logs. That has a consequence worth being clear about: if you forget it, we genuinely cannot recover the file. There is no reset, no master key, and no support request that will get your document back.",
+    ],
+    specs: [
+      { label: "Algorithm", value: "AES-256 (PDF encryption revision 6, /V 5 /R 6, AESV3 filter)" },
+      { label: "Password type", value: "User password — the document cannot be opened without it" },
+      { label: "Password storage", value: "None. Used in memory to derive the key, never logged or persisted" },
+      { label: "Recovery", value: "Impossible by design. Lose the password and the file is unrecoverable" },
+      { label: "Reader compatibility", value: "Any reader supporting PDF 1.7 ExtensionLevel 3 or PDF 2.0 — all current versions of Acrobat, Preview, Chrome and Edge" },
+    ],
+    limits: [
+      "AES-256 does not compensate for a weak password. A cipher this strong is irrelevant if the password is a dictionary word or a birthday — the attack goes at the password, not the algorithm.",
+      "Very old readers predating AES-256 support in PDF may refuse the file. If a recipient is on genuinely ancient software, they will not be able to open it at all.",
+      "Encryption protects the file at rest. Once your recipient opens it, nothing stops them saving an unprotected copy — this is a property of PDF, not a limitation we can engineer around.",
+      "We cannot encrypt a PDF that is already password-protected. Unlock it first, then protect it with the new password.",
+    ],
+  },
   comparison: {
     title: "Why ThePDFNinja Offers Superior PDF Protection",
     description: "Locking a PDF shouldn't require surrendering your privacy or your wallet. Here is how our encryption tool works.",

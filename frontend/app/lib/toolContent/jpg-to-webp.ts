@@ -2,7 +2,7 @@ export const jpgToWebpContent = {
   introParagraphs: [
     "JPG is the most common format for photos, but it uses older compression technology that results in larger file sizes. WebP is a modern image format created by Google that offers superior compression, reducing image file sizes by up to 30% or more compared to JPG while maintaining visual quality. ThePDFNinja's Free Online JPG to WebP converter is the perfect tool for optimizing your photos and speeding up your website.",
     "Our converter allows you to customize the quality level to find the ideal balance between file size and image clarity. It is ideal for web developers, bloggers, and site owners who want to improve their website's page load speeds, reduce bandwidth costs, and improve search engine rankings.",
-    "Forget about complex command-line utilities or paid graphics software. ThePDFNinja provides a streamlined, web-based drag-and-drop converter that runs on all major platforms (Windows, Mac, iOS, Android). You can convert images up to 100MB completely free, with no limitations or watermarks."
+    "No cwebp binary to install and no flags to look up.Drop a JPG in and a WebP comes back, usually a good deal smaller at the same visual quality. You can convert images up to 100MB completely free, with no limitations or watermarks."
 ],
   useCases: [
     {
@@ -26,7 +26,7 @@ export const jpgToWebpContent = {
     title: "Why Choose ThePDFNinja JPG to WebP Converter?",
     description: "ThePDFNinja offers an effective and secure way to optimize your images. Here is why we are the top choice:",
     points: [
-      "Adjustable Quality Control: Customize the compression level from 1 to 100 to strike the ideal balance between quality and file size.",
+      "Quality is adjustable from 1 to 100. WebP holds detail better than JPEG at the same number, so a setting that looks poor as JPEG often looks fine here.",
       "True WebP Optimization: Our engine generates WebP images that follow the official Google specification for web compression.",
       "100% Free and Unlimited: Convert as many JPG images as you need without encountering daily caps, waiting rooms, or paywalls.",
       "No Signup Required: Start converting JPG to WebP instantly in your browser without creating an account."

@@ -2,7 +2,7 @@ export const jpgToPngContent = {
   introParagraphs: [
     "JPG is the most common format for photos, but it uses lossy compression that degrades image quality every time the file is saved. PNG, on the other hand, uses lossless compression that preserves every pixel and detail, making it the preferred choice for graphics, logos, and digital editing. ThePDFNinja's Free Online JPG to PNG converter lets you transform your JPG photos into high-quality, editable PNG files instantly.",
     "Our converter ensures that color profiles, text details, and visual elements are converted with perfect accuracy. It is ideal for graphic designers, web developers, and editors who need to convert source images into a format that supports transparency and editing without degrading quality.",
-    "Forget about complex command-line utilities or paid graphics software. ThePDFNinja provides a streamlined, web-based drag-and-drop converter that runs on all major platforms (Windows, Mac, iOS, Android). You can convert images up to 100MB completely free, with no limitations or watermarks."
+    "No image editor to open and no export dialogue to navigate.Drop a JPG in and a PNG comes back, pixel-for-pixel identical to what the JPEG currently holds. Images up to 100MB convert free, with nothing stamped on the output."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const jpgToPngContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja JPG to PNG Converter?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "This conversion is worth being clear about: it will not improve your image. JPEG has already discarded detail, and PNG will preserve that discarded-detail version perfectly. What it does give you is a lossless working copy and transparency support. Here is how we handle it.",
     points: [
-      "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your images look sharp and professional.",
-      "Zero Watermarks: The output is your image, re-encoded losslessly. No overlay is composited on top of it at any stage.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your JPGs to PNG instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "This cannot restore what JPEG discarded. The detail your camera or editor threw away when it wrote the JPEG is gone, and PNG will preserve that reduced version perfectly. Nothing here improves the picture.",
+      "It does stop further loss. Every time a JPEG is re-saved it degrades again, so converting to PNG before a round of editing prevents generational damage.",
+      "The file will get bigger, often several times over, because PNG stores every pixel exactly rather than approximating.",
+      "Transparency support is added, though the image arrives fully opaque — JPEG has no alpha channel to carry across.",
 ]
   },
   security: "Turning a JPG into a lossless PNG is handled entirely on our side over a 256-bit encrypted channel, so the photo never sits exposed in transit. Your file is processed in a sandboxed worker, converted, and then wiped — original and result alike — within sixty minutes. We keep no thumbnails, run no content analysis, and never hand your image to any third party.",

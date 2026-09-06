@@ -2,7 +2,7 @@ export const pdfToTxtContent = {
   introParagraphs: [
     "PDFs are great for layouts, but extracting raw text from them can be difficult. Copying and pasting text page-by-page from a large PDF often copies messy line breaks, page headers, or columns. ThePDFNinja's Free Online PDF to TXT converter extracts all plain text from your PDF, saving it as a clean, structured .txt file.",
     "Our converter downscales and strips away all formatting, images, tables, and borders, leaving you with raw, editable text. It is the fastest way to extract content from large manuals, books, or transaction logs for editing or database inputs.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your PDF files and download your extracted plain text files instantly."
+    "Extracting text from a PDF is easier than people expect in one case and harder in another. If the PDF has a text layer, the characters are genuinely in the file and can be pulled out directly. If it is a scan, there are no characters at all — only an image of them — and no amount of extraction will find text that was never stored. That case needs OCR instead."
 ],
   useCases: [
     {
@@ -28,7 +28,7 @@ export const pdfToTxtContent = {
     points: [
       "Fast Raw Extraction: Extracts plain text from large PDFs in seconds, stripping away margins and header clutter.",
       "100% Free and Unlimited: Convert as many PDF files as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Watermarks: We keep your files clean. No branding or logos are added to your output documents.",
+      "No watermark and no header: the text file holds only what was in the document. You get the characters that were in the document, and nothing appended.",
       "No Signup Required: Start converting PDF to TXT instantly in your browser without creating an account."
 ]
   },

@@ -22,6 +22,26 @@ export const pageNumbersContent = {
       description: "If you are self-publishing an e-book or a digital zine, professional formatting is crucial for reader retention. Adding clean, consistent page numbers to your footers gives your digital publication a polished, traditional feel that readers expect, elevating the perceived quality of your work."
     }
   ],
+  howItWorks: {
+    title: "How numbers are placed",
+    body: [
+      "For each page we read its actual dimensions from the page dictionary, build a small overlay sized to match, draw the number at the position you chose, and merge that overlay onto the page. Because the overlay is generated per page from real dimensions, numbering stays correctly placed on documents that mix page sizes or orientations.",
+      "Numbers are drawn as real text in Helvetica, not as an image, so they stay sharp at any zoom and can be selected and searched like the rest of the document.",
+    ],
+    specs: [
+      { label: "Method", value: "Per-page text overlay, sized from that page's own dimensions" },
+      { label: "Positions", value: "Any of six — top or bottom, left, centre or right" },
+      { label: "Margin", value: "36 points from the side edge, 30 from the top or bottom" },
+      { label: "Format", value: "Plain numbers, or a template such as \"Page {n} of {total}\"" },
+      { label: "Starting number", value: "Configurable, for documents that follow on from another" },
+    ],
+    limits: [
+      "Numbers are drawn on top of existing content. If your pages already have something in that corner, they will overlap — pick a different position.",
+      "One style applies to the whole document. Roman numerals for front matter and Arabic for the body is not supported in a single pass; number the sections separately and merge.",
+      "The font is Helvetica and is not configurable.",
+      "Existing page numbers are not detected or replaced. Numbering an already-numbered document gives you two sets.",
+    ],
+  },
   comparison: {
     title: "Why Our Page Numbering Tool is the Best Choice",
     description: "Adding numbers to a page seems simple, but many free tools fail to offer the necessary flexibility. Here is why ThePDFNinja is the superior option.",

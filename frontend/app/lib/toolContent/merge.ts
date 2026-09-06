@@ -22,6 +22,27 @@ export const mergeContent = {
       description: "For personal use, merging PDFs is an excellent way to digitize and organize your life. Combine your monthly utility bills into a single annual archive, merge your tax returns with supporting W-2s and receipts, or compile travel itineraries, flight tickets, and hotel bookings into one easy-to-access travel document. It declutters your hard drive and makes retrieving important information a breeze."
     }
   ],
+  howItWorks: {
+    title: "How the merge is performed",
+    body: [
+      "Merging happens at the level of the PDF page tree. Rather than rendering your documents and reassembling them — which would flatten everything to images and destroy the text — we append each source file's pages into a single output document, carrying their objects across intact.",
+      "That is why text stays selectable and searchable, hyperlinks keep working, and internal bookmarks survive. Nothing is re-encoded, so there is no generational quality loss: page five of your merged file is the same content as page five of the original.",
+      "Files are combined in the order shown in the interface, which you can rearrange by dragging before you run the merge.",
+    ],
+    specs: [
+      { label: "Method", value: "Page-tree append — pages are copied, never re-rendered" },
+      { label: "Text and fonts", value: "Preserved exactly; output remains searchable" },
+      { label: "Links and bookmarks", value: "Preserved" },
+      { label: "Quality loss", value: "None — no re-encoding takes place" },
+      { label: "Order", value: "As arranged in the interface before merging" },
+    ],
+    limits: [
+      "Password-protected files cannot be merged. Unlock them first, then merge, then re-protect the result if you need to.",
+      "Mixed page sizes stay mixed. Merging A4 and Letter documents gives you a file with both, which is correct but can look uneven when printed — use Resize Pages first if you need uniformity.",
+      "Form fields with identical names across documents can collide, and one may overwrite the other. Flatten the forms first if the filled values matter.",
+      "The merged file is roughly the sum of its inputs. Combining several large documents can produce something that needs compressing afterwards.",
+    ],
+  },
   comparisonTable: {
     headers: ["Feature", "ThePDFNinja Merger"],
     rows: [

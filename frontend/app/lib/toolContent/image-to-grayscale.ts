@@ -2,7 +2,7 @@ export const imageToGrayscaleContent = {
   introParagraphs: [
     "Color photography is standard, but converting an image to black and white can create a classic, artistic effect or help reduce printing costs. ThePDFNinja's Free Online Image to Grayscale tool converts JPG, PNG, and WebP files into clean, high-contrast grayscale images instantly.",
     "Our tool analyzes pixel brightness values to adjust contrast and exposure, ensuring your black and white photos look balanced and professional, rather than washed out. It is ideal for photographers, designers, and publishers.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your images, convert them to grayscale, and download your files instantly."
+    "Converting to greyscale is not simply averaging the red, green and blue channels — doing that gives a muddy result, because your eye does not weight those colours equally. Green contributes most of your perception of brightness, red rather less, blue least of all. A correct conversion weights them accordingly, which is why a properly converted greyscale image still looks like the photograph it came from."
 ],
   useCases: [
     {
@@ -28,7 +28,7 @@ export const imageToGrayscaleContent = {
     points: [
       "Smart Contrast Management: We adjust brightness levels during conversion to keep text, shapes, and details clear and legible.",
       "100% Free and Unlimited: Convert as many images as you need without encountering daily caps, waiting rooms, or paywalls.",
-      "Zero Watermarks: We keep your files clean. No branding or logos are added to your output documents.",
+      "No watermark: the greyscale image is your image, unbranded. Dimensions and metadata are left alone; only the colour data changes.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]
   },

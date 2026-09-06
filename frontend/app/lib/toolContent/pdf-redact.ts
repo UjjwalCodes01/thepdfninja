@@ -22,6 +22,26 @@ export const pdfRedactContent = {
         "description": "Black out physical signatures on public records, university applications, or corporate filings to prevent identity theft and fraud."
     }
 ],
+  howItWorks: {
+    title: "Why this is redaction and not a black rectangle",
+    body: [
+      "The usual way this goes wrong online is worth understanding, because it has caused real disclosures at law firms and government departments. Many tools — and every PDF editor's drawing tool — put a filled black rectangle over the sensitive text. The text is still in the file underneath. Select it and copy, extract it with any library, or open the raw content stream, and it is all there. The rectangle is a picture of censorship, not censorship.",
+      "This tool marks the region and then applies the redaction, which removes the characters inside it from the content stream and rewrites the page without them. Pixels inside the region are scrubbed too, so text that lives in a scanned image is removed rather than covered.",
+      "You can check this on your own output rather than trusting the claim. Redact something, download the result, and try to select the text or run it through our PDF to Text tool. Nothing should come back.",
+    ],
+    specs: [
+      { label: "Method", value: "Content removed from the page stream, not overlaid" },
+      { label: "Images inside the region", value: "Pixels scrubbed, so text baked into a scan is removed too" },
+      { label: "Result verified by", value: "Absence from extracted text and from every decompressed content stream" },
+      { label: "Rest of the document", value: "Untouched — only the marked regions change" },
+    ],
+    limits: [
+      "You are responsible for marking every instance. The tool removes what you select and nothing else, so a name appearing in a header on all forty pages needs marking on all forty.",
+      "Document metadata is separate from page content. Author, title and producer fields can carry names you did not intend to publish — run the file through our Remove Metadata tool afterwards.",
+      "Redaction is per-region and geometric. It does not search for a phrase and remove every occurrence.",
+      "Check the output before sending it anywhere sensitive. That advice applies to every redaction tool including this one.",
+    ],
+  },
   comparison: {
     title: "True, Secure PDF Redaction",
     description: "Do not trust cheap markup tools that leave text copyable. Here is why ThePDFNinja is the secure choice:",

@@ -2,7 +2,7 @@ export const reversePagesContent = {
   introParagraphs: [
     "Sometimes, scanner feeders process documents backward, or a PDF is exported in reverse order, leaving you with a file that starts at the end. Reading and reviewing such documents is frustrating and unprofessional. ThePDFNinja's Free Online Reverse Pages tool instantly flips the page order of your PDF (e.g., changing page 10 to page 1, page 9 to page 2, and so on), restoring the correct reading order in a single click.",
     "Our tool processes documents at lightning speed, regardless of page count. Because we manipulate the page tree structure directly without rendering or compressing the visual content, there is absolutely zero quality loss. Your text remains sharp, images keep their high resolution, and all hyperlinks and bookmarks continue to function correctly in the reversed file.",
-    "No need to waste time manually reordering pages in complex software. ThePDFNinja is free, requires no installation, and works on all platforms. Simply drag and drop your reversed PDF, let our system flip it instantly, and download the corrected version. Free for files up to 100MB."
+    "No need to waste time manually reordering pages in complex software.Reversing page order is a structural change, so it is instant regardless of how large the file is. Simply drag and drop your reversed PDF, let our system flip it instantly, and download the corrected version. Free for files up to 100MB."
 ],
   useCases: [
     {

@@ -22,6 +22,29 @@ export const htmlToPdfContent = {
       description: "Lawyers and corporate compliance officers often need to prove that a specific disclosure, terms of service update, or public statement was live on a company's website on a specific date. Converting the live URL to a PDF creates an immutable digital snapshot of the webpage, providing critical evidence that can be archived and referenced in legal proceedings."
     }
   ],
+  howItWorks: {
+    title: "How a page is captured, and what it will not capture",
+    body: [
+      "We render the markup with a headless browser engine and print the result to PDF. If that engine is unavailable the request falls back to a pure-Python layout engine, which handles straightforward documents well but will not reproduce a complex modern site faithfully.",
+      "Two things are worth knowing about how the fetch is done. We resolve the address first and refuse anything that points at a private or link-local network, which stops the converter being used to reach machines it should not — a well-known way of abusing URL-fetching services. And the response is capped at 20MB, with a 30-second rendering timeout, so a runaway page cannot hang the job.",
+      "The renderer arrives with no cookies and no session. It sees your URL exactly as an anonymous visitor would.",
+    ],
+    specs: [
+      { label: "Primary renderer", value: "Headless browser engine, printing to PDF" },
+      { label: "Fallback", value: "Pure-Python layout engine, A4 with half-inch margins" },
+      { label: "Input", value: "A public URL, pasted markup, or an uploaded HTML file" },
+      { label: "Fetch limits", value: "20MB response cap, 30-second render timeout" },
+      { label: "Network safety", value: "Private, loopback and link-local addresses refused, including across redirects" },
+      { label: "Session", value: "None — no cookies, no login state" },
+    ],
+    limits: [
+      "Anything behind a login will render as the logged-out page, because the renderer has no session. There is no way around this from a URL alone.",
+      "Content that only appears after JavaScript runs, or after scrolling, is frequently missed. Infinite-scroll feeds and dashboards capture poorly.",
+      "Web pages have no page breaks. Long pages get cut wherever the paper ends, sometimes mid-sentence or mid-table.",
+      "Fonts and images hosted behind authentication, or blocked to non-browser clients, will not load and the layout may shift as a result.",
+      "For a page you are looking at right now, your browser's own Print to PDF often gives a better result, because it already has your session and has already run the scripts.",
+    ],
+  },
   comparison: {
     title: "Why Our HTML to PDF Engine Outperforms the Rest",
     description: "Modern websites are incredibly complex, built with dynamic frameworks that break basic converters. Here is why ThePDFNinja provides a superior web-capture experience.",

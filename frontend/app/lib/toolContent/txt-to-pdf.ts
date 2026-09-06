@@ -2,7 +2,7 @@ export const txtToPdfContent = {
   introParagraphs: [
     "Plain text (.txt) files are excellent for draft notes, log files, and code snippets, but they lack professional layout formatting and can display differently depending on the application used to open them. ThePDFNinja's Free Online TXT to PDF converter allows you to transform plain text files into clean, readable PDF documents.",
     "Our converter preserves line breaks, spacing, and characters, using standard monospace or sans-serif fonts to ensure your text displays correctly. The output PDF has clean margins and formatted layouts that are ready for sharing, printing, or archiving.",
-    "ThePDFNinja runs entirely in the cloud, removing the need for local desktop software. It operates on Mac, Windows, Linux, and mobile devices. Process files up to 100MB at no cost, without registration, limits, or watermarks."
+    "Processing happens on our servers, so the result is identical whether you are on Windows, macOS or a phone. The pagination is identical whichever device you started from. Process files up to 100MB at no cost, without registration, limits, or watermarks."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const txtToPdfContent = {
 ],
   comparison: {
     title: "Why Choose ThePDFNinja TXT to PDF Converter?",
-    description: "Not all document converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "A plain text file has no formatting at all — no fonts, no margins, no page breaks. Converting it to PDF means supplying all of that. Here is what we choose and why.",
     points: [
-      "Clean Margins and Typography: We wrap and scale your text, applying clean layouts and fonts to make plain text look professional.",
-      "Zero Watermarks: The PDF holds your text and the margins you chose. We add no header, no footer, and no attribution line.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your TXTs to PDF instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "Everything about the look is our decision, because a text file carries none of it. We set A4 pages, generous margins, and a readable body size, and paginate where the text runs over.",
+      "Line breaks are respected as written, so ASCII tables, code and poetry keep their shape rather than being reflowed into prose.",
+      "Encoding matters more than people expect: we read files as UTF-8, which covers accented characters and most non-Latin scripts. A file saved in an old regional encoding may show substitutions.",
+      "The result is a plain, legible document. If you need headings and styling, write it as Markdown and use our Markdown to PDF tool instead.",
 ]
   },
   security: "Turning a text file into a formatted PDF runs on an isolated worker behind 256-bit encryption, so your writing is never exposed in transit or to other users. Both the source .txt and the resulting PDF are deleted automatically within sixty minutes. Nothing you type is logged, analysed, or shared — the conversion is entirely private.",

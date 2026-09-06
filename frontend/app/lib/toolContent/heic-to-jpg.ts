@@ -2,7 +2,7 @@ export const heicToJpgContent = {
   introParagraphs: [
     "HEIC (High Efficiency Image Container) is the default image format used by Apple on iPhones and iPads to save high-quality photos at smaller file sizes. However, HEIC is not natively supported by Windows, Android, older operating systems, or many online upload forms, making it difficult to share or edit your photos. ThePDFNinja's Free Online HEIC to JPG converter solves this by instantly transforming your iPhone photos into universally compatible JPG files.",
     "Our converter processes images at lightning speed while maintaining high quality. You can customize the compression quality level to fit your needs, ensuring your photos remain clear and vibrant. It is the perfect tool for making your iPhone photos compatible with all devices.",
-    "No software downloads or registrations required. ThePDFNinja is web-based, 100% free, and works on all platforms. Upload your HEIC files, choose your quality, and download your JPGs instantly."
+    "HEIC is what an iPhone saves by default, and it is genuinely better than JPEG: roughly half the file size at comparable quality, because it uses a far more modern compression method derived from video encoding. The problem is not the format, it is everything else. Windows, most web upload forms, and a great deal of older software simply cannot open it, which is why converting to JPEG is so often necessary."
 ],
   useCases: [
     {
@@ -24,10 +24,10 @@ export const heicToJpgContent = {
 ],
   comparison: {
     title: "Why HEIC to JPG with ThePDFNinja?",
-    description: "We offer a professional-grade image conversion utility completely free. Here is why we are the top choice:",
+    description: "The conversion is free, and there is no per-photo limit if you have a camera roll to get through. Here is why we are the top choice:",
     points: [
       "True JPG Formatting: We ensure that color profiles, contrast levels, and details are converted accurately without adding noise.",
-      "Adjustable Quality Control: Customize the compression level from 1 to 100 to strike the ideal balance between quality and file size.",
+      "Quality is adjustable from 1 to 100. Around 85 keeps an iPhone photo visually indistinguishable while still cutting the file size substantially.",
       "100% Free and Unlimited: Convert as many HEIC photos as you need without encountering daily caps, waiting rooms, or paywalls.",
       "No Signup Required: Start converting HEIC to JPG instantly in your browser without creating an account."
 ]

@@ -22,6 +22,25 @@ export const organizeContent = {
       description: "Legal professionals often compile massive briefs involving exhibits, sworn statements, and case law. Ensuring these documents are in the exact order required by the court is critical. The visual thumbnail view provided by our organizer makes it incredibly easy to verify that Exhibit A precedes Exhibit B, and that all necessary affidavits are included and properly oriented."
     }
   ],
+  howItWorks: {
+    title: "How reordering works",
+    body: [
+      "You supply the order you want and we build a new document by copying pages across in that sequence. Because it is a copy rather than a re-render, the operation is lossless: text stays selectable, images keep their original data, and nothing degrades no matter how many times you reorganise a file.",
+      "Omitting a page from the order removes it, so the same operation handles reordering and deleting in one pass.",
+    ],
+    specs: [
+      { label: "Method", value: "Pages copied into a new document in your chosen order" },
+      { label: "Deleting", value: "Leave a page out of the order and it is not carried across" },
+      { label: "Duplicating", value: "List a page twice and it appears twice" },
+      { label: "Quality loss", value: "None" },
+      { label: "Page limit", value: "None beyond the 100MB file size and what your browser can render as thumbnails" },
+    ],
+    limits: [
+      "Bookmarks and internal links pointing at moved or deleted pages may no longer resolve correctly.",
+      "Thumbnails for a very long document take a moment to draw and use more memory on an older phone. If the grid feels sluggish, split the file first.",
+      "Password-protected documents must be unlocked first.",
+    ],
+  },
   comparison: {
     title: "Why ThePDFNinja is the Ultimate PDF Organizer",
     description: "Many PDF tools treat page organization as an afterthought. We've built an organizer that rivals expensive desktop software, but we offer it for free.",

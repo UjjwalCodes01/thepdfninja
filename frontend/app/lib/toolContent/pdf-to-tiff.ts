@@ -2,7 +2,7 @@ export const pdfToTiffContent = {
   introParagraphs: [
     "The TIFF (Tagged Image File Format) is highly favored in professional printing, publishing, and archiving due to its support for multi-page structures, lossless compression, and deep color spaces. ThePDFNinja's Free Online PDF to TIFF converter lets you transform your PDFs into high-quality TIFF files instantly. This is crucial for businesses that require high-fidelity images for faxing, digital archiving, or prepress graphics workflows.",
     "Our converter guarantees that all typography, vector shapes, and embedded images are rendered with exact precision. You can select standard DPI settings (such as 150, 200, 300, or 600 DPI) to match the technical requirements of your destination systems. If your PDF has multiple pages, the converter will output them as a single multi-page TIFF file or high-res individual files, depending on your choice.",
-    "ThePDFNinja runs entirely in the cloud, removing the need for local desktop software. It operates on Mac, Windows, Linux, and mobile devices. Process documents up to 100MB at no cost, without registration, limits, or watermarks."
+    "Rendering happens on our servers, so a long document does not tie up your machine. Long documents render page by page without your machine doing the work. Process documents up to 100MB at no cost, without registration, limits, or watermarks."
 ],
   useCases: [
     {

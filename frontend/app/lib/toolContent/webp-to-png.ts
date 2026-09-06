@@ -2,7 +2,7 @@ export const webpToPngContent = {
   introParagraphs: [
     "WebP images are common on the web, but they can be difficult to edit or share. If a WebP image contains a transparent background, converting it to JPG will replace the transparency with a solid background color. ThePDFNinja's Free Online WebP to PNG converter is the perfect solution, converting WebP files into lossless PNG format while preserving transparent backgrounds.",
     "Our converter guarantees that transparent alpha channels are converted accurately. It is ideal for designers, web developers, and editors who need to extract web graphics, logos, or icons in a lossless format that is ready for editing in software like Photoshop, Figma, or Illustrator.",
-    "ThePDFNinja runs entirely in the cloud, removing the need for local desktop software. It operates on Mac, Windows, Linux, and mobile devices. Process images up to 100MB at no cost, without registration, limits, or watermarks."
+    "Decoding happens on our side, which is the point — WebP support is precisely what older software tends to be missing. Useful precisely where WebP support is absent, which is still a lot of desktop software. Files up to 100MB convert free, with no watermark added."
 ],
   useCases: [
     {
@@ -24,12 +24,12 @@ export const webpToPngContent = {
 ],
   comparison: {
     title: "Why WebP to PNG with ThePDFNinja?",
-    description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
+    description: "This conversion is about compatibility rather than quality: PNG opens everywhere, WebP still does not. Both are capable of being lossless, so the important question is what your source WebP actually was. Here is how we handle it.",
     points: [
-      "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your images look sharp and professional.",
-      "Transparency Preservation: Automatically maintains transparent alpha channels, preventing background glitches.",
-      "Fast Browser Processing: No software installation required. Drag, drop, and convert your WebPs to PNG instantly in your browser.",
-      "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
+      "Whether anything is lost depends on your source: WebP has both a lossy and a lossless mode. A lossless WebP converts to PNG with nothing changed. A lossy one converts faithfully, but the detail it already discarded stays discarded.",
+      "Transparency is carried across intact — both formats support an alpha channel, so cut-out graphics and logos survive the conversion.",
+      "Expect the PNG to be considerably larger. WebP's whole purpose is compressing better than PNG, so undoing that costs size.",
+      "The reason to do this at all is compatibility: PNG opens in everything, and WebP still does not.",
 ]
   },
   security: "Your WebP upload is encrypted the moment it leaves your browser and decoded into a transparent-friendly PNG on a server isolated from every other request. We never inspect the image, never keep a copy beyond the automatic one-hour deletion window, and never expose it to outside services. The conversion is a closed loop: in, converted, gone.",

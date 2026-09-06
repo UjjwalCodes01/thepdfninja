@@ -22,6 +22,24 @@ export const rotateContent = {
       description: "Government agencies, courts, and university admissions offices often have strict formatting rules for digital submissions. A document submitted sideways may be rejected by automated processing systems or frustrate the reviewing official. Rotating your PDFs to a standard, upright portrait orientation ensures compliance and presents a professional image."
     }
   ],
+  howItWorks: {
+    title: "How rotation is stored",
+    body: [
+      "A PDF page carries a rotation value in its own dictionary — 0, 90, 180 or 270 degrees — and readers apply it when drawing the page. Rotating here changes that value. The page content itself is not touched, redrawn or re-encoded.",
+      "That is why rotation is instant regardless of file size, and why it is completely lossless: text stays selectable, images keep their original data, and the file barely changes size. It is also why the rotation sticks in every reader rather than only looking right in the one you used.",
+    ],
+    specs: [
+      { label: "Method", value: "Sets the page rotation value; content is untouched" },
+      { label: "Angles", value: "90, 180 or 270 degrees clockwise" },
+      { label: "Scope", value: "All pages, or a selected subset" },
+      { label: "Quality loss", value: "None — nothing is re-encoded" },
+    ],
+    limits: [
+      "Rotation is per page and in 90-degree steps. Correcting a scan that came out at a slight angle is a deskew problem, which this does not do.",
+      "Pages already carrying a rotation value are rotated relative to it, so a page at 90 rotated by 90 ends at 180.",
+      "A small number of older or unusual readers ignore the rotation value and draw the page unrotated.",
+    ],
+  },
   comparison: {
     title: "Why ThePDFNinja is the Best Choice for Rotating PDFs",
     description: "Rotating a PDF should be a simple, instantaneous task. Here is why our tool provides a superior experience compared to the alternatives.",
