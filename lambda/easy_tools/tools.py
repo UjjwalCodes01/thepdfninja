@@ -460,20 +460,66 @@ def page_numbers_pdf(input_paths, output_path, options):
 # 10. REPAIR PDF (qpdf can fix many corrupt PDFs)
 # =============================================================
 def repair_pdf(input_paths, output_path, options):
+    """
+    Recover a damaged PDF, trying the most capable engine available first.
+
+    The engines genuinely differ in what they can salvage, so order matters:
+    qpdf and PyMuPDF both rebuild a cross-reference table from scratch by
+    scanning the file for object markers, which is what recovers a PDF whose
+    xref or %%EOF trailer has been truncated away. pypdf cannot do that — it
+    needs to find the EOF marker to start reading at all — so it is last and
+    only helps with files that are structurally intact but malformed.
+    """
     output = output_path + ".pdf"
-    subprocess.run([
-        "qpdf", "--linearize", "--object-streams=generate",
-        input_paths[0], output,
-    ], check=False)  # don't fail on warnings
-    if not os.path.exists(output):
-        # Fallback: just copy through pypdf
-        reader = PdfReader(input_paths[0], strict=False)
+    src = input_paths[0]
+
+    def _ok():
+        return os.path.exists(output) and os.path.getsize(output) > 0
+
+    # 1. qpdf, if the binary is present. run() raises FileNotFoundError before
+    #    check= is consulted, so it must be caught for the rest to be reachable.
+    try:
+        subprocess.run([
+            "qpdf", "--linearize", "--object-streams=generate",
+            src, output,
+        ], check=False, timeout=120)
+    except (FileNotFoundError, subprocess.TimeoutExpired):
+        pass
+    if _ok():
+        return output
+
+    # 2. PyMuPDF. Rebuilds the xref by scanning for objects, so it handles a
+    #    missing trailer, which is the most common way a download breaks.
+    try:
+        import fitz
+        doc = fitz.open(src)
+        if doc.page_count > 0:
+            doc.save(output, garbage=4, clean=True, deflate=True)
+            doc.close()
+            if _ok():
+                return output
+        doc.close()
+    except Exception:
+        pass
+
+    # 3. pypdf in non-strict mode, for files that parse but violate the spec.
+    try:
+        reader = PdfReader(src, strict=False)
         writer = PdfWriter()
         for page in reader.pages:
             writer.add_page(page)
-        with open(output, "wb") as f:
-            writer.write(f)
-    return output
+        if len(writer.pages):
+            with open(output, "wb") as f:
+                writer.write(f)
+            if _ok():
+                return output
+    except Exception:
+        pass
+
+    raise ValueError(
+        "This PDF is too damaged to recover. No readable pages were found — "
+        "the file may be truncated beyond its first object, or may not be a PDF."
+    )
 
 
 # =============================================================

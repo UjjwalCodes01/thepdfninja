@@ -54,7 +54,18 @@
       "Bash(zip -qr ../easy_tools.zip .)",
       "Read(//home/ujwal/Desktop/**)",
       "Bash(aws apigateway *)",
-      "Bash(aws configure *)"
+      "Bash(aws configure *)",
+      "Bash(curl -s -X POST https://s7vgf8qbmh.execute-api.us-east-1.amazonaws.com/prod/upload-url -H 'Content-Type: application/json' -H 'Origin: https://www.thepdfninja.com' -d '{\"filename\":\"t.pdf\",\"content_type\":\"application/pdf\"}')",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\('keys:', sorted\\(d.keys\\(\\)\\)\\); print\\('has fields \\(POST\\):', 'fields' in d\\); print\\('max_size_mb:', d.get\\('max_size_mb'\\)\\); f=d.get\\('fields',{}\\); print\\('policy enforces size:', 'policy' in f\\)\")",
+      "Bash(curl -s -X POST https://s7vgf8qbmh.execute-api.us-east-1.amazonaws.com/prod/v1/upload -H 'Content-Type: application/json' -H 'Origin: https://www.thepdfninja.com' -d '{\"filename\":\"t.pdf\",\"content_type\":\"application/pdf\"}')",
+      "Bash(pip install *)",
+      "Bash(zip -qr ../cryptography-layer.zip python)",
+      "Read(//tmp/**)",
+      "Bash(unzip -l /tmp/l8.zip)",
+      "Bash(awk '{print $4}')",
+      "Bash(rm -rf /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/easypkg /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/easy_tools.zip)",
+      "Bash(git add *)",
+      "Bash(git commit *)"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"
