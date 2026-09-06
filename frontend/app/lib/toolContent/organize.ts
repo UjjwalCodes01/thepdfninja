@@ -36,7 +36,7 @@ export const organizeContent = {
   faqs: [
     { q: "What page management tasks can I complete in the organizer?", a: "Our organizer is a multi-action workspace. You can drag and drop pages to reorder them, click the delete icon on specific page thumbnails to remove them, and rotate individual pages to correct scanning alignment issues." },
     { q: "Can I combine and organize pages from multiple PDF files at once?", a: "Yes, absolutely. You can upload multiple PDF documents into the dashboard. The system will compile all their pages into a single layout grid, allowing you to merge, delete, and re-sequence pages from different sources." },
-    { q: "Is there a page count limit for visual organization?", a: "Our visual drag-and-drop workspace supports up to 200 pages to ensure smooth browser performance. For larger files, we recommend using our PDF Splitter first to manage chapters individually." },
+    { q: "Is there a page count limit for visual organization?", a: "There is no hard page cap — the limit is the 100MB file size and what your browser can comfortably render. Thumbnails for a very long document take a moment to draw and will use more memory on an older phone. If the grid feels sluggish, run the file through our PDF Splitter first and organise the parts." },
     { q: "Will the formatting or text quality change after organizing?", a: "No. The organizer directly manipulates the page tree pointers inside the PDF structure. Text formatting, hyperlinks, fonts, and images are preserved with 100% fidelity." }
   ],
   whyUse: [

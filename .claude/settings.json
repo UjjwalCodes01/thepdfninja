@@ -65,7 +65,13 @@
       "Bash(awk '{print $4}')",
       "Bash(rm -rf /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/easypkg /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/easy_tools.zip)",
       "Bash(git add *)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "Bash(grep -nE \"MAX_PAGES|page.{0,10}limit|50|Pages\" lambda/ocr/handler.py)",
+      "Bash(rm -rf /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocr.zip)",
+      "Bash(mkdir -p /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg)",
+      "Bash(cp lambda/ocr/*.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg/)",
+      "Bash(cp lambda/easy_tools/_http.py /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/ocrpkg/)",
+      "Bash(python3 -m venv /tmp/claude-1000/-home-ujwal-Desktop-thepdfninja/e9ffffee-cfff-4365-8b05-624bfa4ada8f/scratchpad/venv)"
     ],
     "additionalDirectories": [
       "/home/ujwal/Desktop/coding/thepdfninja"

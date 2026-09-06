@@ -9,11 +9,15 @@ Returns extracted plain text + optional layout data.
 """
 
 import json
+import logging
 import os
 import time
 import boto3
 
 from _http import respond
+
+log = logging.getLogger()
+log.setLevel(logging.INFO)
 
 textract = boto3.client("textract")
 s3 = boto3.client("s3")
@@ -54,8 +58,16 @@ def lambda_handler(event, context):
             "char_count": len(text),
         }, event)
 
-    except Exception as e:
-        return _resp(500, {"error": str(e)}, event)
+    except ValueError as e:
+        # Caller-fixable problems carry their message through.
+        return _resp(400, {"error": str(e)}, event)
+
+    except Exception:
+        # Anything else is an internal fault. The traceback goes to CloudWatch;
+        # the caller gets a generic message so we do not leak Textract job ids,
+        # bucket names or AWS status strings.
+        log.exception("OCR failed")
+        return _resp(500, {"error": "Text extraction failed. Please try again."}, event)
 
 
 def _sync_textract(file_key):
@@ -81,8 +93,16 @@ def _async_textract(file_key):
         if status["JobStatus"] in ("SUCCEEDED", "FAILED"):
             break
 
+    if status["JobStatus"] == "FAILED":
+        # Do not surface Textract's own status string — it can name the bucket
+        # and job id. The detail is in CloudWatch.
+        log.error("Textract job %s failed: %s", job_id, status.get("StatusMessage"))
+        raise ValueError("This document could not be read. It may be corrupt or password-protected.")
     if status["JobStatus"] != "SUCCEEDED":
-        raise RuntimeError(f"Textract failed: {status.get('StatusMessage')}")
+        raise ValueError(
+            "This document is taking longer than 90 seconds to process. "
+            "Try splitting it into smaller parts and running them separately."
+        )
 
     lines = []
     next_token = None

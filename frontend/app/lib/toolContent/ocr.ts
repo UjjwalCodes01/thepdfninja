@@ -54,11 +54,11 @@ export const ocrContent = {
     { q: "What is the difference between a normal scanned PDF and an OCR-processed PDF?", a: "A normal scanned PDF contains flat image layers, meaning the text is non-selectable and unsearchable. OCR (Optical Character Recognition) processes these images to detect characters and injects an invisible, selectable text layer directly beneath the visuals, allowing you to search (Ctrl+F) and copy-paste text just like a native Word document." },
     { q: "What languages does the OCR tool support?", a: "Our AI-powered engine supports English, Spanish, French, German, Italian, Portuguese, and standard Latin-script languages, ensuring highly accurate grammatical accents and character recognition." },
     { q: "Can the OCR engine recognize handwritten text or low-quality camera snapshots?", a: "Our tool utilizes advanced machine learning models that excel at reading low-contrast scans, tilted pages, and digital camera snapshots. While highly readable print handwriting can be extracted with reasonable accuracy, complex cursive or messy handwriting may have reduced accuracy compared to typed text." },
-    { q: "Is there a limit on the number of pages I can OCR?", a: "To ensure stable and fast server processing times, our free OCR tool supports documents up to 50 pages or 100MB per file. Unlike other tools, there are no daily limits on the total number of files you can process—you can OCR as many documents as you need, completely free." }
+    { q: "Is there a limit on the number of pages I can OCR?", a: "There is no fixed page count. The real limit is time: the job has 90 seconds to come back from AWS Textract, and files up to 100MB are accepted. A text-dense scan will reach that ceiling sooner than a sparse one, so if a long document times out, split it and run the parts separately. There is no daily limit on how many documents you process." }
   ],
   whyUse: [
     "We use enterprise-grade neural networks (powered by AWS Textract core) rather than outdated open-source library engines to ensure maximum layout and word accuracy.",
     "Our system builds dual-layer PDFs that preserve the exact original scan visuals while embedding a clean, searchable text layer behind it, keeping your documents visually identical but fully interactive.",
-    "Run as many OCR jobs as you need, up to 50 pages per file, with every upload purged automatically within the hour."
+    "Run as many OCR jobs as you need — the constraint is a 90-second processing window per file, not a page quota — with every upload purged automatically within the hour."
   ]
 };

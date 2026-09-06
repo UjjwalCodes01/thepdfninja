@@ -95,12 +95,23 @@ def compress_pdf(input_paths, output_path, options):
     if quality not in {"screen", "ebook", "printer", "prepress"}:
         quality = "ebook"
 
-    # Tuning per quality preset
+    # Tuning per quality preset.
+    #
+    # img_threshold is a "not worth the CPU" floor, not a safety guard: the
+    # rewrite below only ever replaces an image when the result is actually
+    # smaller, so a low floor cannot degrade a file. It used to sit at
+    # 100-300 KB, which meant a 12-page report carrying twelve 100 KB figures
+    # had every one of them skipped and compressed by 0.3% overall. 8 KB is
+    # low enough to catch ordinary document images.
+    #
+    # max_dim is the longest edge kept, derived from the preset's DPI: an A4
+    # page at 72 DPI is only ~595x842px, so "screen" has no use for a
+    # 2000px-wide image.
     presets = {
-        "screen":   {"dpi": 72,  "jpeg_q": 40, "img_threshold": 100},
-        "ebook":    {"dpi": 110, "jpeg_q": 65, "img_threshold": 150},
-        "printer":  {"dpi": 150, "jpeg_q": 80, "img_threshold": 200},
-        "prepress": {"dpi": 200, "jpeg_q": 92, "img_threshold": 300},
+        "screen":   {"dpi": 72,  "jpeg_q": 40, "img_threshold": 8, "max_dim": 1000},
+        "ebook":    {"dpi": 110, "jpeg_q": 65, "img_threshold": 8, "max_dim": 1400},
+        "printer":  {"dpi": 150, "jpeg_q": 80, "img_threshold": 8, "max_dim": 1800},
+        "prepress": {"dpi": 200, "jpeg_q": 92, "img_threshold": 8, "max_dim": 2400},
     }
     p = presets[quality]
 
@@ -166,7 +177,7 @@ def compress_pdf(input_paths, output_path, options):
                     # Only touch images > threshold KB
                     if len(img_bytes) < p["img_threshold"] * 1024:
                         continue
-                    pil_img = _recompress_image(img_bytes, p["jpeg_q"], p["dpi"])
+                    pil_img = _recompress_image(img_bytes, p["jpeg_q"], p["max_dim"])
                     if pil_img and len(pil_img) < len(img_bytes):
                         doc.update_stream(xref, pil_img)
                 except Exception:
@@ -225,8 +236,8 @@ def compress_pdf(input_paths, output_path, options):
     return output
 
 
-def _recompress_image(img_bytes, jpeg_q, target_dpi):
-    """Downsample + re-encode an embedded image as JPEG."""
+def _recompress_image(img_bytes, jpeg_q, max_dim):
+    """Downsample to max_dim on the longest edge and re-encode as JPEG."""
     try:
         from PIL import Image
         import io
@@ -241,8 +252,7 @@ def _recompress_image(img_bytes, jpeg_q, target_dpi):
         elif img.mode != "RGB":
             img = img.convert("RGB")
 
-        # Downsample if image is huge (assume 300 DPI source, target lower)
-        max_dim = 2000 if target_dpi >= 150 else 1400
+        # Downsample anything longer than the preset's ceiling on its long edge.
         if max(img.size) > max_dim:
             ratio = max_dim / max(img.size)
             new_size = (int(img.size[0] * ratio), int(img.size[1] * ratio))
