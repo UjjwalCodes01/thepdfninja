@@ -24,10 +24,10 @@ export const protectContent = {
   ],
   comparison: {
     title: "Why ThePDFNinja Offers Superior PDF Protection",
-    description: "Locking a PDF shouldn't require surrendering your privacy or your wallet. Here is how our encryption tool outclasses the competition.",
+    description: "Locking a PDF shouldn't require surrendering your privacy or your wallet. Here is how our encryption tool works.",
     points: [
       "True AES Encryption: Many free tools only apply an 'owner password' which prevents editing but allows anyone to view the file. ThePDFNinja applies a 'user password' using AES encryption, making the file entirely unreadable without the key.",
-      "100% Free, No Upgrades: Competitors like Adobe Acrobat require a paid 'Pro' subscription ($19.99/mo) to securely encrypt documents. We provide this enterprise-grade feature to all users, free of charge, with no file limits.",
+      "No Upgrades: AES encryption is not a premium feature here. Any user can protect any document, at any supported size, without an upgrade prompt.",
       "No Backdoors: We do not store, log, or transmit the password you create. If you forget the password you set, the file cannot be recovered. This zero-knowledge approach guarantees absolute security.",
       "Zero Account Requirements: You don't need to hand over your email address to secure a document. Our tool is instantaneous, anonymous, and requires no sign-up."
     ]
@@ -42,6 +42,6 @@ export const protectContent = {
   whyUse: [
     "We use standard AES 128/256-bit encryption keys that prevent unauthorized opening, text copying, editing, and printing of your files.",
     "A zero-knowledge execution environment ensures that your password is never written to disk, keeping your secrets 100% private.",
-    "Get professional-grade security without expensive Adobe Pro licensing, annoying registration screens, or file size constraints, with complete file purging within 1 hour."
+    "Get AES encryption with no licence to buy, no registration screen, and no file size constraint, with complete file purging within 1 hour."
   ]
 };

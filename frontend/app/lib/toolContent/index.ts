@@ -20,7 +20,6 @@ export interface ToolSEOContent {
     rows: {
       feature: string;
       us: string;
-      them: string;
     }[];
   };
 }

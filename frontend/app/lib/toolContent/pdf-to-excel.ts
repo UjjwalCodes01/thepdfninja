@@ -27,7 +27,7 @@ export const pdfToExcelContent = {
     description: "Extracting tabular data from a PDF is a highly complex task. Here is why ThePDFNinja delivers better results than basic free converters.",
     points: [
       "Intelligent Table Recognition: Cheap converters just dump text onto a spreadsheet. Our engine actively identifies table structures, borders, and spacing to ensure that your data lands in the correct cells, rows, and columns.",
-      "100% Free, No Page Limits: Competitors often tease you by converting the first two pages for free, then hitting you with a paywall for the rest of the document. We convert the entire PDF, no matter how long, completely free.",
+      "No Page Limits: We convert the whole PDF, however long it runs. There is no preview tier that stops after the first few pages and asks for payment.",
       "No Email Required: We never ask for your email address to 'send you the file.' The moment your conversion is complete, a direct download link appears on your screen.",
       "Lightning Fast Cloud Processing: Complex data extraction can cause desktop computers to freeze. We offload this heavy processing to our powerful AWS servers, delivering your Excel file in seconds."
     ]

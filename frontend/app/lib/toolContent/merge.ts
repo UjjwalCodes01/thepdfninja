@@ -23,23 +23,23 @@ export const mergeContent = {
     }
   ],
   comparisonTable: {
-    headers: ["Feature", "ThePDFNinja Merger", "Competitor Mergers"],
+    headers: ["Feature", "ThePDFNinja Merger"],
     rows: [
-      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
-      { feature: "Daily Task Limits", us: "Unlimited", them: "2 tasks per day" },
-      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
-      { feature: "Max Files Per Merge", us: "Up to 50 files", them: "Often limited to 5-10 files" },
-      { feature: "Max File Size", us: "100MB", them: "10MB - 15MB on free plans" },
-      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" }
+      { feature: "Price", us: "100% Free" },
+      { feature: "Daily Task Limits", us: "Unlimited" },
+      { feature: "Account Required", us: "Never (No signup)" },
+      { feature: "Max Files Per Merge", us: "Up to 50 files" },
+      { feature: "Max File Size", us: "100MB" },
+      { feature: "Watermarks Added", us: "Zero watermarks" }
     ]
   },
   comparison: {
-    title: "Why Our PDF Merger is Superior",
-    description: "You might be wondering how ThePDFNinja compares to industry giants like Adobe Acrobat, Smallpdf, or iLovePDF. The difference lies in our commitment to a genuinely free, unrestricted user experience.",
+    title: "What Our PDF Merger Gives You",
+    description: "Most of what makes merging painful is not the merge itself — it is the account wall, the daily quota, and the watermark. Here is what we do about each.",
     points: [
-      "No Daily Task Limits: Services like Smallpdf cap free users at just two tasks per day. With ThePDFNinja, you can merge 10 PDFs today and 100 tomorrow. We never cut you off or ask for a premium subscription.",
-      "Zero Watermarks: Many free tools hold your documents hostage by stamping their logo across your merged pages unless you pay to upgrade. We guarantee that your final document will be exactly as you uploaded it, just combined. No sneaky branding, ever.",
-      "No Account Required: iLovePDF and others often require you to create an account to access higher file limits or specific tools. We respect your time and privacy. You can use our PDF merger immediately upon landing on the page.",
+      "No Daily Task Limits: Merge 10 PDFs today and 100 tomorrow. There is no per-day quota to run into and no premium subscription to be pushed toward.",
+      "Zero Watermarks: Your merged document comes back exactly as you uploaded it, just combined. We do not stamp our logo on your pages, on any tier.",
+      "No Account Required: There is no signup, no email capture, and no verification step. Open the page and use the merger straight away.",
       "Faster Cloud Processing: Built on AWS Lambda, our serverless backend spins up dedicated resources for your specific merge task. This means you aren't waiting in a queue behind thousands of other users. Merging happens almost instantaneously."
     ]
   },
@@ -52,7 +52,7 @@ export const mergeContent = {
   ],
   whyUse: [
     "Our merger features an interactive visual editor that allows you to drag, drop, and rearrange files and pages in a clean, logical grid before compilation.",
-    "Unlike competitors that inject branding watermark headers or restrict merge capacity to two files per day, we offer 100% clean, watermark-free document compilation.",
+    "Merge as many documents as you need, as often as you need. The combined PDF carries no injected header and no branding of ours.",
     "All file transfers are secured with SSL/TLS encryption, and files are automatically deleted from our secure AWS systems within 1 hour."
   ]
 };

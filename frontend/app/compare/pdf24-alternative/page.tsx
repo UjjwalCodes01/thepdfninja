@@ -19,8 +19,8 @@ export default function Pdf24AlternativePage() {
       metadata={metadata}
       competitor="PDF24"
       slug="pdf24-alternative"
-      headline="PDF24 Alternative — Faster, Cleaner, No Clutter"
-      hook="PDF24 is free but its interface is cluttered with ads and slow to use. ThePDFNinja is a streamlined, modern PDF toolkit — 65 tools, completely free, lightning-fast, with no account needed."
+      headline="PDF24 Alternative — Clean and Quota-Free"
+      hook="PDF24 and ThePDFNinja are both free and ad-supported, so the choice comes down to how each one feels to use and what the limits are. Here is a straight comparison, including where PDF24 has the edge."
       statsBar={[
         { stat: '65', label: 'Free Tools' },
         { stat: '0', label: 'Account Required' },
@@ -30,14 +30,14 @@ export default function Pdf24AlternativePage() {
         { stat: '1 hr', label: 'Auto-Delete' },
       ]}
       compareRows={[
-        { feature: 'Price', them: 'Free (ad-supported)', us: '100% Free — minimal ads' },
+        { feature: 'Price', them: 'Free, ad-supported', us: 'Free, ad-supported' },
         { feature: 'Account required', them: 'No', us: 'No — never' },
-        { feature: 'Interface quality', them: 'Cluttered, ad-heavy UI', us: 'Modern, clean, fast UI' },
-        { feature: 'Processing speed', them: 'Can be slow on free plan', us: 'Sub-10s for most operations' },
-        { feature: 'File auto-deletion', them: '1–1 hour', us: 'Within 1 hour — guaranteed' },
-        { feature: 'Max file size', them: 'Varies by tool', us: '100MB — all tools, consistent' },
-        { feature: 'Mobile experience', them: 'Functional but basic', us: 'Fully responsive, app-quality' },
-        { feature: 'OCR / AI tools', them: 'Available', us: '100% free — AWS Textract AI' },
+        { feature: 'Interface', them: 'Dense — many tools on one screen', us: 'One task per page, minimal chrome' },
+        { feature: 'Processing', them: 'Server-side, varies by tool', us: 'AWS Lambda; most jobs finish in seconds' },
+        { feature: 'File auto-deletion', them: 'Deleted after processing', us: 'Within 1 hour, enforced by a sweeper' },
+        { feature: 'Max file size', them: 'Varies by tool', us: '100MB, the same on every tool' },
+        { feature: 'Desktop app', them: 'Yes — PDF24 Creator for Windows', us: 'No — web only' },
+        { feature: 'OCR / AI tools', them: 'Available', us: 'Available, powered by AWS Textract' },
         { feature: 'SSL encryption', them: 'Yes', us: 'Yes — 256-bit AES' },
       ]}
       whySwitchItems={[
@@ -47,11 +47,11 @@ export default function Pdf24AlternativePage() {
         { title: 'Privacy-first architecture', body: "ThePDFNinja processes files in isolated Lambda environments with zero cross-contamination. Files are permanently deleted within 1 hour. We never log file contents or share data with third parties." },
       ]}
       faqs={[
-        { q: 'Is ThePDFNinja a good PDF24 alternative?', a: "Yes. ThePDFNinja offers the same free PDF tools as PDF24 but with a modern, faster interface, consistent 100MB file limits, and cloud-native processing on AWS. It's a great PDF24 alternative for users who want speed and simplicity." },
-        { q: 'Is PDF24 really free like ThePDFNinja?', a: "PDF24 is free but ad-supported with a cluttered interface. ThePDFNinja is also free, with minimal non-intrusive advertising and a much cleaner, faster experience." },
-        { q: 'What tools does ThePDFNinja have that PDF24 might lack?', a: "ThePDFNinja's AI-powered OCR using AWS Textract is particularly powerful. ThePDFNinja also offers a streamlined modern UI, consistent file limits, and faster cloud processing across all 65 tools." },
+        { q: 'Is ThePDFNinja a good PDF24 alternative?', a: "If you want one task per page and a consistent 100MB limit across every tool, yes. PDF24 is the better choice if you want a Windows desktop application that works without an internet connection." },
+        { q: 'Is PDF24 really free like ThePDFNinja?', a: "Both are free and both carry advertising. Neither charges for its tools, so the difference is in the interface and the limits rather than the price." },
+        { q: 'What tools does ThePDFNinja have that PDF24 might lack?', a: "Our OCR runs on AWS Textract, which handles multi-column layouts and tables well. Beyond that the differences are a consistent 100MB limit across all 65 tools and a one-task-per-page interface." },
       ]}
-      ctaHeadline="Try the modern PDF24 alternative"
+      ctaHeadline="Try ThePDFNinja as your PDF24 alternative"
       tools={[
         { slug: 'merge', label: 'Merge PDF' },
         { slug: 'compress', label: 'Compress PDF' },
@@ -60,8 +60,8 @@ export default function Pdf24AlternativePage() {
         { slug: 'ocr', label: 'OCR PDF' },
       ]}
       faqSchema={[
-        { '@type': 'Question', name: 'Is ThePDFNinja a good PDF24 alternative?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja offers the same free PDF tools as PDF24 with a modern, faster interface and consistent 100MB file limits.' } },
-        { '@type': 'Question', name: 'Is ThePDFNinja faster than PDF24?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja runs on AWS Lambda serverless infrastructure for sub-10-second processing on most tools, offering faster performance than PDF24 for most use cases.' } },
+        { '@type': 'Question', name: 'Is ThePDFNinja a good PDF24 alternative?', acceptedAnswer: { '@type': 'Answer', text: 'If you want one task per page and a consistent 100MB limit on every tool, yes. PDF24 is the better pick if you want an offline Windows desktop application.' } },
+        { '@type': 'Question', name: 'How fast is ThePDFNinja?', acceptedAnswer: { '@type': 'Answer', text: 'Most jobs finish in a few seconds on AWS Lambda. Large or image-heavy documents take longer.' } },
       ]}
     />
   );

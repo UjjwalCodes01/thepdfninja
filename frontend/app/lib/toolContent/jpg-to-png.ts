@@ -27,7 +27,7 @@ export const jpgToPngContent = {
     description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your images look sharp and professional.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your images, our converted PNGs are 100% clean.",
+      "Zero Watermarks: The output is your image, re-encoded losslessly. No overlay is composited on top of it at any stage.",
       "Fast Browser Processing: No software installation required. Drag, drop, and convert your JPGs to PNG instantly in your browser.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]

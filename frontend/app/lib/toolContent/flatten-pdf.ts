@@ -27,7 +27,7 @@ export const flattenPdfContent = {
     description: "Flattening a PDF should be simple and secure. Here is why users choose ThePDFNinja over other tools:",
     points: [
       "Surgical Locking: We flatten form fields and annotations while maintaining the text-searchability of the rest of the document whenever possible.",
-      "100% Free Forever: Access professional-grade document security without paying for expensive Adobe licenses or monthly web subscriptions.",
+      "100% Free Forever: Flattening is available to every user, with no licence to buy and no monthly plan to join.",
       "Zero Installation: Perform the entire operation in your web browser. Compatible with Chrome, Safari, Firefox, and Edge on desktop and mobile.",
       "No Account Barriers: You don't need to sign up or log in. We provide instant, unrestricted access to all document security tools."
 ]

@@ -27,7 +27,7 @@ export const odtToPdfContent = {
     description: "Not all document converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "LibreOffice Rendering Engine: We render ODT files using the official LibreOffice engine, preserving layouts and tables.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your documents, our converted PDFs are 100% clean.",
+      "Zero Watermarks: Your OpenDocument file converts straight through. No banner is added to the first page and no footer to the last.",
       "Fast Browser Processing: No software installation required. Drag, drop, and convert your ODTs to PDF instantly in your browser.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]

@@ -27,7 +27,7 @@ export const epubToPdfContent = {
     description: "Not all document converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "High-Fidelity Book Layouts: We preserve chapters, paragraph structures, and embedded images using advanced ebook rendering engines.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your documents, our converted PDFs are 100% clean.",
+      "Zero Watermarks: No footer is appended to your chapters and no cover page is inserted ahead of them. The PDF contains your book and nothing else.",
       "Fast Browser Processing: No software installation required. Drag, drop, and convert your EPUBs to PDF instantly in your browser.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]

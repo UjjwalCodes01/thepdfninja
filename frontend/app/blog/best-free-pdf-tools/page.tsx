@@ -22,7 +22,6 @@ const TOOLS_REVIEWED = [
     badge: '🏆 Best Overall',
     badgeColor: '#16A34A',
     verdict: 'Best free PDF toolkit — no limits, no account',
-    score: '9.1/10',
     free: '100% Free',
     limit: 'None',
     account: 'Never',
@@ -38,8 +37,7 @@ const TOOLS_REVIEWED = [
     url: 'https://pdf24.org',
     badge: '✅ Runner-up',
     badgeColor: '#2563EB',
-    verdict: 'Good free option, cluttered interface',
-    score: '8.2/10',
+    verdict: 'Genuinely free and broad, if dense to navigate',
     free: 'Free (ad-supported)',
     limit: 'None',
     account: 'Not required',
@@ -56,11 +54,10 @@ const TOOLS_REVIEWED = [
     badge: '⚠️ Freemium',
     badgeColor: '#D97706',
     verdict: 'Freemium — limits unless you pay',
-    score: '7.5/10',
-    free: 'Limited (paid tiers)',
-    limit: '2–5/day',
+    free: 'Capped; paid tiers above',
+    limit: 'Yes',
     account: 'Required for some tools',
-    tools: '25 (restricted)',
+    tools: 'A subset free',
     pros: ['Good UI design', 'Large tool catalog', 'Mobile app available'],
     cons: ['Daily task limits on free plan', 'Account required for advanced tools', 'Watermarks on some free outputs', 'Paid subscription needed for full access'],
     summary: 'iLovePDF has a polished interface but the free plan is significantly restricted with daily limits and account requirements. Worth paying for, but not genuinely free.',
@@ -72,15 +69,14 @@ const TOOLS_REVIEWED = [
     url: 'https://smallpdf.com',
     badge: '⚠️ Freemium',
     badgeColor: '#D97706',
-    verdict: 'Only 2 free tasks per day',
-    score: '6.8/10',
-    free: '2 tasks/day only',
-    limit: '2/day',
+    verdict: 'Polished, but the free tier is tightly capped',
+    free: 'Capped per day',
+    limit: 'Yes',
     account: 'Required',
-    tools: '21 (many paywalled)',
+    tools: 'A subset free',
     pros: ['Clean design', 'Strong mobile experience', 'E-signature tool'],
-    cons: ['Only 2 free tasks per day', 'Account mandatory', '5MB file cap on some tools free', 'OCR requires Pro plan ($9/mo)'],
-    summary: "Smallpdf has beautiful design but the 2-task daily limit makes it impractical for most free users. OCR — a key feature — is Pro-only. The free plan is essentially a trial.",
+    cons: ['Free tier is capped per day', 'Account mandatory', 'Smaller file ceiling on the free tier', 'OCR is a paid-plan feature'],
+    summary: "Smallpdf is the best-looking product in this list, and its mobile experience is genuinely strong. The catch is that the free tier is built as a trial rather than a service: the daily cap arrives quickly and OCR sits behind the paid plan.",
     cta: null,
   },
   {
@@ -90,14 +86,13 @@ const TOOLS_REVIEWED = [
     badge: '💼 Premium Brand',
     badgeColor: '#7C3AED',
     verdict: 'Trusted brand, heavy restrictions for free',
-    score: '6.0/10',
     free: 'Very limited',
     limit: 'Strict',
     account: 'Required (Adobe ID)',
     tools: 'Few (free)',
     pros: ['Most trusted PDF brand', 'Excellent quality', 'Deep Microsoft Office integration'],
-    cons: ['Adobe ID required', 'Very few free tools', 'Most features require Acrobat Pro subscription ($19.99/mo)', 'No bulk processing free'],
-    summary: "Adobe Acrobat is the gold standard in PDF technology, but the free online tools are heavily restricted. Expect the free tier to push you toward a $19.99/month subscription.",
+    cons: ['Adobe ID required', 'Very few tools free', 'Most features need an Acrobat Pro subscription', 'No bulk processing on the free tier'],
+    summary: "Adobe defined the format and its rendering quality is still the reference point. The free online tools, though, are a shop window for Acrobat Pro — expect to hit a subscription prompt quickly.",
     cta: null,
   },
 ];
@@ -111,7 +106,7 @@ export default function BestFreePdfToolsPage() {
           '@context': 'https://schema.org',
           '@type': 'Article',
           headline: 'Best Free Online PDF Tools 2025 — No Account, No Limits',
-          description: 'The definitive 2025 guide to the best free PDF tools online. Reviewed and compared: ThePDFNinja, iLovePDF, Smallpdf, PDF24, and Adobe Acrobat.',
+          description: 'A comparison of five free online PDF tools — ThePDFNinja, PDF24, iLovePDF, Smallpdf and Adobe Acrobat — covering free-tier limits, account requirements and where each one is the better choice.',
           url: 'https://www.thepdfninja.com/blog/best-free-pdf-tools',
           datePublished: '2025-06-01',
           dateModified: '2026-06-13',
@@ -124,7 +119,7 @@ export default function BestFreePdfToolsPage() {
           '@context': 'https://schema.org',
           '@type': 'ItemList',
           name: 'Best Free Online PDF Tools 2025',
-          description: 'The top 5 free PDF tools online, reviewed and ranked.',
+          description: 'Five free online PDF tools compared on free-tier limits, account requirements and file ceilings.',
           numberOfItems: TOOLS_REVIEWED.length,
           itemListElement: TOOLS_REVIEWED.map((t, i) => ({
             '@type': 'ListItem',
@@ -138,10 +133,10 @@ export default function BestFreePdfToolsPage() {
           '@context': 'https://schema.org',
           '@type': 'FAQPage',
           mainEntity: [
-            { '@type': 'Question', name: 'What is the best free PDF tool in 2025?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja is the best free PDF tool in 2025. It offers 65 tools completely free with no daily limits, no account required, and no watermarks — outperforming competitors like Smallpdf (2 tasks/day limit) and iLovePDF (account required).' } },
-            { '@type': 'Question', name: 'Which free PDF tool has no daily limit?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja and PDF24 both have no daily task limits. However, ThePDFNinja offers a faster, modern cloud-native interface while PDF24 is ad-heavy and slower.' } },
-            { '@type': 'Question', name: 'Can I use PDF tools online without creating an account?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja and PDF24 both work without creating an account. ThePDFNinja is recommended as it never requires an account for any of its 65 tools.' } },
-            { '@type': 'Question', name: 'What is the best free alternative to Adobe Acrobat?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja is the best free alternative to Adobe Acrobat for online PDF tasks. It covers the most common operations (merge, split, compress, convert, OCR) for free with no account, versus Adobe\'s $19.99/month Acrobat Pro subscription.' } },
+            { '@type': 'Question', name: 'What is the best free PDF tool in 2025?', acceptedAnswer: { '@type': 'Answer', text: 'It depends on the job. For unlimited everyday use with no signup, ThePDFNinja and PDF24 both work without an account or a daily cap. For desktop apps and cloud-storage sync, iLovePDF and Smallpdf are stronger. For rendering fidelity on complex files, Adobe is still the reference.' } },
+            { '@type': 'Question', name: 'Which free PDF tool has no daily limit?', acceptedAnswer: { '@type': 'Answer', text: 'ThePDFNinja and PDF24 both work without a daily task limit. The difference between them is interface style rather than cost — both are free and ad-supported.' } },
+            { '@type': 'Question', name: 'Can I use PDF tools online without creating an account?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja and PDF24 both work without creating an account. ThePDFNinja requires no account for any of its 65 tools.' } },
+            { '@type': 'Question', name: 'What is the best free alternative to Adobe Acrobat?', acceptedAnswer: { '@type': 'Answer', text: 'For the common online operations — merge, split, compress, convert, OCR — ThePDFNinja covers them free and without an account. Acrobat Pro remains ahead for advanced editing, redaction and prepress work.' } },
           ],
         },
       ]) }} />
@@ -168,13 +163,13 @@ export default function BestFreePdfToolsPage() {
       <section style={{ padding: '64px 0', background: 'white' }}>
         <div className="container" style={{ maxWidth: '900px' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '8px', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800, letterSpacing: '-0.03em' }}>Quick Comparison</h2>
-          <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '40px' }}>All major free PDF tools, ranked by generosity for free users.</p>
+          <p style={{ textAlign: 'center', color: 'var(--text-muted)', marginBottom: '40px' }}>Ordered by how much you can do without paying or signing up. Freemium terms change often — check each vendor&rsquo;s current pricing page before deciding.</p>
           <div style={{ overflowX: 'auto' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.88rem' }}>
               <thead>
                 <tr style={{ background: 'var(--bg)' }}>
-                  {['Rank', 'Tool', 'Score', 'Daily Limit', 'Account', 'Watermarks', 'Free Tools'].map(h => (
-                    <th key={h} style={{ padding: '14px 16px', textAlign: h === 'Rank' || h === 'Score' ? 'center' : 'left', fontWeight: 700, borderBottom: '2px solid var(--border)' }}>{h}</th>
+                  {['Rank', 'Tool', 'Daily Limit', 'Account', 'Watermarks', 'Free Tools'].map(h => (
+                    <th key={h} style={{ padding: '14px 16px', textAlign: h === 'Rank' ? 'center' : 'left', fontWeight: 700, borderBottom: '2px solid var(--border)' }}>{h}</th>
                   ))}
                 </tr>
               </thead>
@@ -186,7 +181,6 @@ export default function BestFreePdfToolsPage() {
                       <span style={{ fontWeight: 700, color: 'var(--text)' }}>{t.name}</span>{' '}
                       <span style={{ fontSize: '0.72rem', fontWeight: 700, padding: '2px 8px', borderRadius: '100px', background: t.badgeColor + '18', color: t.badgeColor }}>{t.badge}</span>
                     </td>
-                    <td style={{ padding: '12px 16px', textAlign: 'center', fontWeight: 700, color: i === 0 ? '#16A34A' : 'var(--text-muted)', borderBottom: '1px solid var(--border)' }}>{t.score}</td>
                     <td style={{ padding: '12px 16px', color: t.limit === 'None' ? '#16A34A' : '#D97706', fontWeight: 600, borderBottom: '1px solid var(--border)' }}>{t.limit}</td>
                     <td style={{ padding: '12px 16px', color: t.account === 'Never' || t.account === 'Not required' ? '#16A34A' : '#D97706', fontWeight: 600, borderBottom: '1px solid var(--border)' }}>{t.account}</td>
                     <td style={{ padding: '12px 16px', color: i === 0 ? '#16A34A' : '#D97706', fontWeight: 600, borderBottom: '1px solid var(--border)' }}>{i === 0 ? '✅ Never' : i === 1 ? '✅ None' : '⚠️ Some'}</td>
@@ -208,7 +202,7 @@ export default function BestFreePdfToolsPage() {
               <div key={t.name} id={`review-${t.name.toLowerCase().replace(/\s/g, '-')}`} style={{ background: 'white', borderRadius: 'var(--radius)', border: i === 0 ? '2px solid var(--orange)' : '1px solid var(--border)', overflow: 'hidden' }}>
                 <div style={{ padding: '8px 20px', background: i === 0 ? 'var(--orange)' : 'var(--bg)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '0.78rem', fontWeight: 700, color: i === 0 ? 'white' : 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.08em' }}>#{t.rank} — {t.badge}</span>
-                  <span style={{ fontSize: '0.88rem', fontWeight: 800, color: i === 0 ? 'white' : '#16A34A' }}>{t.score}</span>
+                  <span style={{ fontSize: '0.78rem', fontWeight: 600, color: i === 0 ? 'white' : 'var(--text-muted)' }}>{t.free}</span>
                 </div>
                 <div style={{ padding: '28px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '16px', flexWrap: 'wrap', gap: '8px' }}>
@@ -254,11 +248,11 @@ export default function BestFreePdfToolsPage() {
         <div className="container" style={{ maxWidth: '720px' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '40px', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800 }}>Frequently Asked Questions</h2>
           {[
-            { q: 'What is the best free PDF tool in 2025?', a: "ThePDFNinja is the best free PDF tool in 2025. It offers 65 tools completely free with no daily limits, no account required, and no watermarks — outperforming competitors like Smallpdf (2 tasks/day limit) and iLovePDF (account required for some tools)." },
-            { q: 'Which free PDF tool has no daily limit?', a: "ThePDFNinja and PDF24 both have no daily task limits. ThePDFNinja is recommended over PDF24 for its faster, modern cloud-native interface and consistent 100MB file limits across all tools." },
-            { q: 'Can I use PDF tools online without creating an account?', a: "Yes. ThePDFNinja never requires an account for any of its 65 tools. PDF24 also works without an account, though its interface is more cluttered. Smallpdf and iLovePDF require accounts for some features." },
-            { q: 'What is the best free alternative to Adobe Acrobat?', a: "ThePDFNinja is the best free alternative to Adobe Acrobat for online PDF tasks — covering merge, split, compress, convert, and OCR for free, vs. Adobe's $19.99/month Acrobat Pro." },
-            { q: 'Is there a free PDF to Word converter with no watermarks?', a: "Yes. ThePDFNinja's PDF to Word converter is completely free, produces full-quality DOCX files, and never adds any watermarks — no account required." },
+            { q: 'Which free PDF tool should I use?', a: "It depends on the job. For unlimited everyday use with no signup, ThePDFNinja and PDF24 both work without an account or a daily cap. If you want desktop and mobile apps or direct cloud-storage sync, iLovePDF and Smallpdf are stronger. For rendering fidelity on complex or print-bound files, Adobe is still the reference." },
+            { q: 'Which free PDF tool has no daily limit?', a: "ThePDFNinja and PDF24 both work without a daily task limit. Between the two it is a question of interface rather than cost: ThePDFNinja gives one task per page and the same 100MB ceiling everywhere, while PDF24 puts far more on a single screen and offers a Windows desktop app we do not." },
+            { q: 'Can I use PDF tools online without creating an account?', a: "Yes. ThePDFNinja never requires an account for any of its 65 tools, and PDF24 also works without one. Smallpdf and iLovePDF expect an account for some features." },
+            { q: 'What is a good free alternative to Adobe Acrobat?', a: "For the common online operations — merge, split, compress, convert and OCR — ThePDFNinja covers them at no cost and without an account. Be clear about the limits, though: Acrobat Pro is still ahead for advanced editing, true redaction and prepress work, and none of the free web tools replace it there." },
+            { q: 'Is there a free PDF to Word converter with no watermarks?', a: "Yes. ThePDFNinja's PDF to Word converter is free, returns a standard DOCX, and adds no watermark or branding. No account is required. Complex multi-column layouts still need a check afterwards — no converter gets every one of those right." },
           ].map(({ q, a }) => (
             <details key={q} style={{ borderBottom: '1px solid var(--border)' }}>
               <summary style={{ fontWeight: 600, fontSize: '0.95rem', padding: '18px 0', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between' }}>

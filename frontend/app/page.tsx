@@ -228,10 +228,10 @@ export default function HomePage() {
       <section className="section" style={{ background: 'white' }}>
         <div className="container" style={{ maxWidth: '820px' }}>
           <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-            <p className="section-label">How we compare</p>
-            <h2 className="section-title">ThePDFNinja vs. the Alternatives</h2>
+            <p className="section-label">What you get</p>
+            <h2 className="section-title">Where ThePDFNinja Stands</h2>
             <p className="section-subtitle" style={{ margin: '0 auto' }}>
-              The only major free PDF toolkit with zero account requirements and no daily limits.
+              No account, no daily quota, and no watermark — on every one of the 65 tools, for every user.
             </p>
           </div>
           <div style={{ overflowX: 'auto' }}>
@@ -239,26 +239,22 @@ export default function HomePage() {
               <thead>
                 <tr>
                   <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: 'var(--text)', borderBottom: '2px solid var(--border)', background: 'var(--bg)' }}>Feature</th>
-                  <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 700, color: 'white', background: 'var(--orange)', borderBottom: '2px solid var(--orange)' }}>ThePDFNinja ⭐</th>
-                  <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 700, color: 'var(--text)', borderBottom: '2px solid var(--border)', background: 'var(--bg)' }}>ilovepdf</th>
-                  <th style={{ padding: '14px 20px', textAlign: 'center', fontWeight: 700, color: 'var(--text)', borderBottom: '2px solid var(--border)', background: 'var(--bg)' }}>smallpdf</th>
+                  <th style={{ padding: '14px 20px', textAlign: 'left', fontWeight: 700, color: 'white', background: 'var(--orange)', borderBottom: '2px solid var(--orange)' }}>What ThePDFNinja does</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ['Price', '100% Free', 'Free (limited)', 'Free (2 tasks/day)'],
-                  ['Account required', '✅ Never', '⚠️ For some tools', '⚠️ After limit'],
-                  ['Watermarks added', '✅ None', '✅ None', '❌ On free plan'],
-                  ['Daily usage limit', '✅ Unlimited', '❌ Limited', '❌ 2 per day'],
-                  ['Max file size', '✅ 100MB', '⚠️ 100MB', '⚠️ 5MB free'],
-                  ['File auto-delete', '✅ Within 1 hour', '✅ Within 1 hour', '⚠️ 1 hour'],
-                  ['AI / OCR tool', '✅ Included free', '✅ Included', '⚠️ Pro only'],
-                ].map(([feature, us, ilove, small], i) => (
+                  ['Price', 'Free, with no paid tier of any kind'],
+                  ['Account required', 'Never — no email, no signup, no verification'],
+                  ['Watermarks added', 'None, on any tool or any output'],
+                  ['Daily usage limit', 'Unlimited — no per-day task quota'],
+                  ['Max file size', 'Up to 100MB per file, the same for everybody'],
+                  ['File auto-delete', 'Uploads and results purged within 1 hour'],
+                  ['AI / OCR tool', 'Included, powered by AWS Textract'],
+                ].map(([feature, us], i) => (
                   <tr key={feature} style={{ background: i % 2 === 0 ? 'white' : 'var(--bg)' }}>
                     <td style={{ padding: '12px 20px', color: 'var(--text)', fontWeight: 500, borderBottom: '1px solid var(--border)' }}>{feature}</td>
-                    <td style={{ padding: '12px 20px', textAlign: 'center', color: 'var(--text)', fontWeight: 600, borderBottom: '1px solid var(--border)', background: 'rgba(245,98,45,0.05)' }}>{us}</td>
-                    <td style={{ padding: '12px 20px', textAlign: 'center', color: 'var(--text-muted)', borderBottom: '1px solid var(--border)' }}>{ilove}</td>
-                    <td style={{ padding: '12px 20px', textAlign: 'center', color: 'var(--text-muted)', borderBottom: '1px solid var(--border)' }}>{small}</td>
+                    <td style={{ padding: '12px 20px', color: 'var(--text)', fontWeight: 600, borderBottom: '1px solid var(--border)', background: 'rgba(245,98,45,0.05)' }}>{us}</td>
                   </tr>
                 ))}
               </tbody>
@@ -266,7 +262,7 @@ export default function HomePage() {
           </div>
           <blockquote style={{ margin: '40px 0 0', padding: '24px 32px', background: 'var(--orange-light)', borderLeft: '4px solid var(--orange)', borderRadius: '0 var(--radius) var(--radius) 0' }}>
             <p style={{ margin: 0, fontSize: '1rem', fontWeight: 600, color: 'var(--text)', lineHeight: 1.6 }}>
-              &ldquo;ThePDFNinja is the only major PDF toolkit that is 100% free, unlimited, and requires zero account creation &mdash; for all 65 tools.&rdquo;
+              &ldquo;We kept one rule while building this: whatever the tool does, it should do for everyone who opens the page &mdash; no tier, no quota, no catch.&rdquo;
             </p>
           </blockquote>
         </div>
@@ -288,7 +284,7 @@ export default function HomePage() {
             { q: 'What is the maximum file size?', a: 'You can upload files up to 100MB per file. For most documents, this is more than enough. If your file exceeds this limit, try compressing it first using our free Compress PDF tool.' },
             { q: 'Do I need to install any software?', a: 'No. ThePDFNinja works entirely in your browser. There is nothing to download or install. It works on Windows, Mac, Linux, Android, and iOS — any device with a modern browser.' },
             { q: 'How long does processing take?', a: 'Most tools process files instantly in under 5 seconds. More complex operations like OCR, Word/Excel conversions, or large file compression may take 15–60 seconds.' },
-            { q: 'How does ThePDFNinja compare to ilovepdf and smallpdf?', a: 'Unlike ilovepdf and smallpdf, ThePDFNinja is 100% free with no daily limits, no account required, and no watermarks — for all 65 tools. Competitors restrict free users to 2 tasks per day or add watermarks on free plans.' },
+            { q: 'How does ThePDFNinja compare to ilovepdf and smallpdf?', a: 'All 65 of our tools are free with no daily quota, no account and no watermark, which is the main practical difference for everyday use. Those services do offer things we do not: desktop and mobile apps, direct Google Drive and Dropbox sync, and much larger file ceilings on their paid plans. We cover the honest trade-offs on our comparison pages.' },
           ].map((faq, i) => (
             <details key={i} style={{ borderBottom: '1px solid var(--border)', paddingBottom: '0' }}>
               <summary style={{

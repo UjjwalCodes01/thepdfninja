@@ -43,6 +43,16 @@ export default function ArticleShell({ slug, children, showAds = true }: Article
           <h1 style={{ fontSize: 'clamp(1.8rem, 3.6vw, 2.6rem)', fontWeight: 900, color: 'var(--text)', letterSpacing: '-0.03em', lineHeight: 1.15, margin: 0 }}>
             {post.title}
           </h1>
+          <div style={{ display: 'flex', gap: '10px', alignItems: 'center', marginTop: '20px', fontSize: '0.88rem', color: 'var(--text-secondary)' }}>
+            <PostThumb size={22} width={34} height={34} radius="50%" />
+            <span>
+              Written and reviewed by the{' '}
+              <Link href="/about" style={{ color: 'var(--text)', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid var(--border)' }}>
+                ThePDFNinja editorial team
+              </Link>{' '}
+              at Anaya Digital
+            </span>
+          </div>
         </div>
       </section>
 
@@ -92,7 +102,12 @@ export default function ArticleShell({ slug, children, showAds = true }: Article
               url,
               datePublished: post.date,
               dateModified: post.date,
-              author: { '@type': 'Organization', name: 'ThePDFNinja' },
+              author: {
+                '@type': 'Organization',
+                name: 'ThePDFNinja editorial team',
+                url: 'https://www.thepdfninja.com/about',
+                parentOrganization: { '@type': 'Organization', name: 'Anaya Digital Marketing Agency', url: 'https://digitalanaya.com' },
+              },
               publisher: {
                 '@type': 'Organization',
                 name: 'ThePDFNinja',

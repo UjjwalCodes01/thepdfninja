@@ -27,7 +27,7 @@ export const bmpToPngContent = {
     description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your images look sharp and professional.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your images, our converted PNGs are 100% clean.",
+      "Zero Watermarks: The PNG you download carries only the pixels from your bitmap. Nothing is stamped into a corner, and nothing is added to the alpha channel.",
       "Fast Browser Processing: No software installation required. Drag, drop, and convert your BMPs to PNG instantly in your browser.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]

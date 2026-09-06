@@ -1,7 +1,7 @@
 export const cropContent = {
   introParagraphs: [
     "PDFs are often generated with excessive white space, large printer margins, or unwanted header information that detracts from the core content. Whether you are preparing a document for professional printing, optimizing it for reading on a mobile device, or simply trying to make a presentation look cleaner, ThePDFNinja's Free Online PDF Cropper is the perfect tool for the job. Our web-based utility allows you to trim away the excess and focus the reader's attention exactly where it belongs.",
-    "Cropping a PDF shouldn't require an advanced degree in graphic design or an expensive Adobe Acrobat subscription. ThePDFNinja provides a highly intuitive, visual interface. You simply upload your document, draw a selection box around the content you wish to keep, and our cloud engines instantly trim the document to your exact specifications. It is as simple as cropping a photo on your smartphone.",
+    "Cropping a PDF shouldn't require a design background or a paid desktop editor. ThePDFNinja provides a highly intuitive, visual interface. You simply upload your document, draw a selection box around the content you wish to keep, and our cloud engines instantly trim the document to your exact specifications. It is as simple as cropping a photo on your smartphone.",
     "Unlike basic tools that only mask the cropped area (meaning the hidden data is still technically there and inflating the file size), our tool structurally modifies the PDF dimensions. This ensures a cleaner, lighter file that is truly optimized for its intended use case. Best of all, this professional-grade utility is available completely free, with no account registration or daily limits."
   ],
   useCases: [
@@ -24,7 +24,7 @@ export const cropContent = {
   ],
   comparison: {
     title: "Why ThePDFNinja's Cropper is Superior",
-    description: "Cropping a PDF might seem simple, but many tools get it wrong. Here is why our tool provides a better experience than the competition.",
+    description: "Cropping a PDF might seem simple, but the details matter. Here is how our tool handles them.",
     points: [
       "Visual Selection Box: We don't force you to blindly enter margin dimensions in inches or millimeters. Our intuitive drag-and-drop bounding box lets you see exactly what will be kept and what will be cut.",
       "True Dimensional Cropping: Some cheap tools only add a 'mask' over the cropped area, which can cause issues when printing or viewing on different devices. ThePDFNinja actually rewrites the page geometry for a true, permanent crop.",

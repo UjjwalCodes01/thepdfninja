@@ -3,29 +3,29 @@ import AdSense from '../../components/AdSense';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Best Free iLovePDF Alternative 2025 — No Limits, No Account | ThePDFNinja',
+  title: 'Free iLovePDF Alternative — No Limits, No Account | ThePDFNinja',
   description: 'Looking for a free iLovePDF alternative with no daily limits? ThePDFNinja offers all 56 PDF tools 100% free — merge, compress, convert, OCR — no account, no watermarks.',
   alternates: { canonical: 'https://www.thepdfninja.com/compare/ilovepdf-alternative' },
   openGraph: {
     url: 'https://www.thepdfninja.com/compare/ilovepdf-alternative',
-    title: 'Best Free iLovePDF Alternative 2025 — ThePDFNinja',
+    title: 'Free iLovePDF Alternative — ThePDFNinja',
     description: 'ThePDFNinja vs iLovePDF: unlimited free PDF tools, no account required, no watermarks. The best free iLovePDF alternative available.',
     images: [{ url: 'https://www.thepdfninja.com/og-image.png', width: 1200, height: 630, alt: 'ThePDFNinja — Free iLovePDF Alternative' }],
   },
 };
 
 const COMPARE_ROWS = [
-  { feature: 'Price', them: 'Freemium — paid tiers required for full access', us: '100% Free Forever' },
-  { feature: 'Daily task limit', them: 'Strict limits (2–5 per day free)', us: 'Unlimited — no limits ever' },
-  { feature: 'Account required', them: 'Yes — email required for many tools', us: 'Never — zero signup' },
-  { feature: 'Watermarks on output', them: 'Added on free plan for some tools', us: 'Never — zero watermarks' },
+  { feature: 'Price', them: 'Freemium — paid tier for full access', us: 'Free, with no paid tier at all' },
+  { feature: 'Daily task limit', them: 'Free tier is capped per day', us: 'No daily cap' },
+  { feature: 'Account required', them: 'Email needed for many tools', us: 'Never — no signup at all' },
+  { feature: 'Watermarks on output', them: 'Applied on some free-tier outputs', us: 'Never, on any tool' },
   { feature: 'File auto-deletion', them: 'Up to 1 hour', us: 'Within 1 hour' },
-  { feature: 'Max file size (any tier)', them: 'Up to 4GB (on Premium plans)', us: 'Strict 100MB limit per file' },
+  { feature: 'Max file size (any tier)', them: 'Much larger ceiling on paid plans', us: 'Hard 100MB limit per file' },
   { feature: 'Offline support', them: 'Desktop & Mobile apps available', us: 'No — Web-only (requires internet)' },
   { feature: 'Cloud integrations', them: 'Direct Google Drive & Dropbox sync', us: 'No — Manual upload/download only' },
-  { feature: 'OCR / AI tools', them: 'Available (some paid)', us: '100% free — AWS Textract AI' },
-  { feature: 'PDF to Word', them: 'Available', us: '100% free — LibreOffice engine' },
-  { feature: 'Total free tools', them: '25 (many restricted)', us: '65 (all completely free)' },
+  { feature: 'OCR / AI tools', them: 'Available, partly on the paid tier', us: 'Free, powered by AWS Textract' },
+  { feature: 'PDF to Word', them: 'Available', us: 'Free, on a LibreOffice engine' },
+  { feature: 'Tools available at no cost', them: 'A subset; the rest need a plan', us: 'All 65' },
   { feature: 'Open source backend', them: 'Proprietary', us: 'Ghostscript + LibreOffice' },
 ];
 
@@ -67,7 +67,7 @@ export default function IlovepdfAlternativePage() {
               '@context': 'https://schema.org',
               '@type': 'FAQPage',
               mainEntity: [
-                { '@type': 'Question', name: 'Is ThePDFNinja a good free alternative to iLovePDF?', acceptedAnswer: { '@type': 'Answer', text: 'Yes. ThePDFNinja offers all 65 PDF tools completely free with no daily limits, no account creation, and no watermarks — making it a superior free alternative to iLovePDF for most users.' } },
+                { '@type': 'Question', name: 'Is ThePDFNinja a good free alternative to iLovePDF?', acceptedAnswer: { '@type': 'Answer', text: 'For most everyday jobs, yes: all 65 tools, no daily limit, no account and no watermark. iLovePDF is the better pick if you need desktop and mobile apps, cloud sync, or files well over 100MB.' } },
                 { '@type': 'Question', name: 'What is the main difference between iLovePDF and ThePDFNinja?', acceptedAnswer: { '@type': 'Answer', text: 'iLovePDF uses a freemium model with daily task limits and requires account creation for advanced tools. ThePDFNinja is 100% free, unlimited, and never requires an account for any tool.' } },
                 { '@type': 'Question', name: 'Does ThePDFNinja add watermarks like some iLovePDF alternatives?', acceptedAnswer: { '@type': 'Answer', text: 'No. ThePDFNinja never adds watermarks to your files. All 65 tools are completely free and watermark-free — no upgrade required.' } },
               ],
@@ -159,10 +159,10 @@ export default function IlovepdfAlternativePage() {
           </div>
           <div style={{ display: 'grid', gap: '20px' }}>
             {[
-              { title: 'No daily limits — ever', body: "iLovePDF's free plan caps you at a handful of tasks per day. ThePDFNinja has no usage limits whatsoever. Process 100 PDFs today, 1000 tomorrow — it's the same: free and unlimited." },
-              { title: 'Zero account creation', body: "iLovePDF requires you to create an account and verify your email to unlock certain tools. ThePDFNinja never asks for your email, name, or any personal information. Just upload and go." },
-              { title: 'No watermarks on any file', body: "Some iLovePDF free-plan outputs include watermarks or branding. ThePDFNinja never adds watermarks, logos, or any markings to your documents — on any tool, for any user." },
-              { title: 'Faster file deletion', body: "ThePDFNinja automatically and permanently deletes your files within 1 hour of processing — faster than most competitors. Your sensitive documents don't linger on our servers." },
+              { title: 'No daily limit to run into', body: "The usual friction with a freemium PDF service is hitting the day's quota mid-job. There is no quota here to hit. Process 100 PDFs today and 100 more tomorrow; it costs the same either way." },
+              { title: 'Zero account creation', body: "We never ask for your email, your name, or any other personal detail — there is no account system to put them in. Upload the file and take the result." },
+              { title: 'No watermarks on any file', body: "We add no watermark, no logo and no marking of any kind to your documents, on any tool and for any user. What comes out is what you put in, minus the operation you asked for." },
+              { title: 'Files deleted within the hour', body: "A sweeper runs against our storage continuously and removes every upload and every generated result within an hour of processing. This is enforced in code, not just stated in a policy." },
               { title: 'Powered by trusted open-source tools', body: "Our backend uses Ghostscript and LibreOffice — the same engines trusted by enterprises worldwide — plus AWS Textract for AI-powered OCR. Enterprise-grade processing, completely free." },
             ].map(({ title, body }) => (
               <div key={title} style={{ background: 'white', padding: '28px', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
@@ -179,10 +179,10 @@ export default function IlovepdfAlternativePage() {
         <div className="container" style={{ maxWidth: '720px' }}>
           <h2 style={{ textAlign: 'center', marginBottom: '40px', fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 800 }}>Frequently Asked Questions</h2>
           {[
-            { q: 'Is ThePDFNinja a good free alternative to iLovePDF?', a: 'Yes. ThePDFNinja offers all 65 PDF tools completely free with no daily limits, no account creation, and no watermarks — making it the best free alternative to iLovePDF for the vast majority of users.' },
+            { q: 'Is ThePDFNinja a good free alternative to iLovePDF?', a: 'For most everyday jobs, yes: all 65 tools, no daily limit, no account and no watermark. Where iLovePDF wins is desktop and mobile apps, direct Google Drive and Dropbox sync, and files well over our 100MB ceiling.' },
             { q: 'What is the main difference between iLovePDF and ThePDFNinja?', a: 'iLovePDF uses a freemium model with daily task limits and requires account creation for advanced tools. ThePDFNinja is 100% free, unlimited, and never requires an account for any tool.' },
             { q: 'Does ThePDFNinja add watermarks?', a: 'No. ThePDFNinja never adds watermarks to your files. All 65 tools are completely free and watermark-free — no upgrade required.' },
-            { q: 'Can ThePDFNinja do everything iLovePDF can?', a: 'ThePDFNinja covers all the most popular PDF tasks: merge, split, compress, convert to/from Word/Excel/PPT/JPG, rotate, watermark, protect, unlock, OCR, and more — all 100% free with no limits.' },
+            { q: 'Can ThePDFNinja do everything iLovePDF can?', a: 'It covers the common ones: merge, split, compress, convert to and from Word, Excel, PPT and JPG, rotate, watermark, protect, unlock and OCR. It does not offer desktop apps, cloud-storage sync, or files above 100MB.' },
           ].map(({ q, a }) => (
             <details key={q} style={{ borderBottom: '1px solid var(--border)' }}>
               <summary style={{ fontWeight: 600, fontSize: '0.95rem', padding: '18px 0', cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between' }}>

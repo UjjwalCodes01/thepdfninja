@@ -27,8 +27,8 @@ export const scanToPdfContent = {
     description: "While there are many 'scanner apps' available on the App Store and Google Play, they often come with significant drawbacks. Here is why ThePDFNinja is the smarter choice.",
     points: [
       "No App Installation Required: You don't need to clutter your phone with another app that demands access to your contacts or location. Our tool runs directly in your mobile or desktop web browser.",
-      "Zero 'Scanned with XYZ' Watermarks: Many free mobile scanner apps intentionally ruin your professional documents by stamping a massive, unremovable watermark at the bottom of the page. ThePDFNinja guarantees a clean, watermark-free output.",
-      "No Paid Subscriptions: The most popular mobile scanner apps lure you in for free and then demand $5/month to export your scans as PDFs or use batch processing. ThePDFNinja provides all features completely free.",
+      "No 'Scanned with…' Watermark: Your scan comes out clean. We do not stamp a banner across the foot of the page, so the document is usable for anything professional.",
+      "No Paid Subscriptions: PDF export and batch processing are not held back for a paid plan. Every feature on this page is available to every user.",
       "Batch Processing Support: You can upload dozens of photos at once. Our cloud infrastructure processes them in parallel and merges them into a single PDF, far faster than a mobile processor can handle."
     ]
   },

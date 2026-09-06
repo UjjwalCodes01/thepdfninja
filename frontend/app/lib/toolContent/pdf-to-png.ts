@@ -27,7 +27,7 @@ export const pdfToPngContent = {
     description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "Custom DPI Settings: Choose between 72 DPI (web), 150 DPI (standard), or 300 DPI (high-resolution print) to control image size and quality.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your images, our converted PNGs are 100% clean and professional.",
+      "Zero Watermarks: Each rendered page is exactly what the PDF describes. We do not draw a logo across the raster before handing it back.",
       "Zip Archive Output: For multi-page PDFs, we bundle all PNGs into a single ZIP file, keeping your downloads clean and organized.",
       "No Registration Needed: We value your time. There is no need to enter email addresses or create accounts to access high-speed conversion."
 ]

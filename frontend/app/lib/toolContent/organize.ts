@@ -28,7 +28,7 @@ export const organizeContent = {
     points: [
       "Visual Thumbnail Interface: We don't ask you to type in comma-separated page numbers blindly. You get a clear, visual grid of your document, making it impossible to accidentally delete the wrong page.",
       "Multi-Action Capability: You can reorder, delete, and rotate pages all within the same workspace, in a single session. Other tools force you to process the document multiple times for different actions.",
-      "No File Size Arbitrage: Some competitors will let you view your thumbnails, but ask for a premium upgrade when you try to save a document over 10MB. ThePDFNinja handles files up to 100MB completely free.",
+      "No File Size Arbitrage: Rearranging a 2MB document and a 90MB one cost the same here, which is nothing. The 100MB ceiling is the same for everybody.",
       "Zero Account Requirements: You can curate, clean up, and reorganize your sensitive documents without ever handing over your email address or personal details."
     ]
   },

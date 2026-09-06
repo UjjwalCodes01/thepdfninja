@@ -28,7 +28,7 @@ export const unlockContent = {
     points: [
       "Zero Password Logging: We process the decryption in memory and never log, save, or store the password you provide. Once the document is unlocked, the key is forgotten instantly.",
       "Strict Auto-Deletion: Other free tools might keep your unlocked, newly vulnerable document on their servers for days. We guarantee the permanent deletion of both your original and unlocked files within one hour.",
-      "No File Size Arbitrage: Some competitors allow you to unlock small files for free but demand payment for heavy, multi-page financial records. ThePDFNinja supports files up to 100MB completely free.",
+      "No File Size Arbitrage: A one-page statement and a 400-page financial record are treated identically. Anything up to 100MB is handled at no cost.",
       "100% Cloud-Based: Desktop unlockers often come bundled with malware or intrusive toolbars. Our tool runs entirely in the cloud—you never install anything, ensuring your computer remains perfectly safe."
     ]
   },

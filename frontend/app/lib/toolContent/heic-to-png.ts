@@ -27,7 +27,7 @@ export const heicToPngContent = {
     description: "Not all image converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "Lossless Quality Conversion: We preserve color accuracy and pixel detail, ensuring your photos look sharp and professional.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your photos, our converted PNGs are 100% clean.",
+      "Zero Watermarks: Your iPhone photo comes back as a plain PNG. We add no badge, no border, and no branding to the frame.",
       "Fast Browser Processing: No software installation required. Drag, drop, and convert your HEICs to PNG instantly in your browser.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]

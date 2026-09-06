@@ -23,14 +23,14 @@ export const compressContent = {
     }
   ],
   comparisonTable: {
-    headers: ["Feature", "ThePDFNinja", "Competitors"],
+    headers: ["Feature", "ThePDFNinja"],
     rows: [
-      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
-      { feature: "Daily Task Limits", us: "Unlimited", them: "2 tasks per day" },
-      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
-      { feature: "Max File Size", us: "100MB", them: "10MB - 15MB on free plans" },
-      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" },
-      { feature: "File Retention", us: "Deleted in 1 hour", them: "Kept for 24+ hours" }
+      { feature: "Price", us: "100% Free" },
+      { feature: "Daily Task Limits", us: "Unlimited" },
+      { feature: "Account Required", us: "Never (No signup)" },
+      { feature: "Max File Size", us: "100MB" },
+      { feature: "Watermarks Added", us: "Zero watermarks" },
+      { feature: "File Retention", us: "Deleted in 1 hour" }
     ]
   },
   comparison: {
@@ -38,7 +38,7 @@ export const compressContent = {
     description: "The internet is flooded with PDF compressors, but they are not created equal. Here is why ThePDFNinja is the preferred choice for power users and professionals alike.",
     points: [
       "No Extreme Degradation: Many free compressors aggressively destroy image quality, leaving you with blurry, pixelated documents. Our smart compression strikes the perfect balance, preserving readability and visual fidelity while reducing file size.",
-      "100MB Free Limit: Competitors like Smallpdf often restrict free users to very small file sizes, forcing you to pay if you want to compress a larger document. We support files up to 100MB for all users, 100% free.",
+      "100MB Free Limit: Every user gets the full 100MB upload ceiling. There is no paid tier that unlocks a larger one, because there is no paid tier.",
       "Zero Daily Caps: Whether you need to compress one file for an email or fifty files for a website migration, ThePDFNinja imposes zero daily limits. You never have to wait 1 hour to process your next file.",
       "Privacy by Default: You shouldn't have to risk your data privacy just to make a file smaller. We don't ask for your email, and we never keep your files."
     ]

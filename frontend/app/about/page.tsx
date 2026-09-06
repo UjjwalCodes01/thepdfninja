@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import AdSense from '../components/AdSense';
+import PostThumb from '../components/PostThumb';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -100,7 +101,7 @@ export default function AboutPage() {
 
             {/* Who we are */}
             <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start', marginBottom: '48px', padding: '32px', background: 'var(--bg)', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
-              <div style={{ flexShrink: 0, width: '56px', height: '56px', borderRadius: '12px', background: 'var(--orange)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '28px' }}>🥷</div>
+              <PostThumb size={34} width={56} height={56} radius={12} />
               <div>
                 <h2 style={{ marginTop: 0, marginBottom: '8px' }}>Built by Anaya Digital</h2>
                 <p style={{ margin: 0, color: 'var(--text-muted)' }}>
@@ -165,12 +166,27 @@ export default function AboutPage() {
               <li><strong>Performance:</strong> Server-side rendering, edge caching, sub-second response times</li>
             </ul>
 
+            <h2 id="editorial-standards">How We Write and Review Our Guides</h2>
+            <p>
+              Everything in our <Link href="/blog">blog</Link> and on our tool pages is written and maintained by the team at Anaya Digital that also builds and operates ThePDFNinja. We are the people running the Lambda functions and reading the error logs, so what we publish about PDFs comes out of maintaining a PDF service rather than out of desk research.
+            </p>
+            <p>That gives us a few working rules:</p>
+            <ul>
+              <li><strong>We test what we describe.</strong> If a guide says a file converts a certain way or a setting produces a certain result, we ran it through the tool first.</li>
+              <li><strong>We do not publish claims about other services that we cannot substantiate.</strong> You will not find invented prices or made-up usage limits attributed to competitors on this site. Where we describe what ThePDFNinja does, we describe only what it actually does.</li>
+              <li><strong>We correct things.</strong> When we get something wrong, or a format or specification changes, we update the page rather than leaving stale advice in place.</li>
+              <li><strong>We separate advice from advertising.</strong> Ads on this site are served by Google AdSense and are never sold, placed, or influenced by the content of a page. No advertiser has any say in what we write.</li>
+            </ul>
+            <p>
+              Found something inaccurate? Tell us and we will fix it — <Link href="/contact">get in touch</Link>, or leave a note on our <Link href="/reviews">reviews page</Link>. We read everything that comes in.
+            </p>
+
           </div>
 
           {/* Popular Tools Internal Linking */}
           <div style={{ marginTop: '64px', padding: '40px', background: 'var(--bg)', borderRadius: 'var(--radius)', border: '1px solid var(--border)' }}>
             <h3 style={{ fontSize: '1.3rem', fontWeight: 800, marginBottom: '8px', marginTop: 0 }}>Our Most Popular Tools</h3>
-            <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.9rem' }}>Used by thousands of people every day. No signup, no limits.</p>
+            <p style={{ color: 'var(--text-muted)', marginBottom: '24px', fontSize: '0.9rem' }}>The tools people reach for most. No signup, no limits.</p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: '12px' }}>
               {POPULAR_TOOLS.map(t => (
                 <Link

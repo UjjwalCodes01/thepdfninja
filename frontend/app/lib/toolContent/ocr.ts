@@ -3,7 +3,7 @@ export const ocrContent = {
     "A scanned PDF is essentially just a digital photograph of a piece of paper. You can look at it, but you cannot search for specific words, copy quotes, or edit the text. This turns massive scanned archives into useless 'dark data' that cannot be easily utilized. ThePDFNinja's Free Online OCR (Optical Character Recognition) tool utilizes cutting-edge artificial intelligence to solve this problem, transforming flat images of text into fully searchable, selectable, and readable data.",
     "When you deal with legacy paper files, receipts, contracts, or old books, the typical workflow involves manually re-typing the information. This is not only incredibly tedious and time-consuming but also introduces the high probability of human error. Our online OCR engine completely automates this process. By injecting a hidden layer of selectable text directly beneath the visual image of the document, you retain the exact original look of the scan while simultaneously gaining the ability to interact with the text.",
     "Unlike rudimentary OCR tools that struggle with poor lighting, slanted scans, or complex document layouts, our platform is powered by AWS Textract—an industry-leading, enterprise-grade machine learning service. This ensures incredibly high accuracy when extracting text from invoices, receipts, legal contracts, and historical documents. It can even intelligently identify tables and retain the reading order of multi-column layouts, making the resulting data highly structured and usable. Basic open-source OCR libraries often read straight across the page, completely destroying the formatting of two-column articles or complex financial tables. Our AI, on the other hand, understands document structure and geography, preserving the contextual meaning of your files.",
-    "Historically, accessing this level of AI-powered document extraction required expensive enterprise software subscriptions (like Adobe Acrobat Pro) or per-page API fees. ThePDFNinja democratizes this technology, providing powerful, accurate OCR capabilities entirely for free directly in your web browser. There is no software to install, no daily limits to hit, and no account required to unleash the power of AI on your scanned documents. Whether you need to extract text from a single blurry photograph or convert a 50-page scanned legal brief into a searchable PDF, you can do it all instantly and securely."
+    "Document extraction at this level has historically meant an enterprise software subscription or a per-page API fee. ThePDFNinja democratizes this technology, providing powerful, accurate OCR capabilities entirely for free directly in your web browser. There is no software to install, no daily limits to hit, and no account required to unleash the power of AI on your scanned documents. Whether you need to extract text from a single blurry photograph or convert a 50-page scanned legal brief into a searchable PDF, you can do it all instantly and securely."
   ],
   useCases: [
     {
@@ -28,23 +28,23 @@ export const ocrContent = {
     }
   ],
   comparisonTable: {
-    headers: ["Feature", "ThePDFNinja OCR", "Competitor OCRs"],
+    headers: ["Feature", "ThePDFNinja OCR"],
     rows: [
-      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
-      { feature: "Daily Task Limits", us: "Unlimited", them: "1-2 tasks per day" },
-      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
-      { feature: "Machine Learning Engine", us: "AWS Textract AI", them: "Basic Tesseract/Open Source" },
-      { feature: "Table/Column Recognition", us: "Maintained exactly", them: "Often breaks reading order" },
-      { feature: "Max File Size", us: "100MB", them: "5MB - 15MB on free plans" },
-      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" }
+      { feature: "Price", us: "100% Free" },
+      { feature: "Daily Task Limits", us: "Unlimited" },
+      { feature: "Account Required", us: "Never (No signup)" },
+      { feature: "Machine Learning Engine", us: "AWS Textract AI" },
+      { feature: "Table/Column Recognition", us: "Maintained exactly" },
+      { feature: "Max File Size", us: "100MB" },
+      { feature: "Watermarks Added", us: "Zero watermarks" }
     ]
   },
   comparison: {
-    title: "Why Our AI-Powered OCR Beats the Competition",
+    title: "What Our AI-Powered OCR Does Differently",
     description: "OCR is computationally expensive, which is why most free tools either offer terrible accuracy or heavily restrict your usage to force you into a paid subscription. ThePDFNinja breaks this mold entirely by giving you enterprise AI for free.",
     points: [
       "Enterprise Machine Learning: We don't rely on outdated, open-source OCR libraries. We leverage AWS Textract, the same AI engine used by Fortune 500 companies, ensuring unparalleled accuracy even on difficult scans.",
-      "100% Free, No 'Pro' Paywall: Competitors like Smallpdf and Adobe Acrobat explicitly lock OCR behind their paid premium subscriptions (often charging $9 to $20 a month). ThePDFNinja provides this feature completely free to all users.",
+      "No 'Pro' Paywall: OCR here is not gated behind an upgrade prompt, a page quota, or a card on file. It is simply part of the tool, for every user.",
       "Support for Complex Layouts: Basic OCR tools read straight across a page, destroying the formatting of multi-column articles or complex tables. Our AI understands document structure, keeping columns and tables intact.",
       "No Account Required: You don't need to surrender your email address to access our AI tools. You can upload, extract, and download completely anonymously."
     ]
@@ -59,6 +59,6 @@ export const ocrContent = {
   whyUse: [
     "We use enterprise-grade neural networks (powered by AWS Textract core) rather than outdated open-source library engines to ensure maximum layout and word accuracy.",
     "Our system builds dual-layer PDFs that preserve the exact original scan visuals while embedding a clean, searchable text layer behind it, keeping your documents visually identical but fully interactive.",
-    "Unlike competitors that charge premium subscriptions or impose strict daily document limits, we offer unlimited OCR operations up to 50 pages per file with strict 1-hour automated file purging."
+    "Run as many OCR jobs as you need, up to 50 pages per file, with every upload purged automatically within the hour."
   ]
 };

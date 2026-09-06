@@ -23,14 +23,14 @@ export const splitContent = {
     }
   ],
   comparisonTable: {
-    headers: ["Feature", "ThePDFNinja", "Competitors"],
+    headers: ["Feature", "ThePDFNinja"],
     rows: [
-      { feature: "Price", us: "100% Free", them: "$9–$15/month Pro Plan" },
-      { feature: "Daily Task Limits", us: "Unlimited", them: "2 tasks per day" },
-      { feature: "Account Required", us: "Never (No signup)", them: "Email required" },
-      { feature: "Max File Size", us: "100MB", them: "10MB - 15MB on free plans" },
-      { feature: "Watermarks Added", us: "Zero watermarks", them: "Yes, on free tiers" },
-      { feature: "File Retention", us: "Deleted in 1 hour", them: "Kept for 24+ hours" }
+      { feature: "Price", us: "100% Free" },
+      { feature: "Daily Task Limits", us: "Unlimited" },
+      { feature: "Account Required", us: "Never (No signup)" },
+      { feature: "Max File Size", us: "100MB" },
+      { feature: "Watermarks Added", us: "Zero watermarks" },
+      { feature: "File Retention", us: "Deleted in 1 hour" }
     ]
   },
   comparison: {

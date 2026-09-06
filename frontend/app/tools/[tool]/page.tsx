@@ -183,14 +183,13 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
 
                 {seoContent.comparisonTable && (
                   <div style={{ marginBottom: '48px' }}>
-                    <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>How We Compare</h2>
+                    <h2 style={{ fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>What You Get</h2>
                     <div style={{ overflowX: 'auto', borderRadius: 'var(--radius)', border: '1px solid var(--border)', background: 'white' }}>
-                      <table style={{ width: '100%', minWidth: '600px', borderCollapse: 'collapse', textAlign: 'left' }}>
+                      <table style={{ width: '100%', minWidth: '420px', borderCollapse: 'collapse', textAlign: 'left' }}>
                         <thead>
                           <tr style={{ background: 'var(--bg)', borderBottom: '2px solid var(--border)' }}>
-                            <th style={{ padding: '16px', fontWeight: 700, width: '40%' }}>{seoContent.comparisonTable.headers[0] || 'Feature'}</th>
-                            <th style={{ padding: '16px', fontWeight: 700, width: '30%' }}>{seoContent.comparisonTable.headers[1] || 'ThePDFNinja'}</th>
-                            <th style={{ padding: '16px', fontWeight: 700, width: '30%' }}>{seoContent.comparisonTable.headers[2] || 'Competitors'}</th>
+                            <th style={{ padding: '16px', fontWeight: 700, width: '45%' }}>{seoContent.comparisonTable.headers[0] || 'Feature'}</th>
+                            <th style={{ padding: '16px', fontWeight: 700, width: '55%' }}>{seoContent.comparisonTable.headers[1] || 'ThePDFNinja'}</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -201,12 +200,6 @@ export default async function ToolPage({ params }: { params: Promise<{ tool: str
                                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                   <span style={{ color: 'var(--green)', fontSize: '1.1rem' }}>✓</span>
                                   <span>{row.us}</span>
-                                </div>
-                              </td>
-                              <td style={{ padding: '16px', color: 'var(--text-secondary)' }}>
-                                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                                  <span style={{ color: 'var(--orange)', fontSize: '1.1rem' }}>⚠</span>
-                                  <span>{row.them}</span>
                                 </div>
                               </td>
                             </tr>

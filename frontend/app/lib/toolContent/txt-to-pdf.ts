@@ -27,7 +27,7 @@ export const txtToPdfContent = {
     description: "Not all document converters are created equal. ThePDFNinja stands out by offering premium features without the price tag:",
     points: [
       "Clean Margins and Typography: We wrap and scale your text, applying clean layouts and fonts to make plain text look professional.",
-      "Zero Watermarks: Unlike competitors that add ugly branding over your documents, our converted PDFs are 100% clean.",
+      "Zero Watermarks: The PDF holds your text and the margins you chose. We add no header, no footer, and no attribution line.",
       "Fast Browser Processing: No software installation required. Drag, drop, and convert your TXTs to PDF instantly in your browser.",
       "No Signup Required: Start using the tool instantly. We never ask for your email address or personal details."
 ]

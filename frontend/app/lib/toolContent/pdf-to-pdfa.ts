@@ -27,7 +27,7 @@ export const pdfToPdfaContent = {
     description: "Creating a true, ISO-compliant PDF/A is highly technical. Here is why ThePDFNinja is trusted for long-term digital preservation.",
     points: [
       "Strict ISO Compliance: We don't just rename the file extension. Our engine performs a deep structural conversion, embedding fonts and stripping forbidden elements to ensure the output passes strict PDF/A validation checks.",
-      "100% Free for All Users: Generating compliance-grade archival documents usually requires expensive software like Adobe Acrobat Pro. We offer this specialized capability completely free.",
+      "100% Free for All Users: Archival-grade conversion is usually a paid desktop feature. Here it is available to every user, at no cost.",
       "No File Size Arbitrage: Archival documents like massive court dockets or scanned books are often huge. We support files up to 100MB, ensuring you can preserve your largest records without hitting a paywall.",
       "Instant Cloud Processing: Deeply analyzing and embedding fonts into a massive document can take minutes on a standard laptop. Our AWS serverless architecture handles the heavy computational lifting in seconds."
     ]
