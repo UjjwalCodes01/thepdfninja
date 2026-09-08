@@ -921,19 +921,39 @@ def tiff_to_jpg(input_paths, output_path, options):
 
 # ── SVG → PNG ──────────────────────────────────────────────
 def svg_to_png(input_paths, output_path, options):
-    import cairosvg
     scale = float(options.get("scale", 2.0))   # 2x = higher DPI
     width = options.get("width")
     height = options.get("height")
     output = output_path + ".png"
-    kwargs = {"url": input_paths[0], "write_to": output, "scale": scale}
-    if width:
-        kwargs["output_width"] = int(width)
-    if height:
-        kwargs["output_height"] = int(height)
-    cairosvg.svg2png(**kwargs)
+    # cairosvg needs libcairo, which the Lambda layer does not carry, so this
+    # raised at call time on every request. Try it, then fall back to
+    # PyMuPDF, which parses and renders SVG natively.
+    try:
+        import cairosvg
+        kwargs = {"url": input_paths[0], "write_to": output, "scale": scale}
+        if width:
+            kwargs["output_width"] = int(width)
+        if height:
+            kwargs["output_height"] = int(height)
+        cairosvg.svg2png(**kwargs)
+        if os.path.exists(output) and os.path.getsize(output) > 0:
+            return output
+    except Exception:
+        pass
+    import fitz
+    doc = fitz.open(input_paths[0])
+    page = doc[0]
+    if width or height:
+        zx = int(width) / page.rect.width if width else None
+        zy = int(height) / page.rect.height if height else None
+        z = min(v for v in (zx, zy) if v)  # keep aspect ratio inside the box
+        mat = fitz.Matrix(z, z)
+    else:
+        mat = fitz.Matrix(scale, scale)
+    pix = page.get_pixmap(matrix=mat, alpha=True)
+    pix.save(output)
+    doc.close()
     return output
-
 
 # ── Image Compress ──────────────────────────────────────────
 def image_compress(input_paths, output_path, options):
@@ -1171,12 +1191,20 @@ def flatten_pdf(input_paths, output_path, options):
     import fitz
     output = output_path + ".pdf"
     doc = fitz.open(input_paths[0])
+    # bake() draws each form field's current value and each annotation's
+    # appearance into the page content and removes the interactive objects,
+    # which is what "flatten" means. This used to call clean_contents() alone,
+    # which only tidies content streams — every field stayed editable and the
+    # tool did not do what its page said.
+    try:
+        doc.bake(annots=True, widgets=True)
+    except Exception:
+        raise ValueError("This document could not be flattened. It may be damaged or encrypted.")
     for page in doc:
         page.clean_contents()
     doc.save(output, garbage=4, deflate=True)
     doc.close()
     return output
-
 
 # ── Remove PDF Metadata ─────────────────────────────────────
 def remove_metadata(input_paths, output_path, options):
@@ -1215,27 +1243,56 @@ def reverse_pages(input_paths, output_path, options):
 # ── Grayscale PDF ───────────────────────────────────────────
 def grayscale_pdf(input_paths, output_path, options):
     output = output_path + ".pdf"
-    subprocess.run([
-        "gs",
-        "-sDEVICE=pdfwrite",
-        "-dProcessColorModel=/DeviceGray",
-        "-dColorConversionStrategy=/Gray",
-        "-dPDFUseOldCMS=false",
-        "-dNOPAUSE", "-dQUIET", "-dBATCH",
-        f"-sOutputFile={output}",
-        input_paths[0],
-    ], check=True)
-    return output
+    # Ghostscript does a true colour-space conversion that keeps text as text,
+    # so use it where the binary exists. It is not in the Lambda layer, and
+    # check=True with no handler meant this tool 500'd on every request.
+    try:
+        subprocess.run([
+            "gs", "-sDEVICE=pdfwrite",
+            "-dProcessColorModel=/DeviceGray",
+            "-dColorConversionStrategy=/Gray",
+            "-dPDFUseOldCMS=false",
+            "-dNOPAUSE", "-dQUIET", "-dBATCH",
+            f"-sOutputFile={output}", input_paths[0],
+        ], check=True, timeout=120, capture_output=True)
+        if os.path.exists(output) and os.path.getsize(output) > 0:
+            return output
+    except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        pass
 
+    # Fallback: render each page to a greyscale bitmap. Guarantees the output
+    # is entirely grey, at the cost of the text layer — stated on the page.
+    import fitz
+    dpi = int(options.get("dpi", 200))
+    src = fitz.open(input_paths[0])
+    out = fitz.open()
+    mat = fitz.Matrix(dpi / 72, dpi / 72)
+    for page in src:
+        pix = page.get_pixmap(matrix=mat, colorspace=fitz.csGRAY, alpha=False)
+        new_page = out.new_page(width=page.rect.width, height=page.rect.height)
+        new_page.insert_image(new_page.rect, stream=pix.tobytes("jpeg", jpg_quality=85))
+    out.save(output, garbage=4, deflate=True)
+    out.close()
+    src.close()
+    return output
 
 # ── Linearize PDF (web-optimize / fast open) ────────────────
 def linearize_pdf(input_paths, output_path, options):
     output = output_path + ".pdf"
-    subprocess.run([
-        "qpdf", "--linearize", input_paths[0], output
-    ], check=True)
+    try:
+        subprocess.run(["qpdf", "--linearize", input_paths[0], output],
+                       check=True, timeout=120, capture_output=True)
+        if os.path.exists(output) and os.path.getsize(output) > 0:
+            return output
+    except (FileNotFoundError, subprocess.CalledProcessError, subprocess.TimeoutExpired):
+        pass
+    # qpdf is not in the Lambda layer. PyMuPDF writes a linearized file
+    # natively — the same option the compressor already relies on.
+    import fitz
+    doc = fitz.open(input_paths[0])
+    doc.save(output, linear=True, garbage=4, deflate=True)
+    doc.close()
     return output
-
 
 # ── N-Up PDF (2 or 4 pages per sheet) ──────────────────────
 # Options: {"n": 2}  — 2 or 4 pages per sheet
