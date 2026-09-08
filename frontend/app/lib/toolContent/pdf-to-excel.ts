@@ -22,6 +22,27 @@ export const pdfToExcelContent = {
       description: "If you are trying to create a personal budget or reconcile business expenses, your bank will provide your monthly transaction history as a PDF statement. By converting these statements into Excel, you can easily categorize your spending, sort transactions by date or amount, and gain a clear, workable view of your finances without manually typing a single transaction."
     }
   ],
+  howItWorks: {
+    title: "How tables are found, and what happens when they are not",
+    body: [
+      "A PDF has no idea it contains a table. What it has is text at coordinates and, if you are lucky, some drawn lines. Extraction is therefore a detection problem, and we run it in two passes with different assumptions.",
+      "The first pass looks for ruled tables — cells with visible borders — and uses the lines themselves to determine where cells begin and end. This is highly reliable when it applies. If no ruled tables are found, a second pass switches to whitespace analysis, inferring columns from the alignment of text. That handles borderless tables well and is the mode most bank statements and invoices end up in.",
+      "Each detected table becomes its own worksheet. If neither pass finds a table at all, you still get a workbook: one sheet containing the document's text, page by page, so nothing is silently discarded.",
+    ],
+    specs: [
+      { label: "Engine", value: "camelot — lattice mode first, then stream mode" },
+      { label: "Lattice", value: "Uses drawn cell borders; most accurate when they exist" },
+      { label: "Stream", value: "Infers columns from text alignment; used when there are no borders" },
+      { label: "Output", value: "One worksheet per detected table; a text-only sheet if none are found" },
+      { label: "Format", value: ".xlsx" },
+    ],
+    limits: [
+      "Scanned PDFs have no text to detect. Run OCR first, and be aware that the result will still be worse than a native PDF, because OCR errors land in exactly the cells you care about.",
+      "Merged cells, nested headers and tables that span pages are the common failure points. Check totals against the source.",
+      "Numbers arrive as text in some layouts. Use Excel's text-to-columns or value conversion if formulas are not picking them up.",
+      "Tables with very uneven whitespace can be split into the wrong columns in stream mode. If a ruled version of the document exists, use that.",
+    ],
+  },
   comparison: {
     title: "Why Our PDF to Excel Extraction is Superior",
     description: "Extracting tabular data from a PDF is a highly complex task. Here is why ThePDFNinja delivers better results than basic free converters.",
@@ -35,7 +56,7 @@ export const pdfToExcelContent = {
   security: "Financial data, bank statements, and proprietary business metrics are highly sensitive. When you use ThePDFNinja to convert a PDF to Excel, you are guaranteed absolute privacy. Your files are transferred via an encrypted 256-bit AES connection. The data extraction process is fully automated within isolated cloud containers; no human ever views your documents. To ensure your data remains strictly confidential, our automated privacy protocol permanently deletes both your original PDF and the newly generated Excel file from our servers within one hour of conversion.",
   faqs: [
     { q: "Will the table structure be preserved when converting PDF to Excel?", a: "Yes, our advanced conversion engine recognizes grid patterns and column spacing to accurately reconstruct your PDF tables into editable Excel cells." },
-    { q: "Can I convert scanned PDF tables to Excel?", a: "Yes, if your PDF is a scanned document, our tool uses OCR (Optical Character Recognition) to extract numbers and text and place them into columns." },
+    { q: "Can I convert scanned PDF tables to Excel?", a: "Not directly. This tool reads the PDF's own text layer, and a scan has none — you would get an empty workbook. Run the scan through our OCR tool first to add a text layer, then convert, and check the numbers afterwards: OCR errors land in exactly the cells that matter." },
     { q: "Does the converter support bulk conversion?", a: "Currently, we process files individually to ensure the complex grid extraction yields the highest quality spreadsheet possible." },
     { q: "Are my financial spreadsheets secure?", a: "Absolutely. We secure all uploads with 256-bit AES encryption. Files are processed in isolated virtual servers and permanently deleted within one hour." },
     { q: "Will I get a watermarked file?", a: "No, we never add watermarks to your documents, and all conversions are 100% free with no signups required." },

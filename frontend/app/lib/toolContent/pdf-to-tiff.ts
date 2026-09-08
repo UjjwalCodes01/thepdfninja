@@ -22,6 +22,24 @@ export const pdfToTiffContent = {
         "description": "For researchers and healthcare professionals, keeping medical scans or scientific logs in high-quality TIFF formats maintains visual data accuracy without losing detail to lossy compression."
     }
 ],
+  howItWorks: {
+    title: "How pages become TIFF",
+    body: [
+      "Each page is rendered to a bitmap at the chosen resolution and the pages are assembled into a single multi-page TIFF with the resolution recorded in the file. 200 DPI is the default because it is what fax and document-management systems typically expect.",
+      "The TIFF is written without compression. That is deliberate — it maximises compatibility with older imaging systems — but it means the files are large. A four-page document at 200 DPI runs to tens of megabytes.",
+    ],
+    specs: [
+      { label: "Method", value: "Pages rasterised, assembled into one multi-page TIFF" },
+      { label: "Default resolution", value: "200 DPI, recorded in the file" },
+      { label: "Colour", value: "RGB" },
+      { label: "Compression", value: "None — maximally compatible, large files" },
+    ],
+    limits: [
+      "Files are big. If you need a small file, this is the wrong format; use PDF to PNG or PDF to JPG.",
+      "The text layer does not survive rasterisation. The TIFF is pixels.",
+      "Some viewers show only the first page of a multi-page TIFF. Use a document viewer rather than a photo viewer.",
+    ],
+  },
   comparison: {
     title: "Why Our PDF to TIFF Tool Stands Out",
     description: "ThePDFNinja offers a highly specialized PDF to TIFF utility that matches or exceeds paid desktop alternatives:",

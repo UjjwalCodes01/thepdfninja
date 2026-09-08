@@ -22,6 +22,23 @@ export const nUpPdfContent = {
         "description": "Graphic designers and editors can print a 4-up page layout to review the visual flow, typography, and page design of magazines or brochures on a single page."
     }
 ],
+  howItWorks: {
+    title: "How pages are tiled",
+    body: [
+      "Each page is rendered to an image at 96 DPI and placed into a grid on a new page: two across, and one or two down depending on whether you chose two or four per sheet. The result is a document with a quarter or half as many pages, intended for review printing.",
+      "Because the pages are rendered rather than copied, the output is an image document. That is the right trade for printing drafts — it is not the right tool if the output needs to be searched or edited.",
+    ],
+    specs: [
+      { label: "Layouts", value: "2-up or 4-up" },
+      { label: "Render resolution", value: "96 DPI per source page" },
+      { label: "Method", value: "Pages rasterised and tiled onto new sheets" },
+    ],
+    limits: [
+      "The text layer is lost. 96 DPI is screen resolution: perfectly readable printed at reduced size, soft if zoomed to full page.",
+      "Mixed portrait and landscape sources tile awkwardly.",
+      "Use this for handouts and proofreading, not for anything that will be archived or searched.",
+    ],
+  },
   comparison: {
     title: "The Simplest N-Up PDF Generator",
     description: "Paid PDF suites require clicking through complex print dialogs to generate N-up layouts. ThePDFNinja makes it fast and easy:",

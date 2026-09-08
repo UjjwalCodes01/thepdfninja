@@ -22,6 +22,26 @@ export const rtfToPdfContent = {
         "description": "Convert RTF files containing pricing proposals or terms to PDF format, locking text in place to prevent accidental edits by reviewers."
     }
 ],
+  howItWorks: {
+    title: "How the conversion is done",
+    body: [
+      "Your .rtf file is opened by LibreOffice running headless on our conversion server, and exported to PDF using its own PDF writer. That matters: LibreOffice is a full office suite, not a format parser, so what it lays out is what a person opening the file in a word processor would see — pagination, fonts, tables and embedded images included.",
+      "Each job gets a fresh, isolated LibreOffice profile and up to five minutes of processing time before it is abandoned. The output embeds the fonts it used, so the PDF renders identically on a machine that does not have them installed.",
+      "RTF stores formatting as plain-text control codes, so the conversion is generally faithful for text, basic styling and simple tables. Embedded images in RTF are stored as hex dumps and come through, though the file is often large as a result."
+    ],
+    specs: [
+      { label: "Engine", value: "LibreOffice, headless, isolated profile per job" },
+      { label: "Timeout", value: "300 seconds, after which the job fails rather than hangs" },
+      { label: "Fonts", value: "Embedded in the output" },
+      { label: "Where it runs", value: "A dedicated conversion server, not the browser" },
+    ],
+    limits: [
+      "Fonts that are not installed on our server are substituted. Proprietary fonts — Calibri, Cambria and most Adobe faces — become metric-compatible equivalents, which can shift line breaks slightly. Embed fonts in the source document if layout is critical.",
+      "Macros, embedded media and tracked changes are not preserved. Accept or reject changes before converting if you want the final text.",
+      "Complex objects that LibreOffice renders differently from Microsoft Office — some SmartArt, certain chart styles, WordArt — may not look identical.",
+      "Password-protected source files cannot be opened. Remove the password in the original application first.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja RTF to PDF Converter?",
     description: "ThePDFNinja offers an effective and secure way to convert your files. Here is why we are the top choice:",

@@ -22,6 +22,22 @@ export const webpToPngContent = {
         "description": "If an image contains text, converting it to PNG ensures the text remains crisp and highly legible on screens, avoiding the blurry outlines typical of JPGs."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does",
+    body: [
+      "The WebP is decoded and written as PNG with no further processing. Whether anything is lost depends entirely on the source: a lossless WebP becomes a pixel-identical PNG; a lossy WebP becomes a PNG that faithfully preserves the already-compressed pixels.",
+      "Transparency is carried across. The file will be larger — often several times — because PNG compresses far less aggressively than WebP.",
+    ],
+    specs: [
+      { label: "Method", value: "Decoded and written as PNG; no re-encoding loss" },
+      { label: "Transparency", value: "Preserved" },
+      { label: "Size", value: "Considerably larger than the WebP" },
+    ],
+    limits: [
+      "A lossy WebP does not become lossless by being saved as PNG. The compression artefacts are preserved exactly.",
+      "Animated WebP files convert as the first frame only.",
+    ],
+  },
   comparison: {
     title: "Why WebP to PNG with ThePDFNinja?",
     description: "This conversion is about compatibility rather than quality: PNG opens everywhere, WebP still does not. Both are capable of being lossless, so the important question is what your source WebP actually was. Here is how we handle it.",

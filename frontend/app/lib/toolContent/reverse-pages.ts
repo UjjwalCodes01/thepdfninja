@@ -22,6 +22,21 @@ export const reversePagesContent = {
         "description": "When handling documents translated from or into right-to-left languages, page sequences can sometimes get reversed. Our tool helps you restore the layout order easily."
     }
 ],
+  howItWorks: {
+    title: "What reversing does",
+    body: [
+      "The page order is inverted: last becomes first. It is a structural change to the page tree, so it is instant regardless of file size and completely lossless.",
+      "The usual reason to need it is a scanner that fed a stack back-to-front, or a duplex scan that came out in reverse.",
+    ],
+    specs: [
+      { label: "Method", value: "Page tree rewritten in reverse order" },
+      { label: "Quality loss", value: "None" },
+    ],
+    limits: [
+      "Printed page numbers and running headers now read backwards, because they are part of the page content.",
+      "Bookmarks still point at the same pages, which are now in different positions.",
+    ],
+  },
   comparison: {
     title: "Why Use ThePDFNinja to Reverse Pages?",
     description: "Reversing pages should be simple, free, and fast. Here is why ThePDFNinja is the ultimate online choice:",

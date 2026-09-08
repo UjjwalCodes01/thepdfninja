@@ -22,6 +22,24 @@ export const addHeaderFooterContent = {
         "description": "Stamp 'CONFIDENTIAL - INTERNAL USE ONLY' across the headers of sensitive business proposals, financial disclosures, or legal drafts to protect your files."
     }
 ],
+  howItWorks: {
+    title: "How the header and footer are applied",
+    body: [
+      "For each page we read its real dimensions, build an overlay sized to match, draw your header text along the top and footer text along the bottom in Helvetica, and merge the overlay onto the page. The overlay is generated per page from the page's own size, so mixed page sizes are handled correctly.",
+      "The text is vector, not an image: sharp at any zoom, selectable and searchable.",
+    ],
+    specs: [
+      { label: "Method", value: "Per-page vector overlay sized from that page's dimensions" },
+      { label: "Default size", value: "10pt Helvetica" },
+      { label: "Margin", value: "20 points from the top and bottom edges" },
+      { label: "Scope", value: "Every page" },
+    ],
+    limits: [
+      "The overlay sits on top of existing content. If the page already has a running header, the two will overlap — crop the margin first or choose a different position.",
+      "One header and one footer for the whole document; there is no odd/even or first-page variant.",
+      "Page numbers are a separate tool with its own placement options.",
+    ],
+  },
   comparison: {
     title: "A Simpler Way to Add Headers and Footers",
     description: "Skip the complex layouts of desktop software. ThePDFNinja provides a fast, simple header/footer utility:",

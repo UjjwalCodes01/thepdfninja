@@ -22,6 +22,23 @@ export const deletePagesContent = {
         "description": "If you only need a single chapter or page from a massive book or guide, you can delete everything else. This dramatically reduces the file size, making it much easier to share via email or upload to web portals."
     }
 ],
+  howItWorks: {
+    title: "How pages are removed",
+    body: [
+      "You list the page numbers to remove and we write a new document containing every page except those. Pages are copied at the object level rather than re-rendered, so the remaining pages are byte-identical in content to the originals — text stays selectable and nothing degrades.",
+      "Numbering is one-based and refers to the physical page order, not to any printed page number in the document.",
+    ],
+    specs: [
+      { label: "Method", value: "Copy every page except the ones listed" },
+      { label: "Numbering", value: "1-based, physical order" },
+      { label: "Quality loss", value: "None" },
+    ],
+    limits: [
+      "Bookmarks and internal links pointing at a removed page stop resolving.",
+      "Printed page numbers on the remaining pages do not renumber — page 5 still says 5 after page 3 is deleted. Use Add Page Numbers afterwards if that matters.",
+      "Password-protected documents must be unlocked first.",
+    ],
+  },
   comparison: {
     title: "Why ThePDFNinja Delete Pages Tool is Superior",
     description: "Many PDF editors make you pay a subscription just to remove pages. Here is why ThePDFNinja is the better option:",

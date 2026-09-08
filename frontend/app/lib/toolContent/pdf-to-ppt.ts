@@ -22,6 +22,27 @@ export const pdfToPptContent = {
       description: "Many PDFs contain high-quality vector graphics (like company logos or flowcharts) that you want to use in a new presentation. Taking a screenshot pixelates the image. Converting the PDF to PowerPoint often preserves these vectors, allowing you to copy the crisp, scalable graphics directly into your new slide deck."
     }
   ],
+  howItWorks: {
+    title: "What this actually produces — read before you convert",
+    body: [
+      "Each page of your PDF is rendered to an image and placed on its own slide, filling a 16:9 canvas. That is what most tools that call themselves PDF to PowerPoint actually do, and we would rather say so than let you find out after the download.",
+      "The result is visually exact: every page looks precisely as it did in the PDF, fonts and all, and the deck can be presented immediately. What it is not is editable. The text on each slide is part of an image. You cannot select it, restyle it, or fix a typo.",
+      "If you need to edit the words, convert to Word instead and rebuild the slides; if you need to present the pages as they are, this is the right tool and it will not let you down.",
+    ],
+    specs: [
+      { label: "Method", value: "Each page rendered as an image, one image per slide" },
+      { label: "Render resolution", value: "150 DPI by default" },
+      { label: "Slide size", value: "13.33 × 7.5 inches (16:9)" },
+      { label: "Text", value: "Not editable — it is part of the slide image" },
+      { label: "Fidelity", value: "Visually exact" },
+    ],
+    limits: [
+      "Nothing on the slides can be edited as text. This is the single most important thing to know about this tool.",
+      "Portrait PDF pages placed on a 16:9 slide are stretched to fill unless the source was already landscape. Landscape sources look right; portrait ones do not.",
+      "File size scales with page count and resolution. A long document at high DPI produces a large .pptx.",
+      "Hyperlinks, bookmarks and form fields do not carry across.",
+    ],
+  },
   comparison: {
     title: "Why Our PDF to PPT Converter is the Smart Choice",
     description: "Converting a static document into a dynamic presentation requires intelligent processing. Here is why ThePDFNinja delivers a superior experience.",

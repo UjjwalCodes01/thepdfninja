@@ -22,6 +22,23 @@ export const resizePagesContent = {
         "description": "If you have merged multiple PDFs that had different page dimensions, run the output through our resize tool to make all pages uniform and professional."
     }
 ],
+  howItWorks: {
+    title: "What resizing does to your pages — read this first",
+    body: [
+      "Changing a page's size is not a metadata edit, because the content was laid out for the original dimensions. This tool renders each page to an image and places that image onto a new page of the size you chose, scaled to fit. The result looks right, prints at the new size, and is straightforward to produce reliably.",
+      "The cost is the text layer. Rendered pages are pictures, so the output is not searchable or selectable. If you need both a new page size and live text, the honest answer is to re-export from the original application at the new size.",
+    ],
+    specs: [
+      { label: "Sizes", value: "A4, Letter, A3, Legal, A5; portrait or landscape" },
+      { label: "Method", value: "Each page rendered to an image and placed on a new page of the target size" },
+      { label: "Text layer", value: "Not preserved" },
+    ],
+    limits: [
+      "The output is an image document. Run OCR afterwards if you need to search it.",
+      "Changing aspect ratio — Letter to A4, say — leaves a small margin, since the image is scaled to fit rather than stretched.",
+      "Vector graphics become pixels; very fine line art may soften.",
+    ],
+  },
   comparison: {
     title: "Why Resize with ThePDFNinja?",
     description: "Paid PDF suites require clicking through complex print dialogs to scale page layouts. ThePDFNinja makes it fast and easy:",

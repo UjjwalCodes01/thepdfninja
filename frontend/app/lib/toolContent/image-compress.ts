@@ -22,6 +22,24 @@ export const imageCompressContent = {
         "description": "Many application portals restrict photo uploads to 50KB or 100KB. Compress your pictures to meet these limits easily."
     }
 ],
+  howItWorks: {
+    title: "What the quality setting does, by format",
+    body: [
+      "The format of your image decides what compression means. For JPEG and WebP, the quality value controls lossy encoding — lower discards more detail and produces a smaller file, and around 75 is where most photographs stop showing a visible difference. For PNG, which is lossless, the quality value does nothing; the only saving available is a lossless re-optimisation of the encoding, which is applied automatically but is usually modest.",
+      "An optional maximum width scales the image down before encoding, which is by far the bigger lever for size. Halving the width quarters the pixel count.",
+    ],
+    specs: [
+      { label: "JPEG / WebP", value: "Lossy; quality 75 by default" },
+      { label: "PNG", value: "Lossless re-optimisation only; quality slider has no effect" },
+      { label: "Max width", value: "Optional downscale before encoding, Lanczos" },
+      { label: "Format", value: "Preserved" },
+    ],
+    limits: [
+      "The quality slider does nothing for PNG. If a PNG must be much smaller, convert it to WebP or JPEG instead.",
+      "Lossy compression is permanent. Keep originals.",
+      "Screenshots and line art show artefacts sooner than photographs at the same setting.",
+    ],
+  },
   comparison: {
     title: "A Better Image Optimizer",
     description: "There is no export dialogue to work through and no preset to guess at. ThePDFNinja offers a streamlined, professional image compression utility:",

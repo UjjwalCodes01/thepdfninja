@@ -22,6 +22,23 @@ export const jpgToPngContent = {
         "description": "If an image contains text, converting it to PNG ensures the text remains crisp and highly legible on screens, avoiding the blurry outlines typical of JPGs."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does — and does not — do",
+    body: [
+      "The JPEG is decoded and written losslessly as PNG. It is worth being blunt: this cannot restore what JPEG discarded. The detail your camera or editor threw away when it wrote the JPEG is gone, and the PNG preserves that reduced version perfectly.",
+      "What it does give you is a working copy that will not degrade further. Every re-save of a JPEG loses a little more; converting to PNG before a round of editing prevents that.",
+    ],
+    specs: [
+      { label: "Method", value: "Decoded and written losslessly as PNG" },
+      { label: "Quality", value: "Identical to the JPEG; never better" },
+      { label: "Transparency", value: "Supported, but the image arrives fully opaque" },
+      { label: "Size", value: "Often several times the JPEG" },
+    ],
+    limits: [
+      "The compression artefacts in the JPEG are preserved exactly.",
+      "The file gets bigger, not better. Convert for editing headroom, not for quality.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja JPG to PNG Converter?",
     description: "This conversion is worth being clear about: it will not improve your image. JPEG has already discarded detail, and PNG will preserve that discarded-detail version perfectly. What it does give you is a lossless working copy and transparency support. Here is how we handle it.",

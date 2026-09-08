@@ -22,6 +22,23 @@ export const bmpToJpgContent = {
         "description": "Online forms and application sites rarely accept BMP files. Convert them to JPG format to submit them without encountering errors."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does",
+    body: [
+      "BMP stores pixels uncompressed, so the file is simply width × height × bytes-per-pixel. The conversion decodes that raw grid, composites any transparency onto white, and encodes as JPEG at quality 90 by default. Reductions of 90% and more are normal, because you are going from no compression at all to one of the most efficient lossy formats there is.",
+      "The conversion is one-way: BMP was lossless and JPEG is not.",
+    ],
+    specs: [
+      { label: "Engine", value: "Pillow" },
+      { label: "Transparency", value: "Composited onto white — JPEG has no alpha channel" },
+      { label: "Quality", value: "Configurable; 90 by default" },
+      { label: "Optimisation", value: "Huffman tables optimised on save" },
+    ],
+    limits: [
+      "Screenshots and diagrams — the most common things stored as BMP — are exactly what JPEG handles worst. If the image has sharp edges or flat colour, BMP to PNG gives a better result at a similar size.",
+      "Lost detail cannot be recovered.",
+    ],
+  },
   comparison: {
     title: "Why BMP to JPG with ThePDFNinja?",
     description: "The conversion is free, and the quality dial is the same one a paid tool would give you. Here is why we are the top choice:",

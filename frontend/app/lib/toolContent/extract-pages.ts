@@ -22,6 +22,23 @@ export const extractPagesContent = {
         "description": "Graphic designers, architects, and writers can extract the best pages of a massive portfolio to create a tailored, short-form pitch deck for a specific client or job application."
     }
 ],
+  howItWorks: {
+    title: "How extraction works",
+    body: [
+      "The pages you list are copied into a new document and everything else is left behind. Like every page-level operation here, it is a copy, not a render: the extracted pages carry their original content exactly.",
+      "This is the tool for pulling a signature page out of a contract or a chapter out of a manual without touching the rest.",
+    ],
+    specs: [
+      { label: "Method", value: "Copy only the listed pages into a new document" },
+      { label: "Numbering", value: "1-based, physical order" },
+      { label: "Quality loss", value: "None" },
+    ],
+    limits: [
+      "Each output inherits the source's full font and resource set, so a two-page extract from a large document can be larger than you expect. Compress it if size matters.",
+      "Links to pages you did not extract are dropped.",
+      "Password-protected documents must be unlocked first.",
+    ],
+  },
   comparison: {
     title: "A Better Way to Extract PDF Pages",
     description: "ThePDFNinja is designed to be the most accessible, high-performance extraction tool online. Here is how we compare:",

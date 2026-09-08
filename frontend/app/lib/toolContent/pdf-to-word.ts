@@ -22,6 +22,28 @@ export const pdfToWordContent = {
       description: "Translators require editable text to utilize translation memory software or simply to overwrite the original language. Converting a source PDF into a Word document provides a clean, editable canvas while maintaining the original design, making the translation and localization process vastly more efficient and dramatically reducing formatting rework."
     }
   ],
+  howItWorks: {
+    title: "What the conversion recovers, and the number nobody prints",
+    body: [
+      "A PDF does not contain a document in the sense Word means it. It contains positioned glyphs — this character at this coordinate in this font — with no notion of a paragraph, a column or a table. Converting to Word means inferring all of that structure back from geometry, and every converter, ours included, gets some of it wrong.",
+      "We use pdf2docx, which reconstructs paragraphs from line spacing, detects tables from ruling lines and cell alignment, and carries images across at their original resolution. Its own documentation puts layout fidelity at roughly 70 to 85 percent, and that matches what we see: clean single-column reports convert almost perfectly, and dense multi-column layouts with floating figures need tidying afterwards.",
+      "The honest expectation to set is an editable starting point, not a finished document. Plan to spend a few minutes on anything that was not a simple report.",
+    ],
+    specs: [
+      { label: "Engine", value: "pdf2docx" },
+      { label: "Layout fidelity", value: "Roughly 70–85% by the engine's own measure; higher on simple documents" },
+      { label: "Tables", value: "Detected from ruling lines and alignment, recreated as real Word tables" },
+      { label: "Images", value: "Carried across at original resolution" },
+      { label: "Text", value: "Fully editable, with fonts mapped to the nearest available" },
+    ],
+    limits: [
+      "Scanned PDFs have no text layer and will come through as an image on the page, not editable text. Run OCR first if the source is a scan.",
+      "Multi-column layouts, text wrapped around images, and pages mixing several column counts are where reconstruction is weakest. Expect to fix paragraph flow by hand.",
+      "Fonts that Word does not have are substituted, which can change line breaks and pagination.",
+      "Forms, annotations and comments are not converted.",
+      "If you only need the words rather than the layout, PDF to Text is faster and has nothing to get wrong.",
+    ],
+  },
   comparisonTable: {
     headers: ["Feature", "ThePDFNinja"],
     rows: [

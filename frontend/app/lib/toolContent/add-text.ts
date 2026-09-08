@@ -22,6 +22,24 @@ export const addTextContent = {
         "description": "Add helpful notes, explanations, or corrections to digital textbooks, slides, or study guides to help you study and keep records."
     }
 ],
+  howItWorks: {
+    title: "How text is placed",
+    body: [
+      "Your text is drawn directly onto one page as real vector text at the position, size and colour you specify. Coordinates are in points from the top-left corner of the page — 72 points to the inch — so a value of 72 puts the text one inch in.",
+      "Because it is vector text, it stays sharp at any zoom, is selectable, and adds almost nothing to the file size.",
+    ],
+    specs: [
+      { label: "Placement", value: "One page, x and y in points from the top-left" },
+      { label: "Default size", value: "12pt" },
+      { label: "Font", value: "Helvetica" },
+      { label: "Colour", value: "Any RGB value; black by default" },
+    ],
+    limits: [
+      "One text block per run. For text on every page, use Add Header/Footer.",
+      "The font is Helvetica and is not configurable.",
+      "Text drawn over existing content sits on top of it; there is no reflow.",
+    ],
+  },
   comparison: {
     title: "Why Use ThePDFNinja to Add Text?",
     description: "Adding text to a PDF should be quick and hassle-free. Here is why ThePDFNinja is the preferred choice:",

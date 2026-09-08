@@ -22,6 +22,24 @@ export const tiffToJpgContent = {
         "description": "Online forms and application sites rarely accept TIFF files. Convert them to JPG format to submit them without encountering errors."
     }
 ],
+  howItWorks: {
+    title: "How TIFF is handled",
+    body: [
+      "TIFF can hold several pages in one file — scanners produce this routinely — so the tool checks. A single-page TIFF becomes one JPEG. A multi-page TIFF becomes a ZIP containing one JPEG per page, numbered in order.",
+      "Each page is converted to RGB and encoded at the quality you choose, 90 by default.",
+    ],
+    specs: [
+      { label: "Single page", value: "One JPEG" },
+      { label: "Multi-page", value: "ZIP of JPEGs, page_1.jpg onward" },
+      { label: "Quality", value: "90 by default" },
+      { label: "Colour", value: "Converted to RGB" },
+    ],
+    limits: [
+      "TIFF layers, alpha channels and embedded colour profiles do not survive; JPEG has none of them.",
+      "Scanned text at low JPEG quality shows halos. Keep quality high for documents.",
+      "For a multi-page scan you intend to keep as a document, TIFF to PDF is usually the better destination.",
+    ],
+  },
   comparison: {
     title: "Why TIFF to JPG with ThePDFNinja?",
     description: "The conversion is free, including for the multi-page TIFFs that scanners produce. Here is why we are the top choice:",

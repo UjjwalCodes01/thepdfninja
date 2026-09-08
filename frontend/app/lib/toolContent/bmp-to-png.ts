@@ -22,6 +22,22 @@ export const bmpToPngContent = {
         "description": "If a bitmap image contains text, converting it to PNG ensures the text remains crisp and highly legible on screens, avoiding the blurry outlines typical of JPGs."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does",
+    body: [
+      "Both formats are lossless, so nothing is discarded: the PNG holds exactly the pixels the BMP held. The difference is that PNG actually compresses, and uncompressed bitmap data compresses very well — especially the flat colour regions common in screenshots.",
+      "Because BMP has no alpha channel, the resulting PNG is fully opaque.",
+    ],
+    specs: [
+      { label: "Method", value: "Pixels copied exactly, PNG-compressed" },
+      { label: "Loss", value: "None" },
+      { label: "Transparency", value: "None in the source, so none in the output" },
+    ],
+    limits: [
+      "A photographic BMP compresses less than a screenshot, because there are fewer repeated pixels. It will still be far smaller than the BMP.",
+      "If you need a transparent background, remove it in an editor afterwards — the conversion cannot create one.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja BMP to PNG Converter?",
     description: "Both BMP and PNG are lossless, so nothing is thrown away in this conversion — PNG simply stores the same pixels far more efficiently. Here is what to expect.",

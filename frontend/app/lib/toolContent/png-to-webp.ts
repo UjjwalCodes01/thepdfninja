@@ -22,6 +22,23 @@ export const pngToWebpContent = {
         "description": "WebP supports animated transparency, making it a modern, lightweight replacement for heavy GIFs and transparent video files on websites."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does",
+    body: [
+      "The PNG is decoded with its alpha channel intact and encoded as WebP. In lossless mode the pixels are preserved exactly and the file is typically a quarter to a third smaller than the PNG. In lossy mode, the default at quality 85, the saving is much larger, at a cost in exactness that is usually invisible on photographs and sometimes visible on flat graphics.",
+      "Transparency survives either way, which is the main reason to choose WebP over JPEG for a PNG source.",
+    ],
+    specs: [
+      { label: "Transparency", value: "Preserved" },
+      { label: "Lossy mode", value: "Quality 85 by default" },
+      { label: "Lossless mode", value: "Available; pixel-exact" },
+      { label: "Colour", value: "RGBA" },
+    ],
+    limits: [
+      "Lossy WebP on a logo or screenshot can soften edges and create faint fringing. Use lossless mode for graphics.",
+      "WebP is a delivery format. Keep the PNG as the master.",
+    ],
+  },
   comparison: {
     title: "Why PNG to WebP with ThePDFNinja?",
     description: "WebP was designed to replace both PNG and JPEG on the web, and it does compress better than either. Whether that is the right trade for your file depends on where it is going. Here is how we handle the conversion.",

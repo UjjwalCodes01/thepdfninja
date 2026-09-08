@@ -22,6 +22,24 @@ export const webpToJpgContent = {
         "description": "Professional printers and photo kiosks often require files in JPG format. Convert your WebP graphics to JPG to print them easily."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does",
+    body: [
+      "The WebP is decoded and re-encoded as JPEG at quality 90 by default. Because JPEG has no alpha channel, any transparency is composited onto a white background first.",
+      "If the WebP was lossy, this is a second lossy encoding. At quality 90 the extra loss is hard to see, but a high setting is the right choice here precisely to avoid compounding it.",
+    ],
+    specs: [
+      { label: "Engine", value: "Pillow" },
+      { label: "Transparency", value: "Composited onto white — JPEG has no alpha channel" },
+      { label: "Quality", value: "Configurable; 90 by default" },
+      { label: "Optimisation", value: "Huffman tables optimised on save" },
+    ],
+    limits: [
+      "Transparency becomes white, permanently.",
+      "Animated WebP files convert as the first frame only.",
+      "The output cannot be better than the WebP. If the WebP was lossy, so is everything downstream.",
+    ],
+  },
   comparison: {
     title: "Why WebP to JPG with ThePDFNinja?",
     description: "The conversion is free, with the quality setting exposed rather than fixed. Here is why we are the top choice:",

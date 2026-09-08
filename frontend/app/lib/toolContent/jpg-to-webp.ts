@@ -22,6 +22,23 @@ export const jpgToWebpContent = {
         "description": "Some web portals require images to be in WebP format to ensure fast page rendering. Easily convert your JPG files to WebP to meet these requirements."
     }
 ],
+  howItWorks: {
+    title: "What the conversion does",
+    body: [
+      "The JPEG is decoded and re-encoded as WebP at the quality you choose, 85 by default. WebP typically lands 25–35% smaller than the JPEG at comparable visual quality, which is why it exists. A lossless option is available, though for a JPEG source it rarely makes sense — the loss already happened when the JPEG was made.",
+      "Both encodings are lossy, so this is a second lossy generation. At the default quality the additional loss is not visible, but it is not zero.",
+    ],
+    specs: [
+      { label: "Quality", value: "85 by default" },
+      { label: "Lossless mode", value: "Available; rarely useful for a JPEG source" },
+      { label: "Colour", value: "RGB" },
+      { label: "Typical saving", value: "25–35% at similar quality" },
+    ],
+    limits: [
+      "It cannot recover detail the JPEG discarded. The WebP is as good as the JPEG, never better.",
+      "Older software, some email clients and most print workflows still do not open WebP. Convert for the web, keep the JPEG for everything else.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja JPG to WebP Converter?",
     description: "ThePDFNinja offers an effective and secure way to optimize your images. Here is why we are the top choice:",

@@ -22,6 +22,24 @@ export const heicToJpgContent = {
         "description": "Many older image editing programs do not support HEIC files. Convert them to JPG to edit them in your preferred software easily."
     }
 ],
+  howItWorks: {
+    title: "How HEIC is decoded",
+    body: [
+      "HEIC is the container Apple devices use, holding an image compressed with HEVC — the same method as modern video. We decode it with a dedicated HEIF library, convert to RGB, and encode as JPEG at quality 90 by default.",
+      "The decode is the part most software cannot do; once the pixels are out, JPEG encoding is routine. Around quality 85–90 the result is visually indistinguishable from the original on a phone screen.",
+    ],
+    specs: [
+      { label: "Decoder", value: "pillow-heif" },
+      { label: "Quality", value: "90 by default" },
+      { label: "Colour", value: "Converted to RGB" },
+      { label: "Metadata", value: "EXIF orientation applied" },
+    ],
+    limits: [
+      "Live Photos convert as the still frame; the motion clip is not image data.",
+      "HEIC files typically hold more detail than the JPEG can. The conversion is lossy.",
+      "Depth maps and portrait-mode masks stored alongside the image are dropped.",
+    ],
+  },
   comparison: {
     title: "Why HEIC to JPG with ThePDFNinja?",
     description: "The conversion is free, and there is no per-photo limit if you have a camera roll to get through. Here is why we are the top choice:",

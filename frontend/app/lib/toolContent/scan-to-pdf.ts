@@ -22,6 +22,27 @@ export const scanToPdfContent = {
       description: "If you are trying to declutter your home office by digitizing old tax returns, birth certificates, or warranties, snapping photos is the fastest method. Using our Scan to PDF tool ensures that these photos are converted into a standardized, easily printable PDF format rather than remaining as scattered JPEGs on your hard drive."
     }
   ],
+  howItWorks: {
+    title: "What the enhancement step actually does",
+    body: [
+      "A photograph of a document is not a scan. It has uneven lighting, a colour cast from the room, soft focus at the edges, and grey paper where a scanner would give you white. This tool applies three corrections that together get a phone photo most of the way to looking scanned.",
+      "First it converts to greyscale, which removes colour cast entirely and is what a document scanner does by default. Then it stretches the contrast so that the darkest two percent of pixels become black and the lightest two percent become white — this is what turns grey paper white and faint text dark. Finally it sharpens, doubling edge contrast, which recovers legibility lost to a slightly soft lens. The result is saved as a PDF at 200 DPI.",
+      "The enhancement is optional. Turn it off if the document has colour that matters — a stamp, a highlighted section, a photograph within the page.",
+    ],
+    specs: [
+      { label: "Greyscale", value: "Applied by default; removes colour cast" },
+      { label: "Contrast", value: "Auto-stretched with a 2% cutoff at each end" },
+      { label: "Sharpening", value: "Edge contrast doubled" },
+      { label: "Output", value: "PDF at 200 DPI" },
+      { label: "Enhancement", value: "Can be disabled to keep colour" },
+    ],
+    limits: [
+      "It cannot fix perspective. A photo taken at an angle stays keystoned — take the photo square-on, or crop and straighten first.",
+      "Heavy shadows across the page are reduced but not removed. Contrast stretching works globally; a shadow that darkens half the page will still be visible.",
+      "The output is an image in a PDF, with no text layer. Run OCR afterwards if you need to search or copy the text.",
+      "Colour documents lose their colour with enhancement on. Disable it for anything where colour carries meaning.",
+    ],
+  },
   comparison: {
     title: "Why Our Scanner Tool Beats Mobile Apps",
     description: "While there are many 'scanner apps' available on the App Store and Google Play, they often come with significant drawbacks. Here is why ThePDFNinja is the smarter choice.",

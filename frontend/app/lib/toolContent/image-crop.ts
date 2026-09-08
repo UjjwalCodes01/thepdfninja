@@ -22,6 +22,23 @@ export const imageCropContent = {
         "description": "Isolate a specific graph, logo, or detail from a larger image or design document, saving it as a standalone image file."
     }
 ],
+  howItWorks: {
+    title: "How the crop is applied",
+    body: [
+      "You give a rectangle in pixels — the top-left corner and a width and height — and the image is cut to it. Values that fall outside the image are clamped to its edges rather than causing an error.",
+      "The pixels inside the crop are untouched; JPEG sources are re-encoded at quality 92, which is close to lossless for a single pass.",
+    ],
+    specs: [
+      { label: "Coordinates", value: "Pixels; x and y from the top-left" },
+      { label: "Out-of-range values", value: "Clamped to the image edge" },
+      { label: "Format", value: "Preserved; JPEG re-encoded at 92" },
+    ],
+    limits: [
+      "Cropping is destructive. Keep the original.",
+      "Re-saving a JPEG is a lossy step, small at quality 92 but not zero. Crop once.",
+      "There is no aspect-ratio lock; measure the rectangle yourself if it needs a specific ratio.",
+    ],
+  },
   comparison: {
     title: "Why Crop with ThePDFNinja?",
     description: "Cropping images should be quick and hassle-free. Here is why ThePDFNinja is the preferred choice:",

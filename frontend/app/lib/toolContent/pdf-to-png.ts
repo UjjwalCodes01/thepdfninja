@@ -22,6 +22,24 @@ export const pdfToPngContent = {
         "description": "If you have a PDF containing vector designs or digital artwork, converting it to PNG allows you to extract those visuals in a lossless format, ready for editing in Photoshop, Figma, or Canva."
     }
 ],
+  howItWorks: {
+    title: "How pages become images",
+    body: [
+      "Each page is rendered at the chosen resolution and saved as PNG, which is lossless — letter edges stay crisp instead of picking up the faint halos JPEG produces around high-contrast detail. That makes PNG the right choice for pages that are mostly text, tables or line art.",
+      "150 DPI is the default. 300 is what you want for print or for reading fine print at zoom, and the file size rises steeply with it. Multi-page documents come back as a ZIP with one PNG per page.",
+    ],
+    specs: [
+      { label: "Method", value: "Page rasterised at the requested DPI, saved as PNG" },
+      { label: "Default resolution", value: "150 DPI" },
+      { label: "Multi-page output", value: "ZIP, one image per page" },
+      { label: "Loss", value: "None at the encoding stage" },
+    ],
+    limits: [
+      "The text layer does not survive rasterisation. The output is pixels.",
+      "PNG files of photographic pages are large. Use PDF to JPG for those.",
+      "High DPI across many pages produces a big ZIP.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja PDF to PNG Converter?",
     description: "PNG is the right choice over JPEG when your pages are mostly text, tables or line art, because it keeps edges sharp instead of softening them. Here is how the rendering works.",

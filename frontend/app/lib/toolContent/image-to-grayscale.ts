@@ -22,6 +22,22 @@ export const imageToGrayscaleContent = {
         "description": "Remove color distractions from charts, diagrams, or scans to focus readers' attention on structures, lines, and data points."
     }
 ],
+  howItWorks: {
+    title: "How colour is converted",
+    body: [
+      "Greyscale is not an average of red, green and blue — that gives a muddy result, because your eye does not weight the three equally. The conversion uses the standard luma weights, roughly 30% red, 59% green and 11% blue, which is why a properly converted image still looks like the photograph it came from, with skies light and foliage dark.",
+      "The result is saved in the source format, so a PNG stays PNG and keeps its dimensions and transparency.",
+    ],
+    specs: [
+      { label: "Weighting", value: "Luma: 0.299 R + 0.587 G + 0.114 B" },
+      { label: "Format", value: "Preserved for PNG and WebP; JPEG re-encoded at 92" },
+      { label: "Dimensions", value: "Unchanged" },
+    ],
+    limits: [
+      "This is a colour-to-grey conversion, not a black-and-white threshold. Scans that need pure black-and-white for a form should use Scan to PDF instead.",
+      "Two different colours with the same brightness become the same grey. A red-on-green chart may lose its contrast.",
+    ],
+  },
   comparison: {
     title: "The Smarter Image Grayscale Tool",
     description: "ThePDFNinja provides a precise, high-fidelity grayscale conversion that respects your image quality:",

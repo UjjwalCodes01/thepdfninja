@@ -22,6 +22,24 @@ export const addSignatureBoxContent = {
         "description": "Place official signatory lines at the bottom of corporate resolutions, meeting minutes, or financial audits to prepare them for board approval."
     }
 ],
+  howItWorks: {
+    title: "What gets drawn",
+    body: [
+      "A labelled rectangle is drawn on the page you choose, at the position and size you give, with an optional date line beneath. The box and label are vector graphics, so they print cleanly and stay sharp at any zoom.",
+      "This adds a place to sign. It does not sign anything, and it does not add a digital signature field — it is for documents that will be printed, or signed by drawing in a PDF reader.",
+    ],
+    specs: [
+      { label: "Default position", value: "One inch from the bottom-left corner" },
+      { label: "Default size", value: "200 × 60 points" },
+      { label: "Label", value: "Configurable; \"Authorized Signatory\" by default" },
+      { label: "Date line", value: "Optional" },
+    ],
+    limits: [
+      "This is not a cryptographic signature and carries no legal-signature semantics. For that you need a signing platform or a certificate.",
+      "It is not an interactive form field. A reader will not prompt to sign it.",
+      "Coordinates are in points from the bottom-left, so y increases upward.",
+    ],
+  },
   comparison: {
     title: "A Simpler Way to Add Signature Boxes",
     description: "Skip the complex layouts of desktop software. ThePDFNinja provides a fast, simple signature box utility:",

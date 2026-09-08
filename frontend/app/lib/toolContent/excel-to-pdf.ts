@@ -22,6 +22,26 @@ export const excelToPdfContent = {
       description: "If you have spent months developing a complex financial model, a custom calculator, or a proprietary algorithm in Excel, you do not want to give away your intellectual property. By converting the output sheet to a PDF, you can share the final results and analysis with your clients or partners without exposing the underlying formulas that power your work."
     }
   ],
+  howItWorks: {
+    title: "How the conversion is done",
+    body: [
+      "Your .xls or .xlsx file is opened by LibreOffice running headless on our conversion server, and exported to PDF using its own PDF writer. That matters: LibreOffice is a full office suite, not a format parser, so what it lays out is what a person opening the file in Excel would see — pagination, fonts, tables and embedded images included.",
+      "Each job gets a fresh, isolated LibreOffice profile and up to five minutes of processing time before it is abandoned. The output embeds the fonts it used, so the PDF renders identically on a machine that does not have them installed.",
+      "Every worksheet is exported, using the print area and page setup saved in the workbook. A wide sheet with no print area set will be paginated the way Excel would paginate it, which is often across many pages — set the print area and scaling in Excel first if you want control over that."
+    ],
+    specs: [
+      { label: "Engine", value: "LibreOffice, headless, isolated profile per job" },
+      { label: "Timeout", value: "300 seconds, after which the job fails rather than hangs" },
+      { label: "Fonts", value: "Embedded in the output" },
+      { label: "Where it runs", value: "A dedicated conversion server, not the browser" },
+    ],
+    limits: [
+      "Fonts that are not installed on our server are substituted. Proprietary fonts — Calibri, Cambria and most Adobe faces — become metric-compatible equivalents, which can shift line breaks slightly. Embed fonts in the source document if layout is critical.",
+      "Macros, embedded media and tracked changes are not preserved. Accept or reject changes before converting if you want the final text.",
+      "Complex objects that LibreOffice renders differently from Microsoft Office — some SmartArt, certain chart styles, WordArt — may not look identical.",
+      "Password-protected source files cannot be opened. Remove the password in the original application first.",
+    ],
+  },
   comparison: {
     title: "Why Our Excel to PDF Converter is the Best",
     description: "While Excel has a built-in 'Save as PDF' feature, using an online converter is often faster and necessary when working on a device without Office installed.Here is what that means for spreadsheets specifically.",

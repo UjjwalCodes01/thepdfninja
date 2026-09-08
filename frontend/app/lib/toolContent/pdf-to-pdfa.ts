@@ -22,6 +22,26 @@ export const pdfToPdfaContent = {
       description: "If you are scanning family genealogies, digitizing old diaries, or saving important personal contracts, you want them to be readable by your grandchildren. Standard PDFs might break if the fonts you used are no longer available in 50 years. Converting your personal archives to PDF/A ensures your legacy is preserved exactly as you created it."
     }
   ],
+  howItWorks: {
+    title: "What archival conversion changes",
+    body: [
+      "PDF/A is the ISO standard for documents that must remain readable for decades. The idea is self-containment: everything needed to display the file must be inside the file, with no dependence on fonts installed on some future machine or colour profiles that may no longer exist.",
+      "We convert with Ghostscript, which embeds every font used, converts colours to a device-independent representation, strips features the standard forbids — JavaScript, encryption, external references, transparency in the stricter levels — and writes the XMP metadata that declares conformance. Level 2b is the default because it is what most archives and courts ask for; level 1 is stricter and rejects more source features, level 3 additionally permits embedded files.",
+    ],
+    specs: [
+      { label: "Engine", value: "Ghostscript with the PDF/A device" },
+      { label: "Default conformance", value: "PDF/A-2b; levels 1, 2 and 3 selectable" },
+      { label: "Fonts", value: "All embedded, including subsets" },
+      { label: "Colour", value: "Converted to a device-independent space" },
+      { label: "Removed", value: "Encryption, JavaScript, external references, and other prohibited features" },
+    ],
+    limits: [
+      "Conversion is not the same as validation. The output declares PDF/A conformance and is built to conform, but if a submission has legal weight, verify it with a dedicated validator such as veraPDF before relying on it.",
+      "Fonts that are not embeddable — some have licence flags forbidding it — cause the conversion to substitute, which can change appearance.",
+      "Transparency is flattened in level 1, which can alter the look of overlapping graphics. Use level 2 unless level 1 is specifically required.",
+      "An encrypted PDF cannot be converted; unlock it first.",
+    ],
+  },
   comparison: {
     title: "Why Our PDF/A Converter is the Archival Standard",
     description: "Creating a true, ISO-compliant PDF/A is highly technical. Here is why ThePDFNinja is trusted for long-term digital preservation.",

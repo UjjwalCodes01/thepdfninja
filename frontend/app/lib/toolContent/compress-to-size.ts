@@ -22,6 +22,25 @@ export const compressToSizeContent = {
         "description": "Attaching heavy bank statements or contracts to emails can fail. Compress them to fit under size guidelines and share them easily."
     }
 ],
+  howItWorks: {
+    title: "How an exact target is hit",
+    body: [
+      "File size is not predictable from a quality setting — the same setting produces wildly different sizes depending on what is in the document. So this tool searches. It first tries a lossless rewrite; if that lands under your target, you get it with nothing lost. If not, it renders the pages as images and performs a binary search over resolution, between 30 and 150 DPI, re-encoding and measuring on each step until it finds the highest resolution that still fits.",
+      "That method guarantees the target is met for any document, which is why it exists — portals that reject a 501KB file do not care why. But it means the output is an image document when the lossless pass was not enough, and you should know that before you upload it somewhere that will need to search it.",
+    ],
+    specs: [
+      { label: "Step 1", value: "Lossless rewrite; returned if it fits" },
+      { label: "Step 2", value: "Binary search over render resolution, 30–150 DPI, up to 10 passes" },
+      { label: "JPEG quality", value: "Scales with resolution; never below 15" },
+      { label: "Guarantee", value: "Output meets the target or is the smallest achievable" },
+    ],
+    limits: [
+      "If the lossless pass was not enough, the text layer is lost. Run OCR afterwards if you need to search the result.",
+      "A very low target on a long document forces very low resolution. A 20-page file squeezed to 100KB will be legible but soft.",
+      "A file already under the target is returned unchanged.",
+      "If you do not need an exact number, the ordinary Compress PDF tool keeps text as text and usually gets close.",
+    ],
+  },
   comparison: {
     title: "Why Compress to Size with ThePDFNinja?",
     description: "Standard compressors do not let you specify target file sizes. ThePDFNinja makes it simple and exact:",

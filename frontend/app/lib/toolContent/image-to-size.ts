@@ -22,6 +22,24 @@ export const imageToSizeContent = {
         "description": "Compress profile avatars or icons to meet strict file limits on forums, employee networks, and community websites."
     }
 ],
+  howItWorks: {
+    title: "How an image is fitted under a size limit",
+    body: [
+      "Two things drive a JPEG's size: its pixel dimensions and its compression quality. This tool adjusts both, in that order. It first reduces the width in steps until the image is under the target or gets too small to shrink further, then binary-searches the JPEG quality — up to twelve passes — to find the highest quality that still fits.",
+      "Dimensions go first because they are the bigger lever: halving the width quarters the pixel count. Quality goes second so that the final file uses the best encoding the size limit allows.",
+    ],
+    specs: [
+      { label: "Step 1", value: "Width reduced in steps until under target" },
+      { label: "Step 2", value: "JPEG quality binary-searched, up to 12 passes" },
+      { label: "Output", value: "JPEG" },
+      { label: "Floor", value: "Will not shrink below 50 pixels wide" },
+    ],
+    limits: [
+      "The output is JPEG regardless of input, so transparency is lost.",
+      "A very small target on a large photo means a small image. 20KB is a passport-photo size, not a print size.",
+      "Screenshots and line art compress badly as JPEG; they will lose sharpness before they reach a tight target.",
+    ],
+  },
   comparison: {
     title: "A Better Image Size Compressor",
     description: "Hitting a byte target by hand means exporting repeatedly and checking the size each time. ThePDFNinja offers a streamlined, professional image size compression utility:",

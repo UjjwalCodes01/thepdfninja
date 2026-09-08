@@ -22,6 +22,26 @@ export const csvToPdfContent = {
         "description": "Ensure accounting and audit data exported from software as CSV files meets formatting rules by converting it to PDF before filing."
     }
 ],
+  howItWorks: {
+    title: "How the conversion is done",
+    body: [
+      "Your .csv file is opened by LibreOffice running headless on our conversion server, and exported to PDF using its own PDF writer. That matters: LibreOffice is a full office suite, not a format parser, so what it lays out is what a person opening the file in a spreadsheet application would see — pagination, fonts, tables and embedded images included.",
+      "Each job gets a fresh, isolated LibreOffice profile and up to five minutes of processing time before it is abandoned. The output embeds the fonts it used, so the PDF renders identically on a machine that does not have them installed.",
+      "The CSV is opened as a spreadsheet, so columns are auto-sized to their content and rows paginate. Encoding is read as UTF-8; a file saved in an older regional encoding may show substituted characters in names and currency symbols."
+    ],
+    specs: [
+      { label: "Engine", value: "LibreOffice, headless, isolated profile per job" },
+      { label: "Timeout", value: "300 seconds, after which the job fails rather than hangs" },
+      { label: "Fonts", value: "Embedded in the output" },
+      { label: "Where it runs", value: "A dedicated conversion server, not the browser" },
+    ],
+    limits: [
+      "Fonts that are not installed on our server are substituted. Proprietary fonts — Calibri, Cambria and most Adobe faces — become metric-compatible equivalents, which can shift line breaks slightly. Embed fonts in the source document if layout is critical.",
+      "Macros, embedded media and tracked changes are not preserved. Accept or reject changes before converting if you want the final text.",
+      "Complex objects that LibreOffice renders differently from Microsoft Office — some SmartArt, certain chart styles, WordArt — may not look identical.",
+      "Password-protected source files cannot be opened. Remove the password in the original application first.",
+    ],
+  },
   comparison: {
     title: "Why CSV to PDF with ThePDFNinja?",
     description: "We offer a professional-grade document conversion utility completely free. Here is why we are the top choice:",

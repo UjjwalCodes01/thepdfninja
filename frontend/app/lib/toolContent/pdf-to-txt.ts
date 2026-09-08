@@ -22,6 +22,24 @@ export const pdfToTxtContent = {
         "description": "Convert documentation PDFs into plain text files to analyze keywords, run scripts, or feed text data into programming tools easily."
     }
 ],
+  howItWorks: {
+    title: "Where the text comes from",
+    body: [
+      "If your PDF has a text layer — because it was produced from a word processor, a browser, or any application that wrote real characters — extraction is direct. We read the characters in the order the file stores them, page by page, and write them out with a marker between pages so you can tell where one ended.",
+      "If it is a scan, there is no text layer. The page is a picture, and no amount of extraction will find characters that were never stored. That case needs OCR, which is a different tool doing a fundamentally different thing.",
+    ],
+    specs: [
+      { label: "Method", value: "Direct extraction of the PDF's own text layer" },
+      { label: "Output", value: "UTF-8 plain text with a page marker between pages" },
+      { label: "OCR", value: "None — scans come back empty; use the OCR tool for those" },
+    ],
+    limits: [
+      "Multi-column layouts often extract in the wrong order, because the file stores text in drawing order rather than reading order. Expect to reorder.",
+      "Some PDFs store text in a way that extracts as garbage — custom font encodings, especially from older publishing systems. If the result is nonsense, OCR on a rendered image is the workaround.",
+      "Tables lose their structure and become lines of words. Use PDF to Excel if the tabular shape matters.",
+      "Headers and footers repeat on every page in the output, since they are on every page in the source.",
+    ],
+  },
   comparison: {
     title: "Why PDF to TXT with ThePDFNinja?",
     description: "We offer a professional-grade document extraction utility completely free. Here is why we are the top choice:",

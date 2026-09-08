@@ -22,6 +22,26 @@ export const wordToPdfContent = {
       description: "Authors typically draft their manuscripts in MS Word. However, distributing an e-book or a whitepaper as a .docx file is incredibly unprofessional. Converting your final draft into a PDF is the industry standard for digital distribution, ensuring your readers enjoy a consistent, beautiful reading experience regardless of what device they use."
     }
   ],
+  howItWorks: {
+    title: "How the conversion is done",
+    body: [
+      "Your .doc or .docx file is opened by LibreOffice running headless on our conversion server, and exported to PDF using its own PDF writer. That matters: LibreOffice is a full office suite, not a format parser, so what it lays out is what a person opening the file in Word would see — pagination, fonts, tables and embedded images included.",
+      "Each job gets a fresh, isolated LibreOffice profile and up to five minutes of processing time before it is abandoned. The output embeds the fonts it used, so the PDF renders identically on a machine that does not have them installed.",
+      "Headers, footers, page numbers and section breaks come through as laid out, and hyperlinks remain clickable in the PDF."
+    ],
+    specs: [
+      { label: "Engine", value: "LibreOffice, headless, isolated profile per job" },
+      { label: "Timeout", value: "300 seconds, after which the job fails rather than hangs" },
+      { label: "Fonts", value: "Embedded in the output" },
+      { label: "Where it runs", value: "A dedicated conversion server, not the browser" },
+    ],
+    limits: [
+      "Fonts that are not installed on our server are substituted. Proprietary fonts — Calibri, Cambria and most Adobe faces — become metric-compatible equivalents, which can shift line breaks slightly. Embed fonts in the source document if layout is critical.",
+      "Macros, embedded media and tracked changes are not preserved. Accept or reject changes before converting if you want the final text.",
+      "Complex objects that LibreOffice renders differently from Microsoft Office — some SmartArt, certain chart styles, WordArt — may not look identical.",
+      "Password-protected source files cannot be opened. Remove the password in the original application first.",
+    ],
+  },
   comparison: {
     title: "Why Our Word to PDF Converter is the Best",
     description: "While you can technically 'Save as PDF' from within Word, using an online converter is often faster and necessary when working from a device without Office installed.Here is what that means for Word documents specifically.",

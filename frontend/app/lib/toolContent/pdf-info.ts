@@ -22,6 +22,23 @@ export const pdfInfoContent = {
         "description": "Verify file structure, linearization status (Fast Web View), and PDF version of files before uploading them to a public website or server."
     }
 ],
+  howItWorks: {
+    title: "What is reported",
+    body: [
+      "The document is opened and its structure read without rendering anything: page count, the size of each page in points and millimetres, whether it is encrypted, the Document Information fields, the PDF version and the file size. It returns almost instantly regardless of document length.",
+      "This is the fastest way to answer \"why will the portal not accept this file\" — most rejections come down to page count, page size, encryption or file size, and this shows all four.",
+    ],
+    specs: [
+      { label: "Reported", value: "Pages, page size, encryption, metadata, PDF version, file size" },
+      { label: "Method", value: "Structure read only; nothing rendered" },
+      { label: "Speed", value: "Near-instant" },
+    ],
+    limits: [
+      "Encrypted documents report as encrypted; their metadata may not be readable without the password.",
+      "Page size is reported from the first page; documents with mixed sizes show only that one.",
+      "It does not validate PDF/A conformance or check for damage — use Repair PDF or a dedicated validator for those.",
+    ],
+  },
   comparison: {
     title: "Why Use ThePDFNinja to Inspect PDFs?",
     description: "Inspecting PDFs should be quick, detailed, and secure. Here is why ThePDFNinja is the ultimate online choice:",

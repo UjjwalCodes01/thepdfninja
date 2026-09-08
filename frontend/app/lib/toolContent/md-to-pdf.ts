@@ -22,6 +22,25 @@ export const mdToPdfContent = {
         "description": "Render simple markdown files into styled PDF guides, applying clear headings and code block formatting automatically."
     }
 ],
+  howItWorks: {
+    title: "How Markdown is rendered",
+    body: [
+      "Markdown is converted to HTML first, with support for tables and fenced code blocks, then rendered to PDF by a headless browser engine. Because there is an HTML stage in the middle, the output looks like a well-set web article: a serif body face, comfortable line height, code in a shaded monospace block, and tables with light borders.",
+      "That means what you get is a readable document with sensible defaults, not a typesetting system. There is no way to set your own fonts, margins or page size from within the Markdown.",
+    ],
+    specs: [
+      { label: "Pipeline", value: "Markdown → HTML (tables, fenced code) → PDF via headless browser" },
+      { label: "Body typeface", value: "Georgia, 800px measure, 1.6 line height" },
+      { label: "Code", value: "Shaded monospace blocks, inline code highlighted" },
+      { label: "Tables", value: "Rendered with borders and a shaded header row" },
+    ],
+    limits: [
+      "Images referenced by relative path will not load, because the converter only has the Markdown file — not the folder it came from. Use absolute URLs to public images, or accept that images will be missing.",
+      "Page breaks fall wherever the paper ends. A heading can land at the bottom of a page with its content on the next.",
+      "Extended syntaxes — footnotes, task lists, maths — are not supported and will appear as their raw source.",
+      "Styling is fixed. If you need control over typography, generate HTML yourself and use HTML to PDF.",
+    ],
+  },
   comparison: {
     title: "Why Markdown to PDF with ThePDFNinja?",
     description: "We offer a professional-grade document conversion utility completely free. Here is why we are the top choice:",

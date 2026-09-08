@@ -22,6 +22,23 @@ export const removeMetadataContent = {
         "description": "When uploading scanned IDs, passports, or tax forms to online portals, strip the metadata to remove scanner serial numbers and GPS location data embedded by mobile cameras."
     }
 ],
+  howItWorks: {
+    title: "What is removed and what is not",
+    body: [
+      "A PDF carries a Document Information dictionary — title, author, subject, keywords, creator, producer, creation and modification dates. Author in particular is usually the name of whoever was logged in when the file was made, and Producer names the software. This tool rewrites the file with those fields cleared.",
+      "It is worth being precise about scope, because people rely on this for the wrong things. It clears document-level metadata. It does not touch the page content, and it does not redact anything that is visible.",
+    ],
+    specs: [
+      { label: "Cleared", value: "Title, Author, Subject, Keywords, Creator, Producer, dates" },
+      { label: "Method", value: "Document rewritten with the info dictionary emptied" },
+      { label: "Page content", value: "Untouched" },
+    ],
+    limits: [
+      "Some PDFs also carry an XMP metadata packet, an XML block that can duplicate these fields. Check the output in a PDF inspector if the file came from Adobe software or a print workflow.",
+      "Metadata inside embedded images — EXIF in a photograph placed on the page — is not touched.",
+      "Names in headers, footers, comments or the visible text are content, not metadata. Use Redact PDF for those.",
+    ],
+  },
   comparison: {
     title: "Unmatched Metadata Scrubbing",
     description: "ThePDFNinja offers an effective and secure way to anonymize your documents. Here is why we are the top choice:",

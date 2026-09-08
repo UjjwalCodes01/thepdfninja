@@ -22,6 +22,24 @@ export const imageResizeContent = {
         "description": "Resize photography to standard header dimensions to ensure consistent layouts across your articles and posts."
     }
 ],
+  howItWorks: {
+    title: "How resizing works",
+    body: [
+      "Three modes. Fit keeps the aspect ratio and scales the image so it sits inside the dimensions you give. Exact and fill force the image to precisely the width and height you specify, which distorts it if the ratio differs from the original. Percentages are also accepted, scaling both dimensions together.",
+      "Resampling uses Lanczos, which is the slow, high-quality filter — the one you want for photographs, where cheaper filters produce visible stair-stepping.",
+    ],
+    specs: [
+      { label: "Modes", value: "Fit (keeps ratio), exact, fill" },
+      { label: "Units", value: "Pixels or percent" },
+      { label: "Resampling", value: "Lanczos" },
+      { label: "Output quality", value: "JPEG at 92 for JPEG sources; PNG and WebP keep their format" },
+    ],
+    limits: [
+      "Exact and fill distort. Use fit unless you specifically need a fixed frame.",
+      "Enlarging beyond the original size invents pixels and looks soft. Resizing is for going down.",
+      "Each save of a JPEG is a fresh lossy encode. Resize once from the original, not repeatedly.",
+    ],
+  },
   comparison: {
     title: "Why Resize with ThePDFNinja?",
     description: "Paid graphics suites require complex workflows to scale images. ThePDFNinja provides a fast, simple resizing utility:",

@@ -22,6 +22,24 @@ export const resizeToPassportContent = {
         "description": "Resize and crop identity photos to meet official UK passport and visa size guidelines (35mm x 45mm), ensuring they look clear and professional."
     }
 ],
+  howItWorks: {
+    title: "How the photo is framed and sized",
+    body: [
+      "The target is expressed in millimetres and DPI — the Indian passport standard is 35 × 45mm at 300 DPI, which is 413 × 531 pixels. The photo is first cropped to that aspect ratio, then resized to exactly those pixel dimensions, and saved as a high-quality JPEG with the DPI recorded in the file so printers scale it correctly.",
+      "The crop is centred. That is the important thing to know: the tool does not detect faces. It keeps the middle of the photo and trims equal amounts from the edges, so a photo where the face is already roughly centred comes out right, and one where it is off to the side does not.",
+    ],
+    specs: [
+      { label: "Default", value: "35 × 45mm at 300 DPI (413 × 531px)" },
+      { label: "Crop", value: "Centred to the target aspect ratio — no face detection" },
+      { label: "Resize", value: "Lanczos resampling" },
+      { label: "Output", value: "JPEG at quality 95 with DPI tag" },
+    ],
+    limits: [
+      "No face detection. Frame the shot with the face in the centre before uploading, or crop it first with Image Crop.",
+      "It does not check background colour, head size or expression. Those are your responsibility and the portal's rules.",
+      "Upscaling a small photo to 413 × 531 will look soft. Start from the full-resolution original.",
+    ],
+  },
   comparison: {
     title: "Why Use ThePDFNinja Passport Photo Maker?",
     description: "Standard image croppers do not let you select official government size presets. ThePDFNinja makes it simple and exact:",

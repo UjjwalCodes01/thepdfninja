@@ -22,6 +22,25 @@ export const epubToPdfContent = {
         "description": "Ensure students and study partners can open educational books by converting EPUB files into universally compatible PDFs first."
     }
 ],
+  howItWorks: {
+    title: "How a reflowable book becomes fixed pages",
+    body: [
+      "EPUB and PDF disagree about the single most basic thing: EPUB reflows to fit whatever screen it is on, PDF fixes text to a page. Converting one to the other means committing to a page size and laying the whole book out on it, once, forever.",
+      "We use Calibre's converter, which is the standard tool for this, with A4 pages and 20-point margins. Chapter structure and reading order are preserved. The typography is the book's own where the EPUB specified it, and Calibre's defaults where it did not.",
+    ],
+    specs: [
+      { label: "Engine", value: "Calibre ebook-convert" },
+      { label: "Page size", value: "A4, 20pt margins on all sides" },
+      { label: "Structure", value: "Chapters and reading order preserved" },
+      { label: "Timeout", value: "300 seconds" },
+    ],
+    limits: [
+      "DRM-protected books cannot be converted by us or by anyone else without the key. If the file came from a store with copy protection, the conversion will fail.",
+      "Page breaks fall wherever A4 pages end, not where the author would have put them. That is inherent to the conversion, not a defect.",
+      "A book with heavy use of custom fonts may render in substitutes if those fonts are not embedded in the EPUB.",
+      "For reading on a phone or e-reader, keep the EPUB — it is the better format for that. Convert only when you need to print or annotate on paper.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja EPUB to PDF Converter?",
     description: "EPUB and PDF disagree about something fundamental: EPUB reflows to fit whatever screen you are reading on, PDF fixes the layout to a page. Converting one to the other means choosing a page size and committing to it. Here is how we handle that.",

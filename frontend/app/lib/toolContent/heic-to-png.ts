@@ -22,6 +22,23 @@ export const heicToPngContent = {
         "description": "Ensure designers and developers receive photos with maximum detail and correct color rendering by converting HEIC files to PNG."
     }
 ],
+  howItWorks: {
+    title: "How HEIC is decoded",
+    body: [
+      "The HEIC is decoded with a dedicated HEIF library and written as PNG with no further compression loss. The only lossy step your image has been through is the one your phone applied when it took the picture.",
+      "Expect a large file: HEIC is aggressively compressed and PNG is not. A 2MB HEIC becoming a 10MB PNG is normal.",
+    ],
+    specs: [
+      { label: "Decoder", value: "pillow-heif" },
+      { label: "Method", value: "Written losslessly as PNG" },
+      { label: "Colour", value: "RGBA" },
+      { label: "Size", value: "Several times the HEIC" },
+    ],
+    limits: [
+      "Choose this over HEIC to JPG only when you need exactness — for editing, or for graphics. For sharing a photograph, JPG is far smaller.",
+      "Live Photos convert as the still frame only.",
+    ],
+  },
   comparison: {
     title: "Why Choose ThePDFNinja HEIC to PNG Converter?",
     description: "Going from HEIC to PNG trades file size for compatibility and exactness. You will get a much larger file than the HEIC, and a losslessly accurate one. Here is what that involves.",
