@@ -17,7 +17,7 @@ ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 acct="$(aws sts get-caller-identity --profile "$PROFILE" --query Account --output text 2>/dev/null || true)"
 if [[ "$acct" != "$PROD_ACCOUNT" ]]; then
   echo "refusing: profile '$PROFILE' resolves to account '${acct:-<none>}', not prod $PROD_ACCOUNT" >&2
-  echo "add the prod keys as a named profile:  aws configure --profile $PROFILE" >&2
+  echo "add the prod keys as a named profile:  aws configure --profile pdfninja-prod   (then PROFILE=pdfninja-prod $0)" >&2
   exit 1
 fi
 
